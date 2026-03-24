@@ -50,9 +50,9 @@ const ECOSYSTEMS = [
     focus: 'Analyse de données massives, rédaction haute fidélité et confidentialité des données.',
     modules: ['Projets & Artefacts de code', 'Fenêtres de contexte étendues (200K tokens)', 'Rédaction longue durée haute précision'],
     benefits: [
-      { icon: '⚡', label: 'ROI', value: 'Réduction de 60% du temps de synthèse documentaire' },
-      { icon: '⏱', label: 'Gain de temps', value: '4h/jour économisées sur l\'analyse de rapports' },
-      { icon: '🔒', label: 'Sécurité', value: 'Zéro données envoyées à des tiers — architecture souveraine' },
+      { icon: '', label: 'ROI', value: 'Réduction de 60% du temps de synthèse documentaire' },
+      { icon: '', label: 'Gain de temps', value: '4h/jour économisées sur l\'analyse de rapports' },
+      { icon: '', label: 'Sécurité', value: 'Zéro données envoyées à des tiers — architecture souveraine' },
     ],
     compare: ['Meilleur pour l\'analyse de longs documents', 'Raisonnement structuré & nuancé', 'Idéal pour le juridique et la conformité'],
   },
@@ -71,9 +71,9 @@ const ECOSYSTEMS = [
     focus: 'Polyvalence créative, automatisation des flux de travail et génération visuelle intégrée.',
     modules: ['Création de GPTs personnalisés par métier', 'Advanced Data Analysis (Python)', 'Intégration DALL-E & génération d\'images'],
     benefits: [
-      { icon: '⚡', label: 'ROI', value: 'Automatisation de workflows complets sans développeur' },
-      { icon: '⏱', label: 'Gain de temps', value: 'GPTs métier déployés en moins d\'une heure' },
-      { icon: '🔒', label: 'Sécurité', value: 'Mode Entreprise : données isolées, pas d\'entraînement modèle' },
+      { icon: '', label: 'ROI', value: 'Automatisation de workflows complets sans développeur' },
+      { icon: '', label: 'Gain de temps', value: 'GPTs métier déployés en moins d\'une heure' },
+      { icon: '', label: 'Sécurité', value: 'Mode Entreprise : données isolées, pas d\'entraînement modèle' },
     ],
     compare: ['Écosystème de plugins le plus large', 'Génération image et code native', 'Idéal pour la création de contenu scale'],
   },
@@ -92,9 +92,9 @@ const ECOSYSTEMS = [
     focus: 'Intégration native dans les outils de collaboration et connexion directe avec l\'infrastructure Google.',
     modules: ['IA dans Docs, Sheets & Slides (Gemini)', 'Connexion Google Drive & données métier', 'Vertex AI pour les besoins avancés'],
     benefits: [
-      { icon: '⚡', label: 'ROI', value: 'Résumés de réunions Meet + actions automatisées' },
-      { icon: '⏱', label: 'Gain de temps', value: 'Rapports Sheets générés en 3 minutes vs 2h' },
-      { icon: '🔒', label: 'Sécurité', value: 'Données au sein de votre instance Google Workspace' },
+      { icon: '', label: 'ROI', value: 'Résumés de réunions Meet + actions automatisées' },
+      { icon: '', label: 'Gain de temps', value: 'Rapports Sheets générés en 3 minutes vs 2h' },
+      { icon: '', label: 'Sécurité', value: 'Données au sein de votre instance Google Workspace' },
     ],
     compare: ['Meilleur pour les équipes déjà sur G-Suite', 'Collaboration temps réel avec IA intégrée', 'Idéal pour les opérations et la data'],
   },
@@ -297,7 +297,7 @@ function EcoCard({ eco, i, compareMode, activeCompare, onToggleCompare }) {
               transition: 'all 0.2s ease',
             }}
           >
-            {isSelected ? '✓ Sélectionné' : 'Comparer'}
+            {isSelected ? ' Sélectionné' : 'Comparer'}
           </motion.button>
         )}
       </div>
@@ -585,9 +585,9 @@ export default function FormationEnvironnements() {
 
             <div style={{ display: 'flex', gap: isMobile ? '16px' : '20px', justifyContent: 'center', flexWrap: 'wrap' }}>
               {[
-                { icon: '🎯', label: '100% sur-mesure', sub: 'Adapté à votre stack' },
-                { icon: '⚡', label: '2 jours intensifs', sub: 'ROI dès J+1' },
-                { icon: '🔄', label: 'Suivi 30 jours', sub: 'Post-formation inclus' },
+                { icon: '', label: '100% sur-mesure', sub: 'Adapté à votre stack' },
+                { icon: '', label: '2 jours intensifs', sub: 'ROI dès J+1' },
+                { icon: '', label: 'Suivi 30 jours', sub: 'Post-formation inclus' },
               ].map((item, i) => (
                 <motion.div
                   key={i}
