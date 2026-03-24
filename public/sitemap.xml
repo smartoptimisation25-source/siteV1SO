@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- ── Pages principales (priorité haute) ── -->
+  <url>
+    <loc>https://smartoptimisation.fr/</loc>
+    <lastmod>2026-03-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- ── Formations ── -->
+  <url>
+    <loc>https://smartoptimisation.fr/formation/cpf</loc>
+    <lastmod>2026-03-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://smartoptimisation.fr/formation/opco</loc>
+    <lastmod>2026-03-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://smartoptimisation.fr/formation/sur-mesure</loc>
+    <lastmod>2026-03-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- ── Solutions & Services ── -->
+  <url>
+    <loc>https://smartoptimisation.fr/solution-ia</loc>
+    <lastmod>2026-03-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://smartoptimisation.fr/educ-ia</loc>
+    <lastmod>2026-03-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <!-- ── Blog (autorité SEO) ── -->
+  <url>
+    <loc>https://smartoptimisation.fr/blog</loc>
+    <lastmod>2026-03-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.88</priority>
+  </url>
+  <url>
+    <loc>https://smartoptimisation.fr/blog/formations-ia-opco-guide-2026</loc>
+    <lastmod>2026-03-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- ── Contact (conversion) ── -->
+  <url>
+    <loc>https://smartoptimisation.fr/contact</loc>
+    <lastmod>2026-03-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- ── Pages légales (priorité basse) ── -->
+  <url>
+    <loc>https://smartoptimisation.fr/mentions-legales</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.15</priority>
+  </url>
+  <url>
+    <loc>https://smartoptimisation.fr/confidentialite</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.15</priority>
+  </url>
+  <url>
+    <loc>https://smartoptimisation.fr/rgpd</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.15</priority>
+  </url>
+  <url>
+    <loc>https://smartoptimisation.fr/cookies</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.10</priority>
+  </url>
+
+</urlset>

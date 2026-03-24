@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 260" fill="none">
+  <defs>
+    <linearGradient id="grad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%"   stop-color="#3344CC"/>
+      <stop offset="48%"  stop-color="#5B35D5"/>
+      <stop offset="100%" stop-color="#9B2EE8"/>
+    </linearGradient>
+  </defs>
+
+  <!--
+    Stylised S made of two parallelogram-like slabs
+    Top slab  : upper-right to lower-left cut
+    Bottom slab: same but mirrored
+    Connected by a diagonal notch in the middle
+  -->
+
+  <!-- TOP SLAB -->
+  <path
+    d="
+      M 54  20
+      L 266  20
+      Q 282  20 282  36
+      Q 282  52 266  60
+      L 100  60
+      L  70 110
+      L  36 110
+      Q  20 110 20  94
+      Q  20  78  36  68
+      L  54  20
+      Z
+    "
+    fill="url(#grad)"
+  />
+
+  <!-- BOTTOM SLAB -->
+  <path
+    d="
+      M 284 150
+      L 250 200
+      L  54 200
+      Q  38 200  38 216
+      Q  38 232  54 240
+      L 266 240
+      Q 282 240 300 224
+      Q 310 210 300 196
+      L 220 150
+      Z
+    "
+    fill="url(#grad)"
+  />
+
+  <!-- DIAGONAL BRIDGE connecting bottom of top slab to top of bottom slab -->
+  <path
+    d="
+      M  70 110
+      L 100  60
+      L 190 110
+      L 220 150
+      L 140 150
+      Z
+    "
+    fill="url(#grad)"
+  />
+
+  <!-- 4-POINTED SPARKLE centred in the notch -->
+  <g transform="translate(155, 130)">
+    <!-- Vertical axis -->
+    <path d="M0,-38 C7,-14 7,-7 0,0 C-7,-7 -7,-14 0,-38Z" fill="white"/>
+    <path d="M0, 38 C7, 14 7, 7 0,0 C-7, 7 -7, 14 0, 38Z" fill="white"/>
+    <!-- Horizontal axis -->
+    <path d="M-38,0 C-14,7 -7,7 0,0 C-7,-7 -14,-7 -38,0Z" fill="white"/>
+    <path d="M 38,0 C 14,7  7,7 0,0 C 7,-7  14,-7  38,0Z" fill="white"/>
+  </g>
+</svg>

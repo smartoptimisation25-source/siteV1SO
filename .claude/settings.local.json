@@ -1,0 +1,37 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm create:*)",
+      "Bash(npx create-react-app:*)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(find /Users/rayaneelkammaa -maxdepth 4 -type f \\\\\\(-name *.png -o -name *.jpg -o -name *.jpeg -o -name *.webp \\\\\\))",
+      "mcp__Claude_in_Chrome__tabs_context_mcp",
+      "Bash(npm install:*)",
+      "WebFetch(domain:smartoptimisation.fr)",
+      "Bash(open http://localhost:5175/educ-ia)",
+      "Bash(open http://localhost:5173/educ-ia)",
+      "Bash(open http://localhost:5175/)",
+      "Bash(ls /Users/rayaneelkammaa/siteV1SO/*.pdf)",
+      "Bash(open http://localhost:5175/formation/cpf)",
+      "Bash(find /Users/rayaneelkammaa/siteV1SO -name sitemap* -o -name robots.txt)",
+      "Bash(open http://localhost:5177)",
+      "Bash(open http://localhost:5176)",
+      "Bash(open http://localhost:5175)",
+      "Bash(open http://localhost:5174)",
+      "Bash(open http://localhost:5173)",
+      "Bash(open http://localhost:5178)",
+      "Bash(open http://localhost:5179)",
+      "Bash(open http://localhost:5180/blog)",
+      "Bash(open http://localhost:5180/)",
+      "Bash(open http://localhost:5180/formation/cpf)",
+      "Bash(open http://localhost:5180/formation/opco)",
+      "Bash(open http://localhost:5180/formation/sur-mesure)",
+      "Bash(open http://localhost:5180/solution-ia)",
+      "Bash(open http://localhost:5180/educ-ia)",
+      "Bash(open http://localhost:5180/blog/formations-ia-opco-guide-2026)",
+      "Bash(find /Users/rayaneelkammaa/siteV1SO/src -name *.svg -o -name *france* -o -name *map* -o -name *carte*)",
+      "Bash(ls -la /Users/rayaneelkammaa/siteV1SO/src/pages/*.jsx /Users/rayaneelkammaa/siteV1SO/src/data/blogArticles.js)",
+      "Read(//Users/rayaneelkammaa/siteV1SO/**)"
+    ]
+  }
+}
