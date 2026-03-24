@@ -132,7 +132,7 @@ function EcoCard({ eco, i, compareMode, activeCompare, onToggleCompare }) {
       } : undefined}
       style={{
         position: 'relative',
-        background: 'rgba(255,255,255,0.03)',
+        background: 'rgba(0,0,0,0.03)',
         backdropFilter: 'blur(24px)',
         WebkitBackdropFilter: 'blur(24px)',
         border: isSelected
@@ -185,10 +185,10 @@ function EcoCard({ eco, i, compareMode, activeCompare, onToggleCompare }) {
             {eco.logo}
           </div>
           <div>
-            <p style={{ color: 'rgba(255,255,255,0.45)', fontSize: '11px', fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', margin: 0 }}>
+            <p style={{ color: 'rgba(0,0,0,0.4)', fontSize: '11px', fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', margin: 0 }}>
               {eco.vendor}
             </p>
-            <p style={{ color: '#fff', fontWeight: 700, fontSize: '20px', margin: 0, letterSpacing: '-0.02em' }}>
+            <p style={{ color: '#111827', fontWeight: 700, fontSize: '20px', margin: 0, letterSpacing: '-0.02em' }}>
               {eco.name}
             </p>
           </div>
@@ -206,13 +206,13 @@ function EcoCard({ eco, i, compareMode, activeCompare, onToggleCompare }) {
       </div>
 
       {/* Focus */}
-      <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '14px', lineHeight: 1.7, margin: 0, position: 'relative', zIndex: 1 }}>
+      <p style={{ color: 'rgba(0,0,0,0.5)', fontSize: '14px', lineHeight: 1.7, margin: 0, position: 'relative', zIndex: 1 }}>
         {eco.focus}
       </p>
 
       {/* Modules */}
       <div style={{ position: 'relative', zIndex: 1 }}>
-        <p style={{ color: 'rgba(255,255,255,0.35)', fontSize: '11px', fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '12px' }}>
+        <p style={{ color: 'rgba(0,0,0,0.35)', fontSize: '11px', fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '12px' }}>
           Modules
         </p>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
@@ -234,7 +234,7 @@ function EcoCard({ eco, i, compareMode, activeCompare, onToggleCompare }) {
                   <polyline points="2 6 5 9 10 3" stroke={eco.accent} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
               </div>
-              <span style={{ color: 'rgba(255,255,255,0.75)', fontSize: '13px', lineHeight: 1.5 }}>{m}</span>
+              <span style={{ color: 'rgba(0,0,0,0.65)', fontSize: '13px', lineHeight: 1.5 }}>{m}</span>
             </motion.div>
           ))}
         </div>
@@ -242,20 +242,20 @@ function EcoCard({ eco, i, compareMode, activeCompare, onToggleCompare }) {
 
       {/* Bénéfices */}
       <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', position: 'relative', zIndex: 1 }}>
-        <p style={{ color: 'rgba(255,255,255,0.35)', fontSize: '11px', fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '2px' }}>
+        <p style={{ color: 'rgba(0,0,0,0.35)', fontSize: '11px', fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '2px' }}>
           Bénéfices concrets
         </p>
         {eco.benefits.map((b, idx) => (
           <div key={idx} style={{
             display: 'flex', alignItems: 'flex-start', gap: '10px',
             padding: '10px 14px', borderRadius: '12px',
-            background: 'rgba(255,255,255,0.04)',
-            border: '1px solid rgba(255,255,255,0.06)',
+            background: 'rgba(0,0,0,0.03)',
+            border: '1px solid rgba(0,0,0,0.08)',
           }}>
             <span style={{ fontSize: '14px', flexShrink: 0 }}>{b.icon}</span>
             <div>
               <span style={{ color: eco.accentLight, fontSize: '10px', fontWeight: 700, letterSpacing: '0.06em', textTransform: 'uppercase', display: 'block' }}>{b.label}</span>
-              <span style={{ color: 'rgba(255,255,255,0.65)', fontSize: '12.5px', lineHeight: 1.5 }}>{b.value}</span>
+              <span style={{ color: 'rgba(0,0,0,0.55)', fontSize: '12.5px', lineHeight: 1.5 }}>{b.value}</span>
             </div>
           </div>
         ))}
@@ -315,7 +315,7 @@ function ComparePanel({ selectedIds }) {
         animate={{ opacity: 1 }}
         style={{
           textAlign: 'center', padding: '40px',
-          color: 'rgba(255,255,255,0.35)', fontSize: '14px',
+          color: 'rgba(0,0,0,0.35)', fontSize: '14px',
         }}
       >
         Sélectionnez 2 ou 3 environnements à comparer
@@ -332,14 +332,14 @@ function ComparePanel({ selectedIds }) {
       <table style={{ width: '100%', borderCollapse: 'collapse', minWidth: '500px' }}>
         <thead>
           <tr>
-            <th style={{ padding: '14px 16px', textAlign: 'left', color: 'rgba(255,255,255,0.35)', fontSize: '11px', fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
+            <th style={{ padding: '14px 16px', textAlign: 'left', color: 'rgba(0,0,0,0.35)', fontSize: '11px', fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', borderBottom: '1px solid rgba(0,0,0,0.10)' }}>
               Critère
             </th>
             {selected.map(eco => (
-              <th key={eco.id} style={{ padding: '14px 16px', textAlign: 'center', borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
+              <th key={eco.id} style={{ padding: '14px 16px', textAlign: 'center', borderBottom: '1px solid rgba(0,0,0,0.10)' }}>
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '6px' }}>
                   {eco.logo}
-                  <span style={{ color: '#fff', fontWeight: 700, fontSize: '15px' }}>{eco.name}</span>
+                  <span style={{ color: '#111827', fontWeight: 700, fontSize: '15px' }}>{eco.name}</span>
                 </div>
               </th>
             ))}
@@ -348,11 +348,11 @@ function ComparePanel({ selectedIds }) {
         <tbody>
           {['0', '1', '2'].map((idx, rowIdx) => (
             <tr key={idx} style={{ background: rowIdx % 2 === 0 ? 'rgba(255,255,255,0.02)' : 'transparent' }}>
-              <td style={{ padding: '14px 16px', color: 'rgba(255,255,255,0.45)', fontSize: '12px', fontWeight: 500, borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+              <td style={{ padding: '14px 16px', color: 'rgba(0,0,0,0.4)', fontSize: '12px', fontWeight: 500, borderBottom: '1px solid rgba(0,0,0,0.08)' }}>
                 Point fort {parseInt(idx) + 1}
               </td>
               {selected.map(eco => (
-                <td key={eco.id} style={{ padding: '14px 16px', textAlign: 'center', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+                <td key={eco.id} style={{ padding: '14px 16px', textAlign: 'center', borderBottom: '1px solid rgba(0,0,0,0.08)' }}>
                   <div style={{
                     display: 'inline-flex', alignItems: 'center', gap: '6px',
                     padding: '4px 10px', borderRadius: '8px',
@@ -362,7 +362,7 @@ function ComparePanel({ selectedIds }) {
                     <svg width="10" height="10" viewBox="0 0 12 12" fill="none">
                       <polyline points="2 6 5 9 10 3" stroke={eco.accent} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
-                    <span style={{ color: 'rgba(255,255,255,0.75)', fontSize: '12px', lineHeight: 1.4 }}>
+                    <span style={{ color: 'rgba(0,0,0,0.65)', fontSize: '12px', lineHeight: 1.4 }}>
                       {eco.compare[parseInt(idx)]}
                     </span>
                   </div>
@@ -395,7 +395,7 @@ export default function FormationEnvironnements() {
   }
 
   return (
-    <div style={{ background: '#080C1A', minHeight: '100vh' }}>
+    <div style={{ background: '#ffffff', minHeight: '100vh' }}>
 
       {/* ── Hero ─────────────────────────────────────────────────── */}
       <section style={{ position: 'relative', overflow: 'hidden', padding: isMobile ? '72px 24px 64px' : '100px 48px 80px' }}>
@@ -416,21 +416,21 @@ export default function FormationEnvironnements() {
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0, transition: { duration: 0.5 } }}
-            style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 18px', borderRadius: '999px', border: '1px solid rgba(255,255,255,0.12)', background: 'rgba(255,255,255,0.05)', marginBottom: '32px' }}
+            style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 18px', borderRadius: '999px', border: '1px solid rgba(0,0,0,0.12)', background: 'rgba(0,0,0,0.04)', marginBottom: '32px' }}
           >
             <motion.span
               animate={{ scale: [1, 1.5, 1] }}
               transition={{ duration: 2.5, repeat: Infinity }}
               style={{ width: 7, height: 7, borderRadius: '50%', background: 'linear-gradient(135deg,#3B4FD8,#9B30E8)', flexShrink: 0, display: 'block' }}
             />
-            <span style={{ color: 'rgba(255,255,255,0.6)', fontSize: '13px', fontWeight: 600, letterSpacing: '0.04em' }}>Formation aux Environnements IA</span>
+            <span style={{ color: 'rgba(0,0,0,0.5)', fontSize: '13px', fontWeight: 600, letterSpacing: '0.04em' }}>Formation aux Environnements IA</span>
           </motion.div>
 
           {/* Titre */}
           <motion.h1
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0, transition: { duration: 0.6, delay: 0.1 } }}
-            style={{ color: '#fff', fontWeight: 800, fontSize: isMobile ? '2.2rem' : 'clamp(2.8rem, 5vw, 4rem)', lineHeight: 1.1, letterSpacing: '-0.03em', marginBottom: '8px' }}
+            style={{ color: '#111827', fontWeight: 800, fontSize: isMobile ? '2.2rem' : 'clamp(2.8rem, 5vw, 4rem)', lineHeight: 1.1, letterSpacing: '-0.03em', marginBottom: '8px' }}
           >
             Dominez vos environnements
           </motion.h1>
@@ -451,7 +451,7 @@ export default function FormationEnvironnements() {
           <motion.p
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.28 } }}
-            style={{ color: 'rgba(255,255,255,0.55)', fontSize: isMobile ? '15px' : '17px', lineHeight: 1.75, maxWidth: '620px', margin: '0 auto 48px' }}
+            style={{ color: 'rgba(0,0,0,0.5)', fontSize: isMobile ? '15px' : '17px', lineHeight: 1.75, maxWidth: '620px', margin: '0 auto 48px' }}
           >
             Nous ne formons pas à des outils — nous bâtissons des flux de travail. Choisissez l'écosystème adapté à votre infrastructure et montez en puissance en 2 jours.
           </motion.p>
@@ -479,7 +479,7 @@ export default function FormationEnvironnements() {
                 }}>
                   {eco.logo}
                 </div>
-                <span style={{ color: 'rgba(255,255,255,0.5)', fontSize: '12px', fontWeight: 600 }}>{eco.name}</span>
+                <span style={{ color: 'rgba(0,0,0,0.45)', fontSize: '12px', fontWeight: 600 }}>{eco.name}</span>
               </motion.div>
             ))}
           </motion.div>
@@ -489,7 +489,7 @@ export default function FormationEnvironnements() {
       {/* ── Switch Comparaison ────────────────────────────────────── */}
       <section style={{ padding: isMobile ? '0 24px 32px' : '0 48px 40px' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'flex-end', gap: '12px' }}>
-          <span style={{ color: 'rgba(255,255,255,0.45)', fontSize: '13px', fontWeight: 500 }}>
+          <span style={{ color: 'rgba(0,0,0,0.4)', fontSize: '13px', fontWeight: 500 }}>
             Mode comparaison
           </span>
           <motion.button
@@ -497,7 +497,7 @@ export default function FormationEnvironnements() {
             whileTap={{ scale: 0.95 }}
             style={{
               width: '48px', height: '26px', borderRadius: '999px',
-              background: compareMode ? 'linear-gradient(135deg, #3B4FD8, #9B30E8)' : 'rgba(255,255,255,0.10)',
+              background: compareMode ? 'linear-gradient(135deg, #3B4FD8, #9B30E8)' : 'rgba(0,0,0,0.08)',
               border: 'none', cursor: 'pointer', position: 'relative',
               boxShadow: compareMode ? '0 4px 16px rgba(155,48,232,0.35)' : 'none',
               transition: 'background 0.25s ease, box-shadow 0.25s ease',
@@ -547,15 +547,15 @@ export default function FormationEnvironnements() {
                 transition={{ duration: 0.35, ease: [0.4, 0, 0.2, 1] }}
                 style={{
                   marginTop: '28px', overflow: 'hidden',
-                  background: 'rgba(255,255,255,0.03)',
+                  background: 'rgba(0,0,0,0.03)',
                   backdropFilter: 'blur(24px)',
                   WebkitBackdropFilter: 'blur(24px)',
-                  border: '1.5px solid rgba(255,255,255,0.08)',
+                  border: '1.5px solid rgba(0,0,0,0.10)',
                   borderRadius: '24px',
                   padding: '28px 24px',
                 }}
               >
-                <p style={{ color: 'rgba(255,255,255,0.35)', fontSize: '11px', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '20px' }}>
+                <p style={{ color: 'rgba(0,0,0,0.35)', fontSize: '11px', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '20px' }}>
                   Tableau comparatif — {activeCompare.length}/3 environnements sélectionnés
                 </p>
                 <ComparePanel selectedIds={activeCompare} />
@@ -566,20 +566,20 @@ export default function FormationEnvironnements() {
       </section>
 
       {/* ── Section note pédagogique ──────────────────────────────── */}
-      <section style={{ padding: isMobile ? '48px 24px 80px' : '64px 48px 100px', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
+      <section style={{ padding: isMobile ? '48px 24px 80px' : '64px 48px 100px', borderTop: '1px solid rgba(0,0,0,0.08)' }}>
         <div style={{ maxWidth: '900px', margin: '0 auto', textAlign: 'center' }}>
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0, transition: { duration: 0.6 } }}
             viewport={{ once: true }}
           >
-            <p style={{ color: 'rgba(255,255,255,0.35)', fontSize: '12px', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '20px' }}>
+            <p style={{ color: 'rgba(0,0,0,0.35)', fontSize: '12px', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '20px' }}>
               Notre approche pédagogique
             </p>
-            <h2 style={{ color: '#fff', fontWeight: 800, fontSize: isMobile ? '1.8rem' : 'clamp(1.8rem, 3.5vw, 2.8rem)', lineHeight: 1.2, letterSpacing: '-0.025em', marginBottom: '20px' }}>
+            <h2 style={{ color: '#111827', fontWeight: 800, fontSize: isMobile ? '1.8rem' : 'clamp(1.8rem, 3.5vw, 2.8rem)', lineHeight: 1.2, letterSpacing: '-0.025em', marginBottom: '20px' }}>
               Pas de PowerPoint. Que du terrain.
             </h2>
-            <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '16px', lineHeight: 1.8, maxWidth: '640px', margin: '0 auto 48px' }}>
+            <p style={{ color: 'rgba(0,0,0,0.45)', fontSize: '16px', lineHeight: 1.8, maxWidth: '640px', margin: '0 auto 48px' }}>
               Chaque formation est construite autour de vos cas d'usage réels. Vous repartez avec des workflows opérationnels déployables le lendemain matin.
             </p>
 
@@ -597,14 +597,14 @@ export default function FormationEnvironnements() {
                   whileHover={{ y: -4, borderColor: 'rgba(59,79,216,0.35)', boxShadow: '0 12px 32px rgba(59,79,216,0.15)', transition: { duration: 0.2 } }}
                   style={{
                     padding: isMobile ? '20px 24px' : '24px 32px', borderRadius: '20px',
-                    background: 'rgba(255,255,255,0.04)',
-                    border: '1.5px solid rgba(255,255,255,0.08)',
+                    background: 'rgba(0,0,0,0.03)',
+                    border: '1.5px solid rgba(0,0,0,0.10)',
                     textAlign: 'center', minWidth: '160px',
                   }}
                 >
                   <div style={{ fontSize: '28px', marginBottom: '10px' }}>{item.icon}</div>
-                  <p style={{ color: '#fff', fontWeight: 700, fontSize: '15px', margin: '0 0 4px' }}>{item.label}</p>
-                  <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '12px', margin: 0 }}>{item.sub}</p>
+                  <p style={{ color: '#111827', fontWeight: 700, fontSize: '15px', margin: '0 0 4px' }}>{item.label}</p>
+                  <p style={{ color: 'rgba(0,0,0,0.35)', fontSize: '12px', margin: 0 }}>{item.sub}</p>
                 </motion.div>
               ))}
             </div>
@@ -621,20 +621,20 @@ export default function FormationEnvironnements() {
             viewport={{ once: true }}
             style={{
               background: 'linear-gradient(135deg, rgba(59,79,216,0.15) 0%, rgba(155,48,232,0.10) 50%, rgba(217,119,6,0.08) 100%)',
-              border: '1.5px solid rgba(255,255,255,0.10)',
+              border: '1.5px solid rgba(0,0,0,0.10)',
               borderRadius: '28px',
               padding: isMobile ? '40px 28px' : '56px 64px',
               textAlign: 'center',
               backdropFilter: 'blur(24px)',
             }}
           >
-            <p style={{ color: 'rgba(255,255,255,0.45)', fontSize: '12px', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '16px' }}>
+            <p style={{ color: 'rgba(0,0,0,0.4)', fontSize: '12px', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '16px' }}>
               Prêt à passer à l'action ?
             </p>
-            <h3 style={{ color: '#fff', fontWeight: 800, fontSize: isMobile ? '1.6rem' : '2.2rem', lineHeight: 1.2, letterSpacing: '-0.025em', marginBottom: '16px' }}>
+            <h3 style={{ color: '#111827', fontWeight: 800, fontSize: isMobile ? '1.6rem' : '2.2rem', lineHeight: 1.2, letterSpacing: '-0.025em', marginBottom: '16px' }}>
               Planifier une formation<br />dans mon entreprise
             </h3>
-            <p style={{ color: 'rgba(255,255,255,0.45)', fontSize: '15px', lineHeight: 1.7, marginBottom: '36px' }}>
+            <p style={{ color: 'rgba(0,0,0,0.4)', fontSize: '15px', lineHeight: 1.7, marginBottom: '36px' }}>
               Diagnostic gratuit de 30 minutes. Nous identifions votre environnement cible et construisons le programme adapté à votre équipe.
             </p>
             <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
@@ -657,8 +657,8 @@ export default function FormationEnvironnements() {
                   style={{
                     display: 'inline-flex', alignItems: 'center', gap: '8px',
                     padding: '14px 32px', borderRadius: '999px',
-                    border: '1.5px solid rgba(255,255,255,0.18)',
-                    color: 'rgba(255,255,255,0.7)', fontWeight: 600, fontSize: '15px',
+                    border: '1.5px solid rgba(0,0,0,0.18)',
+                    color: 'rgba(0,0,0,0.6)', fontWeight: 600, fontSize: '15px',
                     textDecoration: 'none',
                   }}
                 >
