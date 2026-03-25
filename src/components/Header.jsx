@@ -64,13 +64,13 @@ export default function Header() {
       {/* Main bar */}
       <div style={{
         display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-        padding: isMobile ? '0 20px' : '0 48px', height: '72px',
+        padding: isMobile ? '0 20px' : '0 48px', height: '56px',
       }}>
         {/* Logo */}
         <motion.div whileHover={{ scale: 1.03, transition: { duration: 0.2 } }}>
           <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '12px', textDecoration: 'none' }}>
             <img src={logo} alt="Smart Optimisation"
-              style={{ height: '44px', width: '44px', objectFit: 'contain', borderRadius: '14px', boxShadow: '0 4px 16px rgba(59,79,216,0.25)' }}
+              style={{ height: '34px', width: '34px', objectFit: 'contain', borderRadius: '10px', boxShadow: '0 4px 16px rgba(59,79,216,0.25)' }}
             />
             {!isMobile && (
               <span style={{ color: '#0F0C1E', fontWeight: 700, fontSize: '16px', letterSpacing: '-0.01em' }}>

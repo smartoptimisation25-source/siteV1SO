@@ -378,11 +378,11 @@ export default function Home() {
       <section style={{
         position: 'relative', overflow: 'hidden',
         background: '#ffffff',
-        minHeight: isMobile ? 'auto' : 'calc(100vh - 72px)',
+        minHeight: isMobile ? 'auto' : 'calc(100vh - 56px)',
         display: 'flex',
         flexDirection: isMobile ? 'column' : 'row',
         alignItems: isMobile ? 'flex-start' : 'center',
-        padding: isMobile ? '48px 24px 40px' : '80px 48px',
+        padding: isMobile ? '32px 24px 28px' : '40px 48px',
       }}>
         <motion.div
           animate={{ scale: [1, 1.2, 1], x: [0, 20, 0], y: [0, -20, 0] }}
@@ -403,7 +403,7 @@ export default function Home() {
         {/* LEFT */}
         <div style={{ position: 'relative', flex: '1', maxWidth: isMobile ? '100%' : '580px', zIndex: 2, width: '100%' }}>
           <motion.div variants={FADE_UP} initial="hidden" animate="show" custom={0}
-            style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 16px', borderRadius: '999px', background: 'rgba(59,79,216,0.07)', border: '1px solid rgba(59,79,216,0.18)', marginBottom: '28px' }}>
+            style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '5px 14px', borderRadius: '999px', background: 'rgba(59,79,216,0.07)', border: '1px solid rgba(59,79,216,0.18)', marginBottom: '16px' }}>
             <motion.span
               animate={{ scale: [1, 1.5, 1] }}
               transition={{ duration: 2, repeat: Infinity }}
@@ -413,7 +413,7 @@ export default function Home() {
           </motion.div>
 
           <motion.h1 variants={FADE_UP} initial="hidden" animate="show" custom={1}
-            style={{ color: '#0F0C1E', fontWeight: 800, fontSize: isMobile ? '2rem' : 'clamp(2.4rem, 4.5vw, 3.8rem)', lineHeight: 1.15, letterSpacing: '-0.02em', marginBottom: '20px' }}>
+            style={{ color: '#0F0C1E', fontWeight: 800, fontSize: isMobile ? '1.8rem' : 'clamp(2rem, 3.8vw, 3.2rem)', lineHeight: 1.15, letterSpacing: '-0.02em', marginBottom: '12px' }}>
             Maîtrisez l&apos;IA.{' '}
             <motion.span
               animate={{ backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'] }}
@@ -425,7 +425,7 @@ export default function Home() {
           </motion.h1>
 
           <motion.p variants={FADE_UP} initial="hidden" animate="show" custom={2}
-            style={{ color: '#6B7280', fontSize: isMobile ? '15px' : '17px', lineHeight: 1.7, marginBottom: '36px', maxWidth: isMobile ? '100%' : '460px' }}>
+            style={{ color: '#6B7280', fontSize: isMobile ? '14px' : '15px', lineHeight: 1.65, marginBottom: '20px', maxWidth: isMobile ? '100%' : '460px' }}>
             Smart Optimisation accompagne les professionnels et les entreprises dans la maîtrise de l&apos;IA — de la formation à l&apos;intégration sur mesure.
           </motion.p>
 
@@ -433,13 +433,13 @@ export default function Home() {
             style={{ display: 'flex', gap: '12px', flexDirection: isMobile ? 'column' : 'row', flexWrap: 'wrap' }}>
             <motion.div whileHover={{ scale: 1.04, y: -2 }} whileTap={{ scale: 0.97 }}>
               <Link to="/formation/cpf"
-                style={{ padding: '14px 32px', borderRadius: '999px', fontWeight: 600, fontSize: '15px', color: '#fff', background: 'linear-gradient(135deg, #3B4FD8, #9B30E8)', textDecoration: 'none', boxShadow: '0 4px 20px rgba(155,48,232,0.30)', display: 'block', textAlign: 'center' }}>
+                style={{ padding: '11px 28px', borderRadius: '999px', fontWeight: 600, fontSize: '14px', color: '#fff', background: 'linear-gradient(135deg, #3B4FD8, #9B30E8)', textDecoration: 'none', boxShadow: '0 4px 20px rgba(155,48,232,0.30)', display: 'block', textAlign: 'center' }}>
                 Découvrir nos formations
               </Link>
             </motion.div>
             <motion.div whileHover={{ scale: 1.04, y: -2 }} whileTap={{ scale: 0.97 }}>
               <Link to="/solution-ia"
-                style={{ padding: '14px 32px', borderRadius: '999px', fontWeight: 600, fontSize: '15px', color: '#3B4FD8', textDecoration: 'none', border: '1.5px solid rgba(59,79,216,0.30)', display: 'block', textAlign: 'center' }}>
+                style={{ padding: '11px 28px', borderRadius: '999px', fontWeight: 600, fontSize: '14px', color: '#3B4FD8', textDecoration: 'none', border: '1.5px solid rgba(59,79,216,0.30)', display: 'block', textAlign: 'center' }}>
                 Solutions IA
               </Link>
             </motion.div>

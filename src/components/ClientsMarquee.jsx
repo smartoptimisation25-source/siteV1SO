@@ -41,14 +41,14 @@ function LogoItem({ client }) {
 
 export default function ClientsMarquee() {
   return (
-    <div style={{ marginTop: '48px' }}>
+    <div style={{ marginTop: '24px' }}>
       <p style={{
         color: '#9CA3AF',
         fontSize: '11px',
         fontWeight: 600,
         letterSpacing: '0.10em',
         textTransform: 'uppercase',
-        marginBottom: '20px',
+        marginBottom: '12px',
       }}>
         Ils nous font confiance
       </p>
