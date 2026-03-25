@@ -86,32 +86,7 @@ export default function Footer() {
               ))}
             </div>
 
-            {/* Qualiopi */}
-            <motion.a
-              href="/certificat-qualiopi.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              initial={{ opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.3 } }}
-              whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
-              style={{
-                background: '#fff',
-                borderRadius: '12px',
-                padding: '8px 16px',
-                display: 'flex',
-                alignItems: 'center',
-                boxShadow: '0 4px 20px rgba(0,0,0,0.15)',
-                cursor: 'pointer',
-                textDecoration: 'none',
-              }}
-            >
-              <img
-                src="/qualiopi.png"
-                alt="Qualiopi — Processus certifié"
-                style={{ height: '44px', objectFit: 'contain' }}
-              />
-            </motion.a>
-          </div>
+            </div>
         </div>
 
         <div style={{ height: '1px', background: 'rgba(255,255,255,0.20)' }} />
@@ -145,18 +120,40 @@ export default function Footer() {
           })}
         </div>
 
-        {/* Bottom line */}
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '8px' }}>
-          <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: '12px' }}>
-            © {new Date().getFullYear()} Smart Optimisation. Tous droits réservés.
-          </p>
-          <motion.p
-            animate={{ opacity: [0.55, 0.9, 0.55] }}
-            transition={{ duration: 3, repeat: Infinity }}
-            style={{ color: 'rgba(255,255,255,0.55)', fontSize: '12px' }}
+        {/* Qualiopi + Bottom line */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+          <motion.a
+            href="/certificat-qualiopi.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
+            style={{
+              background: '#fff',
+              borderRadius: '12px',
+              padding: '8px 16px',
+              display: 'inline-flex',
+              alignItems: 'center',
+              boxShadow: '0 4px 20px rgba(0,0,0,0.15)',
+              cursor: 'pointer',
+              textDecoration: 'none',
+              alignSelf: 'flex-start',
+            }}
           >
-            by Smart Optimisation
-          </motion.p>
+            <img src="/qualiopi.png" alt="Qualiopi — Processus certifié" style={{ height: '44px', objectFit: 'contain' }} />
+          </motion.a>
+
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '8px' }}>
+            <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: '12px' }}>
+              © {new Date().getFullYear()} Smart Optimisation. Tous droits réservés.
+            </p>
+            <motion.p
+              animate={{ opacity: [0.55, 0.9, 0.55] }}
+              transition={{ duration: 3, repeat: Infinity }}
+              style={{ color: 'rgba(255,255,255,0.55)', fontSize: '12px' }}
+            >
+              by Smart Optimisation
+            </motion.p>
+          </div>
         </div>
 
       </div>
