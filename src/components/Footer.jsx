@@ -135,7 +135,7 @@ export default function Footer() {
             boxShadow: '0 4px 20px rgba(0,0,0,0.15)',
             cursor: 'pointer',
             textDecoration: 'none',
-            alignSelf: 'flex-start',
+            alignSelf: 'flex-end',
           }}
         >
           <img src="/qualiopi.png" alt="Qualiopi — Processus certifié" style={{ height: '36px', objectFit: 'contain' }} />
