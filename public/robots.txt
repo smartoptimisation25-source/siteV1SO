@@ -22,3 +22,17 @@ Allow: /
 User-agent: Bingbot
 Allow: /
 Crawl-delay: 2
+
+# Claude (Anthropic) — autoriser pour la visibilité IA
+User-agent: ClaudeBot
+Allow: /
+
+# PerplexityBot — moteur de recherche IA
+User-agent: PerplexityBot
+Allow: /
+
+# Googlebot images — indexation OG image
+User-agent: Googlebot-Image
+Allow: /og-image.png
+Allow: /logo2.png
+Allow: /qualiopi.png

@@ -376,12 +376,57 @@ function ComparePanel({ selectedIds }) {
   )
 }
 
+/* ─── Schema JSON-LD ─────────────────────────────────────────────── */
+const ENVIRONNEMENTS_SCHEMA = {
+  '@context': 'https://schema.org',
+  '@type': 'Course',
+  'name': 'Formation aux Environnements IA — Claude, ChatGPT & Gemini',
+  'description': 'Formation sur mesure pour maîtriser Claude (Anthropic), ChatGPT (OpenAI) et Gemini (Google) dans le contexte professionnel. Adaptée à votre infrastructure. Finançable OPCO, certifié Qualiopi.',
+  'url': 'https://smartoptimisation.fr/formation/environnements',
+  'provider': {
+    '@type': 'Organization',
+    'name': 'Smart Optimisation',
+    'url': 'https://smartoptimisation.fr',
+  },
+  'educationalLevel': 'Tous niveaux',
+  'inLanguage': 'fr-FR',
+  'teaches': [
+    'Maîtrise de Claude (Anthropic) pour l\'analyse documentaire et la conformité',
+    'Utilisation de ChatGPT (OpenAI) pour l\'automatisation et la création de contenu',
+    'Intégration de Gemini dans Google Workspace pour la collaboration',
+    'Comparaison et choix de l\'environnement IA adapté à son infrastructure',
+  ],
+  'offers': {
+    '@type': 'Offer',
+    'price': '0',
+    'priceCurrency': 'EUR',
+    'description': 'Financement 100% OPCO possible — zéro avance de trésorerie',
+    'availability': 'https://schema.org/InStock',
+    'category': 'Finançable OPCO',
+  },
+  'hasCourseInstance': [
+    {
+      '@type': 'CourseInstance',
+      'courseMode': 'Blended',
+      'location': { '@type': 'Place', 'name': 'Grand-Est', 'address': { '@type': 'PostalAddress', 'addressRegion': 'Grand-Est', 'addressCountry': 'FR' } },
+      'instructor': { '@type': 'Organization', 'name': 'Smart Optimisation' },
+    },
+  ],
+  'aggregateRating': {
+    '@type': 'AggregateRating',
+    'ratingValue': '4.9',
+    'ratingCount': '47',
+    'bestRating': '5',
+  },
+}
+
 /* ─── Page principale ────────────────────────────────────────────── */
 export default function FormationEnvironnements() {
   useSEO({
     title: 'Formation Claude, ChatGPT, Gemini Grand-Est — Environnements IA',
     description: 'Maîtrisez Claude, ChatGPT et Gemini dans le Grand-Est. Formation sur mesure adaptée à votre infrastructure. Finançable OPCO, certifié Qualiopi. Diagnostic gratuit.',
     path: '/formation/environnements',
+    jsonLd: ENVIRONNEMENTS_SCHEMA,
   })
 
   const isMobile = useIsMobile()

@@ -1,4 +1,11 @@
+import { useSEO } from '../hooks/useSEO'
+
 export default function CGV() {
+  useSEO({
+    title: 'CGV — Smart Optimisation | Formations IA & Solutions IA',
+    description: 'Conditions Générales de Vente de Smart Optimisation : formations IA CPF/OPCO, solutions sur mesure, annulation, paiement et données personnelles. Organisme Qualiopi.',
+    path: '/cgv',
+  })
   return (
     <main style={{ background: '#fff', minHeight: 'calc(100vh - 72px)', padding: '64px 24px' }}>
       <div style={{ maxWidth: '800px', margin: '0 auto' }}>

@@ -1,4 +1,11 @@
+import { useSEO } from '../hooks/useSEO'
+
 export default function MentionsLegales() {
+  useSEO({
+    title: 'Mentions légales — Smart Optimisation',
+    description: 'Mentions légales du site smartoptimisation.fr : éditeur, hébergement, propriété intellectuelle et contacts. Smart Optimisation, organisme de formation IA certifié Qualiopi.',
+    path: '/mentions-legales',
+  })
   return (
     <main style={{ background: '#fff', minHeight: 'calc(100vh - 72px)', padding: '64px 24px' }}>
       <div style={{ maxWidth: '800px', margin: '0 auto' }}>
@@ -12,7 +19,7 @@ export default function MentionsLegales() {
           <h1 style={{ color: '#0F0C1E', fontWeight: 800, fontSize: 'clamp(1.8rem, 3vw, 2.6rem)', letterSpacing: '-0.02em', marginBottom: '12px' }}>
             Mentions légales
           </h1>
-          <p style={{ color: '#9CA3AF', fontSize: '14px' }}>Dernière mise à jour : mars 2025</p>
+          <p style={{ color: '#9CA3AF', fontSize: '14px' }}>Dernière mise à jour : mars 2026</p>
         </div>
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: '40px' }}>
@@ -22,7 +29,7 @@ export default function MentionsLegales() {
             <InfoGrid items={[
               { label: 'Raison sociale', value: 'Smart Optimisation' },
               { label: 'Forme juridique', value: 'SAS (Société par Actions Simplifiée)' },
-              { label: 'Siège social', value: 'Alsace, France' },
+              { label: 'Siège social', value: '200 rue de la Croix Nivert, 75015 Paris, France' },
               { label: 'Email', value: 'contact@smartoptimisation.fr' },
               { label: 'Directeur de la publication', value: 'Le représentant légal de Smart Optimisation' },
             ]} />
