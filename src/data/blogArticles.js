@@ -11,6 +11,225 @@ export const CATEGORIES = {
 
 export const articles = [
   {
+    slug: 'vibe-coding-claude-code-agentic-workflow',
+    title: 'Vibe Coding & Claude Code : la fin du développement ligne par ligne',
+    excerpt: 'Le Vibe Coding redéfinit le métier de développeur. Avec Claude Code CLI, vous ne tapez plus du code — vous pilotez un agent IA qui lit votre repo, lance vos tests et corrige ses propres erreurs. Décryptage.',
+    date: '2026-03-25',
+    category: 'Technique',
+    readTime: 8,
+    featured: false,
+    image: '/og-image.png',
+    metaTitle: 'Vibe Coding & Claude Code CLI : l\'Agentic Workflow qui change le développement en 2026',
+    metaDescription: 'Vibe Coding, Claude Code CLI, Agentic Workflow : découvrez comment l\'IA pilote votre terminal, corrige vos bugs et déploie — sans quitter votre repo.',
+    keywords: ['Vibe Coding', 'Claude Code CLI', 'Agentic Workflow', 'Programmation par IA', 'GitHub Copilot alternative'],
+
+    toc: [
+      { id: 'vibe-coding-definition',      title: 'Qu\'est-ce que le Vibe Coding ?' },
+      { id: 'claude-code-cli',             title: 'Claude Code : l\'Agentic CLI' },
+      { id: 'vs-copilot',                  title: 'Vs GitHub Copilot' },
+      { id: 'avantages-concrets',          title: 'Avantages concrets' },
+      { id: 'futur-developpeur',           title: 'Le futur du développeur' },
+    ],
+
+    faq: [
+      {
+        q: 'Le Vibe Coding est-il réservé aux développeurs seniors ?',
+        a: 'Non. C\'est précisément l\'inverse. Le Vibe Coding abaisse la barrière d\'entrée technique : un développeur junior peut piloter des tâches complexes par l\'intention, pendant qu\'un senior se concentre sur l\'architecture système et la stratégie technique.',
+      },
+      {
+        q: 'Claude Code peut-il vraiment déployer du code en production ?',
+        a: 'Oui, dans un workflow supervisé. Claude Code peut exécuter des scripts de déploiement, lancer des pipelines CI/CD et vérifier les résultats. L\'humain reste le décideur final — Claude Code est l\'exécutant autonome, pas le chef de projet.',
+      },
+      {
+        q: 'Quelle est la différence entre Claude Code et un simple ChatGPT ?',
+        a: 'ChatGPT répond dans une fenêtre de chat isolée, sans accès à votre codebase réelle. Claude Code opère directement dans votre terminal, avec un accès complet à vos fichiers, votre historique git, vos variables d\'environnement et la capacité d\'exécuter des commandes shell.',
+      },
+    ],
+
+    relatedSlugs: ['formations-ia-opco-guide-2026'],
+
+    sections: [
+      {
+        type: 'intro',
+        text: 'Il y a quelques années, un bon développeur se mesurait à sa capacité à écrire du code propre, ligne par ligne, pendant des heures. En 2026, ce paradigme est mort. <strong>Le Vibe Coding</strong> — piloter l\'IA par l\'intention plutôt que par l\'implémentation — est en train de redéfinir le métier de fond en comble. Et au centre de cette révolution : <strong>Claude Code</strong>, l\'interface CLI d\'Anthropic qui transforme votre terminal en agent de développement autonome.',
+      },
+      {
+        type: 'h2',
+        id: 'vibe-coding-definition',
+        title: '1. Qu\'est-ce que le Vibe Coding ? La programmation par intention',
+        content: [
+          {
+            type: 'h3',
+            title: 'De "comment" à "quoi" : le changement de niveau d\'abstraction',
+          },
+          {
+            type: 'p',
+            text: 'Le terme <strong>Vibe Coding</strong> a été popularisé par Andrej Karpathy, ancien directeur de l\'IA chez Tesla et chercheur chez OpenAI. L\'idée est simple mais radicale : <strong>vous exprimez une intention</strong> ("construis une API REST avec authentification JWT et rate limiting") et vous laissez l\'IA gérer l\'implémentation complexe.',
+          },
+          {
+            type: 'p',
+            text: 'Ce n\'est pas "coder au feeling" ou baisser ses standards. C\'est <strong>monter d\'un niveau d\'abstraction</strong>. Vous passez de l\'artisan qui taille chaque pierre à l\'architecte qui conçoit l\'édifice. L\'IA devient votre bras droit technique — compétent, infatigable, et capable de lire votre documentation à 3h du matin sans se plaindre.',
+          },
+          {
+            type: 'callout',
+            text: 'Le Vibe Coding ne remplace pas la pensée technique. Il <strong>libère votre cerveau pour ce qui compte vraiment</strong> : l\'architecture, les décisions stratégiques et la créativité.',
+          },
+        ],
+      },
+      {
+        type: 'h2',
+        id: 'claude-code-cli',
+        title: '2. Claude Code CLI : l\'Agentic Workflow qui change tout',
+        content: [
+          {
+            type: 'h3',
+            title: 'Un contexte global sur l\'intégralité de votre repo',
+          },
+          {
+            type: 'p',
+            text: 'La première révolution de <strong>Claude Code</strong>, c\'est le <strong>repo-level context</strong>. Contrairement à un plugin d\'éditeur qui ne voit que le fichier ouvert, Claude Code ingère l\'ensemble de votre codebase : arborescence, fichiers de configuration, historique git, dépendances. Il comprend <em>pourquoi</em> votre code est structuré ainsi — et non juste <em>comment</em> il est écrit.',
+          },
+          {
+            type: 'p',
+            text: 'Résultat : les suggestions ne sont plus des snippets génériques. Elles respectent vos conventions de nommage, vos patterns architecturaux existants, vos contraintes de sécurité. Claude Code ne vous propose pas du code — il vous propose <strong>votre code</strong>, tel que vous l\'auriez écrit en mieux.',
+          },
+          {
+            type: 'h3',
+            title: 'Agentic Workflow : il exécute, lit les erreurs, et se corrige seul',
+          },
+          {
+            type: 'p',
+            text: 'C\'est là que Claude Code bascule de l\'assistant à l\'<strong>agent autonome</strong>. Dans un workflow classique, vous copiez-collez le code suggéré, vous lancez <code>npm test</code>, vous lisez l\'erreur, vous retournez demander à l\'IA. Avec Claude Code, cette boucle est <strong>internalisée</strong>.',
+          },
+          {
+            type: 'list',
+            items: [
+              'Il <strong>écrit le code</strong> dans vos fichiers directement depuis le terminal.',
+              'Il <strong>exécute <code>npm test</code></strong> (ou votre suite de tests maison) automatiquement.',
+              'Il <strong>lit les stacktraces</strong> et identifie la cause racine de l\'erreur.',
+              'Il <strong>corrige son propre code</strong> et relance les tests — sans que vous interveniez.',
+              'Il <strong>commit les changements</strong> avec des messages clairs une fois les tests au vert.',
+            ],
+          },
+          {
+            type: 'p',
+            text: 'Ce cycle — écrire, tester, corriger, itérer — qui vous prenait 20 minutes se déroule en <strong>90 secondes dans votre terminal</strong>. C\'est l\'Agentic Workflow en action : l\'IA n\'attend pas vos instructions à chaque étape, elle avance.',
+          },
+        ],
+      },
+      {
+        type: 'cta',
+        id: 'cta-1',
+        title: 'Formez vos équipes aux outils IA de demain',
+        sub: 'Claude Code, Agentic Workflows, intégration IA sur mesure — diagnostic gratuit en 30 minutes.',
+        link: '/contact',
+        label: 'Obtenir mon diagnostic gratuit →',
+        variant: 'primary',
+      },
+      {
+        type: 'h2',
+        id: 'vs-copilot',
+        title: '3. Pourquoi c\'est fondamentalement différent de GitHub Copilot ?',
+        content: [
+          {
+            type: 'h3',
+            title: 'Copilot suggère. Claude Code agit.',
+          },
+          {
+            type: 'p',
+            text: '<strong>GitHub Copilot</strong> est un outil d\'autocomplétion évolué. Il prédit la prochaine ligne de code en fonction de votre contexte local — et il le fait très bien. Mais il reste <strong>passif</strong> : c\'est vous qui écrivez, lui qui complète. Vous êtes toujours au clavier, dans la boucle d\'implémentation.',
+          },
+          {
+            type: 'results',
+            rows: [
+              { label: 'Niveau d\'autonomie', before: 'GitHub Copilot', after: 'Claude Code', gain: '' },
+              { label: 'Contexte disponible', before: 'Fichier actif + quelques imports', after: 'Repo entier + git + config', gain: '' },
+              { label: 'Exécution de commandes', before: 'Non', after: 'Oui (terminal natif)', gain: '' },
+              { label: 'Correction d\'erreurs', before: 'Manuelle (vous relancez)', after: 'Autonome (boucle interne)', gain: '' },
+              { label: 'Interface', before: 'Plugin éditeur', after: 'CLI natif dans le terminal', gain: '' },
+              { label: 'Paradigme', before: 'Autocomplétion', after: 'Agent de développement', gain: '' },
+            ],
+          },
+          {
+            type: 'p',
+            text: 'La différence n\'est pas quantitative, elle est <strong>qualitative</strong>. Copilot accélère votre code. Claude Code <strong>déplace la frontière de ce que vous faites vous-même</strong>. C\'est le passage du collaborateur au délégué.',
+          },
+        ],
+      },
+      {
+        type: 'h2',
+        id: 'avantages-concrets',
+        title: '4. Les avantages concrets du Vibe Coding avec Claude Code',
+        content: [
+          {
+            type: 'h3',
+            title: 'Vitesse et réduction de la charge cognitive',
+          },
+          {
+            type: 'list',
+            items: [
+              '<strong>Vitesse d\'itération x5 à x10</strong> sur les tâches d\'implémentation courantes (CRUD, tests unitaires, refactoring).',
+              '<strong>Charge cognitive divisée par deux</strong> : vous pensez architecture et intention, l\'IA gère la syntaxe et les edge cases.',
+              '<strong>Onboarding accéléré</strong> : un nouveau développeur comprend un repo complexe en quelques prompts bien construits.',
+              '<strong>Zéro contexte-switching</strong> : tout se passe dans le terminal — plus besoin de jongler entre l\'éditeur, le navigateur et la doc.',
+              '<strong>Tests écrits automatiquement</strong> : Claude Code génère et maintient la couverture de tests en parallèle du code de production.',
+              '<strong>Documentation vivante</strong> : il génère les JSDoc, README et changelogs au fil des commits.',
+            ],
+          },
+          {
+            type: 'callout',
+            text: 'Un développeur utilisant Claude Code de manière fluide produit l\'équivalent de <strong>2 à 3 jours de travail en une journée</strong> sur les tâches d\'implémentation standard.',
+          },
+        ],
+      },
+      {
+        type: 'h2',
+        id: 'futur-developpeur',
+        title: '5. Le futur du développeur : architecte, pas artisan',
+        content: [
+          {
+            type: 'h3',
+            title: 'Ce que l\'IA ne remplace pas — et ne remplacera pas',
+          },
+          {
+            type: 'p',
+            text: 'Soyons directs : le <strong>Vibe Coding ne rend pas les développeurs obsolètes</strong>. Il les oblige à monter en compétence sur ce que l\'IA ne peut pas faire. Évaluer les trade-offs architecturaux. Comprendre les contraintes métier et les retranscrire en systèmes cohérents. Anticiper les problèmes de scalabilité à 10M d\'utilisateurs. Décider quand <em>ne pas</em> utiliser une technologie.',
+          },
+          {
+            type: 'p',
+            text: 'Ce qui change, c\'est que <strong>l\'implémentation mécanique — écrire du code boilerplate, câbler des API connues, écrire des tests répétitifs — devient une responsabilité déléguée</strong>. Les développeurs qui s\'accrochent à cette partie du métier comme définition de leur valeur vont souffrir. Ceux qui embrassent le rôle d\'<strong>architecte-pilote</strong> vont exploser.',
+          },
+          {
+            type: 'h3',
+            title: 'Comment démarrer avec le Vibe Coding dès aujourd\'hui',
+          },
+          {
+            type: 'steps',
+            items: [
+              { n: '1', text: '<strong>Installez Claude Code</strong> via npm (<code>npm install -g @anthropic-ai/claude-code</code>) et connectez votre clé API Anthropic.' },
+              { n: '2', text: '<strong>Commencez petit</strong> : demandez-lui de refactoriser un module existant, pas de réécrire votre application entière.' },
+              { n: '3', text: '<strong>Apprenez à formuler des intentions précises</strong> : "ajoute une validation Zod sur cet endpoint avec gestion des erreurs HTTP standards" vaut mieux que "améliore ce code".' },
+              { n: '4', text: '<strong>Gardez la main sur la revue de code</strong> : l\'agent agit, vous validez. La responsabilité architecturale reste la vôtre.' },
+            ],
+          },
+          {
+            type: 'p',
+            text: 'Le Vibe Coding n\'est pas une tendance passagère. C\'est le <strong>nouveau socle du développement logiciel professionnel</strong>. Dans trois ans, demander à un développeur s\'il utilise des Agentic Workflows sera aussi absurde que de demander à un comptable s\'il utilise Excel. Ce sera la norme — et ceux qui l\'auront maîtrisée tôt auront une longueur d\'avance décisive.',
+          },
+        ],
+      },
+      {
+        type: 'cta',
+        id: 'cta-2',
+        title: 'Intégrez l\'IA dans vos workflows de développement',
+        sub: 'Smart Optimisation accompagne vos équipes tech dans la maîtrise des outils IA : Claude Code, Cursor, automatisation CI/CD. Formation sur mesure, résultats en 2 jours.',
+        link: '/contact',
+        label: 'Planifier une formation tech →',
+        variant: 'primary',
+      },
+    ],
+  },
+  {
     slug: 'formations-ia-opco-guide-2026',
     title: 'Formations IA et OPCO : Le guide complet 2026 pour former vos équipes sans budget supplémentaire',
     excerpt: 'En 2026, votre OPCO peut financer 100% de la formation IA de vos équipes. Découvrez le guide complet : dispositifs, démarches et cas concret d\'une PME alsacienne.',
