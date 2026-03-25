@@ -1,4 +1,4 @@
-import { Link, Navigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { useSEO } from '../hooks/useSEO'
 import useIsMobile from '../hooks/useIsMobile'
@@ -195,12 +195,6 @@ function ArticleCard({ article, index, isMobile }) {
 
 export default function BlogIndex() {
   const featured = getFeaturedArticle()
-
-  /* Redirect directly to the article when there's only one */
-  if (articles.length === 1 && featured) {
-    return <Navigate to={`/blog/${featured.slug}`} replace />
-  }
-
   const isMobile = useIsMobile()
   const rest = articles.filter(a => !a.featured)
 
