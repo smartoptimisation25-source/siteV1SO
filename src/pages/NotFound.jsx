@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 import { useSEO } from '../hooks/useSEO'
 
 export default function NotFound() {
-  useSEO({ title: 'Page introuvable', description: 'La page que vous recherchez n\'existe pas.', path: '/404' })
+  useSEO({ title: 'Page introuvable', description: 'La page que vous recherchez n\'existe pas.', path: '/404', robots: 'noindex, nofollow' })
 
   return (
     <main style={{ background: '#fff', minHeight: 'calc(100vh - 72px)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '48px 24px', position: 'relative', overflow: 'hidden' }}>

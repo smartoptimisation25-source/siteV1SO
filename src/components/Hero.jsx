@@ -30,19 +30,19 @@ export default function Hero() {
       }}
     >
       {/* Subtle background blobs */}
-      <div style={{
+      <div aria-hidden="true" style={{
         position: 'absolute', top: '-160px', left: '-120px',
         width: '600px', height: '600px', borderRadius: '50%',
         background: 'radial-gradient(circle, rgba(59,79,216,0.07) 0%, transparent 70%)',
         pointerEvents: 'none',
       }} />
-      <div style={{
+      <div aria-hidden="true" style={{
         position: 'absolute', bottom: '-100px', right: '80px',
         width: '500px', height: '500px', borderRadius: '50%',
         background: 'radial-gradient(circle, rgba(155,48,232,0.06) 0%, transparent 70%)',
         pointerEvents: 'none',
       }} />
-      <div style={{
+      <div aria-hidden="true" style={{
         position: 'absolute', top: '0', right: '0',
         width: '400px', height: '400px',
         background: 'radial-gradient(ellipse at top right, rgba(123,158,255,0.10) 0%, transparent 70%)',
@@ -212,7 +212,7 @@ export default function Hero() {
 /* ─── AI Dashboard Mockup — Light theme ─────────────────────────────── */
 function DashboardMockup() {
   return (
-    <div style={{ position: 'relative', width: '380px' }}>
+    <div aria-hidden="true" style={{ position: 'relative', width: '380px' }}>
 
       {/* Main card */}
       <div style={{

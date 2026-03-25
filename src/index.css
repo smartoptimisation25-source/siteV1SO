@@ -39,3 +39,23 @@ body {
   background: #ffffff;
   color: #1a1a2e;
 }
+
+/* ── Responsive utilities (anti-CLS) ─────────────────────── */
+@media (max-width: 768px) {
+  .hide-mobile { display: none !important; }
+}
+@media (min-width: 769px) {
+  .hide-desktop { display: none !important; }
+}
+
+/* Smooth font loading */
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Reduce CLS from images */
+img {
+  content-visibility: auto;
+}

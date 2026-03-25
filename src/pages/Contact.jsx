@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { useSEO } from '../hooks/useSEO'
 import useIsMobile from '../hooks/useIsMobile'
+import Breadcrumb from '../components/Breadcrumb'
 
 const SERVICES = [
   {
@@ -64,65 +65,77 @@ const INFO_ITEMS = [
 
 const FAQ_SCHEMA = {
   '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  'mainEntity': [
+  '@graph': [
     {
-      '@type': 'Question',
-      'name': 'Comment financer une formation IA via l\'OPCO ?',
-      'acceptedAnswer': {
-        '@type': 'Answer',
-        'text': 'Votre OPCO (Atlas, Akto, Uniformation, OCAPIAT...) prend en charge 100% du coût de la formation IA. Smart Optimisation gère l\'intégralité du dossier administratif. Aucune avance de trésorerie n\'est nécessaire. Réponse de faisabilité sous 48h.',
-      },
+      '@type': 'FAQPage',
+      'mainEntity': [
+        {
+          '@type': 'Question',
+          'name': 'Comment financer une formation IA via l\'OPCO ?',
+          'acceptedAnswer': {
+            '@type': 'Answer',
+            'text': 'Votre OPCO (Atlas, Akto, Uniformation, OCAPIAT...) prend en charge 100% du coût de la formation IA. Smart Optimisation gère l\'intégralité du dossier administratif. Aucune avance de trésorerie n\'est nécessaire. Réponse de faisabilité sous 48h.',
+          },
+        },
+        {
+          '@type': 'Question',
+          'name': 'Puis-je utiliser mon CPF pour une formation IA ?',
+          'acceptedAnswer': {
+            '@type': 'Answer',
+            'text': 'Oui. Notre formation « Utiliser l\'IA Générative en entreprise » est certifiée CPF RS7344. Vous pouvez l\'utiliser pour financer tout ou partie des 1 500 €. 0 € de reste à charge possible selon votre solde CPF.',
+          },
+        },
+        {
+          '@type': 'Question',
+          'name': 'L\'EU AI Act concerne-t-il mon entreprise ?',
+          'acceptedAnswer': {
+            '@type': 'Answer',
+            'text': 'L\'EU AI Act s\'applique à toutes les entreprises qui utilisent, développent ou distribuent des systèmes IA en Europe. Nos formations sur mesure incluent un module dédié à la conformité EU AI Act et à la mise à jour RGPD liée à l\'IA.',
+          },
+        },
+        {
+          '@type': 'Question',
+          'name': 'Qu\'est-ce qu\'un audit IA gratuit ?',
+          'acceptedAnswer': {
+            '@type': 'Answer',
+            'text': 'L\'audit IA gratuit est un premier échange de 30 à 60 minutes avec un expert Smart Optimisation. Nous analysons vos processus métier, identifions les opportunités d\'automatisation IA à fort ROI et vous proposons un plan d\'action concret. Sans engagement.',
+          },
+        },
+        {
+          '@type': 'Question',
+          'name': 'Quel est le délai de réponse après contact ?',
+          'acceptedAnswer': {
+            '@type': 'Answer',
+            'text': 'Notre équipe vous répond sous 24 heures ouvrées. Le premier échange est offert et sans engagement.',
+          },
+        },
+        {
+          '@type': 'Question',
+          'name': 'Comment fonctionne le déploiement d\'une solution IA sur mesure ?',
+          'acceptedAnswer': {
+            '@type': 'Answer',
+            'text': 'Notre méthode en 4 phases : Écoute (audit de vos processus), Cadrage (architecture technique et MVP), Construction (développement itératif avec démos), Déploiement (mise en production, formation équipes, monitoring). De l\'idée au déploiement en production.',
+          },
+        },
+      ],
     },
     {
-      '@type': 'Question',
-      'name': 'Puis-je utiliser mon CPF pour une formation IA ?',
-      'acceptedAnswer': {
-        '@type': 'Answer',
-        'text': 'Oui. Notre formation « Utiliser l\'IA Générative en entreprise » est certifiée CPF RS7411. Vous pouvez l\'utiliser pour financer tout ou partie des 1 500 €. 0 € de reste à charge possible selon votre solde CPF.',
-      },
-    },
-    {
-      '@type': 'Question',
-      'name': 'L\'EU AI Act concerne-t-il mon entreprise ?',
-      'acceptedAnswer': {
-        '@type': 'Answer',
-        'text': 'L\'EU AI Act s\'applique à toutes les entreprises qui utilisent, développent ou distribuent des systèmes IA en Europe. Nos formations sur mesure incluent un module dédié à la conformité EU AI Act et à la mise à jour RGPD liée à l\'IA.',
-      },
-    },
-    {
-      '@type': 'Question',
-      'name': 'Qu\'est-ce qu\'un audit IA gratuit ?',
-      'acceptedAnswer': {
-        '@type': 'Answer',
-        'text': 'L\'audit IA gratuit est un premier échange de 30 à 60 minutes avec un expert Smart Optimisation. Nous analysons vos processus métier, identifions les opportunités d\'automatisation IA à fort ROI et vous proposons un plan d\'action concret. Sans engagement.',
-      },
-    },
-    {
-      '@type': 'Question',
-      'name': 'Quel est le délai de réponse après contact ?',
-      'acceptedAnswer': {
-        '@type': 'Answer',
-        'text': 'Notre équipe vous répond sous 24 heures ouvrées. Le premier échange est offert et sans engagement.',
-      },
-    },
-    {
-      '@type': 'Question',
-      'name': 'Comment fonctionne le déploiement d\'une solution IA sur mesure ?',
-      'acceptedAnswer': {
-        '@type': 'Answer',
-        'text': 'Notre méthode en 4 phases : Écoute (audit de vos processus), Cadrage (architecture technique et MVP), Construction (développement itératif avec démos), Déploiement (mise en production, formation équipes, monitoring). De l\'idée au déploiement en production.',
-      },
+      '@type': 'BreadcrumbList',
+      'itemListElement': [
+        { '@type': 'ListItem', 'position': 1, 'name': 'Accueil', 'item': 'https://smartoptimisation.fr/' },
+        { '@type': 'ListItem', 'position': 2, 'name': 'Contact' },
+      ],
     },
   ],
 }
 
 export default function Contact() {
   useSEO({
-    title: 'Contact — Audit IA gratuit & Réponse 24h',
-    description: 'Demandez votre audit IA gratuit ou renseignez-vous sur nos formations OPCO et solutions IA sur mesure. Réponse sous 24h. Basés en Alsace, intervenons partout en France.',
+    title: 'Contact — Audit IA gratuit sous 48h',
+    description: 'Demandez votre audit IA gratuit ou renseignez-vous sur nos formations IA (OPCO, CPF) et solutions IA sur mesure. Réponse sous 24h. Basés à Strasbourg, intervenons dans toute la France.',
     path: '/contact',
     jsonLd: FAQ_SCHEMA,
+    keywords: 'contact Smart Optimisation, audit IA gratuit, devis formation IA, contact formation IA Strasbourg',
   })
   const isMobile = useIsMobile()
   const [form, setForm] = useState({ nom: '', email: '', telephone: '', service: '', message: '' })
@@ -163,6 +176,13 @@ export default function Contact() {
 
   return (
     <main style={{ background: '#fff', minHeight: 'calc(100vh - 72px)', padding: '72px 24px' }}>
+
+      <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
+        <Breadcrumb items={[
+          { label: 'Accueil', to: '/' },
+          { label: 'Contact' },
+        ]} />
+      </div>
 
       {/* Background blobs animés */}
       <motion.div
@@ -376,12 +396,12 @@ export default function Contact() {
 }
 
 const labelStyle = {
-  display: 'block', color: '#374151', fontSize: '13px', fontWeight: 600, marginBottom: '6px',
+  display: 'block', color: '#374151', fontSize: '14px', fontWeight: 600, marginBottom: '6px',
 }
 
 const inputStyle = {
   width: '100%', padding: '11px 14px', borderRadius: '10px',
-  border: '1.5px solid rgba(0,0,0,0.10)', fontSize: '14px', color: '#0F0C1E',
+  border: '1.5px solid rgba(0,0,0,0.10)', fontSize: '16px', color: '#0F0C1E',
   background: '#FAFAFA', outline: 'none', fontFamily: 'inherit',
   transition: 'border-color 0.18s, box-shadow 0.18s', boxSizing: 'border-box',
 }

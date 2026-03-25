@@ -43,17 +43,18 @@ export default function StickyCTA({ articleRef, title = 'Vérifier mon éligibil
         color: '#fff',
         textDecoration: 'none',
         borderRadius: 8,
-        padding: '12px 16px',
+        padding: '14px 16px',
         fontWeight: 700,
         fontSize: 14,
         textAlign: 'center',
         display: 'block',
+        minHeight: 48,
       }}>
         {title}
       </Link>
       <button
         onClick={() => setDismissed(true)}
-        style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: 20, color: '#9ca3af', padding: 4 }}
+        style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: 20, color: '#9ca3af', padding: 4, width: 48, height: 48, display: 'flex', alignItems: 'center', justifyContent: 'center' }}
         aria-label="Fermer"
       >×</button>
     </div>
@@ -75,9 +76,10 @@ export default function StickyCTA({ articleRef, title = 'Vérifier mon éligibil
       <button
         onClick={() => setDismissed(true)}
         style={{
-          position: 'absolute', top: 10, right: 12,
+          position: 'absolute', top: 4, right: 4,
           background: 'none', border: 'none', cursor: 'pointer',
           fontSize: 16, color: '#9ca3af',
+          width: 48, height: 48, display: 'flex', alignItems: 'center', justifyContent: 'center',
         }}
         aria-label="Fermer"
       >×</button>

@@ -41,7 +41,7 @@ const CARDS = [
 
 export default function Sections() {
   return (
-    <section style={{
+    <section aria-label="Nos expertises" style={{
       background: '#F9F8FF',
       padding: '100px 48px',
     }}>

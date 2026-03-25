@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "build:prerender": "vite build && node scripts/prerender.js",
     "preview": "vite preview"
   },
   "keywords": [],
@@ -22,6 +23,8 @@
     "@tailwindcss/vite": "^4.2.1",
     "@vitejs/plugin-react": "^6.0.1",
     "framer-motion": "^12.37.0",
+    "puppeteer-core": "^24.40.0",
+    "serve": "^14.2.6",
     "tailwindcss": "^4.2.1",
     "vite": "^8.0.0"
   }

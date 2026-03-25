@@ -3,6 +3,7 @@ import { motion, useMotionValue, useTransform, useSpring } from 'framer-motion'
 import { useRef } from 'react'
 import { useSEO } from '../hooks/useSEO'
 import useIsMobile from '../hooks/useIsMobile'
+import Breadcrumb from '../components/Breadcrumb'
 
 const FADE_UP = {
   hidden: { opacity: 0, y: 20 },
@@ -307,42 +308,96 @@ function PublicCard({ p, i }) {
 
 const EDUC_IA_SCHEMA = {
   '@context': 'https://schema.org',
-  '@type': 'Service',
-  'name': 'Éduc IA — Ateliers de sensibilisation à l\'Intelligence Artificielle pour enfants',
-  'description': 'Ateliers ludiques de sensibilisation à l\'IA pour enfants et adolescents de 8 à 15 ans. Pensée critique, créativité, éthique numérique. Pour écoles, collèges, centres éducatifs et familles en Alsace.',
-  'url': 'https://smartoptimisation.fr/educ-ia',
-  'provider': {
-    '@type': 'Organization',
-    'name': 'Smart Optimisation',
-    'url': 'https://smartoptimisation.fr',
-  },
-  'serviceType': 'Sensibilisation IA enfants et adolescents',
-  'audience': {
-    '@type': 'EducationalAudience',
-    'educationalRole': 'student',
-    'audienceType': 'Enfants et adolescents de 8 à 15 ans',
-  },
-  'areaServed': [
-    { '@type': 'AdministrativeArea', 'name': 'Alsace' },
-    { '@type': 'Country', 'name': 'France' },
-  ],
-  'additionalProperty': [
-    { '@type': 'PropertyValue', 'name': 'Tranche d\'âge', 'value': '8 à 15 ans' },
-    { '@type': 'PropertyValue', 'name': 'Publics', 'value': 'Écoles, collèges, centres éducatifs, familles' },
-    { '@type': 'PropertyValue', 'name': 'Format', 'value': 'Ateliers ludiques et interactifs' },
+  '@graph': [
+    {
+      '@type': 'Service',
+      'name': 'Éduc IA — Ateliers de sensibilisation à l\'Intelligence Artificielle pour enfants',
+      'description': 'Ateliers ludiques de sensibilisation à l\'IA pour enfants et adolescents de 8 à 15 ans. Pensée critique, créativité, éthique numérique. Pour écoles, collèges, centres éducatifs et familles en Alsace.',
+      'url': 'https://smartoptimisation.fr/educ-ia',
+      'provider': { '@id': 'https://smartoptimisation.fr/#organization' },
+      'serviceType': 'Sensibilisation IA enfants et adolescents',
+      'audience': {
+        '@type': 'EducationalAudience',
+        'educationalRole': 'student',
+        'audienceType': 'Enfants et adolescents de 8 à 15 ans',
+      },
+      'areaServed': [
+        { '@type': 'City', 'name': 'Strasbourg' },
+        { '@type': 'AdministrativeArea', 'name': 'Alsace' },
+        { '@type': 'Country', 'name': 'France' },
+      ],
+      'additionalProperty': [
+        { '@type': 'PropertyValue', 'name': 'Tranche d\'âge', 'value': '8 à 15 ans' },
+        { '@type': 'PropertyValue', 'name': 'Publics', 'value': 'Écoles, collèges, centres éducatifs, familles' },
+        { '@type': 'PropertyValue', 'name': 'Format', 'value': 'Ateliers ludiques et interactifs' },
+      ],
+      'about': [
+        { '@type': 'Thing', 'name': 'Sensibilisation IA enfants' },
+        { '@type': 'Thing', 'name': 'Éducation numérique' },
+        { '@type': 'Thing', 'name': 'Pensée critique' },
+      ],
+      'mentions': [
+        { '@type': 'Thing', 'name': 'Éthique IA' },
+        { '@type': 'Thing', 'name': 'Créativité numérique' },
+      ],
+    },
+    {
+      '@type': 'BreadcrumbList',
+      'itemListElement': [
+        { '@type': 'ListItem', 'position': 1, 'name': 'Accueil', 'item': 'https://smartoptimisation.fr/' },
+        { '@type': 'ListItem', 'position': 2, 'name': 'Éduc IA' },
+      ],
+    },
+    {
+      '@type': 'FAQPage',
+      'mainEntity': [
+        {
+          '@type': 'Question',
+          'name': 'À partir de quel âge un enfant peut-il participer aux ateliers IA ?',
+          'acceptedAnswer': {
+            '@type': 'Answer',
+            'text': 'Nos ateliers Éduc IA sont conçus pour les enfants et adolescents de 8 à 15 ans. Le contenu est adapté par tranche d\'âge pour garantir une compréhension optimale.',
+          },
+        },
+        {
+          '@type': 'Question',
+          'name': 'Les ateliers IA pour enfants sont-ils sûrs et encadrés ?',
+          'acceptedAnswer': {
+            '@type': 'Answer',
+            'text': 'Absolument. Les ateliers sont animés par des formateurs expérimentés, avec un module dédié à l\'éthique, la vérification des informations et la responsabilité numérique. Aucune donnée personnelle des enfants n\'est collectée.',
+          },
+        },
+        {
+          '@type': 'Question',
+          'name': 'Peut-on organiser un atelier IA dans notre école ou centre éducatif ?',
+          'acceptedAnswer': {
+            '@type': 'Answer',
+            'text': 'Oui. Nous intervenons dans les écoles, collèges, centres de loisirs et structures éducatives en Alsace. Contactez-nous pour organiser un atelier adapté à votre public et vos locaux.',
+          },
+        },
+      ],
+    },
   ],
 }
 
 export default function EducIA() {
   useSEO({
-    title: 'Éduc IA — Ateliers IA pour enfants 8-15 ans',
-    description: 'Ateliers de sensibilisation à l\'IA pour enfants et adolescents de 8 à 15 ans. Pensée critique, créativité, éthique numérique. Pour écoles, centres éducatifs et familles en Alsace.',
+    title: 'Ateliers IA pour enfants 8-15 ans en Alsace | Smart Optimisation',
+    description: 'Ateliers de sensibilisation à l\'IA pour enfants et adolescents de 8 à 15 ans en Alsace. Pensée critique, créativité, éthique numérique. Écoles, centres éducatifs et familles.',
     path: '/educ-ia',
     jsonLd: EDUC_IA_SCHEMA,
+    keywords: 'atelier IA enfants, sensibilisation IA jeunes, éducation intelligence artificielle, atelier IA 8-15 ans, éthique numérique enfants',
   })
   const isMobile = useIsMobile()
   return (
     <main style={{ background: '#fff', minHeight: 'calc(100vh - 72px)' }}>
+
+      <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '88px 24px 0' }}>
+        <Breadcrumb items={[
+          { label: 'Accueil', to: '/' },
+          { label: 'Éduc IA' },
+        ]} />
+      </div>
 
       {/* ── Hero ─────────────────────────────────────── */}
       <section style={{
@@ -566,6 +621,25 @@ export default function EducIA() {
             </div>
           </div>
         </motion.div>
+      </section>
+
+      {/* Maillage interne */}
+      <section style={{ background: '#F9F8FF', padding: isMobile ? '48px 20px' : '64px 48px' }}>
+        <div style={{ maxWidth: '800px', margin: '0 auto' }}>
+          <h2 style={{ color: '#0F0C1E', fontWeight: 700, fontSize: '20px', marginBottom: '20px', textAlign: 'center' }}>
+            Découvrez nos autres formations IA
+          </h2>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+            <Link to="/formation/cpf" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '16px 20px', background: '#fff', borderRadius: '12px', border: '1px solid rgba(59,79,216,0.08)', textDecoration: 'none', color: '#0F0C1E', fontSize: '15px', fontWeight: 500 }}>
+              <span>Formation CPF RS7344</span>
+              <span style={{ color: '#3B4FD8', fontSize: '13px' }}>En savoir plus →</span>
+            </Link>
+            <Link to="/solution-ia" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '16px 20px', background: '#fff', borderRadius: '12px', border: '1px solid rgba(59,79,216,0.08)', textDecoration: 'none', color: '#0F0C1E', fontSize: '15px', fontWeight: 500 }}>
+              <span>Solution IA sur mesure</span>
+              <span style={{ color: '#3B4FD8', fontSize: '13px' }}>En savoir plus →</span>
+            </Link>
+          </div>
+        </div>
       </section>
 
     </main>

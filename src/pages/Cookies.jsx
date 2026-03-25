@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useSEO } from '../hooks/useSEO'
 
 const COOKIE_TYPES = [
   {
@@ -56,6 +57,13 @@ const COOKIE_TYPES = [
 ]
 
 export default function Cookies() {
+  useSEO({
+    title: 'Politique de cookies',
+    description: 'Gestion des cookies et traceurs sur smartoptimisation.fr — Smart Optimisation.',
+    path: '/cookies',
+    robots: 'noindex, follow',
+  })
+
   const [prefs, setPrefs] = useState({ analytiques: false, marketing: false, preferences: true })
 
   const toggle = (id) => setPrefs(p => ({ ...p, [id]: !p[id] }))

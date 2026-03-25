@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { motion, useMotionValue, useSpring, useTransform, useInView } from 'framer-motion'
 import { useSEO } from '../hooks/useSEO'
 import useIsMobile from '../hooks/useIsMobile'
+import Breadcrumb from '../components/Breadcrumb'
 
 /* ─── Icônes SVG inline ─────────────────────────────────────────── */
 const IconZero = () => (
@@ -145,37 +146,95 @@ const OPCOS = [
 /* ─── Page principale ───────────────────────────────────────────── */
 const OPCO_SERVICE_SCHEMA = {
   '@context': 'https://schema.org',
-  '@type': 'Service',
-  'name': 'Formation IA entreprise OPCO — 100% financée',
-  'description': 'Formation IA pour entreprises entièrement financée par votre OPCO (Atlas, Akto, Uniformation, OCAPIAT, OPCO 2i, AFDAS, Constructys). Zéro avance, zéro paperasse. ROI mesurable dès J+30.',
-  'url': 'https://smartoptimisation.fr/formation/opco',
-  'provider': {
-    '@type': 'Organization',
-    'name': 'Smart Optimisation',
-    'url': 'https://smartoptimisation.fr',
-  },
-  'serviceType': 'Formation professionnelle IA — Financement OPCO',
-  'areaServed': { '@type': 'Country', 'name': 'France' },
-  'audience': { '@type': 'BusinessAudience', 'audienceType': 'Entreprises (5 à 500 collaborateurs)' },
-  'offers': {
-    '@type': 'Offer',
-    'price': '0',
-    'priceCurrency': 'EUR',
-    'description': 'Financement 100% OPCO — aucune avance de trésorerie',
-  },
-  'additionalProperty': [
-    { '@type': 'PropertyValue', 'name': 'Délai de réponse faisabilité', 'value': '48h' },
-    { '@type': 'PropertyValue', 'name': 'ROI mesurable', 'value': 'J+30' },
-    { '@type': 'PropertyValue', 'name': 'OPCO compatibles', 'value': 'Atlas, Akto, Uniformation, OCAPIAT, OPCO 2i, AFDAS, Constructys' },
+  '@graph': [
+    {
+      '@type': 'Service',
+      'name': 'Formation IA entreprise OPCO — 100% financée',
+      'description': 'Formation IA pour entreprises entièrement financée par votre OPCO (Atlas, Akto, Uniformation, OCAPIAT, OPCO 2i, AFDAS, Constructys). Zéro avance, zéro paperasse. ROI mesurable dès J+30.',
+      'url': 'https://smartoptimisation.fr/formation/opco',
+      'provider': { '@id': 'https://smartoptimisation.fr/#organization' },
+      'serviceType': 'Formation professionnelle IA — Financement OPCO',
+      'areaServed': { '@type': 'Country', 'name': 'France' },
+      'audience': { '@type': 'BusinessAudience', 'audienceType': 'Entreprises (5 à 500 collaborateurs)' },
+      'offers': {
+        '@type': 'Offer',
+        'price': '0',
+        'priceCurrency': 'EUR',
+        'description': 'Financement 100% OPCO — aucune avance de trésorerie',
+      },
+      'additionalProperty': [
+        { '@type': 'PropertyValue', 'name': 'Délai de réponse faisabilité', 'value': '48h' },
+        { '@type': 'PropertyValue', 'name': 'ROI mesurable', 'value': 'J+30' },
+        { '@type': 'PropertyValue', 'name': 'OPCO compatibles', 'value': 'Atlas, Akto, Uniformation, OCAPIAT, OPCO 2i, AFDAS, Constructys' },
+      ],
+      'about': [
+        { '@type': 'Thing', 'name': 'Financement OPCO' },
+        { '@type': 'Thing', 'name': 'Formation Intelligence Artificielle' },
+        { '@type': 'Thing', 'name': 'Montée en compétences IA' },
+      ],
+      'mentions': [
+        { '@type': 'Organization', 'name': 'OPCO Atlas' },
+        { '@type': 'Organization', 'name': 'OPCO Akto' },
+        { '@type': 'Organization', 'name': 'Uniformation' },
+        { '@type': 'Organization', 'name': 'OPCO 2i' },
+        { '@type': 'Thing', 'name': 'Certification Qualiopi' },
+      ],
+    },
+    {
+      '@type': 'BreadcrumbList',
+      'itemListElement': [
+        { '@type': 'ListItem', 'position': 1, 'name': 'Accueil', 'item': 'https://smartoptimisation.fr/' },
+        { '@type': 'ListItem', 'position': 2, 'name': 'Formation', 'item': 'https://smartoptimisation.fr/formation/opco' },
+        { '@type': 'ListItem', 'position': 3, 'name': 'Formation IA OPCO' },
+      ],
+    },
+    {
+      '@type': 'FAQPage',
+      'mainEntity': [
+        {
+          '@type': 'Question',
+          'name': 'Comment savoir si mon OPCO finance les formations IA ?',
+          'acceptedAnswer': {
+            '@type': 'Answer',
+            'text': 'Toute entreprise cotise à un OPCO. Smart Optimisation vérifie gratuitement votre éligibilité sous 48h et monte le dossier de financement pour vous, sans avance de trésorerie.',
+          },
+        },
+        {
+          '@type': 'Question',
+          'name': 'Quel est le coût d\'une formation IA financée par l\'OPCO ?',
+          'acceptedAnswer': {
+            '@type': 'Answer',
+            'text': 'Avec le financement OPCO, la prise en charge peut atteindre 100% du coût pédagogique. Vous ne déboursez rien : l\'OPCO règle directement Smart Optimisation.',
+          },
+        },
+        {
+          '@type': 'Question',
+          'name': 'Combien de temps faut-il pour obtenir le financement OPCO ?',
+          'acceptedAnswer': {
+            '@type': 'Answer',
+            'text': 'En moyenne 2 à 3 semaines entre le premier contact et le démarrage de la formation. Smart Optimisation obtient une réponse de faisabilité de l\'OPCO sous 48h ouvrées.',
+          },
+        },
+        {
+          '@type': 'Question',
+          'name': 'Quels OPCO sont compatibles avec vos formations IA ?',
+          'acceptedAnswer': {
+            '@type': 'Answer',
+            'text': 'Tous les 11 OPCO français : Atlas, Akto, AFDAS, Uniformation, OCAPIAT, OPCO 2i, Constructys et les 4 autres. Nos formations sont certifiées Qualiopi, ce qui garantit l\'éligibilité.',
+          },
+        },
+      ],
+    },
   ],
 }
 
 export default function FormationOPCO() {
   useSEO({
-    title: 'Formation IA OPCO — 100% financée, zéro avance',
-    description: 'Formez vos collaborateurs à l\'IA avec financement OPCO : Atlas, Akto, Uniformation. Zéro avance de trésorerie, ROI mesurable dès J+30. Audit IA gratuit inclus.',
+    title: 'Formation IA OPCO — 100% financée pour vos équipes',
+    description: 'Formez vos collaborateurs à l\'IA avec financement OPCO 100% : Atlas, Akto, Uniformation, OPCO 2i. Zéro avance, ROI mesurable dès J+30. Organisme certifié Qualiopi à Strasbourg, interventions en Alsace et toute la France.',
     path: '/formation/opco',
     jsonLd: OPCO_SERVICE_SCHEMA,
+    keywords: 'formation IA OPCO, financement OPCO formation, formation IA entreprise, OPCO Atlas, OPCO Akto, formation IA financée, Qualiopi, formation intelligence artificielle OPCO',
   })
   const heroRef = useRef(null)
   const isMobile = useIsMobile()
@@ -224,7 +283,7 @@ export default function FormationOPCO() {
   ]
 
   return (
-    <div style={{ background: '#fff', minHeight: 'calc(100vh - 72px)', position: 'relative', overflow: 'hidden' }}>
+    <main style={{ background: '#fff', minHeight: 'calc(100vh - 72px)', position: 'relative', overflow: 'hidden' }}>
 
       {/* ── Blobs décoratifs ── */}
       <motion.div
@@ -240,18 +299,12 @@ export default function FormationOPCO() {
 
       <div style={{ maxWidth: '1100px', margin: '0 auto', padding: isMobile ? '40px 20px 60px' : '72px 48px 100px', position: 'relative', zIndex: 2 }}>
 
-        {/* ── Retour ── */}
-        <motion.div initial={{ opacity: 0, x: -12 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.35 }}>
-          <Link
-            to="/"
-            style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: '#9CA3AF', fontSize: '13px', textDecoration: 'none', marginBottom: '48px', fontWeight: 500, transition: 'color 0.18s' }}
-            onMouseEnter={e => { e.currentTarget.style.color = '#3B4FD8'; e.currentTarget.style.transform = 'translateX(-3px)' }}
-            onMouseLeave={e => { e.currentTarget.style.color = '#9CA3AF'; e.currentTarget.style.transform = 'translateX(0)' }}
-          >
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-            Retour à l'accueil
-          </Link>
-        </motion.div>
+        {/* ── Fil d'Ariane ── */}
+        <Breadcrumb items={[
+          { label: 'Accueil', to: '/' },
+          { label: 'Formation', to: '/formation/opco' },
+          { label: 'Formation IA OPCO' },
+        ]} />
 
         {/* ══ HERO ══ */}
         <div style={{ maxWidth: '780px', marginBottom: '72px' }}>
@@ -336,10 +389,69 @@ export default function FormationOPCO() {
         {/* ══ OPCO SOCIAL PROOF ══ */}
         <OPCOStrip />
 
+        {/* Lien autorité OPCO */}
+        <p style={{ fontSize: '12px', color: '#9CA3AF', marginTop: '12px', marginBottom: '36px' }}>
+          En savoir plus sur les OPCO :{' '}
+          <a
+            href="https://travail-emploi.gouv.fr/formation-professionnelle/acteurs-cadre-et-qualite-de-la-formation-professionnelle/article/les-operateurs-de-competences-opco"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: '#6B7280', textDecoration: 'none', borderBottom: '1px dashed rgba(107,114,128,0.4)', transition: 'color 0.2s, border-color 0.2s' }}
+            onMouseEnter={e => { e.currentTarget.style.color = '#3B4FD8'; e.currentTarget.style.borderBottomColor = '#3B4FD8' }}
+            onMouseLeave={e => { e.currentTarget.style.color = '#6B7280'; e.currentTarget.style.borderBottomColor = 'rgba(107,114,128,0.4)' }}
+          >
+            Opérateurs de compétences (site officiel du Ministère du Travail) →
+          </a>
+        </p>
+
+        {/* Maillage interne */}
+        <section style={{ background: '#F9F8FF', padding: isMobile ? '48px 20px' : '64px 48px', borderRadius: '24px', marginBottom: '48px' }}>
+          <div style={{ maxWidth: '800px', margin: '0 auto' }}>
+            <h2 style={{ color: '#0F0C1E', fontWeight: 700, fontSize: '20px', marginBottom: '20px', textAlign: 'center' }}>
+              Découvrez nos autres formations IA
+            </h2>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+              <Link to="/formation/cpf" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '16px 20px', background: '#fff', borderRadius: '12px', border: '1px solid rgba(59,79,216,0.08)', textDecoration: 'none', color: '#0F0C1E', fontSize: '15px', fontWeight: 500 }}>
+                <span>Formation CPF RS7344</span>
+                <span style={{ color: '#3B4FD8', fontSize: '13px' }}>Formation IA certifiée CPF RS7344 →</span>
+              </Link>
+              <Link to="/formation/sur-mesure" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '16px 20px', background: '#fff', borderRadius: '12px', border: '1px solid rgba(59,79,216,0.08)', textDecoration: 'none', color: '#0F0C1E', fontSize: '15px', fontWeight: 500 }}>
+                <span>Formation sur mesure</span>
+                <span style={{ color: '#3B4FD8', fontSize: '13px' }}>Programme IA sur mesure pour votre entreprise →</span>
+              </Link>
+              <Link to="/formation/environnements" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '16px 20px', background: '#fff', borderRadius: '12px', border: '1px solid rgba(59,79,216,0.08)', textDecoration: 'none', color: '#0F0C1E', fontSize: '15px', fontWeight: 500 }}>
+                <span>Formation aux environnements IA</span>
+                <span style={{ color: '#3B4FD8', fontSize: '13px' }}>Maîtriser Claude, ChatGPT et Gemini →</span>
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* ══ Lien blog ══ */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0, transition: { duration: 0.5 } }}
+          viewport={{ once: true }}
+          style={{ marginBottom: '48px', padding: isMobile ? '20px' : '24px 32px', borderRadius: '16px', background: 'linear-gradient(135deg, rgba(59,79,216,0.05), rgba(155,48,232,0.05))', border: '1px solid rgba(59,79,216,0.12)', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '16px', flexWrap: 'wrap' }}
+        >
+          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+            <span style={{ fontSize: '20px' }}>📖</span>
+            <span style={{ color: '#374151', fontSize: '15px', fontWeight: 500 }}>
+              Consultez notre guide complet :{' '}
+              <Link to="/blog/formations-ia-opco-guide-2026" style={{ color: '#3B4FD8', fontWeight: 700, textDecoration: 'underline', textUnderlineOffset: '3px' }}>
+                Formations IA & OPCO, le guide 2026
+              </Link>
+            </span>
+          </div>
+          <Link to="/blog/formations-ia-opco-guide-2026" style={{ color: '#3B4FD8', fontSize: '13px', fontWeight: 600, textDecoration: 'none', whiteSpace: 'nowrap' }}>
+            Lire l'article →
+          </Link>
+        </motion.div>
+
         {/* ══ CTA BLOC ══ */}
         <CTABloc />
       </div>
-    </div>
+    </main>
   )
 }
 

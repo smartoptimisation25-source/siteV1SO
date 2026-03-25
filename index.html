@@ -5,19 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- SEO Primary -->
-    <title>Smart Optimisation | Formation IA & Solutions IA sur mesure en Alsace</title>
-    <meta name="description" content="Expert en intelligence artificielle : formations certifiées CPF RS7411, financement OPCO 100%, audit IA gratuit, déploiement solution IA sur mesure. +150 entreprises accompagnées en Alsace." />
+    <title>Smart Optimisation — Formation IA & Solutions IA sur mesure en Alsace</title>
+    <meta name="description" content="Smart Optimisation : formations IA certifiées Qualiopi (CPF RS7344, OPCO 100%), solutions IA sur mesure et audit IA gratuit. Basés à Strasbourg, nous intervenons en Alsace et dans toute la France." />
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
     <meta name="author" content="Smart Optimisation" />
     <meta name="theme-color" content="#3B4FD8" />
-    <meta name="geo.region" content="FR-67" />
-    <meta name="geo.placename" content="Alsace, France" />
+    <meta name="geo.region" content="FR-67">
+    <meta name="geo.placename" content="Strasbourg, Alsace">
+    <meta name="format-detection" content="telephone=no" />
+
+    <style>
+      /* Critical CSS — prevents FOUC & CLS */
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+      body { font-family: 'MarkPro', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #fff; color: #1a1a2e; }
+      #root { min-height: 100vh; display: flex; flex-direction: column; }
+      @font-face { font-family: 'MarkPro'; src: url('/fonts/MarkPro-ExtraLight.otf') format('opentype'); font-weight: 200; font-display: swap; }
+    </style>
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Smart Optimisation" />
-    <meta property="og:title" content="Smart Optimisation | Formation IA & Solutions IA sur mesure en Alsace" />
-    <meta property="og:description" content="Formations IA certifiées CPF RS7411, financement OPCO 100%, solutions IA sur mesure et audit IA gratuit. +150 entreprises accompagnées en Alsace." />
+    <meta property="og:title" content="Smart Optimisation — Formation IA & Solutions IA sur mesure en Alsace" />
+    <meta property="og:description" content="Smart Optimisation : formations IA certifiées Qualiopi (CPF RS7344, OPCO 100%), solutions IA sur mesure et audit IA gratuit. Basés à Strasbourg, nous intervenons en Alsace et dans toute la France." />
     <meta property="og:image" content="https://smartoptimisation.fr/og-image.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
@@ -37,15 +47,20 @@
 
     <!-- Canonical -->
     <link rel="canonical" href="https://smartoptimisation.fr/" />
+    <link rel="alternate" hreflang="fr-FR" href="https://smartoptimisation.fr/" />
+    <link rel="alternate" hreflang="x-default" href="https://smartoptimisation.fr/" />
 
     <!-- Performance: DNS prefetch & preconnect -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="dns-prefetch" href="https://formspree.io" />
+    <link rel="dns-prefetch" href="https://vitals.vercel-insights.com" />
+
 
     <!-- Fonts — preload critique -->
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet" /></noscript>
 
     <!-- Structured Data — Organization + LocalBusiness -->
     <script type="application/ld+json">
@@ -64,15 +79,35 @@
             "height": 200
           },
           "image": "https://smartoptimisation.fr/og-image.png",
-          "description": "Expert en intelligence artificielle : formations certifiées CPF RS7411, financement OPCO 100%, audit IA gratuit, déploiement solution IA sur mesure. Conformité EU AI Act et RGPD.",
+          "description": "Expert en intelligence artificielle : formations certifiées CPF RS7344, financement OPCO 100%, audit IA gratuit, déploiement solution IA sur mesure. Conformité EU AI Act et RGPD.",
+          "telephone": "+33 6 88 67 39 61",
           "address": {
             "@type": "PostalAddress",
-            "addressRegion": "Alsace",
+            "streetAddress": "200 rue de la Croix Nivert",
+            "addressLocality": "Paris",
+            "addressRegion": "Île-de-France",
+            "postalCode": "75015",
             "addressCountry": "FR"
           },
+          "location": [
+            {
+              "@type": "Place",
+              "name": "Bureau opérationnel — Strasbourg, Alsace",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Strasbourg",
+                "addressRegion": "Alsace",
+                "postalCode": "67000",
+                "addressCountry": "FR"
+              }
+            }
+          ],
           "areaServed": [
-            {"@type": "AdministrativeArea", "name": "Alsace"},
-            {"@type": "Country", "name": "France"}
+            { "@type": "City", "name": "Strasbourg" },
+            { "@type": "City", "name": "Mulhouse" },
+            { "@type": "City", "name": "Colmar" },
+            { "@type": "AdministrativeArea", "name": "Alsace" },
+            { "@type": "Country", "name": "France" }
           ],
           "contactPoint": {
             "@type": "ContactPoint",
@@ -94,26 +129,75 @@
             "LLMs",
             "Conformité RGPD IA"
           ],
+          "founder": [
+            { "@id": "https://smartoptimisation.fr/#founder" },
+            { "@id": "https://smartoptimisation.fr/#cofounder" }
+          ],
+          "foundingDate": "2025",
           "hasOfferCatalog": {
             "@type": "OfferCatalog",
             "name": "Services Smart Optimisation",
             "itemListElement": [
-              {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Formation IA certifiée CPF RS7411"}},
+              {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Formation IA certifiée CPF RS7344"}},
               {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Formation IA financée OPCO"}},
               {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Formation IA sur mesure entreprise"}},
               {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Déploiement solution IA sur mesure"}},
               {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Sensibilisation IA enfants et adolescents"}}
             ]
-          }
+          },
+          "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            "opens": "09:00",
+            "closes": "18:00"
+          },
+          "priceRange": "€€",
+          "paymentAccepted": "Financement CPF, Financement OPCO, Virement bancaire",
+          "currenciesAccepted": "EUR"
+        },
+        {
+          "@type": "Person",
+          "@id": "https://smartoptimisation.fr/#founder",
+          "name": "Jounayd Ouadah Loubardi",
+          "jobTitle": "Président & Co-fondateur",
+          "worksFor": { "@id": "https://smartoptimisation.fr/#organization" },
+          "knowsAbout": ["Intelligence Artificielle", "Formation professionnelle", "LLMs", "EU AI Act", "Automatisation"],
+          "sameAs": ["https://www.linkedin.com/in/jounayd-ouadah-09b154225/"]
+        },
+        {
+          "@type": "Person",
+          "@id": "https://smartoptimisation.fr/#cofounder",
+          "name": "Adel El Kammaa",
+          "jobTitle": "Directeur Général & Co-fondateur, Expert IA",
+          "worksFor": { "@id": "https://smartoptimisation.fr/#organization" },
+          "sameAs": ["https://www.linkedin.com/in/rayane-el-kammaa-904306340/"]
         },
         {
           "@type": "WebSite",
           "@id": "https://smartoptimisation.fr/#website",
           "url": "https://smartoptimisation.fr",
           "name": "Smart Optimisation",
-          "description": "Formation IA & Solutions IA sur mesure en Alsace",
+          "description": "Formations IA certifiées et solutions IA sur mesure à Strasbourg et en Alsace",
           "publisher": {"@id": "https://smartoptimisation.fr/#organization"},
           "inLanguage": "fr-FR"
+        }
+      ]
+    }
+    </script>
+
+    <!-- Speculation Rules — instant page transitions (Chrome 121+) -->
+    <script type="speculationrules">
+    {
+      "prefetch": [
+        {
+          "where": { "href_matches": ["/*"] },
+          "eagerness": "moderate"
+        }
+      ],
+      "prerender": [
+        {
+          "where": { "href_matches": ["/formation/cpf", "/formation/opco", "/contact", "/equipe"] },
+          "eagerness": "moderate"
         }
       ]
     }
@@ -121,6 +205,48 @@
   </head>
   <body>
     <div id="root"></div>
+
+    <!-- Noscript fallback for crawlers and users without JavaScript -->
+    <noscript>
+      <div style="font-family:system-ui,sans-serif;max-width:800px;margin:0 auto;padding:40px 24px;color:#0F0C1E">
+        <h1>Smart Optimisation — Formation IA &amp; Solutions IA sur mesure en Alsace</h1>
+        <p>
+          <strong>Smart Optimisation</strong>, organisme de formation en intelligence artificielle certifié Qualiopi, basé à Strasbourg en Alsace.
+          Nous accompagnons les entreprises et les professionnels dans leur transformation IA : formations certifiees CPF (RS7344),
+          financement OPCO 100%, deploiement de solutions IA sur mesure, audit IA gratuit et sensibilisation IA pour les jeunes.
+          Nous intervenons à Strasbourg, en Alsace et dans toute la France.
+        </p>
+        <h2>Nos services</h2>
+        <ul>
+          <li>Formation IA certifiee CPF RS7344</li>
+          <li>Formation IA financee OPCO</li>
+          <li>Formation IA sur mesure pour entreprises</li>
+          <li>Deploiement de solutions IA sur mesure</li>
+          <li>Sensibilisation IA enfants et adolescents</li>
+          <li>Audit IA gratuit</li>
+        </ul>
+        <h2>Contact</h2>
+        <p>
+          Email : <a href="mailto:contact@smartoptimisation.fr">contact@smartoptimisation.fr</a><br/>
+          Siège social : 200 rue de la Croix Nivert, 75015 Paris, France
+        </p>
+        <h2>Liens utiles</h2>
+        <ul>
+          <li><a href="https://smartoptimisation.fr/">Accueil</a></li>
+          <li><a href="https://smartoptimisation.fr/mentions-legales">Mentions legales</a></li>
+          <li><a href="https://smartoptimisation.fr/confidentialite">Politique de confidentialite</a></li>
+          <li><a href="https://smartoptimisation.fr/rgpd">RGPD</a></li>
+          <li><a href="https://smartoptimisation.fr/cookies">Cookies</a></li>
+        </ul>
+        <h2>Suivez-nous</h2>
+        <ul>
+          <li><a href="https://www.linkedin.com/company/smart-opti/">LinkedIn</a></li>
+          <li><a href="https://www.instagram.com/smartoptimisation/">Instagram</a></li>
+          <li><a href="https://www.facebook.com/smartoptimisation/">Facebook</a></li>
+        </ul>
+      </div>
+    </noscript>
+
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

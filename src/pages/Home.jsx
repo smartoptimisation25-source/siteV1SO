@@ -348,32 +348,107 @@ function ADNSection() {
 
 const HOME_SCHEMA = {
   '@context': 'https://schema.org',
-  '@type': 'WebPage',
-  '@id': 'https://smartoptimisation.fr/#webpage',
-  'url': 'https://smartoptimisation.fr/',
-  'name': 'Formation IA & Solutions IA sur mesure en Alsace | Smart Optimisation',
-  'description': 'Expert en IA : formations certifiées CPF RS7411, financement OPCO 100%, audit IA gratuit, déploiement solution IA sur mesure. +150 entreprises accompagnées.',
-  'isPartOf': { '@id': 'https://smartoptimisation.fr/#website' },
-  'about': { '@id': 'https://smartoptimisation.fr/#organization' },
-  'breadcrumb': {
-    '@type': 'BreadcrumbList',
-    'itemListElement': [
-      { '@type': 'ListItem', 'position': 1, 'name': 'Accueil', 'item': 'https://smartoptimisation.fr/' },
-    ],
-  },
+  '@graph': [
+    {
+      '@type': 'WebPage',
+      '@id': 'https://smartoptimisation.fr/#webpage',
+      'url': 'https://smartoptimisation.fr/',
+      'name': 'Formation IA & Solutions IA sur mesure en Alsace | Smart Optimisation',
+      'description': 'Expert en IA : formations certifiées CPF RS7344, financement OPCO 100%, audit IA gratuit, déploiement solution IA sur mesure. +150 entreprises accompagnées.',
+      'isPartOf': { '@id': 'https://smartoptimisation.fr/#website' },
+      'about': { '@id': 'https://smartoptimisation.fr/#organization' },
+      'breadcrumb': { '@id': 'https://smartoptimisation.fr/#breadcrumb' },
+    },
+    {
+      '@type': 'BreadcrumbList',
+      '@id': 'https://smartoptimisation.fr/#breadcrumb',
+      'itemListElement': [
+        { '@type': 'ListItem', 'position': 1, 'name': 'Accueil', 'item': 'https://smartoptimisation.fr/' },
+      ],
+    },
+    {
+      '@type': 'ProfessionalService',
+      '@id': 'https://smartoptimisation.fr/#service',
+      'name': 'Smart Optimisation',
+      'description': 'Expert en intelligence artificielle : formations certifiées Qualiopi (CPF RS7344, OPCO), solutions IA sur mesure, audit IA gratuit. Basé à Strasbourg, Alsace.',
+      'url': 'https://smartoptimisation.fr',
+      'areaServed': [
+        { '@type': 'City', 'name': 'Strasbourg' },
+        { '@type': 'City', 'name': 'Mulhouse' },
+        { '@type': 'City', 'name': 'Colmar' },
+        { '@type': 'AdministrativeArea', 'name': 'Alsace' },
+        { '@type': 'Country', 'name': 'France' },
+      ],
+      'hasOfferCatalog': {
+        '@type': 'OfferCatalog',
+        'name': 'Services Smart Optimisation',
+        'itemListElement': [
+          {
+            '@type': 'OfferCatalog',
+            'name': 'Formations IA',
+            'itemListElement': [
+              { '@type': 'Offer', 'itemOffered': { '@type': 'Course', 'name': 'Formation IA CPF RS7344', 'url': 'https://smartoptimisation.fr/formation/cpf' } },
+              { '@type': 'Offer', 'itemOffered': { '@type': 'Course', 'name': 'Formation IA OPCO', 'url': 'https://smartoptimisation.fr/formation/opco' } },
+              { '@type': 'Offer', 'itemOffered': { '@type': 'Course', 'name': 'Formation IA sur mesure', 'url': 'https://smartoptimisation.fr/formation/sur-mesure' } },
+              { '@type': 'Offer', 'itemOffered': { '@type': 'Course', 'name': 'Formation Claude, ChatGPT, Gemini', 'url': 'https://smartoptimisation.fr/formation/environnements' } },
+            ],
+          },
+          {
+            '@type': 'Offer',
+            'itemOffered': { '@type': 'Service', 'name': 'Solution IA sur mesure', 'url': 'https://smartoptimisation.fr/solution-ia' },
+          },
+          {
+            '@type': 'Offer',
+            'itemOffered': { '@type': 'Service', 'name': 'Ateliers IA enfants (Éduc IA)', 'url': 'https://smartoptimisation.fr/educ-ia' },
+          },
+        ],
+      },
+      'knowsAbout': [
+        'Intelligence Artificielle',
+        'Formation professionnelle IA',
+        'ChatGPT', 'Claude', 'Google Gemini',
+        'EU AI Act',
+        'Automatisation processus métier',
+        'LLMs',
+        'RGPD IA',
+        'Financement OPCO',
+        'CPF RS7344',
+      ],
+      'priceRange': '€€',
+      'speakable': {
+        '@type': 'SpeakableSpecification',
+        'cssSelector': ['h1', '.hero-subtitle'],
+      },
+      'about': [
+        { '@type': 'Thing', 'name': 'Formation Intelligence Artificielle' },
+        { '@type': 'Thing', 'name': 'Solutions IA sur mesure' },
+        { '@type': 'Thing', 'name': 'Audit IA' },
+      ],
+      'mentions': [
+        { '@type': 'Thing', 'name': 'ChatGPT' },
+        { '@type': 'Thing', 'name': 'Claude' },
+        { '@type': 'Thing', 'name': 'Google Gemini' },
+        { '@type': 'Thing', 'name': 'EU AI Act' },
+        { '@type': 'Thing', 'name': 'Certification Qualiopi' },
+        { '@type': 'Thing', 'name': 'CPF RS7344' },
+        { '@type': 'Thing', 'name': 'Financement OPCO' },
+      ],
+    },
+  ],
 }
 
 export default function Home() {
   useSEO({
-    title: 'Formation IA & Solutions IA — Alsace',
-    description: 'Expert en IA : formations certifiées CPF RS7411, financement OPCO 100%, audit IA gratuit, automatisation processus métier IA. +150 entreprises accompagnées en Alsace.',
+    title: 'Formation IA & Solutions IA sur mesure à Strasbourg | Smart Optimisation',
+    description: 'Smart Optimisation : formations IA certifiées Qualiopi (CPF RS7344, OPCO 100%), solutions IA sur mesure et audit IA gratuit. Basés à Strasbourg, nous intervenons en Alsace et dans toute la France.',
     path: '/',
     jsonLd: HOME_SCHEMA,
+    keywords: 'formation IA, solution IA sur mesure, audit IA gratuit, formation intelligence artificielle, Smart Optimisation, Strasbourg, certifié Qualiopi',
   })
   const isMobile = useIsMobile()
 
   return (
-    <>
+    <main>
       {/* HERO */}
       <section style={{
         position: 'relative', overflow: 'hidden',
@@ -465,7 +540,49 @@ export default function Home() {
 
       {/* ADN */}
       <ADNSection />
-    </>
+
+      {/* Derniers articles */}
+      <section style={{ padding: isMobile ? '48px 20px' : '64px 48px', borderTop: '1px solid rgba(59,79,216,0.07)', background: '#FAFBFF' }}>
+        <div style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
+          <motion.p
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0, transition: { duration: 0.4 } }}
+            viewport={{ once: true }}
+            style={{ color: '#9CA3AF', fontSize: '12px', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '20px' }}
+          >
+            Derniers articles
+          </motion.p>
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0, transition: { duration: 0.5 } }}
+            viewport={{ once: true }}
+          >
+            <Link
+              to="/blog/formations-ia-opco-guide-2026"
+              style={{
+                display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '16px',
+                padding: '20px 24px', borderRadius: '16px', background: '#fff',
+                border: '1.5px solid rgba(59,79,216,0.10)', boxShadow: '0 4px 16px rgba(59,79,216,0.06)',
+                textDecoration: 'none', maxWidth: '600px', margin: '0 auto',
+                transition: 'box-shadow 0.2s, border-color 0.2s',
+              }}
+              onMouseEnter={e => { e.currentTarget.style.boxShadow = '0 8px 28px rgba(59,79,216,0.12)'; e.currentTarget.style.borderColor = 'rgba(59,79,216,0.25)' }}
+              onMouseLeave={e => { e.currentTarget.style.boxShadow = '0 4px 16px rgba(59,79,216,0.06)'; e.currentTarget.style.borderColor = 'rgba(59,79,216,0.10)' }}
+            >
+              <div style={{ textAlign: 'left' }}>
+                <p style={{ color: '#0F0C1E', fontWeight: 700, fontSize: '15px', margin: '0 0 4px', lineHeight: 1.3 }}>
+                  Formations IA & OPCO : le guide complet 2026
+                </p>
+                <p style={{ color: '#9CA3AF', fontSize: '12px', margin: 0 }}>
+                  Financez la formation IA de vos équipes sans budget supplémentaire
+                </p>
+              </div>
+              <span style={{ color: '#3B4FD8', fontSize: '18px', flexShrink: 0 }}>→</span>
+            </Link>
+          </motion.div>
+        </div>
+      </section>
+    </main>
   )
 }
 

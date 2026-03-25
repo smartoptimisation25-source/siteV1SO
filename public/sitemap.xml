@@ -5,7 +5,7 @@
   <!-- ── Pages principales (priorité haute) ── -->
   <url>
     <loc>https://smartoptimisation.fr/</loc>
-    <lastmod>2026-03-19</lastmod>
+    <lastmod>2026-03-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -13,19 +13,25 @@
   <!-- ── Formations ── -->
   <url>
     <loc>https://smartoptimisation.fr/formation/cpf</loc>
-    <lastmod>2026-03-19</lastmod>
+    <lastmod>2026-03-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
   <url>
     <loc>https://smartoptimisation.fr/formation/opco</loc>
-    <lastmod>2026-03-19</lastmod>
+    <lastmod>2026-03-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
   <url>
     <loc>https://smartoptimisation.fr/formation/sur-mesure</loc>
-    <lastmod>2026-03-19</lastmod>
+    <lastmod>2026-03-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://smartoptimisation.fr/formation/environnements</loc>
+    <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
@@ -33,13 +39,13 @@
   <!-- ── Solutions & Services ── -->
   <url>
     <loc>https://smartoptimisation.fr/solution-ia</loc>
-    <lastmod>2026-03-19</lastmod>
+    <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.90</priority>
   </url>
   <url>
     <loc>https://smartoptimisation.fr/educ-ia</loc>
-    <lastmod>2026-03-19</lastmod>
+    <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
@@ -47,21 +53,73 @@
   <!-- ── Blog (autorité SEO) ── -->
   <url>
     <loc>https://smartoptimisation.fr/blog</loc>
-    <lastmod>2026-03-19</lastmod>
+    <lastmod>2026-03-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.88</priority>
   </url>
   <url>
     <loc>https://smartoptimisation.fr/blog/formations-ia-opco-guide-2026</loc>
-    <lastmod>2026-03-19</lastmod>
+    <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://smartoptimisation.fr/blog/chatgpt-vs-claude-vs-gemini-comparatif-2026</loc>
+    <lastmod>2026-03-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://smartoptimisation.fr/blog/eu-ai-act-entreprises-guide-conformite</loc>
+    <lastmod>2026-03-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://smartoptimisation.fr/blog/formation-ia-cpf-guide-salaries-2026</loc>
+    <lastmod>2026-03-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://smartoptimisation.fr/blog/automatiser-processus-ia-entreprise</loc>
+    <lastmod>2026-03-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- ── Équipe (E-E-A-T) ── -->
+  <url>
+    <loc>https://smartoptimisation.fr/equipe</loc>
+    <lastmod>2026-03-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
   </url>
 
   <!-- ── Contact (conversion) ── -->
   <url>
     <loc>https://smartoptimisation.fr/contact</loc>
-    <lastmod>2026-03-19</lastmod>
+    <lastmod>2026-03-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- ── Pages villes (Local SEO) ── -->
+  <url>
+    <loc>https://smartoptimisation.fr/formation-ia-strasbourg</loc>
+    <lastmod>2026-03-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://smartoptimisation.fr/formation-ia-mulhouse</loc>
+    <lastmod>2026-03-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://smartoptimisation.fr/formation-ia-colmar</loc>
+    <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
   </url>

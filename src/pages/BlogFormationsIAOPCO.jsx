@@ -17,15 +17,22 @@ const BLOG_SCHEMA = {
       'datePublished': '2026-03-19',
       'dateModified': '2026-03-19',
       'inLanguage': 'fr-FR',
-      'author': { '@type': 'Organization', 'name': 'Smart Optimisation', 'url': 'https://smartoptimisation.fr' },
+      'author': { '@id': 'https://smartoptimisation.fr/#founder' },
       'publisher': { '@id': 'https://smartoptimisation.fr/#organization' },
       'image': 'https://smartoptimisation.fr/og-image.png',
       'articleSection': 'Formation IA',
       'keywords': ['Financement OPCO IA', 'Prise en charge formation IA', 'Audit IA entreprise gratuit', 'Développement compétences IA', 'Formation IA entreprise OPCO'],
       'about': [
         { '@type': 'Thing', 'name': 'Financement OPCO formation IA' },
-        { '@type': 'Thing', 'name': 'Développement compétences IA entreprise' },
-        { '@type': 'Thing', 'name': 'EU AI Act conformité' },
+        { '@type': 'Thing', 'name': 'Plan de Développement des Compétences' },
+        { '@type': 'Thing', 'name': 'FNE-Formation' },
+      ],
+      'mentions': [
+        { '@type': 'Organization', 'name': 'France Compétences' },
+        { '@type': 'Organization', 'name': 'OPCO Atlas' },
+        { '@type': 'Organization', 'name': 'OPCO Akto' },
+        { '@type': 'Thing', 'name': 'EU AI Act' },
+        { '@type': 'Thing', 'name': 'Certification Qualiopi' },
       ],
     },
     {
@@ -52,7 +59,7 @@ const BLOG_SCHEMA = {
           'name': 'Quelle est la différence entre une formation IA standard et une formation IA sur mesure OPCO ?',
           'acceptedAnswer': {
             '@type': 'Answer',
-            'text': 'Une formation IA standard (ex. RS7411 CPF) est un programme certifiant défini, avec des sessions planifiées, idéal pour une montée en compétences individuelle. Une formation IA sur mesure OPCO est co-construite avec votre équipe, basée sur vos outils réels et processus métier, plus adaptée aux formations collectives de 3 à 200 personnes. Les deux sont finançables via votre OPCO.',
+            'text': 'Une formation IA standard (ex. RS7344 CPF) est un programme certifiant défini, avec des sessions planifiées, idéal pour une montée en compétences individuelle. Une formation IA sur mesure OPCO est co-construite avec votre équipe, basée sur vos outils réels et processus métier, plus adaptée aux formations collectives de 3 à 200 personnes. Les deux sont finançables via votre OPCO.',
           },
         },
       ],
@@ -364,7 +371,7 @@ export default function BlogFormationsIAOPCO() {
             Mais voilà le vrai problème : <strong>former coûte cher.</strong> Ou du moins, c'est la croyance la plus répandue.
           </p>
           <p style={{ color: '#374151', fontSize: '15px', lineHeight: 1.8 }}>
-            La réalité est tout autre. Grâce au <strong style={{ color: '#3B4FD8' }}>financement OPCO IA</strong>, la prise en charge formation IA de vos équipes peut être <strong>totale et sans avance de votre part</strong>.
+            La réalité est tout autre. Grâce au <strong style={{ color: '#3B4FD8' }}>financement OPCO IA</strong>, la prise en charge formation IA de vos équipes peut être <strong>totale et sans avance de votre part</strong>. Découvrez <Link to="/formation/opco" style={{ color: '#3B4FD8', fontWeight: 600, textDecoration: 'underline', textUnderlineOffset: '3px' }}>notre programme Formation IA OPCO</Link> pour en savoir plus.
           </p>
         </Section>
 
@@ -374,7 +381,7 @@ export default function BlogFormationsIAOPCO() {
             Le rôle de l'Opérateur de Compétences (OPCO)
           </h3>
           <p style={{ color: '#374151', fontSize: '15px', lineHeight: 1.8, marginBottom: '16px' }}>
-            Un <strong>OPCO</strong> <em>(Opérateur de Compétences)</em> est un organisme paritaire — géré conjointement par les représentants des employeurs et des salariés — dont la mission est de <strong>financer la formation professionnelle continue</strong> des entreprises relevant de sa branche.
+            Un <strong>OPCO</strong> <em>(Opérateur de Compétences)</em> est un organisme paritaire — géré conjointement par les représentants des employeurs et des salariés — dont la mission est de <strong>financer la formation professionnelle continue</strong> des entreprises relevant de sa branche. Leur fonctionnement est encadré par <a href="https://www.francecompetences.fr/" target="_blank" rel="noopener noreferrer" style={{ color: '#3B4FD8', fontWeight: 600, textDecoration: 'underline', textUnderlineOffset: '3px' }}>France Compétences</a>, l'autorité nationale de régulation et de financement de la formation professionnelle.
           </p>
           <p style={{ color: '#374151', fontSize: '15px', lineHeight: 1.8, marginBottom: '20px' }}>
             Il existe <strong>11 OPCO en France</strong>, couvrant l'ensemble des secteurs d'activité :
@@ -431,7 +438,7 @@ export default function BlogFormationsIAOPCO() {
             'Accessible à <strong>toutes les entreprises</strong>, quelle que soit leur taille.',
             'Financement <strong>jusqu\'à 100%</strong> selon votre OPCO et votre secteur.',
             'Idéal pour des <strong>formations collectives</strong> (plusieurs collaborateurs simultanément).',
-            'Compatible avec nos programmes IA sur mesure et nos <strong>formations OPCO dédiées</strong>.',
+            'Compatible avec nos <a href="/formation/sur-mesure" style="color:#3B4FD8;font-weight:600;text-decoration:underline;text-underline-offset:3px">formations IA sur mesure</a> et nos <strong>formations OPCO dédiées</strong>.',
           ].map((item, i) => (
             <div key={i} style={{ display: 'flex', gap: '10px', marginBottom: '8px', alignItems: 'flex-start' }}>
               <span style={{ color: '#3B4FD8', marginTop: '4px', flexShrink: 0 }}>
@@ -467,7 +474,7 @@ export default function BlogFormationsIAOPCO() {
             Dans certains cas, plusieurs dispositifs peuvent être combinés pour une couverture maximale :
           </p>
           {[
-            '<strong>OPCO + CPF</strong> : Le CPF d\'un salarié peut compléter le financement OPCO pour des formations certifiantes (ex. notre formation RS7411).',
+            '<strong>OPCO + CPF</strong> : Le CPF d\'un salarié peut compléter le financement OPCO pour des formations certifiantes (ex. notre <a href="/formation/cpf" style="color:#3B4FD8;font-weight:600;text-decoration:underline;text-underline-offset:3px">formation IA certifiée CPF RS7344</a>).',
             '<strong>OPCO + Région</strong> : Certaines régions (dont l\'Alsace) proposent des aides complémentaires pour la montée en compétences numériques des PME.',
             '<strong>OPCO + EDEC</strong> : Accord-cadre sectoriel pouvant augmenter les plafonds de financement.',
           ].map((item, i) => (
@@ -615,7 +622,7 @@ export default function BlogFormationsIAOPCO() {
             },
             {
               q: 'Quelle est la différence entre une formation IA standard et une formation IA sur mesure OPCO ?',
-              a: 'Une formation IA standard (ex. RS7411 CPF) est un programme certifiant défini, avec des sessions planifiées à Strasbourg, Mulhouse et Colmar, idéal pour une montée en compétences individuelle. Une formation IA sur mesure OPCO est co-construite avec votre équipe, basée sur vos outils réels et vos processus métier. Plus adaptée aux formations collectives d\'équipe (3 à 200 personnes). Les deux sont finançables via votre OPCO.',
+              a: 'Une formation IA standard (ex. RS7344 CPF) est un programme certifiant défini, avec des sessions planifiées à Strasbourg, Mulhouse et Colmar, idéal pour une montée en compétences individuelle. Une formation IA sur mesure OPCO est co-construite avec votre équipe, basée sur vos outils réels et vos processus métier. Plus adaptée aux formations collectives d\'équipe (3 à 200 personnes). Les deux sont finançables via votre OPCO.',
             },
           ].map((item, i) => <FAQItem key={i} q={item.q} a={item.a} i={i} />)}
         </Section>
@@ -690,7 +697,7 @@ export default function BlogFormationsIAOPCO() {
           <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
             {[
               { label: 'Formation IA financée OPCO', to: '/formation/opco' },
-              { label: 'Formation IA CPF RS7411', to: '/formation/cpf' },
+              { label: 'Formation IA CPF RS7344', to: '/formation/cpf' },
               { label: 'Formation IA sur mesure', to: '/formation/sur-mesure' },
               { label: 'Solution IA sur mesure', to: '/solution-ia' },
             ].map((link) => (

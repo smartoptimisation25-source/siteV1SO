@@ -86,7 +86,7 @@ Le **FNE-Formation** *(Fonds National de l'Emploi)* est un dispositif d'aide de 
 
 Dans certains cas, plusieurs dispositifs peuvent être combinés :
 
-- **OPCO + CPF** : Le CPF d'un salarié peut compléter le financement OPCO pour des formations certifiantes comme notre formation **RS7411**.
+- **OPCO + CPF** : Le CPF d'un salarié peut compléter le financement OPCO pour des formations certifiantes comme notre formation **RS7344**.
 - **OPCO + Région** : Certaines régions (dont l'Alsace) proposent des aides complémentaires pour la montée en compétences numériques des PME.
 - **OPCO + EDEC** : Accord-cadre sectoriel pouvant augmenter les plafonds de financement.
 
@@ -164,7 +164,7 @@ Toute entreprise employant au moins un salarié cotise à un OPCO et est donc **
 
 ### Quelle est la différence entre une formation IA standard et une formation IA sur mesure OPCO ?
 
-- **Formation standard** (ex. RS7411 CPF) : programme certifiant défini, sessions planifiées, idéal pour une montée en compétences individuelle.
+- **Formation standard** (ex. RS7344 CPF) : programme certifiant défini, sessions planifiées, idéal pour une montée en compétences individuelle.
 - **Formation sur mesure OPCO** : programme co-construit avec votre équipe, basé sur vos outils réels et vos processus métier. Plus adapté aux **formations collectives d'équipe** (3 à 200 personnes). Les deux sont finançables via votre OPCO.
 
 ---
@@ -205,7 +205,7 @@ Toute entreprise employant au moins un salarié cotise à un OPCO et est donc **
       "name": "Quelle est la différence entre une formation IA standard et une formation IA sur mesure OPCO ?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Une formation IA standard (ex. RS7411 CPF) est un programme certifiant défini, avec des sessions planifiées, idéal pour une montée en compétences individuelle. Une formation IA sur mesure OPCO est co-construite avec votre équipe, basée sur vos outils réels et processus métier, plus adaptée aux formations collectives de 3 à 200 personnes. Les deux sont finançables via votre OPCO."
+        "text": "Une formation IA standard (ex. RS7344 CPF) est un programme certifiant défini, avec des sessions planifiées, idéal pour une montée en compétences individuelle. Une formation IA sur mesure OPCO est co-construite avec votre équipe, basée sur vos outils réels et processus métier, plus adaptée aux formations collectives de 3 à 200 personnes. Les deux sont finançables via votre OPCO."
       }
     }
   ]

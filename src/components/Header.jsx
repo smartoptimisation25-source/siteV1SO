@@ -17,6 +17,7 @@ const NAV = [
   { label: 'Solution IA sur mesure', path: '/solution-ia' },
   { label: 'Educ IA', path: '/educ-ia' },
   { label: 'Blog', path: '/blog' },
+  { label: 'L\'équipe', path: '/equipe' },
 ]
 
 export default function Header() {
@@ -70,6 +71,8 @@ export default function Header() {
         <motion.div whileHover={{ scale: 1.03, transition: { duration: 0.2 } }}>
           <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '12px', textDecoration: 'none' }}>
             <img src={logo} alt="Smart Optimisation"
+              decoding="async"
+              fetchpriority="high"
               style={{ height: '44px', width: '44px', objectFit: 'contain', borderRadius: '14px', boxShadow: '0 4px 16px rgba(59,79,216,0.25)' }}
             />
             {!isMobile && (
@@ -88,6 +91,8 @@ export default function Header() {
                 {item.dropdown ? (
                   <motion.button
                     onClick={() => setOpenMenu(openMenu === item.label ? null : item.label)}
+                    aria-expanded={openMenu === item.label}
+                    aria-haspopup="true"
                     whileHover={{ scale: 1.03 }}
                     whileTap={{ scale: 0.97 }}
                     style={{
@@ -143,6 +148,7 @@ export default function Header() {
                 <AnimatePresence>
                   {item.dropdown && openMenu === item.label && (
                     <motion.div
+                      role="menu"
                       initial={{ opacity: 0, y: -8, scale: 0.97 }}
                       animate={{ opacity: 1, y: 0, scale: 1 }}
                       exit={{ opacity: 0, y: -8, scale: 0.97 }}
@@ -169,6 +175,7 @@ export default function Header() {
                         >
                           <Link
                             to={sub.path}
+                            role="menuitem"
                             style={{
                               display: 'flex', alignItems: 'center', gap: '10px',
                               padding: '10px 14px', borderRadius: '10px', textDecoration: 'none',
@@ -233,7 +240,7 @@ export default function Header() {
             <Link
               to="/contact"
               style={{
-                padding: '8px 18px', borderRadius: '999px', fontSize: '13px', fontWeight: 600,
+                padding: '12px 22px', borderRadius: '999px', fontSize: '13px', fontWeight: 600,
                 color: '#fff', background: 'linear-gradient(135deg, #3B4FD8, #9B30E8)',
                 textDecoration: 'none', boxShadow: '0 2px 12px rgba(155,48,232,0.30)',
                 whiteSpace: 'nowrap',
@@ -245,7 +252,7 @@ export default function Header() {
               onClick={() => setMobileOpen(!mobileOpen)}
               style={{
                 display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center',
-                gap: '5px', width: '40px', height: '40px', background: 'transparent', border: 'none',
+                gap: '5px', width: '48px', height: '48px', background: 'transparent', border: 'none',
                 cursor: 'pointer', padding: '8px', borderRadius: '10px',
               }}
               aria-label="Menu"

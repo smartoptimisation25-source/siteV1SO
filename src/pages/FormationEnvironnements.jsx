@@ -379,9 +379,23 @@ function ComparePanel({ selectedIds }) {
 /* ─── Page principale ────────────────────────────────────────────── */
 export default function FormationEnvironnements() {
   useSEO({
-    title: 'Formation aux Environnements IA — Claude, ChatGPT, Gemini',
-    description: 'Maîtrisez Claude, ChatGPT et Google Gemini avec des formations expert adaptées à votre infrastructure. Smart Optimisation.',
+    title: 'Formation Claude, ChatGPT & Gemini en entreprise',
+    description: 'Maîtrisez Claude, ChatGPT et Google Gemini avec des formations expert adaptées à votre infrastructure. Comparatif, cas d\'usage métier et déploiement. Smart Optimisation, Strasbourg.',
     path: '/formation/environnements',
+    keywords: 'formation ChatGPT, formation Claude, formation Gemini, formation IA entreprise, comparatif ChatGPT Claude Gemini, formation LLM',
+    jsonLd: {
+      '@context': 'https://schema.org',
+      '@graph': [
+        {
+          '@type': 'BreadcrumbList',
+          'itemListElement': [
+            { '@type': 'ListItem', 'position': 1, 'name': 'Accueil', 'item': 'https://smartoptimisation.fr/' },
+            { '@type': 'ListItem', 'position': 2, 'name': 'Formation', 'item': 'https://smartoptimisation.fr/formation/environnements' },
+            { '@type': 'ListItem', 'position': 3, 'name': 'Formation aux environnements IA' },
+          ],
+        },
+      ],
+    },
   })
 
   const isMobile = useIsMobile()
@@ -395,7 +409,7 @@ export default function FormationEnvironnements() {
   }
 
   return (
-    <div style={{ background: '#ffffff', minHeight: '100vh' }}>
+    <main style={{ background: '#ffffff', minHeight: '100vh' }}>
 
       {/* ── Hero ─────────────────────────────────────────────────── */}
       <section style={{ position: 'relative', overflow: 'hidden', padding: isMobile ? '72px 24px 64px' : '100px 48px 80px' }}>
@@ -670,6 +684,29 @@ export default function FormationEnvironnements() {
         </div>
       </section>
 
-    </div>
+      {/* Maillage interne */}
+      <section style={{ background: '#F9F8FF', padding: isMobile ? '48px 20px' : '64px 48px' }}>
+        <div style={{ maxWidth: '800px', margin: '0 auto' }}>
+          <h2 style={{ color: '#0F0C1E', fontWeight: 700, fontSize: '20px', marginBottom: '20px', textAlign: 'center' }}>
+            Découvrez nos autres formations IA
+          </h2>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+            <Link to="/formation/cpf" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '16px 20px', background: '#fff', borderRadius: '12px', border: '1px solid rgba(59,79,216,0.08)', textDecoration: 'none', color: '#0F0C1E', fontSize: '15px', fontWeight: 500 }}>
+              <span>Formation CPF RS7344</span>
+              <span style={{ color: '#3B4FD8', fontSize: '13px' }}>En savoir plus →</span>
+            </Link>
+            <Link to="/formation/opco" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '16px 20px', background: '#fff', borderRadius: '12px', border: '1px solid rgba(59,79,216,0.08)', textDecoration: 'none', color: '#0F0C1E', fontSize: '15px', fontWeight: 500 }}>
+              <span>Formation OPCO</span>
+              <span style={{ color: '#3B4FD8', fontSize: '13px' }}>En savoir plus →</span>
+            </Link>
+            <Link to="/formation/sur-mesure" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '16px 20px', background: '#fff', borderRadius: '12px', border: '1px solid rgba(59,79,216,0.08)', textDecoration: 'none', color: '#0F0C1E', fontSize: '15px', fontWeight: 500 }}>
+              <span>Formation sur mesure</span>
+              <span style={{ color: '#3B4FD8', fontSize: '13px' }}>En savoir plus →</span>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+    </main>
   )
 }

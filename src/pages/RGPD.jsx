@@ -1,4 +1,13 @@
+import { useSEO } from '../hooks/useSEO'
+
 export default function RGPD() {
+  useSEO({
+    title: 'RGPD — Protection des données',
+    description: 'Politique RGPD et traitement des données personnelles — Smart Optimisation, organisme de formation IA certifié Qualiopi.',
+    path: '/rgpd',
+    robots: 'noindex, follow',
+  })
+
   return (
     <main style={{ background: '#fff', minHeight: 'calc(100vh - 72px)', padding: '64px 24px' }}>
       <div style={{ maxWidth: '800px', margin: '0 auto' }}>
@@ -102,7 +111,7 @@ export default function RGPD() {
           <Section title="7. Délégué à la Protection des Données (DPO)">
             <p>Pour toute question relative à la protection de vos données personnelles, vous pouvez contacter notre responsable de la protection des données :</p>
             <div style={{ padding: '14px 18px', background: 'linear-gradient(135deg, rgba(59,79,216,0.05), rgba(155,48,232,0.05))', borderRadius: '12px', border: '1px solid rgba(59,79,216,0.10)' }}>
-              <p style={{ margin: 0, color: '#0F0C1E', fontWeight: 600, fontSize: '14px' }}>Smart Optimisation — Responsable RGPD</p>
+              <p style={{ margin: 0, color: '#0F0C1E', fontWeight: 600, fontSize: '14px' }}>Jounayd OUADAH LOUBARDI — DPO</p>
               <p style={{ margin: '4px 0 0', color: '#6B7280', fontSize: '13px' }}>contact@smartoptimisation.fr</p>
             </div>
           </Section>

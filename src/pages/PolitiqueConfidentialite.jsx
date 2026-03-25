@@ -1,4 +1,13 @@
+import { useSEO } from '../hooks/useSEO'
+
 export default function PolitiqueConfidentialite() {
+  useSEO({
+    title: 'Politique de confidentialité',
+    description: 'Politique de confidentialité et protection des données personnelles — Smart Optimisation, formation IA en Alsace.',
+    path: '/confidentialite',
+    robots: 'noindex, follow',
+  })
+
   return (
     <main style={{ background: '#fff', minHeight: 'calc(100vh - 72px)', padding: '64px 24px' }}>
       <div style={{ maxWidth: '800px', margin: '0 auto' }}>
@@ -17,8 +26,8 @@ export default function PolitiqueConfidentialite() {
         <div style={{ display: 'flex', flexDirection: 'column', gap: '40px' }}>
 
           <Section title="1. Responsable du traitement">
-            <p>Le responsable du traitement des données personnelles collectées via le site <strong>smartoptimisation.fr</strong> est la société <strong>Smart Optimisation</strong>, dont le siège social est situé en Alsace, France.</p>
-            <p>Contact DPO : <strong>contact@smartoptimisation.fr</strong></p>
+            <p>Le responsable du traitement des données personnelles collectées via le site <strong>smartoptimisation.fr</strong> est la société <strong>SMART'OPTIMISATION</strong>, SAS au capital de 500 €, SIRET 990 743 346 00019, dont le siège social est situé au 200 rue de la Croix Nivert, 75015 Paris.</p>
+            <p>Contact DPO : <strong>Jounayd OUADAH LOUBARDI — contact@smartoptimisation.fr</strong></p>
           </Section>
 
           <Section title="2. Données collectées">

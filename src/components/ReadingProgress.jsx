@@ -30,7 +30,10 @@ export default function ReadingProgress({ articleRef }) {
       zIndex: 9999,
       background: 'rgba(0,0,0,0.08)',
     }}>
-      <div style={{
+      <div
+        role="progressbar"
+        aria-label="Progression de lecture"
+        style={{
         height: '100%',
         width: `${progress}%`,
         background: 'linear-gradient(90deg, #3B4FD8, #9B30E8)',

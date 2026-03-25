@@ -1,24 +1,29 @@
 User-agent: *
 Allow: /
-
-# Bloquer les assets non pertinents pour l'indexation
+Disallow: /api/
 Disallow: /src/
-Disallow: /node_modules/
 
-# Autoriser les ressources critiques
+# Allow critical assets
 Allow: /logo2.png
 Allow: /qualiopi.png
 Allow: /og-image.png
 Allow: /sitemap.xml
+Allow: /fonts/
+Allow: /logos/
 
 # Sitemap
 Sitemap: https://smartoptimisation.fr/sitemap.xml
 
-# GPTBot (OpenAI) — autoriser pour la visibilité IA
+# AI Crawlers — allow for visibility
 User-agent: GPTBot
 Allow: /
 
-# Bingbot
+User-agent: Google-Extended
+Allow: /
+
 User-agent: Bingbot
 Allow: /
 Crawl-delay: 2
+
+User-agent: Applebot
+Allow: /

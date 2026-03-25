@@ -70,7 +70,7 @@ export default function Footer() {
                 whileHover={{ scale: 1.08, rotate: 3, transition: { type: 'spring', stiffness: 300 } }}
                 style={{ width: 48, height: 48, borderRadius: '10px', overflow: 'hidden', flexShrink: 0, cursor: 'default' }}
               >
-                <img src="/logo2.png" alt="Smart Optimisation" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center center' }} />
+                <img src="/logo2.png" alt="Smart Optimisation" loading="lazy" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center center' }} />
               </motion.div>
             </div>
             <p style={{ color: 'rgba(255,255,255,0.70)', fontSize: '13px', maxWidth: '260px', lineHeight: 1.6 }}>
@@ -93,7 +93,7 @@ export default function Footer() {
                   whileHover={{ scale: 1.15, y: -3, background: 'rgba(255,255,255,0.30)', transition: { duration: 0.18 } }}
                   whileTap={{ scale: 0.92 }}
                   style={{
-                    width: 40, height: 40, borderRadius: '10px',
+                    width: 48, height: 48, borderRadius: '10px',
                     background: 'rgba(255,255,255,0.15)', border: '1px solid rgba(255,255,255,0.25)',
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
                     color: '#fff', textDecoration: 'none',
@@ -126,8 +126,14 @@ export default function Footer() {
               <img
                 src="/qualiopi.png"
                 alt="Qualiopi — Processus certifié"
+                loading="lazy"
+                decoding="async"
                 style={{ height: '44px', objectFit: 'contain' }}
               />
+              <span style={{ display: 'flex', flexDirection: 'column', marginLeft: '10px' }}>
+                <span style={{ fontSize: '12px', fontWeight: 600, color: '#374151' }}>Certifié Qualiopi</span>
+                <span style={{ fontSize: '11px', color: '#6B7280' }}>Actions de formation</span>
+              </span>
             </motion.a>
           </div>
         </div>
@@ -135,13 +141,15 @@ export default function Footer() {
         <div style={{ height: '1px', background: 'rgba(255,255,255,0.20)' }} />
 
         {/* Legal tabs */}
+        <nav aria-label="Liens légaux">
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
           {LEGAL.map((l, i) => {
             const base = {
-              padding: '6px 14px', borderRadius: '999px',
+              padding: '10px 16px', borderRadius: '999px',
               border: '1px solid rgba(255,255,255,0.35)', color: '#fff',
               fontSize: '12px', fontWeight: 500, textDecoration: 'none',
               background: 'rgba(255,255,255,0.12)',
+              minHeight: '48px', display: 'inline-flex', alignItems: 'center',
             }
             const content = (
               <motion.span
@@ -162,11 +170,32 @@ export default function Footer() {
             )
           })}
         </div>
+        </nav>
+
+        {/* City pages (Local SEO) */}
+        <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '6px' }}>
+          <span style={{ fontSize: '11px', color: 'rgba(255,255,255,0.45)' }}>Formations IA :</span>
+          {[
+            { label: 'Strasbourg', to: '/formation-ia-strasbourg' },
+            { label: 'Mulhouse', to: '/formation-ia-mulhouse' },
+            { label: 'Colmar', to: '/formation-ia-colmar' },
+          ].map((city, i) => (
+            <span key={city.label} style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+              {i > 0 && <span style={{ color: 'rgba(255,255,255,0.30)', fontSize: '11px' }}>|</span>}
+              <Link to={city.to} style={{ fontSize: '11px', color: 'rgba(255,255,255,0.55)', textDecoration: 'none' }}>
+                {city.label}
+              </Link>
+            </span>
+          ))}
+        </div>
 
         {/* Bottom line */}
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '8px' }}>
           <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: '12px' }}>
             © {new Date().getFullYear()} Smart Optimisation. Tous droits réservés.
+            <span style={{ display: 'block', marginTop: '4px', fontSize: '11px', color: 'rgba(255,255,255,0.40)' }}>
+              Organisme de formation enregistré — Certification Qualiopi
+            </span>
           </p>
           <motion.p
             animate={{ opacity: [0.55, 0.9, 0.55] }}

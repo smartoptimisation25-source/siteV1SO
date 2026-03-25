@@ -236,7 +236,7 @@ const DUALITY = {
     points: [
       { text: 'Bilan de compétences IA', sub: 'Positionnement et objectifs clairs' },
       { text: 'Parcours flexible 100%', sub: 'En ligne, à votre rythme, en soirée/weekend' },
-      { text: 'Financement CPF éligible', sub: 'Certifications reconnues RS7411' },
+      { text: 'Financement CPF éligible', sub: 'Certifications reconnues RS7344' },
       { text: 'Suivi carrière post-formation', sub: 'Portfolio et repositionnement marché' },
     ],
     cta: 'Construire mon parcours',
@@ -407,43 +407,52 @@ function CTABloc() {
 /* ─── Page principale ───────────────────────────────────────────── */
 const SUR_MESURE_SCHEMA = {
   '@context': 'https://schema.org',
-  '@type': 'Service',
-  'name': 'Formation IA sur mesure — Co-construite avec vous',
-  'description': 'Programme de formation IA 100% sur mesure : automatisation processus métier IA, EU AI Act, conformité RGPD, LLMs, IA générative. Pour entreprises 5–500 collaborateurs et particuliers. Audit gratuit.',
-  'url': 'https://smartoptimisation.fr/formation/sur-mesure',
-  'provider': {
-    '@type': 'Organization',
-    'name': 'Smart Optimisation',
-    'url': 'https://smartoptimisation.fr',
-  },
-  'serviceType': 'Formation IA sur mesure',
-  'areaServed': { '@type': 'Country', 'name': 'France' },
-  'hasOfferCatalog': {
-    '@type': 'OfferCatalog',
-    'name': 'Domaines de formation IA',
-    'itemListElement': [
-      { '@type': 'Offer', 'itemOffered': { '@type': 'Service', 'name': 'Efficacité Métier — Automatisation 40% des tâches répétitives' } },
-      { '@type': 'Offer', 'itemOffered': { '@type': 'Service', 'name': 'Conformité EU AI Act & RGPD' } },
-      { '@type': 'Offer', 'itemOffered': { '@type': 'Service', 'name': 'IA Générative Spécialisée — No-code & Data IA' } },
-      { '@type': 'Offer', 'itemOffered': { '@type': 'Service', 'name': 'Stratégie Dirigeant — Culture IA d\'entreprise' } },
-    ],
-  },
-  'additionalProperty': [
-    { '@type': 'PropertyValue', 'name': 'ROI mesurable', 'value': 'J+30' },
-    { '@type': 'PropertyValue', 'name': 'Financement possible', 'value': 'OPCO ou CPF' },
+  '@graph': [
+    {
+      '@type': 'Service',
+      'name': 'Formation IA sur mesure — Co-construite avec vous',
+      'description': 'Programme de formation IA 100% sur mesure : automatisation processus métier IA, EU AI Act, conformité RGPD, LLMs, IA générative. Pour entreprises 5–500 collaborateurs et particuliers. Audit gratuit.',
+      'url': 'https://smartoptimisation.fr/formation/sur-mesure',
+      'provider': { '@id': 'https://smartoptimisation.fr/#organization' },
+      'serviceType': 'Formation IA sur mesure',
+      'areaServed': { '@type': 'Country', 'name': 'France' },
+      'hasOfferCatalog': {
+        '@type': 'OfferCatalog',
+        'name': 'Domaines de formation IA',
+        'itemListElement': [
+          { '@type': 'Offer', 'itemOffered': { '@type': 'Service', 'name': 'Efficacité Métier — Automatisation 40% des tâches répétitives' } },
+          { '@type': 'Offer', 'itemOffered': { '@type': 'Service', 'name': 'Conformité EU AI Act & RGPD' } },
+          { '@type': 'Offer', 'itemOffered': { '@type': 'Service', 'name': 'IA Générative Spécialisée — No-code & Data IA' } },
+          { '@type': 'Offer', 'itemOffered': { '@type': 'Service', 'name': 'Stratégie Dirigeant — Culture IA d\'entreprise' } },
+        ],
+      },
+      'additionalProperty': [
+        { '@type': 'PropertyValue', 'name': 'ROI mesurable', 'value': 'J+30' },
+        { '@type': 'PropertyValue', 'name': 'Financement possible', 'value': 'OPCO ou CPF' },
+      ],
+    },
+    {
+      '@type': 'BreadcrumbList',
+      'itemListElement': [
+        { '@type': 'ListItem', 'position': 1, 'name': 'Accueil', 'item': 'https://smartoptimisation.fr/' },
+        { '@type': 'ListItem', 'position': 2, 'name': 'Formation', 'item': 'https://smartoptimisation.fr/formation/sur-mesure' },
+        { '@type': 'ListItem', 'position': 3, 'name': 'Formation IA sur mesure' },
+      ],
+    },
   ],
 }
 
 export default function FormationSurMesure() {
   const isMobile = useIsMobile()
   useSEO({
-    title: 'Formation IA sur mesure — Audit gratuit',
-    description: 'Programme IA sur mesure : automatisation processus métier, EU AI Act, LLMs, IA générative. Financement OPCO ou CPF possible. Audit gratuit, ROI mesurable à J+30.',
+    title: 'Formation IA sur mesure en entreprise — Alsace & France',
+    description: 'Programme IA sur mesure co-construit avec vos équipes : automatisation, EU AI Act, LLMs. Financement OPCO ou CPF possible. Audit IA gratuit à Strasbourg. Certifié Qualiopi.',
     path: '/formation/sur-mesure',
     jsonLd: SUR_MESURE_SCHEMA,
+    keywords: 'formation IA sur mesure, formation IA entreprise, programme IA personnalisé, formation intelligence artificielle, EU AI Act formation, LLMs formation',
   })
   return (
-    <div style={{ background: '#fff', minHeight: 'calc(100vh - 72px)', position: 'relative', overflow: 'hidden' }}>
+    <main style={{ background: '#fff', minHeight: 'calc(100vh - 72px)', position: 'relative', overflow: 'hidden' }}>
 
       {/* Blobs décoratifs */}
       <motion.div
@@ -544,9 +553,32 @@ export default function FormationSurMesure() {
           {DOMAINS.map((card, i) => <DomainCard key={i} card={card} i={i} isMobile={isMobile} />)}
         </div>
 
+        {/* Maillage interne */}
+        <section style={{ background: '#F9F8FF', padding: isMobile ? '48px 20px' : '64px 48px', borderRadius: '24px', marginBottom: '48px' }}>
+          <div style={{ maxWidth: '800px', margin: '0 auto' }}>
+            <h2 style={{ color: '#0F0C1E', fontWeight: 700, fontSize: '20px', marginBottom: '20px', textAlign: 'center' }}>
+              Découvrez nos autres formations IA
+            </h2>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+              <Link to="/formation/cpf" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '16px 20px', background: '#fff', borderRadius: '12px', border: '1px solid rgba(59,79,216,0.08)', textDecoration: 'none', color: '#0F0C1E', fontSize: '15px', fontWeight: 500 }}>
+                <span>Formation CPF RS7344</span>
+                <span style={{ color: '#3B4FD8', fontSize: '13px' }}>En savoir plus →</span>
+              </Link>
+              <Link to="/formation/opco" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '16px 20px', background: '#fff', borderRadius: '12px', border: '1px solid rgba(59,79,216,0.08)', textDecoration: 'none', color: '#0F0C1E', fontSize: '15px', fontWeight: 500 }}>
+                <span>Formation OPCO</span>
+                <span style={{ color: '#3B4FD8', fontSize: '13px' }}>En savoir plus →</span>
+              </Link>
+              <Link to="/formation/environnements" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '16px 20px', background: '#fff', borderRadius: '12px', border: '1px solid rgba(59,79,216,0.08)', textDecoration: 'none', color: '#0F0C1E', fontSize: '15px', fontWeight: 500 }}>
+                <span>Formation aux environnements IA</span>
+                <span style={{ color: '#3B4FD8', fontSize: '13px' }}>En savoir plus →</span>
+              </Link>
+            </div>
+          </div>
+        </section>
+
         {/* ══ CTA ══ */}
         <CTABloc />
       </div>
-    </div>
+    </main>
   )
 }

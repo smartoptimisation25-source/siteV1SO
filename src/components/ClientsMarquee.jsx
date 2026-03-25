@@ -1,11 +1,11 @@
 const CLIENTS = [
-  { name: 'SNCF',    src: '/logos/sncf.svg',    h: 36 },
-  { name: 'Alstom',  src: '/logos/alstom.png',  h: 32 },
-  { name: 'Hager',   src: '/logos/hager.webp',  h: 34 },
-  { name: 'CTS',     src: '/logos/cts.png',      h: 52 },
-  { name: 'Bugatti', src: '/logos/bugatti.svg',  h: 52 },
-  { name: 'Baumert', src: '/logos/baumert.jpeg', h: 36 },
-  { name: 'HUS',     src: '/logos/hus.png',      h: 52 },
+  { name: 'SNCF — client formation IA Smart Optimisation',    src: '/logos/sncf.svg',    h: 36 },
+  { name: 'Alstom — client formation IA Smart Optimisation',  src: '/logos/alstom.png',  h: 32 },
+  { name: 'Hager — client formation IA Smart Optimisation',   src: '/logos/hager.webp',  h: 34 },
+  { name: 'CTS Strasbourg — client formation IA Smart Optimisation',     src: '/logos/cts.png',      h: 52 },
+  { name: 'Bugatti — client formation IA Smart Optimisation', src: '/logos/bugatti.svg',  h: 52 },
+  { name: 'Baumert — client formation IA Smart Optimisation', src: '/logos/baumert.jpeg', h: 36 },
+  { name: 'HUS Hôpitaux Universitaires de Strasbourg — client formation IA Smart Optimisation',     src: '/logos/hus.png',      h: 52 },
 ]
 
 const ITEMS = [...CLIENTS, ...CLIENTS]
@@ -24,6 +24,8 @@ function LogoItem({ client }) {
       <img
         src={client.src}
         alt={client.name}
+        loading="lazy"
+        decoding="async"
         style={{
           height: `${client.h}px`,
           width: 'auto',
@@ -41,7 +43,7 @@ function LogoItem({ client }) {
 
 export default function ClientsMarquee() {
   return (
-    <div style={{ marginTop: '48px' }}>
+    <div role="region" aria-label="Nos clients partenaires" style={{ marginTop: '48px' }}>
       <p style={{
         color: '#9CA3AF',
         fontSize: '11px',

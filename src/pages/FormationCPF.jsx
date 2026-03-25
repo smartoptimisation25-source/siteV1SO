@@ -3,11 +3,12 @@ import { motion, useMotionValue, useTransform, useSpring } from 'framer-motion'
 import { useRef } from 'react'
 import { useSEO } from '../hooks/useSEO'
 import useIsMobile from '../hooks/useIsMobile'
+import Breadcrumb from '../components/Breadcrumb'
 
 const SESSIONS = [
-  { id: 1, rs: 'RS7411', titre: 'Utiliser l\'IA Générative en entreprise', lieu: 'Strasbourg', date: '14 avril 2025', duree: '7h présentiel', elearning: '14h e-learning', prix: 1500, inscrits: 9, places: 10, modalite: 'Présentiel', niveau: 'Tous niveaux' },
-  { id: 2, rs: 'RS7411', titre: 'Utiliser l\'IA Générative en entreprise', lieu: 'Mulhouse', date: '28 avril 2025', duree: '7h présentiel', elearning: '14h e-learning', prix: 1500, inscrits: 6, places: 10, modalite: 'Présentiel', niveau: 'Tous niveaux' },
-  { id: 3, rs: 'RS7411', titre: 'Utiliser l\'IA Générative en entreprise', lieu: 'Colmar', date: '5 mai 2025', duree: '7h présentiel', elearning: '14h e-learning', prix: 1500, inscrits: 3, places: 10, modalite: 'Présentiel', niveau: 'Tous niveaux' },
+  { id: 1, rs: 'RS7344', titre: 'Utiliser l\'IA Générative en entreprise', lieu: 'Strasbourg', date: '14 avril 2025', duree: '7h présentiel', elearning: '14h e-learning', prix: 1500, inscrits: 9, places: 10, modalite: 'Présentiel', niveau: 'Tous niveaux' },
+  { id: 2, rs: 'RS7344', titre: 'Utiliser l\'IA Générative en entreprise', lieu: 'Mulhouse', date: '28 avril 2025', duree: '7h présentiel', elearning: '14h e-learning', prix: 1500, inscrits: 6, places: 10, modalite: 'Présentiel', niveau: 'Tous niveaux' },
+  { id: 3, rs: 'RS7344', titre: 'Utiliser l\'IA Générative en entreprise', lieu: 'Colmar', date: '5 mai 2025', duree: '7h présentiel', elearning: '14h e-learning', prix: 1500, inscrits: 3, places: 10, modalite: 'Présentiel', niveau: 'Tous niveaux' },
 ]
 
 const FADE_UP = {
@@ -171,65 +172,135 @@ function SessionCard({ session, index }) {
   )
 }
 
-const COURSE_SCHEMA = {
-  '@context': 'https://schema.org',
-  '@type': 'Course',
-  'name': 'IA Générative en entreprise — Certification CPF RS7411',
-  'description': 'Formation certifiée CPF RS7411 pour maîtriser les outils d\'IA générative en milieu professionnel et augmenter la productivité. 7h présentiel + 14h e-learning.',
-  'url': 'https://smartoptimisation.fr/formation/cpf',
-  'provider': {
-    '@type': 'Organization',
-    'name': 'Smart Optimisation',
-    'url': 'https://smartoptimisation.fr',
+const FRENCH_MONTHS = { janvier: '01', février: '02', mars: '03', avril: '04', mai: '05', juin: '06', juillet: '07', août: '08', septembre: '09', octobre: '10', novembre: '11', décembre: '12' }
+function toISO(dateFr) {
+  const [day, month, year] = dateFr.split(' ')
+  return `${year}-${FRENCH_MONTHS[month]}-${day.padStart(2, '0')}`
+}
+
+const EVENT_SCHEMAS = SESSIONS.map(s => ({
+  '@type': 'Event',
+  'name': `Formation IA Générative — Session ${s.lieu}`,
+  'description': 'Formation certifiée CPF RS7344 en intelligence artificielle générative. 7h présentiel + 14h e-learning.',
+  'startDate': toISO(s.date),
+  'endDate': toISO(s.date),
+  'eventAttendanceMode': 'https://schema.org/MixedEventAttendanceMode',
+  'eventStatus': 'https://schema.org/EventScheduled',
+  'location': {
+    '@type': 'Place',
+    'name': s.lieu,
+    'address': {
+      '@type': 'PostalAddress',
+      'addressLocality': s.lieu,
+      'addressRegion': 'Alsace',
+      'addressCountry': 'FR',
+    },
   },
-  'courseCode': 'RS7411',
-  'educationalCredentialAwarded': 'Certification RS7411 — IA Générative',
-  'timeRequired': 'PT21H',
-  'inLanguage': 'fr-FR',
+  'organizer': { '@id': 'https://smartoptimisation.fr/#organization' },
+  'performer': { '@id': 'https://smartoptimisation.fr/#founder' },
   'offers': {
     '@type': 'Offer',
-    'price': '1500',
+    'price': `${s.prix}`,
     'priceCurrency': 'EUR',
-    'availability': 'https://schema.org/InStock',
-    'category': 'Finançable CPF',
+    'availability': s.inscrits >= s.places ? 'https://schema.org/SoldOut' : 'https://schema.org/InStock',
+    'url': 'https://smartoptimisation.fr/contact',
+    'validFrom': '2025-01-01',
   },
-  'hasCourseInstance': [
+  'image': 'https://smartoptimisation.fr/og-image.png',
+  'inLanguage': 'fr-FR',
+}))
+
+const COURSE_SCHEMA = {
+  '@context': 'https://schema.org',
+  '@graph': [
     {
-      '@type': 'CourseInstance',
-      'courseMode': 'Blended',
-      'location': { '@type': 'Place', 'address': { '@type': 'PostalAddress', 'addressLocality': 'Strasbourg', 'addressRegion': 'Alsace', 'addressCountry': 'FR' } },
-      'startDate': '2025-04-14',
-      'instructor': { '@type': 'Organization', 'name': 'Smart Optimisation' },
+      '@type': 'Course',
+      'name': 'IA Générative en entreprise — Certification CPF RS7344',
+      'description': 'Formation certifiée CPF RS7344 pour maîtriser les outils d\'IA générative en milieu professionnel et augmenter la productivité. 7h présentiel + 14h e-learning.',
+      'url': 'https://smartoptimisation.fr/formation/cpf',
+      'provider': { '@id': 'https://smartoptimisation.fr/#organization' },
+      'courseCode': 'RS7344',
+      'educationalCredentialAwarded': 'Certification RS7344 — IA Générative',
+      'timeRequired': 'PT21H',
+      'inLanguage': 'fr-FR',
+      'offers': {
+        '@type': 'Offer',
+        'price': '1500',
+        'priceCurrency': 'EUR',
+        'availability': 'https://schema.org/InStock',
+        'category': 'Finançable CPF',
+      },
+      'hasCourseInstance': [
+        {
+          '@type': 'CourseInstance',
+          'courseMode': 'Blended',
+          'location': { '@type': 'Place', 'address': { '@type': 'PostalAddress', 'addressLocality': 'Strasbourg', 'addressRegion': 'Alsace', 'addressCountry': 'FR' } },
+          'startDate': '2025-04-14',
+          'instructor': { '@id': 'https://smartoptimisation.fr/#founder' },
+        },
+        {
+          '@type': 'CourseInstance',
+          'courseMode': 'Blended',
+          'location': { '@type': 'Place', 'address': { '@type': 'PostalAddress', 'addressLocality': 'Mulhouse', 'addressRegion': 'Alsace', 'addressCountry': 'FR' } },
+          'startDate': '2025-04-28',
+          'instructor': { '@id': 'https://smartoptimisation.fr/#founder' },
+        },
+        {
+          '@type': 'CourseInstance',
+          'courseMode': 'Blended',
+          'location': { '@type': 'Place', 'address': { '@type': 'PostalAddress', 'addressLocality': 'Colmar', 'addressRegion': 'Alsace', 'addressCountry': 'FR' } },
+          'startDate': '2025-05-05',
+          'instructor': { '@id': 'https://smartoptimisation.fr/#founder' },
+        },
+      ],
+      'coursePrerequisites': 'Aucun prérequis technique. Formation accessible à tous les niveaux.',
+      'financialAidEligible': true,
+      'occupationalCategory': 'Managers, Dirigeants, Responsables RH, Chefs de projet, Consultants',
+      'about': [
+        { '@type': 'Thing', 'name': 'Intelligence Artificielle Générative' },
+        { '@type': 'Thing', 'name': 'Certification CPF RS7344' },
+        { '@type': 'Thing', 'name': 'Formation professionnelle' },
+      ],
+      'mentions': [
+        { '@type': 'Organization', 'name': 'France Compétences', 'url': 'https://www.francecompetences.fr/' },
+        { '@type': 'Place', 'name': 'Strasbourg' },
+        { '@type': 'Place', 'name': 'Mulhouse' },
+        { '@type': 'Place', 'name': 'Colmar' },
+      ],
     },
     {
-      '@type': 'CourseInstance',
-      'courseMode': 'Blended',
-      'location': { '@type': 'Place', 'address': { '@type': 'PostalAddress', 'addressLocality': 'Mulhouse', 'addressRegion': 'Alsace', 'addressCountry': 'FR' } },
-      'startDate': '2025-04-28',
-      'instructor': { '@type': 'Organization', 'name': 'Smart Optimisation' },
+      '@type': 'BreadcrumbList',
+      'itemListElement': [
+        { '@type': 'ListItem', 'position': 1, 'name': 'Accueil', 'item': 'https://smartoptimisation.fr/' },
+        { '@type': 'ListItem', 'position': 2, 'name': 'Formation', 'item': 'https://smartoptimisation.fr/formation/cpf' },
+        { '@type': 'ListItem', 'position': 3, 'name': 'Formation IA CPF RS7344' },
+      ],
     },
-    {
-      '@type': 'CourseInstance',
-      'courseMode': 'Blended',
-      'location': { '@type': 'Place', 'address': { '@type': 'PostalAddress', 'addressLocality': 'Colmar', 'addressRegion': 'Alsace', 'addressCountry': 'FR' } },
-      'startDate': '2025-05-05',
-      'instructor': { '@type': 'Organization', 'name': 'Smart Optimisation' },
-    },
+    ...EVENT_SCHEMAS,
   ],
 }
 
 export default function FormationCPF() {
   useSEO({
-    title: 'Formation IA CPF — Certifiée RS7411',
-    description: 'Formation IA générative certifiée CPF RS7411. Sessions à Strasbourg, Mulhouse, Colmar. 7h présentiel + 14h e-learning. Financement 100% via votre CPF. 0 € de reste à charge.',
+    title: 'Formation IA CPF RS7344 — Strasbourg, Mulhouse, Colmar',
+    description: 'Formation IA générative certifiée CPF RS7344 en Alsace. 7h présentiel + 14h e-learning. Financement 100% CPF, 0 € de reste à charge. Sessions à Strasbourg, Mulhouse et Colmar.',
     path: '/formation/cpf',
     jsonLd: COURSE_SCHEMA,
+    keywords: 'formation IA CPF, CPF RS7344, formation intelligence artificielle CPF, formation IA Strasbourg, formation IA Mulhouse, formation IA Colmar, formation IA certifiée, financement CPF',
   })
   const isMobile = useIsMobile()
   const disponibles = SESSIONS.filter(s => s.inscrits < s.places).length
 
   return (
     <main style={{ background: '#fff', minHeight: 'calc(100vh - 72px)' }}>
+
+      <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '88px 24px 0' }}>
+        <Breadcrumb items={[
+          { label: 'Accueil', to: '/' },
+          { label: 'Formation', to: '/formation/cpf' },
+          { label: 'Formation IA CPF RS7344' },
+        ]} />
+      </div>
 
       {/* ── Hero ─────────────────────────────────────── */}
       <section style={{ position: 'relative', overflow: 'hidden', background: 'linear-gradient(135deg, rgba(59,79,216,0.04) 0%, rgba(155,48,232,0.04) 100%)', borderBottom: '1px solid rgba(59,79,216,0.08)', padding: isMobile ? '40px 20px 32px' : '64px 48px 48px' }}>
@@ -252,6 +323,20 @@ export default function FormationCPF() {
               style={{ width: 7, height: 7, borderRadius: '50%', background: 'linear-gradient(135deg,#3B4FD8,#9B30E8)', flexShrink: 0, display: 'block' }} />
             <span style={{ color: '#3B4FD8', fontSize: '13px', fontWeight: 600 }}>Formations certifiantes · Finançables CPF</span>
           </motion.div>
+
+          <motion.p variants={FADE_UP} initial="hidden" animate="show" custom={0.5}
+            style={{ fontSize: '12px', color: '#6B7280', marginBottom: '-12px' }}>
+            <a
+              href="https://www.francecompetences.fr/recherche/rs/7344/"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: '#6B7280', textDecoration: 'none', borderBottom: '1px dashed rgba(107,114,128,0.4)', transition: 'color 0.2s, border-color 0.2s' }}
+              onMouseEnter={e => { e.currentTarget.style.color = '#3B4FD8'; e.currentTarget.style.borderBottomColor = '#3B4FD8' }}
+              onMouseLeave={e => { e.currentTarget.style.color = '#6B7280'; e.currentTarget.style.borderBottomColor = 'rgba(107,114,128,0.4)' }}
+            >
+              Certification RS7344 enregistrée au Répertoire Spécifique de France Compétences
+            </a>
+          </motion.p>
 
           <motion.h1 variants={FADE_UP} initial="hidden" animate="show" custom={1}
             style={{ color: '#0F0C1E', fontWeight: 800, fontSize: 'clamp(2rem, 4vw, 3rem)', lineHeight: 1.15, letterSpacing: '-0.02em', marginBottom: '16px' }}>
@@ -358,6 +443,33 @@ export default function FormationCPF() {
             </Link>
           </motion.div>
         </motion.div>
+      </section>
+
+      {/* Maillage interne */}
+      <section style={{ background: '#F9F8FF', padding: isMobile ? '48px 20px' : '64px 48px' }}>
+        <div style={{ maxWidth: '800px', margin: '0 auto' }}>
+          <h2 style={{ color: '#0F0C1E', fontWeight: 700, fontSize: '20px', marginBottom: '20px', textAlign: 'center' }}>
+            Découvrez nos autres formations IA
+          </h2>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+            <Link to="/formation/opco" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '16px 20px', background: '#fff', borderRadius: '12px', border: '1px solid rgba(59,79,216,0.08)', textDecoration: 'none', color: '#0F0C1E', fontSize: '15px', fontWeight: 500 }}>
+              <span>Formation OPCO</span>
+              <span style={{ color: '#3B4FD8', fontSize: '13px' }}>Formation IA 100% financée par votre OPCO →</span>
+            </Link>
+            <Link to="/formation/sur-mesure" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '16px 20px', background: '#fff', borderRadius: '12px', border: '1px solid rgba(59,79,216,0.08)', textDecoration: 'none', color: '#0F0C1E', fontSize: '15px', fontWeight: 500 }}>
+              <span>Formation sur mesure</span>
+              <span style={{ color: '#3B4FD8', fontSize: '13px' }}>Programme IA sur mesure pour votre entreprise →</span>
+            </Link>
+            <Link to="/formation/environnements" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '16px 20px', background: '#fff', borderRadius: '12px', border: '1px solid rgba(59,79,216,0.08)', textDecoration: 'none', color: '#0F0C1E', fontSize: '15px', fontWeight: 500 }}>
+              <span>Formation aux environnements IA</span>
+              <span style={{ color: '#3B4FD8', fontSize: '13px' }}>Maîtriser Claude, ChatGPT et Gemini →</span>
+            </Link>
+            <Link to="/solution-ia" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '16px 20px', background: '#fff', borderRadius: '12px', border: '1px solid rgba(59,79,216,0.08)', textDecoration: 'none', color: '#0F0C1E', fontSize: '15px', fontWeight: 500 }}>
+              <span>Solution IA sur mesure</span>
+              <span style={{ color: '#3B4FD8', fontSize: '13px' }}>Déployer une solution IA métier →</span>
+            </Link>
+          </div>
+        </div>
       </section>
 
       <style>{`

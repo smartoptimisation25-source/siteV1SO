@@ -1,4 +1,13 @@
+import { useSEO } from '../hooks/useSEO'
+
 export default function MentionsLegales() {
+  useSEO({
+    title: 'Mentions légales',
+    description: 'Mentions légales du site smartoptimisation.fr — Smart Optimisation, organisme de formation IA certifié Qualiopi en Alsace.',
+    path: '/mentions-legales',
+    robots: 'noindex, follow',
+  })
+
   return (
     <main style={{ background: '#fff', minHeight: 'calc(100vh - 72px)', padding: '64px 24px' }}>
       <div style={{ maxWidth: '800px', margin: '0 auto' }}>
@@ -12,7 +21,7 @@ export default function MentionsLegales() {
           <h1 style={{ color: '#0F0C1E', fontWeight: 800, fontSize: 'clamp(1.8rem, 3vw, 2.6rem)', letterSpacing: '-0.02em', marginBottom: '12px' }}>
             Mentions légales
           </h1>
-          <p style={{ color: '#9CA3AF', fontSize: '14px' }}>Dernière mise à jour : mars 2025</p>
+          <p style={{ color: '#9CA3AF', fontSize: '14px' }}>Dernière mise à jour : mars 2026</p>
         </div>
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: '40px' }}>
@@ -20,16 +29,22 @@ export default function MentionsLegales() {
           <Section title="1. Éditeur du site">
             <p>Le site <strong>smartoptimisation.fr</strong> est édité par :</p>
             <InfoGrid items={[
-              { label: 'Raison sociale', value: 'Smart Optimisation' },
-              { label: 'Forme juridique', value: 'SAS (Société par Actions Simplifiée)' },
-              { label: 'Siège social', value: 'Alsace, France' },
+              { label: 'Raison sociale', value: "SMART'OPTIMISATION" },
+              { label: 'Forme juridique', value: 'SAS au capital de 500 €' },
+              { label: 'SIRET', value: '990 743 346 00019' },
+              { label: 'RCS', value: 'Paris 990 743 346' },
+              { label: 'TVA intracommunautaire', value: 'FR88990743346' },
+              { label: 'Siège social', value: '200 rue de la Croix Nivert, 75015 Paris' },
               { label: 'Email', value: 'contact@smartoptimisation.fr' },
-              { label: 'Directeur de la publication', value: 'Le représentant légal de Smart Optimisation' },
+              { label: 'Téléphone', value: '06 88 67 39 61' },
+              { label: 'Directeur de la publication', value: 'Jounayd OUADAH LOUBARDI, Président' },
+              { label: 'NDA formation', value: '11757342375' },
+              { label: 'Certification Qualiopi', value: 'Certificat n° CERT_S1125_1328, délivré par CEVA Solution' },
             ]} />
           </Section>
 
           <Section title="2. Hébergement">
-            <p>Le site est hébergé par un prestataire d'hébergement professionnel. Les coordonnées de l'hébergeur sont disponibles sur demande à l'adresse <strong>contact@smartoptimisation.fr</strong>.</p>
+            <p>Le site est hébergé par <strong>Vercel Inc.</strong>, 340 S Lemon Ave #4133, Walnut, CA 91789, USA.</p>
           </Section>
 
           <Section title="3. Propriété intellectuelle">

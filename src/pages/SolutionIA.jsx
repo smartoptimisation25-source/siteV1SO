@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { motion, useMotionValue, useSpring, useTransform, useInView, AnimatePresence } from 'framer-motion'
 import { useSEO } from '../hooks/useSEO'
 import useIsMobile from '../hooks/useIsMobile'
+import Breadcrumb from '../components/Breadcrumb'
 
 /* ─── Icônes ────────────────────────────────────────────────────── */
 const Ico = ({ d, size = 20 }) => (
@@ -400,44 +401,92 @@ function CTABloc() {
 /* ─── Page principale ───────────────────────────────────────────── */
 const SOLUTION_IA_SCHEMA = {
   '@context': 'https://schema.org',
-  '@type': 'Service',
-  'name': 'Déploiement solution IA sur mesure — SaaS, Automatisation, Agents IA',
-  'description': 'Conception et déploiement de solutions IA sur mesure : SaaS IA intégrant des LLMs, automatisation processus métier IA (Make, n8n), agents autonomes 24/7, architecture scalable conforme EU AI Act et RGPD. +20 projets livrés.',
-  'url': 'https://smartoptimisation.fr/solution-ia',
-  'provider': {
-    '@type': 'Organization',
-    'name': 'Smart Optimisation',
-    'url': 'https://smartoptimisation.fr',
-  },
-  'serviceType': 'Développement solution IA sur mesure',
-  'areaServed': { '@type': 'Country', 'name': 'France' },
-  'hasOfferCatalog': {
-    '@type': 'OfferCatalog',
-    'name': 'Solutions IA sur mesure',
-    'itemListElement': [
-      { '@type': 'Offer', 'itemOffered': { '@type': 'Service', 'name': 'SaaS IA — Plateformes intégrant des LLMs (OpenAI, Claude)' } },
-      { '@type': 'Offer', 'itemOffered': { '@type': 'Service', 'name': 'Automatisation processus métier IA — Make, n8n, Zapier' } },
-      { '@type': 'Offer', 'itemOffered': { '@type': 'Service', 'name': 'Agents IA autonomes 24/7 — LangGraph, AutoGen, RAG' } },
-      { '@type': 'Offer', 'itemOffered': { '@type': 'Service', 'name': 'Architecture IA scalable — Conformité EU AI Act & RGPD' } },
-    ],
-  },
-  'additionalProperty': [
-    { '@type': 'PropertyValue', 'name': 'Projets livrés', 'value': '+20' },
-    { '@type': 'PropertyValue', 'name': 'Conformité', 'value': 'EU AI Act & RGPD' },
-    { '@type': 'PropertyValue', 'name': 'Étude de faisabilité', 'value': 'Offerte sous 48h' },
+  '@graph': [
+    {
+      '@type': 'Service',
+      'name': 'Déploiement solution IA sur mesure — SaaS, Automatisation, Agents IA',
+      'description': 'Conception et déploiement de solutions IA sur mesure : SaaS IA intégrant des LLMs, automatisation processus métier IA (Make, n8n), agents autonomes 24/7, architecture scalable conforme EU AI Act et RGPD. +20 projets livrés.',
+      'url': 'https://smartoptimisation.fr/solution-ia',
+      'provider': { '@id': 'https://smartoptimisation.fr/#organization' },
+      'serviceType': 'Développement solution IA sur mesure',
+      'areaServed': { '@type': 'Country', 'name': 'France' },
+      'hasOfferCatalog': {
+        '@type': 'OfferCatalog',
+        'name': 'Solutions IA sur mesure',
+        'itemListElement': [
+          { '@type': 'Offer', 'itemOffered': { '@type': 'Service', 'name': 'SaaS IA — Plateformes intégrant des LLMs (OpenAI, Claude)' } },
+          { '@type': 'Offer', 'itemOffered': { '@type': 'Service', 'name': 'Automatisation processus métier IA — Make, n8n, Zapier' } },
+          { '@type': 'Offer', 'itemOffered': { '@type': 'Service', 'name': 'Agents IA autonomes 24/7 — LangGraph, AutoGen, RAG' } },
+          { '@type': 'Offer', 'itemOffered': { '@type': 'Service', 'name': 'Architecture IA scalable — Conformité EU AI Act & RGPD' } },
+        ],
+      },
+      'additionalProperty': [
+        { '@type': 'PropertyValue', 'name': 'Projets livrés', 'value': '+20' },
+        { '@type': 'PropertyValue', 'name': 'Conformité', 'value': 'EU AI Act & RGPD' },
+        { '@type': 'PropertyValue', 'name': 'Étude de faisabilité', 'value': 'Offerte sous 48h' },
+      ],
+      'about': [
+        { '@type': 'Thing', 'name': 'Solution IA sur mesure' },
+        { '@type': 'Thing', 'name': 'Automatisation processus métier' },
+        { '@type': 'Thing', 'name': 'Agents IA autonomes' },
+      ],
+      'mentions': [
+        { '@type': 'Thing', 'name': 'EU AI Act' },
+        { '@type': 'Thing', 'name': 'RGPD' },
+        { '@type': 'Thing', 'name': 'LangChain' },
+        { '@type': 'Thing', 'name': 'SaaS IA' },
+      ],
+    },
+    {
+      '@type': 'BreadcrumbList',
+      'itemListElement': [
+        { '@type': 'ListItem', 'position': 1, 'name': 'Accueil', 'item': 'https://smartoptimisation.fr/' },
+        { '@type': 'ListItem', 'position': 2, 'name': 'Solution IA sur mesure' },
+      ],
+    },
+    {
+      '@type': 'FAQPage',
+      'mainEntity': [
+        {
+          '@type': 'Question',
+          'name': 'Combien coûte une solution IA sur mesure ?',
+          'acceptedAnswer': {
+            '@type': 'Answer',
+            'text': 'Chaque projet est unique. Smart Optimisation propose une étude de faisabilité gratuite sous 48h pour évaluer vos besoins et vous présenter un devis transparent. Les projets démarrent généralement à partir de quelques milliers d\'euros.',
+          },
+        },
+        {
+          '@type': 'Question',
+          'name': 'Combien de temps prend le déploiement d\'une solution IA ?',
+          'acceptedAnswer': {
+            '@type': 'Answer',
+            'text': 'Un premier prototype fonctionnel est livré en 2 à 4 semaines. Le déploiement complet prend de 1 à 3 mois selon la complexité, avec un suivi et des itérations continues.',
+          },
+        },
+        {
+          '@type': 'Question',
+          'name': 'Vos solutions IA sont-elles conformes au RGPD et à l\'EU AI Act ?',
+          'acceptedAnswer': {
+            '@type': 'Answer',
+            'text': 'Oui. Toutes nos solutions intègrent la conformité RGPD et EU AI Act dès la conception (privacy by design). Nous auditons les risques, documentons les traitements et garantissons la traçabilité des décisions IA.',
+          },
+        },
+      ],
+    },
   ],
 }
 
 export default function SolutionIA() {
   useSEO({
-    title: 'Solution IA sur mesure — SaaS & Agents IA',
-    description: 'Solutions IA sur mesure : SaaS IA, automatisation processus métier, agents autonomes 24/7. Conformité EU AI Act & RGPD. +20 projets livrés. Étude de faisabilité offerte.',
+    title: 'Solution IA sur mesure pour PME — Agents & Automatisation',
+    description: 'Solutions IA sur mesure : SaaS IA, automatisation processus métier, agents autonomes 24/7. Conformité EU AI Act & RGPD. +20 projets livrés en Alsace. Étude de faisabilité offerte.',
     path: '/solution-ia',
     jsonLd: SOLUTION_IA_SCHEMA,
+    keywords: 'solution IA sur mesure, automatisation IA, agents IA, SaaS IA, déploiement IA entreprise, EU AI Act, RGPD IA, LangChain',
   })
   const isMobile = useIsMobile()
   return (
-    <div style={{ background: '#fff', minHeight: 'calc(100vh - 72px)', position: 'relative', overflow: 'hidden' }}>
+    <main style={{ background: '#fff', minHeight: 'calc(100vh - 72px)', position: 'relative', overflow: 'hidden' }}>
 
       {/* Dot grid global hero */}
       <div style={{
@@ -462,16 +511,11 @@ export default function SolutionIA() {
 
       <div style={{ maxWidth: '1100px', margin: '0 auto', padding: isMobile ? '40px 20px 60px' : '72px 48px 100px', position: 'relative', zIndex: 2 }}>
 
-        {/* Retour */}
-        <motion.div initial={{ opacity: 0, x: -12 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.35 }}>
-          <Link to="/" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: '#9CA3AF', fontSize: '13px', textDecoration: 'none', marginBottom: '48px', fontWeight: 500, transition: 'color 0.18s' }}
-            onMouseEnter={e => { e.currentTarget.style.color = '#3B4FD8'; e.currentTarget.style.transform = 'translateX(-3px)' }}
-            onMouseLeave={e => { e.currentTarget.style.color = '#9CA3AF'; e.currentTarget.style.transform = 'translateX(0)' }}
-          >
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-            Retour à l'accueil
-          </Link>
-        </motion.div>
+        {/* ── Fil d'Ariane ── */}
+        <Breadcrumb items={[
+          { label: 'Accueil', to: '/' },
+          { label: 'Solution IA sur mesure' },
+        ]} />
 
         {/* ══ HERO ══ */}
         <div style={{ maxWidth: '820px', marginBottom: isMobile ? '40px' : '72px' }}>
@@ -559,9 +603,28 @@ export default function SolutionIA() {
         {/* ══ WORKFLOW ══ */}
         <WorkflowSection />
 
+        {/* Maillage interne */}
+        <section style={{ background: '#F9F8FF', padding: isMobile ? '48px 20px' : '64px 48px', borderRadius: '24px', marginBottom: '48px' }}>
+          <div style={{ maxWidth: '800px', margin: '0 auto' }}>
+            <h2 style={{ color: '#0F0C1E', fontWeight: 700, fontSize: '20px', marginBottom: '20px', textAlign: 'center' }}>
+              Découvrez nos autres formations IA
+            </h2>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+              <Link to="/formation/sur-mesure" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '16px 20px', background: '#fff', borderRadius: '12px', border: '1px solid rgba(59,79,216,0.08)', textDecoration: 'none', color: '#0F0C1E', fontSize: '15px', fontWeight: 500 }}>
+                <span>Formation IA sur mesure</span>
+                <span style={{ color: '#3B4FD8', fontSize: '13px' }}>En savoir plus →</span>
+              </Link>
+              <Link to="/formation/opco" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '16px 20px', background: '#fff', borderRadius: '12px', border: '1px solid rgba(59,79,216,0.08)', textDecoration: 'none', color: '#0F0C1E', fontSize: '15px', fontWeight: 500 }}>
+                <span>Formation OPCO</span>
+                <span style={{ color: '#3B4FD8', fontSize: '13px' }}>En savoir plus →</span>
+              </Link>
+            </div>
+          </div>
+        </section>
+
         {/* ══ CTA ══ */}
         <CTABloc />
       </div>
-    </div>
+    </main>
   )
 }
