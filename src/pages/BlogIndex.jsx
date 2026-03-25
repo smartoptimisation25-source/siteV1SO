@@ -119,73 +119,129 @@ function HeroCard({ article, isMobile }) {
   )
 }
 
+const CARD_GRADIENTS = [
+  'linear-gradient(135deg, #3B4FD8 0%, #9B30E8 100%)',
+  'linear-gradient(135deg, #0f766e 0%, #3B4FD8 100%)',
+  'linear-gradient(135deg, #9B30E8 0%, #E83B9B 100%)',
+  'linear-gradient(135deg, #D97706 0%, #9B30E8 100%)',
+]
+
 function ArticleCard({ article, index, isMobile }) {
+  const cat = CATEGORIES[article.category] || { color: '#6b7280', bg: 'rgba(107,114,128,0.10)' }
+  const gradient = CARD_GRADIENTS[index % CARD_GRADIENTS.length]
+
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 28 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4, delay: index * 0.08 }}
+      transition={{ duration: 0.45, delay: index * 0.1 }}
+      whileHover={{ y: -6, transition: { duration: 0.2 } }}
     >
-      <Link
-        to={`/blog/${article.slug}`}
-        style={{ textDecoration: 'none', display: 'block' }}
-      >
+      <Link to={`/blog/${article.slug}`} style={{ textDecoration: 'none', display: 'block' }}>
         <div style={{
           background: '#fff',
-          borderRadius: 14,
-          padding: '24px',
+          borderRadius: 20,
+          overflow: 'hidden',
           border: '1px solid #e5e7eb',
-          transition: 'box-shadow 0.2s, transform 0.2s',
+          boxShadow: '0 4px 20px rgba(0,0,0,0.06)',
+          transition: 'box-shadow 0.25s, border-color 0.25s',
           cursor: 'pointer',
-          height: '100%',
+          display: 'flex',
+          flexDirection: 'column',
         }}
           onMouseEnter={e => {
-            e.currentTarget.style.boxShadow = '0 8px 32px rgba(59,79,216,0.12)'
-            e.currentTarget.style.transform = 'translateY(-2px)'
+            e.currentTarget.style.boxShadow = '0 16px 48px rgba(59,79,216,0.16)'
+            e.currentTarget.style.borderColor = 'rgba(59,79,216,0.25)'
           }}
           onMouseLeave={e => {
-            e.currentTarget.style.boxShadow = 'none'
-            e.currentTarget.style.transform = 'translateY(0)'
+            e.currentTarget.style.boxShadow = '0 4px 20px rgba(0,0,0,0.06)'
+            e.currentTarget.style.borderColor = '#e5e7eb'
           }}
         >
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 14 }}>
-            <CategoryBadge category={article.category} />
-            <span style={{ fontSize: 12, color: '#9ca3af' }}>{article.readTime} min</span>
-          </div>
-
-          <h2 style={{
-            fontSize: 17,
-            fontWeight: 700,
-            color: '#111827',
-            lineHeight: 1.4,
-            marginBottom: 10,
-          }}>
-            {article.title}
-          </h2>
-
-          <p style={{
-            fontSize: 14,
-            color: '#6b7280',
-            lineHeight: 1.6,
-            marginBottom: 16,
-          }}>
-            {article.excerpt}
-          </p>
-
+          {/* Bande colorée en haut */}
           <div style={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            borderTop: '1px solid #f3f4f6',
-            paddingTop: 14,
-            marginTop: 'auto',
-          }}>
-            <span style={{ fontSize: 12, color: '#9ca3af' }}>
-              {new Date(article.date).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}
-            </span>
-            <span style={{ fontSize: 13, color: '#3B4FD8', fontWeight: 700 }}>
-              Lire →
-            </span>
+            height: 6,
+            background: gradient,
+          }} />
+
+          <div style={{ padding: isMobile ? '24px 20px 20px' : '28px 28px 24px', display: 'flex', flexDirection: 'column', flex: 1 }}>
+            {/* Badge + durée */}
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 18 }}>
+              <span style={{
+                padding: '5px 14px',
+                borderRadius: 999,
+                fontSize: 12,
+                fontWeight: 700,
+                color: cat.color,
+                background: cat.bg,
+                letterSpacing: 0.3,
+              }}>
+                {article.category}
+              </span>
+              <span style={{
+                fontSize: 12,
+                color: '#9ca3af',
+                display: 'flex',
+                alignItems: 'center',
+                gap: 5,
+              }}>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+                </svg>
+                {article.readTime} min
+              </span>
+            </div>
+
+            {/* Titre */}
+            <h2 style={{
+              fontSize: isMobile ? 18 : 21,
+              fontWeight: 800,
+              color: '#111827',
+              lineHeight: 1.35,
+              marginBottom: 14,
+              letterSpacing: '-0.01em',
+            }}>
+              {article.title}
+            </h2>
+
+            {/* Extrait */}
+            <p style={{
+              fontSize: 14,
+              color: '#6b7280',
+              lineHeight: 1.7,
+              marginBottom: 24,
+              flex: 1,
+            }}>
+              {article.excerpt}
+            </p>
+
+            {/* Footer */}
+            <div style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+            }}>
+              <span style={{ fontSize: 12, color: '#9ca3af' }}>
+                {new Date(article.date).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}
+              </span>
+              <span style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: 6,
+                padding: '9px 20px',
+                borderRadius: 999,
+                background: gradient,
+                color: '#fff',
+                fontWeight: 700,
+                fontSize: 13,
+                boxShadow: '0 4px 14px rgba(59,79,216,0.25)',
+              }}>
+                Lire l'article
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+                </svg>
+              </span>
+            </div>
           </div>
         </div>
       </Link>
@@ -242,7 +298,7 @@ export default function BlogIndex() {
             margin: '0 auto',
             lineHeight: 1.6,
           }}>
-            Guides financement OPCO, études de cas, conformité EU AI Act et stratégies de formation pour transformer vos équipes à l'IA.
+            Décryptages, guides pratiques et retours d'expérience sur l'intelligence artificielle — pour les professionnels qui veulent une longueur d'avance.
           </p>
         </motion.div>
       </div>
