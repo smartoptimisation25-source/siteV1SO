@@ -35,7 +35,7 @@ const SOCIAL = [
 const LEGAL = [
   { label: 'Mentions légales', href: '/mentions-legales' },
   { label: 'Politique de confidentialité', href: '/confidentialite' },
-  { label: 'CGV', href: '/cgv.pdf', blank: true },
+  { label: 'CGV', href: '/cgv' },
   { label: 'RGPD', href: '/rgpd' },
   { label: 'Cookies', href: '/cookies' },
 ]

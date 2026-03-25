@@ -14,6 +14,7 @@ import MentionsLegales from './pages/MentionsLegales'
 import PolitiqueConfidentialite from './pages/PolitiqueConfidentialite'
 import RGPD from './pages/RGPD'
 import Cookies from './pages/Cookies'
+import CGV from './pages/CGV'
 import NotFound from './pages/NotFound'
 import BlogIndex from './pages/BlogIndex'
 import BlogArticle from './pages/BlogArticle'
@@ -47,6 +48,7 @@ export default function App() {
             <Route path="/confidentialite" element={<PolitiqueConfidentialite />} />
             <Route path="/rgpd" element={<RGPD />} />
             <Route path="/cookies" element={<Cookies />} />
+            <Route path="/cgv" element={<CGV />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </div>
