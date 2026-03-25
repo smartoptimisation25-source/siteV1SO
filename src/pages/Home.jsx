@@ -382,7 +382,7 @@ export default function Home() {
         display: 'flex',
         flexDirection: isMobile ? 'column' : 'row',
         alignItems: isMobile ? 'flex-start' : 'center',
-        padding: isMobile ? '32px 24px 40px' : '40px 48px',
+        padding: isMobile ? '20px 24px 40px' : '20px 48px',
       }}>
         <motion.div
           animate={{ scale: [1, 1.2, 1], x: [0, 20, 0], y: [0, -20, 0] }}
