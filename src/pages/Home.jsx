@@ -351,8 +351,8 @@ const HOME_SCHEMA = {
   '@type': 'WebPage',
   '@id': 'https://smartoptimisation.fr/#webpage',
   'url': 'https://smartoptimisation.fr/',
-  'name': 'Formation IA & Solutions IA sur mesure en Alsace | Smart Optimisation',
-  'description': 'Expert en IA : formations certifiées CPF RS7411, financement OPCO 100%, audit IA gratuit, déploiement solution IA sur mesure. +150 entreprises accompagnées.',
+  'name': 'Formation IA Grand-Est — CPF, OPCO, Sur Mesure | Smart Optimisation',
+  'description': 'Organisme de formation IA certifié Qualiopi dans le Grand-Est. CPF RS7411, OPCO 100% financé, formations sur mesure. Strasbourg, Nancy, Metz, Reims, Mulhouse.',
   'isPartOf': { '@id': 'https://smartoptimisation.fr/#website' },
   'about': { '@id': 'https://smartoptimisation.fr/#organization' },
   'breadcrumb': {
@@ -365,8 +365,8 @@ const HOME_SCHEMA = {
 
 export default function Home() {
   useSEO({
-    title: 'Formation IA & Solutions IA — Alsace',
-    description: 'Expert en IA : formations certifiées CPF RS7411, financement OPCO 100%, audit IA gratuit, automatisation processus métier IA. +150 entreprises accompagnées en Alsace.',
+    title: 'Formation IA Grand-Est — CPF, OPCO, Sur Mesure | Smart Optimisation',
+    description: 'Organisme de formation IA certifié Qualiopi dans le Grand-Est. CPF RS7411, OPCO 100% financé, formations sur mesure. Strasbourg, Nancy, Metz, Reims, Mulhouse.',
     path: '/',
     jsonLd: HOME_SCHEMA,
   })

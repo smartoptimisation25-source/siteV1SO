@@ -172,8 +172,8 @@ const OPCO_SERVICE_SCHEMA = {
 
 export default function FormationOPCO() {
   useSEO({
-    title: 'Formation IA OPCO — 100% financée, zéro avance',
-    description: 'Formez vos collaborateurs à l\'IA avec financement OPCO : Atlas, Akto, Uniformation. Zéro avance de trésorerie, ROI mesurable dès J+30. Audit IA gratuit inclus.',
+    title: 'Formation IA OPCO Grand-Est — Financement 100%, Qualiopi',
+    description: 'Formation IA financée 100% par votre OPCO dans le Grand-Est. Strasbourg, Nancy, Metz. Zéro avance, dossier géré par Smart Optimisation. Certifié Qualiopi.',
     path: '/formation/opco',
     jsonLd: OPCO_SERVICE_SCHEMA,
   })

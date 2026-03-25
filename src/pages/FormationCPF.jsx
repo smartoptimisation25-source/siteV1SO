@@ -220,8 +220,8 @@ const COURSE_SCHEMA = {
 
 export default function FormationCPF() {
   useSEO({
-    title: 'Formation IA CPF — Certifiée RS7411',
-    description: 'Formation IA générative certifiée CPF RS7411. Sessions à Strasbourg, Mulhouse, Colmar. 7h présentiel + 14h e-learning. Financement 100% via votre CPF. 0 € de reste à charge.',
+    title: 'Formation IA CPF RS7411 Grand-Est — Strasbourg, Mulhouse, Colmar',
+    description: 'Formation IA certifiée CPF RS7411 dans le Grand-Est. Sessions à Strasbourg, Mulhouse, Colmar. 0 € reste à charge. Organisme Qualiopi. Financement 100% CPF.',
     path: '/formation/cpf',
     jsonLd: COURSE_SCHEMA,
   })

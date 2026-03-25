@@ -437,8 +437,8 @@ const SUR_MESURE_SCHEMA = {
 export default function FormationSurMesure() {
   const isMobile = useIsMobile()
   useSEO({
-    title: 'Formation IA sur mesure — Audit gratuit',
-    description: 'Programme IA sur mesure : automatisation processus métier, EU AI Act, LLMs, IA générative. Financement OPCO ou CPF possible. Audit gratuit, ROI mesurable à J+30.',
+    title: 'Formation IA Sur Mesure Grand-Est — Intra-entreprise, OPCO, Qualiopi',
+    description: 'Formation IA intra-entreprise sur mesure dans le Grand-Est. Make, n8n, LLMs, EU AI Act. Finançable OPCO, certifié Qualiopi. ROI mesurable dès J+30. Audit gratuit.',
     path: '/formation/sur-mesure',
     jsonLd: SUR_MESURE_SCHEMA,
   })

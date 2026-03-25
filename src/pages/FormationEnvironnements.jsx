@@ -379,8 +379,8 @@ function ComparePanel({ selectedIds }) {
 /* ─── Page principale ────────────────────────────────────────────── */
 export default function FormationEnvironnements() {
   useSEO({
-    title: 'Formation aux Environnements IA — Claude, ChatGPT, Gemini',
-    description: 'Maîtrisez Claude, ChatGPT et Google Gemini avec des formations expert adaptées à votre infrastructure. Smart Optimisation.',
+    title: 'Formation Claude, ChatGPT, Gemini Grand-Est — Environnements IA',
+    description: 'Maîtrisez Claude, ChatGPT et Gemini dans le Grand-Est. Formation sur mesure adaptée à votre infrastructure. Finançable OPCO, certifié Qualiopi. Diagnostic gratuit.',
     path: '/formation/environnements',
   })
 

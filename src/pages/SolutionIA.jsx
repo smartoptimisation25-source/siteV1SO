@@ -430,8 +430,8 @@ const SOLUTION_IA_SCHEMA = {
 
 export default function SolutionIA() {
   useSEO({
-    title: 'Solution IA sur mesure — SaaS & Agents IA',
-    description: 'Solutions IA sur mesure : SaaS IA, automatisation processus métier, agents autonomes 24/7. Conformité EU AI Act & RGPD. +20 projets livrés. Étude de faisabilité offerte.',
+    title: 'Solution IA Sur Mesure Grand-Est — SaaS, Make, n8n, Agents IA',
+    description: 'Intégrez l\'IA dans votre entreprise du Grand-Est. Automatisation Make/n8n/Zapier, SaaS IA, agents autonomes. Conformité EU AI Act. ROI mesurable. Étude gratuite.',
     path: '/solution-ia',
     jsonLd: SOLUTION_IA_SCHEMA,
   })
