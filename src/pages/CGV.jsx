@@ -26,7 +26,7 @@ export default function CGV() {
             <InfoGrid items={[
               { label: 'Raison sociale', value: 'Smart Optimisation' },
               { label: 'Forme juridique', value: 'SAS (Société par Actions Simplifiée)' },
-              { label: 'Siège social', value: 'Alsace, France' },
+              { label: 'Siège social', value: '200 rue de la Croix Nivert, 75015 Paris, France' },
               { label: 'Activité', value: 'Organisme de formation professionnelle certifié Qualiopi' },
               { label: 'Email', value: 'contact@smartoptimisation.fr' },
             ]} />
