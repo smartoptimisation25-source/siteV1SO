@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { useSEO } from '../hooks/useSEO'
 import useIsMobile from '../hooks/useIsMobile'
-import { articles, CATEGORIES, getFeaturedArticle } from '../data/blogArticles'
+import { articles, CATEGORIES } from '../data/blogArticles'
 
 const BLOG_INDEX_SCHEMA = {
   '@context': 'https://schema.org',
@@ -194,9 +194,7 @@ function ArticleCard({ article, index, isMobile }) {
 }
 
 export default function BlogIndex() {
-  const featured = getFeaturedArticle()
   const isMobile = useIsMobile()
-  const rest = articles.filter(a => !a.featured)
 
   useSEO({
     title: 'Blog IA & Formation — Actualités et Guides 2026',
@@ -249,43 +247,16 @@ export default function BlogIndex() {
         </motion.div>
       </div>
 
-      {/* Hero card */}
-      {featured && <HeroCard article={featured} isMobile={isMobile} />}
-
-      {/* Grid */}
-      {rest.length > 0 && (
-        <>
-          <h2 style={{
-            fontSize: 20,
-            fontWeight: 700,
-            color: '#374151',
-            marginBottom: 24,
-            paddingBottom: 12,
-            borderBottom: '1px solid #e5e7eb',
-          }}>
-            Tous les articles
-          </h2>
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fill, minmax(320px, 1fr))',
-            gap: 24,
-          }}>
-            {rest.map((article, i) => (
-              <ArticleCard key={article.slug} article={article} index={i} isMobile={isMobile} />
-            ))}
-          </div>
-        </>
-      )}
-
-      {/* Empty state when only 1 article */}
-      {rest.length === 0 && (
-        <div style={{ textAlign: 'center', padding: '40px 0', color: '#9ca3af' }}>
-          <p style={{ fontSize: 15 }}>D'autres articles arrivent bientôt.</p>
-          <Link to="/contact" style={{ color: '#3B4FD8', fontWeight: 700, fontSize: 14 }}>
-            Être notifié →
-          </Link>
-        </div>
-      )}
+      {/* Grid uniforme */}
+      <div style={{
+        display: 'grid',
+        gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fill, minmax(320px, 1fr))',
+        gap: 24,
+      }}>
+        {articles.map((article, i) => (
+          <ArticleCard key={article.slug} article={article} index={i} isMobile={isMobile} />
+        ))}
+      </div>
     </main>
   )
 }
