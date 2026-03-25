@@ -91,8 +91,9 @@ export default function Footer() {
 
         <div style={{ height: '1px', background: 'rgba(255,255,255,0.20)' }} />
 
-        {/* Legal tabs */}
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
+        {/* Legal tabs + Qualiopi */}
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '12px' }}>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
           {LEGAL.map((l, i) => {
             const base = {
               padding: '6px 14px', borderRadius: '999px',
@@ -118,28 +119,26 @@ export default function Footer() {
               </Link>
             )
           })}
+          </div>
+          <motion.a
+            href="/certificat-qualiopi.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
+            style={{
+              background: '#fff',
+              borderRadius: '12px',
+              padding: '6px 14px',
+              display: 'inline-flex',
+              alignItems: 'center',
+              boxShadow: '0 4px 20px rgba(0,0,0,0.15)',
+              cursor: 'pointer',
+              textDecoration: 'none',
+            }}
+          >
+            <img src="/qualiopi.png" alt="Qualiopi — Processus certifié" style={{ height: '36px', objectFit: 'contain' }} />
+          </motion.a>
         </div>
-
-        {/* Qualiopi — aligné avec les liens légaux */}
-        <motion.a
-          href="/certificat-qualiopi.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-          whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
-          style={{
-            background: '#fff',
-            borderRadius: '12px',
-            padding: '6px 14px',
-            display: 'inline-flex',
-            alignItems: 'center',
-            boxShadow: '0 4px 20px rgba(0,0,0,0.15)',
-            cursor: 'pointer',
-            textDecoration: 'none',
-            alignSelf: 'flex-end',
-          }}
-        >
-          <img src="/qualiopi.png" alt="Qualiopi — Processus certifié" style={{ height: '36px', objectFit: 'contain' }} />
-        </motion.a>
 
         {/* Bottom line */}
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '8px' }}>
