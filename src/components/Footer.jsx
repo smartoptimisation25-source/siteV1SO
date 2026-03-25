@@ -155,7 +155,7 @@ export default function Footer() {
             transition={{ duration: 3, repeat: Infinity }}
             style={{ color: 'rgba(255,255,255,0.55)', fontSize: '12px' }}
           >
-            Fait avec ♥ en Alsace
+            by Smart Optimisation
           </motion.p>
         </div>
 
