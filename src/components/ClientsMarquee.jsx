@@ -43,7 +43,7 @@ function LogoItem({ client }) {
 
 export default function ClientsMarquee() {
   return (
-    <div role="region" aria-label="Nos clients partenaires" style={{ marginTop: '48px' }}>
+    <div role="region" aria-label="Nos clients partenaires" style={{ marginTop: '28px' }}>
       <p style={{
         color: '#9CA3AF',
         fontSize: '11px',

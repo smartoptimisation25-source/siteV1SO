@@ -496,8 +496,8 @@ export const articles = [
             rows: [
               { label: 'Temps de rédaction d\'un email complexe', before: '18 min', after: '4 min', gain: '-78%' },
               { label: 'Temps de synthèse d\'un document de 20 pages', before: '45 min', after: '8 min', gain: '-82%' },
-              { label: 'Satisfaction collaborateurs', before: '—', after: '97%', gain: '✓' },
-              { label: 'Temps total économisé/jour/collab.', before: '—', after: '~2h', gain: '✓' },
+              { label: 'Satisfaction collaborateurs', before: '—', after: '97%', gain: 'Oui' },
+              { label: 'Temps total économisé/jour/collab.', before: '—', after: '~2h', gain: 'Oui' },
             ],
           },
           {

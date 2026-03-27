@@ -392,7 +392,7 @@ export default function EducIA() {
   return (
     <main style={{ background: '#fff', minHeight: 'calc(100vh - 72px)' }}>
 
-      <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '88px 24px 0' }}>
+      <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '8px 24px 0' }}>
         <Breadcrumb items={[
           { label: 'Accueil', to: '/' },
           { label: 'Éduc IA' },
@@ -624,19 +624,19 @@ export default function EducIA() {
       </section>
 
       {/* Maillage interne */}
-      <section style={{ background: '#F9F8FF', padding: isMobile ? '48px 20px' : '64px 48px' }}>
+      <section style={{ background: '#F9F8FF', padding: isMobile ? '20px' : '28px 32px', borderRadius: '20px', marginTop: '32px' }}>
         <div style={{ maxWidth: '800px', margin: '0 auto' }}>
-          <h2 style={{ color: '#0F0C1E', fontWeight: 700, fontSize: '20px', marginBottom: '20px', textAlign: 'center' }}>
+          <h2 style={{ color: '#0F0C1E', fontWeight: 700, fontSize: '14px', marginBottom: '12px', textAlign: 'center' }}>
             Découvrez nos autres formations IA
           </h2>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-            <Link to="/formation/cpf" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '16px 20px', background: '#fff', borderRadius: '12px', border: '1px solid rgba(59,79,216,0.08)', textDecoration: 'none', color: '#0F0C1E', fontSize: '15px', fontWeight: 500 }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+            <Link to="/formation/cpf" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '10px 16px', background: '#fff', borderRadius: '12px', border: '1px solid rgba(59,79,216,0.08)', textDecoration: 'none', color: '#0F0C1E', fontSize: '13px', fontWeight: 500 }}>
               <span>Formation CPF RS7344</span>
-              <span style={{ color: '#3B4FD8', fontSize: '13px' }}>En savoir plus →</span>
+              <span style={{ color: '#3B4FD8', fontSize: '12px' }}>En savoir plus →</span>
             </Link>
-            <Link to="/solution-ia" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '16px 20px', background: '#fff', borderRadius: '12px', border: '1px solid rgba(59,79,216,0.08)', textDecoration: 'none', color: '#0F0C1E', fontSize: '15px', fontWeight: 500 }}>
+            <Link to="/solution-ia" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '10px 16px', background: '#fff', borderRadius: '12px', border: '1px solid rgba(59,79,216,0.08)', textDecoration: 'none', color: '#0F0C1E', fontSize: '13px', fontWeight: 500 }}>
               <span>Solution IA sur mesure</span>
-              <span style={{ color: '#3B4FD8', fontSize: '13px' }}>En savoir plus →</span>
+              <span style={{ color: '#3B4FD8', fontSize: '12px' }}>En savoir plus →</span>
             </Link>
           </div>
         </div>

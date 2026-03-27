@@ -4,33 +4,15 @@ import { motion, AnimatePresence, useMotionValue, useTransform, useSpring } from
 import { useSEO } from '../hooks/useSEO'
 import useIsMobile from '../hooks/useIsMobile'
 
-/* ─── Logos SVG minimalistes ─────────────────────────────────────── */
+/* ─── Logos officiels ─────────────────────────────────────────── */
 function LogoClaude() {
-  return (
-    <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-      <circle cx="14" cy="14" r="14" fill="rgba(217,119,6,0.15)" />
-      <path d="M14 7c-1.8 0-3.3 1.5-3.3 3.3 0 .6.2 1.2.5 1.7L8.5 19h2.1l.7-2h5.4l.7 2h2.1l-2.7-7c.3-.5.5-1.1.5-1.7C17.3 8.5 15.8 7 14 7zm0 2c.7 0 1.3.6 1.3 1.3S14.7 11.6 14 11.6s-1.3-.6-1.3-1.3S13.3 9 14 9zm-1.8 6.4 1.8-3 1.8 3h-3.6z" fill="#D97706"/>
-    </svg>
-  )
+  return <img src="/logos/claude-logo.png" alt="Claude" style={{ width: 28, height: 28, objectFit: 'contain', mixBlendMode: 'multiply' }} />
 }
 function LogoGPT() {
-  return (
-    <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-      <circle cx="14" cy="14" r="14" fill="rgba(16,163,127,0.15)" />
-      <path d="M21.5 11.9a4.5 4.5 0 0 0-.4-3.7 4.6 4.6 0 0 0-5-2.2 4.5 4.5 0 0 0-3.4-1.5 4.6 4.6 0 0 0-4.4 3.2A4.5 4.5 0 0 0 5.3 10a4.6 4.6 0 0 0 .6 5.4 4.5 4.5 0 0 0 .4 3.7 4.6 4.6 0 0 0 5 2.2 4.5 4.5 0 0 0 3.4 1.5 4.6 4.6 0 0 0 4.4-3.2 4.5 4.5 0 0 0 3-2.3 4.6 4.6 0 0 0-.6-5.4zm-6.8 9.5a3.4 3.4 0 0 1-2.2-.8l.1-.1 3.7-2.1a.6.6 0 0 0 .3-.5v-5.2l1.5.9a.1.1 0 0 1 0 .1v4.2a3.4 3.4 0 0 1-3.4 3.5zm-7.3-3.2a3.4 3.4 0 0 1-.4-2.3l.1.1 3.7 2.1a.6.6 0 0 0 .6 0l4.5-2.6v1.8a.1.1 0 0 1 0 .1L12.3 20a3.4 3.4 0 0 1-4.9-1.8zm-1-7.9A3.4 3.4 0 0 1 8.2 8l.1.1v4.3a.6.6 0 0 0 .3.5l4.5 2.6-1.6.9a.1.1 0 0 1-.1 0L7.6 14a3.4 3.4 0 0 1-1.2-3.7zm13.1 2.9L15 10.6l1.6-.9a.1.1 0 0 1 .1 0l3.8 2.2a3.4 3.4 0 0 1-.5 6.1v-4.4a.6.6 0 0 0-.4-.8zm1.6-2.3-.1-.1-3.7-2.2a.6.6 0 0 0-.6 0l-4.5 2.6V9.4a.1.1 0 0 1 0-.1L15.7 7a3.4 3.4 0 0 1 5 3.9zm-9.8 3.2-1.5-.9a.1.1 0 0 1 0-.1V9a3.4 3.4 0 0 1 5.6-2.6l-.1.1-3.7 2.1a.6.6 0 0 0-.3.5v5.1zm.8-1.8 2-1.1 2 1.1v2.3l-2 1.1-2-1.1V13z" fill="#10A37F"/>
-    </svg>
-  )
+  return <img src="/logos/chatgpt.webp" alt="ChatGPT" style={{ width: 28, height: 28, objectFit: 'contain' }} />
 }
 function LogoGoogle() {
-  return (
-    <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-      <circle cx="14" cy="14" r="14" fill="rgba(66,133,244,0.12)" />
-      <path d="M20.5 14.2c0-.5 0-1-.1-1.5H14v2.8h3.6a3.1 3.1 0 0 1-1.3 2v1.7h2.1c1.2-1.1 1.9-2.8 1.9-5h.2z" fill="#4285F4"/>
-      <path d="M14 21a6.5 6.5 0 0 0 4.5-1.7l-2.2-1.7a4 4 0 0 1-6-2.1H8v1.8A6.8 6.8 0 0 0 14 21z" fill="#34A853"/>
-      <path d="M10.3 15.5a4 4 0 0 1 0-2.5V11H8a6.8 6.8 0 0 0 0 6.1l2.3-1.6z" fill="#FBBC05"/>
-      <path d="M14 10.1a3.7 3.7 0 0 1 2.6 1l2-2A6.5 6.5 0 0 0 8 11.2l2.3 1.8A4 4 0 0 1 14 10z" fill="#EA4335"/>
-    </svg>
-  )
+  return <img src="/logos/gemini.png" alt="Gemini" style={{ width: 28, height: 28, objectFit: 'contain' }} />
 }
 
 /* ─── Données écosystèmes ────────────────────────────────────────── */
@@ -62,12 +44,12 @@ const ECOSYSTEMS = [
     name: 'ChatGPT',
     vendor: 'OpenAI',
     tagline: 'Polyvalence & Automatisation',
-    accent: '#10A37F',
-    accentLight: '#34D399',
-    glow: 'rgba(16,163,127,0.22)',
-    glowStrong: 'rgba(16,163,127,0.35)',
-    gradient: 'linear-gradient(135deg, #10A37F, #34D399)',
-    gradientCard: 'linear-gradient(135deg, rgba(16,163,127,0.08) 0%, rgba(0,0,0,0) 60%)',
+    accent: '#111827',
+    accentLight: '#374151',
+    glow: 'rgba(17,24,39,0.18)',
+    glowStrong: 'rgba(17,24,39,0.30)',
+    gradient: 'linear-gradient(135deg, #111827, #374151)',
+    gradientCard: 'linear-gradient(135deg, rgba(17,24,39,0.06) 0%, rgba(0,0,0,0) 60%)',
     focus: 'Polyvalence créative, automatisation des flux de travail et génération visuelle intégrée.',
     modules: ['Création de GPTs personnalisés par métier', 'Advanced Data Analysis (Python)', 'Intégration DALL-E & génération d\'images'],
     benefits: [
@@ -412,7 +394,7 @@ export default function FormationEnvironnements() {
     <main style={{ background: '#ffffff', minHeight: '100vh' }}>
 
       {/* ── Hero ─────────────────────────────────────────────────── */}
-      <section style={{ position: 'relative', overflow: 'hidden', padding: isMobile ? '72px 24px 64px' : '100px 48px 80px' }}>
+      <section style={{ position: 'relative', overflow: 'hidden', padding: isMobile ? '8px 24px 64px' : '8px 48px 80px' }}>
         {/* Background glows */}
         <motion.div
           animate={{ opacity: [0.4, 0.7, 0.4], scale: [1, 1.1, 1] }}
@@ -444,30 +426,32 @@ export default function FormationEnvironnements() {
           <motion.h1
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0, transition: { duration: 0.6, delay: 0.1 } }}
-            style={{ color: '#111827', fontWeight: 800, fontSize: isMobile ? '2.2rem' : 'clamp(2.8rem, 5vw, 4rem)', lineHeight: 1.1, letterSpacing: '-0.03em', marginBottom: '8px' }}
+            style={{ color: '#111827', fontWeight: 800, fontSize: isMobile ? '2rem' : 'clamp(2.4rem, 4.5vw, 3.6rem)', lineHeight: 1.15, letterSpacing: '-0.03em', marginBottom: '16px' }}
           >
-            Dominez vos environnements
-          </motion.h1>
-          <motion.h1
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0, transition: { duration: 0.6, delay: 0.18 } }}
-            style={{ fontWeight: 800, fontSize: isMobile ? '2.2rem' : 'clamp(2.8rem, 5vw, 4rem)', lineHeight: 1.1, letterSpacing: '-0.03em', marginBottom: '28px' }}
-          >
+            Savez-vous vraiment utiliser{' '}
             <motion.span
               animate={{ backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'] }}
               transition={{ duration: 5, repeat: Infinity, ease: 'linear' }}
               style={{ backgroundImage: 'linear-gradient(135deg,#3B4FD8,#D97706,#10A37F,#4285F4,#3B4FD8)', backgroundSize: '300%', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}
             >
-              de travail IA.
+              ChatGPT, Claude ou Gemini ?
             </motion.span>
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.28 } }}
-            style={{ color: 'rgba(0,0,0,0.5)', fontSize: isMobile ? '15px' : '17px', lineHeight: 1.75, maxWidth: '620px', margin: '0 auto 48px' }}
+            animate={{ opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.2 } }}
+            style={{ color: 'rgba(0,0,0,0.55)', fontSize: isMobile ? '15px' : '18px', lineHeight: 1.7, maxWidth: '580px', margin: '0 auto 16px', fontWeight: 500 }}
           >
-            Nous ne formons pas à des outils — nous bâtissons des flux de travail. Choisissez l'écosystème adapté à votre infrastructure et montez en puissance en 2 jours.
+            La plupart des professionnels n'exploitent que <strong style={{ color: '#3B4FD8' }}>10% du potentiel</strong> de ces outils. Connaissez-vous tous les champs du possible ?
+          </motion.p>
+
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.28 } }}
+            style={{ color: 'rgba(0,0,0,0.4)', fontSize: isMobile ? '14px' : '15px', lineHeight: 1.7, maxWidth: '560px', margin: '0 auto 40px' }}
+          >
+            En 2 jours, nous ne vous apprenons pas à "utiliser l'IA" — nous transformons la façon dont vous pensez et travaillez avec elle.
           </motion.p>
 
           {/* 3 logos */}
@@ -497,6 +481,53 @@ export default function FormationEnvironnements() {
               </motion.div>
             ))}
           </motion.div>
+        </div>
+      </section>
+
+      {/* ── Reality check ────────────────────────────────────────── */}
+      <section style={{ padding: isMobile ? '0 24px 48px' : '0 48px 56px' }}>
+        <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(3, 1fr)', gap: '16px' }}>
+            {[
+              {
+                question: 'Combien de fois l\'IA vous a-t-elle déçu ?',
+                answer: 'Ce n\'est pas l\'outil le problème — c\'est la façon dont vous lui parlez.',
+                accent: '#3B4FD8',
+              },
+              {
+                question: 'Connaissez-vous toutes les fonctionnalités cachées ?',
+                answer: 'Artefacts Claude, GPTs personnalisés, Gemini dans vos Sheets… 90% des utilisateurs ne savent pas qu\'elles existent.',
+                accent: '#D97706',
+              },
+              {
+                question: 'Quelle IA est faite pour vous, vraiment ?',
+                answer: 'Claude, ChatGPT et Gemini ne font pas la même chose. Choisir le bon outil change tout.',
+                accent: '#10A37F',
+              },
+            ].map((item, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0, transition: { duration: 0.5, delay: i * 0.1 } }}
+                viewport={{ once: true }}
+                whileHover={{ y: -4, boxShadow: `0 16px 40px ${item.accent}18`, transition: { duration: 0.2 } }}
+                style={{
+                  padding: '28px 24px', borderRadius: '20px',
+                  background: '#fff',
+                  border: `1.5px solid ${item.accent}20`,
+                  boxShadow: '0 2px 16px rgba(0,0,0,0.06)',
+                }}
+              >
+                <div style={{ width: '32px', height: '3px', borderRadius: '2px', background: `linear-gradient(90deg, ${item.accent}, transparent)`, marginBottom: '16px' }} />
+                <p style={{ color: '#111827', fontWeight: 700, fontSize: '16px', lineHeight: 1.4, marginBottom: '12px' }}>
+                  {item.question}
+                </p>
+                <p style={{ color: 'rgba(0,0,0,0.45)', fontSize: '13px', lineHeight: 1.7, margin: 0 }}>
+                  {item.answer}
+                </p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -590,18 +621,21 @@ export default function FormationEnvironnements() {
             <p style={{ color: 'rgba(0,0,0,0.35)', fontSize: '12px', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '20px' }}>
               Notre approche pédagogique
             </p>
-            <h2 style={{ color: '#111827', fontWeight: 800, fontSize: isMobile ? '1.8rem' : 'clamp(1.8rem, 3.5vw, 2.8rem)', lineHeight: 1.2, letterSpacing: '-0.025em', marginBottom: '20px' }}>
-              Pas de PowerPoint. Que du terrain.
+            <h2 style={{ color: '#111827', fontWeight: 800, fontSize: isMobile ? '1.8rem' : 'clamp(1.8rem, 3.5vw, 2.8rem)', lineHeight: 1.2, letterSpacing: '-0.025em', marginBottom: '16px' }}>
+              Moins de théorie, plus de résultats. Dès le premier jour.
             </h2>
-            <p style={{ color: 'rgba(0,0,0,0.45)', fontSize: '16px', lineHeight: 1.8, maxWidth: '640px', margin: '0 auto 48px' }}>
-              Chaque formation est construite autour de vos cas d'usage réels. Vous repartez avec des workflows opérationnels déployables le lendemain matin.
+            <p style={{ color: 'rgba(0,0,0,0.45)', fontSize: '16px', lineHeight: 1.8, maxWidth: '620px', margin: '0 auto 12px' }}>
+              Chaque formation est construite autour de <strong style={{ color: '#111827' }}>vos cas d'usage réels</strong>. Vous repartez avec des workflows opérationnels déployables le lendemain matin.
+            </p>
+            <p style={{ color: 'rgba(0,0,0,0.35)', fontSize: '14px', lineHeight: 1.7, maxWidth: '560px', margin: '0 auto 48px', fontStyle: 'italic' }}>
+              "On ne vous montre pas comment ça marche — on vous fait comprendre pourquoi ça change tout."
             </p>
 
             <div style={{ display: 'flex', gap: isMobile ? '16px' : '20px', justifyContent: 'center', flexWrap: 'wrap' }}>
               {[
-                { icon: '', label: '100% sur-mesure', sub: 'Adapté à votre stack' },
-                { icon: '', label: '2 jours intensifs', sub: 'ROI dès J+1' },
-                { icon: '', label: 'Suivi 30 jours', sub: 'Post-formation inclus' },
+                { label: '100% pratique', sub: 'Zéro slide, 100% exercices' },
+                { label: '2 jours intensifs', sub: 'ROI dès J+1' },
+                { label: 'Suivi 30 jours', sub: 'Questions illimitées post-formation' },
               ].map((item, i) => (
                 <motion.div
                   key={i}
@@ -616,8 +650,7 @@ export default function FormationEnvironnements() {
                     textAlign: 'center', minWidth: '160px',
                   }}
                 >
-                  <div style={{ fontSize: '28px', marginBottom: '10px' }}>{item.icon}</div>
-                  <p style={{ color: '#111827', fontWeight: 700, fontSize: '15px', margin: '0 0 4px' }}>{item.label}</p>
+                  <p style={{ color: '#111827', fontWeight: 700, fontSize: '15px', margin: '0 0 6px' }}>{item.label}</p>
                   <p style={{ color: 'rgba(0,0,0,0.35)', fontSize: '12px', margin: 0 }}>{item.sub}</p>
                 </motion.div>
               ))}
@@ -643,13 +676,13 @@ export default function FormationEnvironnements() {
             }}
           >
             <p style={{ color: 'rgba(0,0,0,0.4)', fontSize: '12px', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '16px' }}>
-              Prêt à passer à l'action ?
+              Passez dans le top 10%
             </p>
             <h3 style={{ color: '#111827', fontWeight: 800, fontSize: isMobile ? '1.6rem' : '2.2rem', lineHeight: 1.2, letterSpacing: '-0.025em', marginBottom: '16px' }}>
-              Planifier une formation<br />dans mon entreprise
+              Il est temps d'exploiter l'IA<br />à son vrai potentiel.
             </h3>
             <p style={{ color: 'rgba(0,0,0,0.4)', fontSize: '15px', lineHeight: 1.7, marginBottom: '36px' }}>
-              Diagnostic gratuit de 30 minutes. Nous identifions votre environnement cible et construisons le programme adapté à votre équipe.
+              30 minutes de diagnostic gratuit. On identifie votre environnement cible, vos cas d'usage prioritaires, et on construit le programme taillé pour votre équipe.
             </p>
             <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
               <motion.div whileHover={{ scale: 1.04, y: -2 }} whileTap={{ scale: 0.97 }}>
@@ -685,23 +718,23 @@ export default function FormationEnvironnements() {
       </section>
 
       {/* Maillage interne */}
-      <section style={{ background: '#F9F8FF', padding: isMobile ? '48px 20px' : '64px 48px' }}>
+      <section style={{ background: '#F9F8FF', padding: isMobile ? '20px' : '28px 32px', borderRadius: '20px', marginTop: '32px' }}>
         <div style={{ maxWidth: '800px', margin: '0 auto' }}>
-          <h2 style={{ color: '#0F0C1E', fontWeight: 700, fontSize: '20px', marginBottom: '20px', textAlign: 'center' }}>
+          <h2 style={{ color: '#0F0C1E', fontWeight: 700, fontSize: '14px', marginBottom: '12px', textAlign: 'center' }}>
             Découvrez nos autres formations IA
           </h2>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-            <Link to="/formation/cpf" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '16px 20px', background: '#fff', borderRadius: '12px', border: '1px solid rgba(59,79,216,0.08)', textDecoration: 'none', color: '#0F0C1E', fontSize: '15px', fontWeight: 500 }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+            <Link to="/formation/cpf" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '10px 16px', background: '#fff', borderRadius: '12px', border: '1px solid rgba(59,79,216,0.08)', textDecoration: 'none', color: '#0F0C1E', fontSize: '13px', fontWeight: 500 }}>
               <span>Formation CPF RS7344</span>
-              <span style={{ color: '#3B4FD8', fontSize: '13px' }}>En savoir plus →</span>
+              <span style={{ color: '#3B4FD8', fontSize: '12px' }}>En savoir plus →</span>
             </Link>
-            <Link to="/formation/opco" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '16px 20px', background: '#fff', borderRadius: '12px', border: '1px solid rgba(59,79,216,0.08)', textDecoration: 'none', color: '#0F0C1E', fontSize: '15px', fontWeight: 500 }}>
+            <Link to="/formation/opco" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '10px 16px', background: '#fff', borderRadius: '12px', border: '1px solid rgba(59,79,216,0.08)', textDecoration: 'none', color: '#0F0C1E', fontSize: '13px', fontWeight: 500 }}>
               <span>Formation OPCO</span>
-              <span style={{ color: '#3B4FD8', fontSize: '13px' }}>En savoir plus →</span>
+              <span style={{ color: '#3B4FD8', fontSize: '12px' }}>En savoir plus →</span>
             </Link>
-            <Link to="/formation/sur-mesure" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '16px 20px', background: '#fff', borderRadius: '12px', border: '1px solid rgba(59,79,216,0.08)', textDecoration: 'none', color: '#0F0C1E', fontSize: '15px', fontWeight: 500 }}>
+            <Link to="/formation/sur-mesure" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '10px 16px', background: '#fff', borderRadius: '12px', border: '1px solid rgba(59,79,216,0.08)', textDecoration: 'none', color: '#0F0C1E', fontSize: '13px', fontWeight: 500 }}>
               <span>Formation sur mesure</span>
-              <span style={{ color: '#3B4FD8', fontSize: '13px' }}>En savoir plus →</span>
+              <span style={{ color: '#3B4FD8', fontSize: '12px' }}>En savoir plus →</span>
             </Link>
           </div>
         </div>

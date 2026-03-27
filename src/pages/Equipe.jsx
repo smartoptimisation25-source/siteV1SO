@@ -14,18 +14,19 @@ const FADE_UP = {
 
 const FOUNDERS = [
   {
-    name: 'Jounayd Ouadah Loubardi',
+    name: 'Jounayd OUADAH LOUBARDI',
     role: 'Président & Co-fondateur',
     tagline: 'Stratégie, optimisation & formation certifiée Qualiopi',
     linkedin: 'https://www.linkedin.com/in/jounayd-ouadah-09b154225/',
-    // photo: '/team/jounayd.jpg',
+    photo: '/team/jounayd.jpg',
+    photoPosition: 'center -50px',
   },
   {
-    name: 'Adel El Kammaa',
+    name: 'Rayane EL KAMMAA',
     role: 'Directeur Général & Co-fondateur',
     tagline: 'Expert IA & Déploiement Opérationnel',
     linkedin: 'https://www.linkedin.com/in/rayane-el-kammaa-904306340/',
-    // photo: '/team/adel.jpg',
+    photo: '/team/rayane.jpg',
   },
 ]
 
@@ -156,7 +157,7 @@ function FounderCard({ founder, index, isMobile }) {
           height="120"
           loading="lazy"
           decoding="async"
-          style={{ width: '120px', height: '120px', borderRadius: '50%', objectFit: 'cover', border: '3px solid #3B4FD8' }}
+          style={{ width: '120px', height: '120px', borderRadius: '50%', objectFit: 'cover', objectPosition: founder.photoPosition || 'center', border: '3px solid #3B4FD8' }}
         />
       ) : (
         <div style={{
@@ -222,7 +223,7 @@ export default function Equipe() {
   return (
     <main style={{ background: '#fff' }}>
 
-      <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '88px 24px 0' }}>
+      <div style={{ maxWidth: '1100px', margin: '0 auto', padding: isMobile ? '8px 20px 0' : '8px 24px 0' }}>
         <Breadcrumb items={[
           { label: 'Accueil', to: '/' },
           { label: "L'équipe" },
@@ -232,7 +233,7 @@ export default function Equipe() {
       {/* ── Hero ────────────────────────────────────────── */}
       <section style={{
         maxWidth: '900px', margin: '0 auto',
-        padding: isMobile ? '20px 20px 40px' : '32px 24px 56px',
+        padding: isMobile ? '0px 20px 4px' : '0px 24px 4px',
         textAlign: 'center',
       }}>
         <motion.p

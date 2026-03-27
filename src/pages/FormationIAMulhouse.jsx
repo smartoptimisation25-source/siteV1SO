@@ -46,7 +46,7 @@ export default function FormationIAMulhouse() {
 
   return (
     <main style={{ background: '#fff' }}>
-      <section style={{ maxWidth: '900px', margin: '0 auto', padding: isMobile ? '88px 20px 40px' : '100px 24px 56px' }}>
+      <section style={{ maxWidth: '900px', margin: '0 auto', padding: isMobile ? '8px 20px 40px' : '8px 24px 56px' }}>
         <Breadcrumb items={[{ label: 'Accueil', to: '/' }, { label: 'Formation IA à Mulhouse' }]} />
 
         <motion.h1 variants={FADE_UP} initial="hidden" animate="show" custom={0}
@@ -62,28 +62,24 @@ export default function FormationIAMulhouse() {
           Que vous soyez dans l'industrie, le tertiaire ou le commerce, nos formateurs adaptent chaque programme à votre réalité terrain.
         </motion.p>
 
-        <motion.h2 variants={FADE_UP} initial="hidden" animate="show" custom={2}
-          style={{ fontSize: '22px', fontWeight: 700, color: '#0F0C1E', marginBottom: '16px' }}>
-          Nos formations IA disponibles à Mulhouse
-        </motion.h2>
-
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: '40px' }}>
-          {[
-            { title: 'Formation IA certifiée CPF RS7344', desc: 'Certification officielle en IA générative. 7h présentiel + 14h e-learning. Financement CPF, 0 € de reste à charge.', to: '/formation/cpf' },
-            { title: 'Formation IA financée par votre OPCO', desc: 'Formez vos équipes à l\'IA sans avance de trésorerie. Compatible avec tous les OPCO. ROI mesurable dès J+30.', to: '/formation/opco' },
-            { title: 'Formation IA sur mesure pour votre entreprise', desc: 'Programme co-construit autour de vos outils et de votre secteur. EU AI Act, automatisation, LLMs.', to: '/formation/sur-mesure' },
-            { title: 'Formation Claude, ChatGPT et Gemini', desc: 'Maîtrisez les trois principaux environnements IA du marché avec des cas d\'usage adaptés à votre métier.', to: '/formation/environnements' },
-          ].map((item, i) => (
-            <motion.div key={item.title} variants={FADE_UP} initial="hidden" animate="show" custom={i + 3}
-              style={{ background: '#FAFAFE', borderRadius: '14px', border: '1px solid #E5E7EB', padding: '24px' }}>
-              <h3 style={{ fontSize: '17px', fontWeight: 700, color: '#0F0C1E', marginBottom: '6px' }}>{item.title}</h3>
-              <p style={{ fontSize: '14px', color: '#6B7280', lineHeight: 1.6, marginBottom: '12px' }}>{item.desc}</p>
-              <Link to={item.to} style={{ fontSize: '14px', fontWeight: 600, color: '#3B4FD8', textDecoration: 'none' }}>
-                Découvrir cette formation →
+        <section style={{ background: '#F9F8FF', padding: isMobile ? '20px' : '28px 32px', borderRadius: '20px', marginBottom: '40px' }}>
+          <h2 style={{ color: '#0F0C1E', fontWeight: 700, fontSize: '14px', marginBottom: '12px', textAlign: 'center' }}>
+            Nos formations IA disponibles à Mulhouse
+          </h2>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+            {[
+              { title: 'Formation IA certifiée CPF RS7344', desc: 'Certification officielle — financement CPF', to: '/formation/cpf' },
+              { title: 'Formation IA financée par votre OPCO', desc: 'Compatible tous les OPCO — ROI dès J+30', to: '/formation/opco' },
+              { title: 'Formation IA sur mesure', desc: 'Programme co-construit autour de vos outils', to: '/formation/sur-mesure' },
+              { title: 'Formation Claude, ChatGPT et Gemini', desc: 'Maîtriser les 3 grands environnements IA', to: '/formation/environnements' },
+            ].map((item) => (
+              <Link key={item.to} to={item.to} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '10px 16px', background: '#fff', borderRadius: '12px', border: '1px solid rgba(59,79,216,0.08)', textDecoration: 'none', color: '#0F0C1E', fontSize: '13px', fontWeight: 500 }}>
+                <span>{item.title}</span>
+                <span style={{ color: '#3B4FD8', fontSize: '12px', whiteSpace: 'nowrap', marginLeft: '16px' }}>{item.desc} →</span>
               </Link>
-            </motion.div>
-          ))}
-        </div>
+            ))}
+          </div>
+        </section>
 
         <motion.h2 variants={FADE_UP} initial="hidden" whileInView="show" viewport={{ once: true }}
           style={{ fontSize: '22px', fontWeight: 700, color: '#0F0C1E', marginBottom: '16px' }}>

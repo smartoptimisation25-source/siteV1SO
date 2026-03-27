@@ -175,7 +175,7 @@ export default function Contact() {
   }
 
   return (
-    <main style={{ background: '#fff', minHeight: 'calc(100vh - 72px)', padding: '72px 24px' }}>
+    <main style={{ background: '#fff', minHeight: 'calc(100vh - 72px)', padding: '8px 24px' }}>
 
       <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
         <Breadcrumb items={[
@@ -371,7 +371,7 @@ export default function Contact() {
                     initial={{ opacity: 0, y: -6 }} animate={{ opacity: 1, y: 0 }}
                     style={{ color: '#DC2626', fontSize: '13px', textAlign: 'center', margin: 0, padding: '10px 16px', background: 'rgba(220,38,38,0.06)', borderRadius: '8px', border: '1px solid rgba(220,38,38,0.15)' }}
                   >
-                    ⚠️ {error}
+                    {error}
                   </motion.p>
                 )}
 

@@ -16,8 +16,8 @@ const NAV = [
   },
   { label: 'Solution IA sur mesure', path: '/solution-ia' },
   { label: 'Educ IA', path: '/educ-ia' },
-  { label: 'Blog', path: '/blog' },
   { label: 'L\'équipe', path: '/equipe' },
+  { label: 'Blog', path: '/blog' },
 ]
 
 export default function Header() {

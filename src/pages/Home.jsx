@@ -457,7 +457,7 @@ export default function Home() {
         display: 'flex',
         flexDirection: isMobile ? 'column' : 'row',
         alignItems: isMobile ? 'flex-start' : 'center',
-        padding: isMobile ? '48px 24px 40px' : '80px 48px',
+        padding: isMobile ? '32px 24px 28px' : '48px 48px 40px',
       }}>
         <motion.div
           animate={{ scale: [1, 1.2, 1], x: [0, 20, 0], y: [0, -20, 0] }}
@@ -478,7 +478,7 @@ export default function Home() {
         {/* LEFT */}
         <div style={{ position: 'relative', flex: '1', maxWidth: isMobile ? '100%' : '580px', zIndex: 2, width: '100%' }}>
           <motion.div variants={FADE_UP} initial="hidden" animate="show" custom={0}
-            style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 16px', borderRadius: '999px', background: 'rgba(59,79,216,0.07)', border: '1px solid rgba(59,79,216,0.18)', marginBottom: '28px' }}>
+            style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 16px', borderRadius: '999px', background: 'rgba(59,79,216,0.07)', border: '1px solid rgba(59,79,216,0.18)', marginBottom: '16px' }}>
             <motion.span
               animate={{ scale: [1, 1.5, 1] }}
               transition={{ duration: 2, repeat: Infinity }}
@@ -488,7 +488,7 @@ export default function Home() {
           </motion.div>
 
           <motion.h1 variants={FADE_UP} initial="hidden" animate="show" custom={1}
-            style={{ color: '#0F0C1E', fontWeight: 800, fontSize: isMobile ? '2rem' : 'clamp(2.4rem, 4.5vw, 3.8rem)', lineHeight: 1.15, letterSpacing: '-0.02em', marginBottom: '20px' }}>
+            style={{ color: '#0F0C1E', fontWeight: 800, fontSize: isMobile ? '2rem' : 'clamp(2.2rem, 4vw, 3.4rem)', lineHeight: 1.15, letterSpacing: '-0.02em', marginBottom: '14px' }}>
             Maîtrisez l&apos;IA.{' '}
             <motion.span
               animate={{ backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'] }}
@@ -500,7 +500,7 @@ export default function Home() {
           </motion.h1>
 
           <motion.p variants={FADE_UP} initial="hidden" animate="show" custom={2}
-            style={{ color: '#6B7280', fontSize: isMobile ? '15px' : '17px', lineHeight: 1.7, marginBottom: '36px', maxWidth: isMobile ? '100%' : '460px' }}>
+            style={{ color: '#6B7280', fontSize: isMobile ? '15px' : '16px', lineHeight: 1.6, marginBottom: '24px', maxWidth: isMobile ? '100%' : '460px' }}>
             Smart Optimisation accompagne les professionnels et les entreprises dans la maîtrise de l&apos;IA — de la formation à l&apos;intégration sur mesure.
           </motion.p>
 
