@@ -35,5 +35,8 @@
       ]
     }
   ],
+  "redirects": [
+    { "source": "/contactez-nous", "destination": "/contact", "permanent": true }
+  ],
   "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
 }
