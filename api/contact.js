@@ -25,7 +25,7 @@ export default async function handler(req, res) {
   try {
     await resend.emails.send({
       from: 'Formulaire Contact <contact@smartoptimisation.fr>',
-      to: ['contact@smartoptimisation.fr'],
+      to: ['smartoptimisation25@gmail.com'],
       replyTo: email,
       subject: `[Smart Optimisation] Demande de ${nom} — ${service}`,
       html: `
