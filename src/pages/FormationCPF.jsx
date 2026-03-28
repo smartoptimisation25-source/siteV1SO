@@ -6,9 +6,9 @@ import useIsMobile from '../hooks/useIsMobile'
 import Breadcrumb from '../components/Breadcrumb'
 
 const SESSIONS = [
-  { id: 1, rs: 'RS7344', titre: 'Utiliser l\'IA Générative en entreprise', lieu: 'Strasbourg', date: '14 avril 2025', duree: '7h présentiel', elearning: '14h e-learning', prix: 1500, inscrits: 9, places: 10, modalite: 'Présentiel', niveau: 'Tous niveaux' },
-  { id: 2, rs: 'RS7344', titre: 'Utiliser l\'IA Générative en entreprise', lieu: 'Mulhouse', date: '28 avril 2025', duree: '7h présentiel', elearning: '14h e-learning', prix: 1500, inscrits: 6, places: 10, modalite: 'Présentiel', niveau: 'Tous niveaux' },
-  { id: 3, rs: 'RS7344', titre: 'Utiliser l\'IA Générative en entreprise', lieu: 'Colmar', date: '5 mai 2025', duree: '7h présentiel', elearning: '14h e-learning', prix: 1500, inscrits: 3, places: 10, modalite: 'Présentiel', niveau: 'Tous niveaux' },
+  { id: 1, rs: 'RS7344', titre: 'Développer son activité avec l\'intelligence artificielle', lieu: 'Strasbourg', date: '21 avril 2026', duree: '7h présentiel', elearning: '14h e-learning', prix: 1500, inscrits: 0, places: 10, modalite: 'Présentiel', niveau: 'Tous niveaux', bientot: true },
+  { id: 2, rs: 'RS7344', titre: 'Développer son activité avec l\'intelligence artificielle', lieu: 'Mulhouse', date: '22 avril 2026', duree: '7h présentiel', elearning: '14h e-learning', prix: 1500, inscrits: 0, places: 10, modalite: 'Présentiel', niveau: 'Tous niveaux', bientot: true },
+  { id: 3, rs: 'RS7344', titre: 'Développer son activité avec l\'intelligence artificielle', lieu: 'Colmar', date: '23 avril 2026', duree: '7h présentiel', elearning: '14h e-learning', prix: 1500, inscrits: 0, places: 10, modalite: 'Présentiel', niveau: 'Tous niveaux', bientot: true },
 ]
 
 const FADE_UP = {
@@ -51,7 +51,8 @@ function FillBar({ inscrits, places }) {
 }
 
 function SessionCard({ session, index }) {
-  const complet = session.inscrits >= session.places
+  const bientot = session.bientot
+  const complet = !bientot && session.inscrits >= session.places
   const ref = useRef(null)
   const x = useMotionValue(0)
   const y = useMotionValue(0)
@@ -78,7 +79,7 @@ function SessionCard({ session, index }) {
       custom={index}
       onMouseMove={onMouseMove}
       onMouseLeave={onMouseLeave}
-      whileHover={complet ? {} : {
+      whileHover={complet || bientot ? {} : {
         scale: 1.02,
         boxShadow: '0 16px 48px rgba(59,79,216,0.14)',
         borderColor: 'rgba(59,79,216,0.28)',
@@ -87,7 +88,7 @@ function SessionCard({ session, index }) {
       style={{
         background: '#fff',
         borderRadius: '20px',
-        border: complet ? '1.5px solid rgba(239,68,68,0.20)' : '1.5px solid rgba(59,79,216,0.10)',
+        border: complet ? '1.5px solid rgba(239,68,68,0.20)' : bientot ? '1.5px solid rgba(245,158,11,0.30)' : '1.5px solid rgba(59,79,216,0.10)',
         boxShadow: '0 4px 24px rgba(59,79,216,0.07)',
         padding: '28px',
         display: 'flex', flexDirection: 'column', gap: '18px',
@@ -117,7 +118,7 @@ function SessionCard({ session, index }) {
         <div style={{ flex: 1 }}>
           <div style={{ display: 'flex', gap: '6px', marginBottom: '10px', flexWrap: 'wrap' }}>
             <span style={{ padding: '3px 10px', borderRadius: '999px', background: 'rgba(59,79,216,0.08)', border: '1px solid rgba(59,79,216,0.18)', color: '#3B4FD8', fontSize: '11px', fontWeight: 700, letterSpacing: '0.04em' }}>{session.rs}</span>
-            <span style={{ padding: '3px 10px', borderRadius: '999px', background: 'rgba(16,185,129,0.08)', border: '1px solid rgba(16,185,129,0.20)', color: '#059669', fontSize: '11px', fontWeight: 600 }}>✓ Éligible CPF</span>
+            <span style={{ padding: '3px 10px', borderRadius: '999px', background: 'rgba(16,185,129,0.08)', border: '1px solid rgba(16,185,129,0.20)', color: '#059669', fontSize: '11px', fontWeight: 600 }}>Éligible CPF</span>
             <span style={{ padding: '3px 10px', borderRadius: '999px', background: 'rgba(107,114,128,0.07)', border: '1px solid rgba(107,114,128,0.15)', color: '#6B7280', fontSize: '11px', fontWeight: 600 }}>{session.modalite}</span>
           </div>
           <h3 style={{ color: '#0F0C1E', fontWeight: 700, fontSize: '16px', lineHeight: 1.3, margin: 0 }}>{session.titre}</h3>
@@ -152,22 +153,33 @@ function SessionCard({ session, index }) {
 
       <FillBar inscrits={session.inscrits} places={session.places} />
 
-      <Link
-        to="/contact"
-        style={{
+      {bientot ? (
+        <div style={{
           display: 'block', textAlign: 'center', padding: '11px 20px', borderRadius: '999px',
-          fontSize: '13px', fontWeight: 700, textDecoration: 'none',
-          background: complet ? 'rgba(107,114,128,0.10)' : 'linear-gradient(135deg, #3B4FD8, #9B30E8)',
-          color: complet ? '#9CA3AF' : '#fff',
-          pointerEvents: complet ? 'none' : 'auto',
-          boxShadow: complet ? 'none' : '0 4px 16px rgba(155,48,232,0.25)',
-          transition: 'transform 0.18s, box-shadow 0.18s',
-        }}
-        onMouseEnter={e => { if (!complet) { e.currentTarget.style.transform = 'translateY(-1px)'; e.currentTarget.style.boxShadow = '0 8px 24px rgba(155,48,232,0.40)' } }}
-        onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = complet ? 'none' : '0 4px 16px rgba(155,48,232,0.25)' }}
-      >
-        {complet ? 'Session complète — Rejoindre la liste d\'attente' : 'M\'inscrire à cette session →'}
-      </Link>
+          fontSize: '13px', fontWeight: 700,
+          background: 'rgba(245,158,11,0.10)', border: '1.5px solid rgba(245,158,11,0.30)',
+          color: '#D97706',
+        }}>
+          Inscriptions bientôt ouvertes
+        </div>
+      ) : (
+        <Link
+          to="/contact"
+          style={{
+            display: 'block', textAlign: 'center', padding: '11px 20px', borderRadius: '999px',
+            fontSize: '13px', fontWeight: 700, textDecoration: 'none',
+            background: complet ? 'rgba(107,114,128,0.10)' : 'linear-gradient(135deg, #3B4FD8, #9B30E8)',
+            color: complet ? '#9CA3AF' : '#fff',
+            pointerEvents: complet ? 'none' : 'auto',
+            boxShadow: complet ? 'none' : '0 4px 16px rgba(155,48,232,0.25)',
+            transition: 'transform 0.18s, box-shadow 0.18s',
+          }}
+          onMouseEnter={e => { if (!complet) { e.currentTarget.style.transform = 'translateY(-1px)'; e.currentTarget.style.boxShadow = '0 8px 24px rgba(155,48,232,0.40)' } }}
+          onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = complet ? 'none' : '0 4px 16px rgba(155,48,232,0.25)' }}
+        >
+          {complet ? 'Session complète — Rejoindre la liste d\'attente' : 'M\'inscrire à cette session →'}
+        </Link>
+      )}
     </motion.div>
   )
 }
@@ -294,7 +306,7 @@ export default function FormationCPF() {
   return (
     <main style={{ background: '#fff', minHeight: 'calc(100vh - 72px)' }}>
 
-      <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '88px 24px 0' }}>
+      <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '8px 24px 0' }}>
         <Breadcrumb items={[
           { label: 'Accueil', to: '/' },
           { label: 'Formation', to: '/formation/cpf' },
@@ -324,20 +336,6 @@ export default function FormationCPF() {
             <span style={{ color: '#3B4FD8', fontSize: '13px', fontWeight: 600 }}>Formations certifiantes · Finançables CPF</span>
           </motion.div>
 
-          <motion.p variants={FADE_UP} initial="hidden" animate="show" custom={0.5}
-            style={{ fontSize: '12px', color: '#6B7280', marginBottom: '-12px' }}>
-            <a
-              href="https://www.francecompetences.fr/recherche/rs/7344/"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ color: '#6B7280', textDecoration: 'none', borderBottom: '1px dashed rgba(107,114,128,0.4)', transition: 'color 0.2s, border-color 0.2s' }}
-              onMouseEnter={e => { e.currentTarget.style.color = '#3B4FD8'; e.currentTarget.style.borderBottomColor = '#3B4FD8' }}
-              onMouseLeave={e => { e.currentTarget.style.color = '#6B7280'; e.currentTarget.style.borderBottomColor = 'rgba(107,114,128,0.4)' }}
-            >
-              Certification RS7344 enregistrée au Répertoire Spécifique de France Compétences
-            </a>
-          </motion.p>
-
           <motion.h1 variants={FADE_UP} initial="hidden" animate="show" custom={1}
             style={{ color: '#0F0C1E', fontWeight: 800, fontSize: 'clamp(2rem, 4vw, 3rem)', lineHeight: 1.15, letterSpacing: '-0.02em', marginBottom: '16px' }}>
             Formez-vous à l'IA,{' '}
@@ -352,7 +350,20 @@ export default function FormationCPF() {
           <motion.p variants={FADE_UP} initial="hidden" animate="show" custom={2}
             style={{ color: '#6B7280', fontSize: '16px', lineHeight: 1.7, marginBottom: '32px', maxWidth: '600px', margin: '0 auto 32px' }}>
             Utilisez votre Compte Personnel de Formation pour accéder à nos programmes IA certifiants.
-            <strong style={{ color: '#0F0C1E' }}> 0 € de reste à charge.</strong>
+          </motion.p>
+
+          <motion.p variants={FADE_UP} initial="hidden" animate="show" custom={2.5}
+            style={{ fontSize: '12px', color: '#6B7280', marginTop: '8px', marginBottom: '24px' }}>
+            <a
+              href="https://www.francecompetences.fr/recherche/rs/7344/"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: '#6B7280', textDecoration: 'none', borderBottom: '1px dashed rgba(107,114,128,0.4)', transition: 'color 0.2s, border-color 0.2s' }}
+              onMouseEnter={e => { e.currentTarget.style.color = '#3B4FD8'; e.currentTarget.style.borderBottomColor = '#3B4FD8' }}
+              onMouseLeave={e => { e.currentTarget.style.color = '#6B7280'; e.currentTarget.style.borderBottomColor = 'rgba(107,114,128,0.4)' }}
+            >
+              Certification RS7344 enregistrée au Répertoire Spécifique de France Compétences
+            </a>
           </motion.p>
 
           {/* Stats rapides */}
@@ -396,23 +407,162 @@ export default function FormationCPF() {
           {SESSIONS.map((session, i) => <SessionCard key={session.id} session={session} index={i} />)}
         </div>
 
-        {/* CTA bas de page */}
+      </section>
+
+      {/* ── Programme de la formation ─────────────────── */}
+      <section style={{ maxWidth: '900px', margin: '0 auto', padding: isMobile ? '32px 16px' : '56px 24px' }}>
+        <motion.h2
+          initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+          style={{ fontSize: isMobile ? '22px' : '28px', fontWeight: 800, color: '#0F0C1E', marginBottom: '8px', letterSpacing: '-0.02em' }}>
+          Programme de la formation
+        </motion.h2>
+        <p style={{ color: '#6B7280', fontSize: '14px', marginBottom: '32px' }}>
+          Certification RS7344 · 21 heures · Formation mixte 7h présentiel + 14h distanciel
+        </p>
+
+        {/* Infos clés */}
+        <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr 1fr' : 'repeat(4, 1fr)', gap: '12px', marginBottom: '40px' }}>
+          {[
+            { label: 'Durée totale', val: '21 heures' },
+            { label: 'Présentiel', val: '7 heures' },
+            { label: 'Distanciel', val: '14 heures' },
+            { label: 'Groupe max', val: '10 participants' },
+          ].map(item => (
+            <div key={item.label} style={{ background: '#F9F8FF', borderRadius: '14px', padding: '16px', border: '1px solid rgba(59,79,216,0.08)', textAlign: 'center' }}>
+              <p style={{ fontWeight: 800, fontSize: '18px', color: '#3B4FD8', margin: '0 0 4px' }}>{item.val}</p>
+              <p style={{ fontSize: '12px', color: '#6B7280', margin: 0 }}>{item.label}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* Objectifs / Public / Prérequis */}
+        <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: '16px', marginBottom: '40px' }}>
+          {[
+            { title: 'Objectifs', items: [
+              'Élaborer un plan d\'intégration de l\'IA dans son entreprise',
+              'Implémenter les solutions d\'IA dans les processus de l\'entreprise',
+              'Évaluer l\'impact de l\'intégration de l\'IA sur les performances',
+            ]},
+            { title: 'Public cible', items: [
+              'Dirigeants de TPE et PME',
+              'Collaborateurs directs amenés à intégrer l\'IA',
+              'Tout profil souhaitant développer son activité avec l\'IA',
+            ]},
+            { title: 'Prérequis', items: [
+              'Avoir un projet de développement d\'activité avec l\'IA',
+              'Maîtriser les bases informatiques et bureautiques',
+              'Navigateur web, traitement de texte, boîte email',
+            ]},
+            { title: 'Tarif', items: [
+              '1 500 € HT par participant',
+              'Finançable à 100% via le CPF (RS7344)',
+            ]},
+          ].map(block => (
+            <div key={block.title} style={{ background: '#fff', border: '1px solid #E5E7EB', borderRadius: '16px', padding: '20px 24px' }}>
+              <h3 style={{ fontSize: '13px', fontWeight: 700, color: '#3B4FD8', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '12px' }}>{block.title}</h3>
+              <ul style={{ margin: 0, paddingLeft: '16px', display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                {block.items.map((item, i) => (
+                  <li key={i} style={{ fontSize: '13px', color: '#4B5563', lineHeight: 1.6 }}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+
+        {/* Programme détaillé */}
+        <h3 style={{ fontSize: '18px', fontWeight: 700, color: '#0F0C1E', marginBottom: '16px' }}>Programme détaillé</h3>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: '40px' }}>
+          {[
+            { code: 'C1', title: 'Identifier les opportunités d\'intégration de l\'IA dans les processus clés', heures: '6h', items: [
+              'Fondamentaux et Enjeux : comprendre le paysage actuel de l\'IA, ses limites et son potentiel',
+              'Audit Technologique : distinguer l\'IA générative de l\'IA prédictive, catalogue d\'outils',
+              'Diagnostic et Cartographie : identifier les tâches automatisables à haute valeur ajoutée',
+              'Aide à la Décision : évaluer les risques (sécurité, fiabilité), le ROI et choisir les solutions',
+              'Veille Technologique : mettre en place une surveillance continue des innovations',
+            ]},
+            { code: 'C2', title: 'Élaborer un plan d\'intégration de l\'IA adapté à la structure de l\'entreprise', heures: '4h', items: [
+              'Design de la Stratégie : méthodologie d\'implémentation adaptée à l\'organisation',
+              'Analyse Sectorielle : étude de cas par pôle métier (Marketing, RH, Opérations)',
+              'Audit des Contraintes : identification des verrous techniques et organisationnels',
+              'Dimensionnement des Ressources : besoins humains, matériels et financiers',
+              'Roadmap Opérationnelle : matrice impact/effort et calendrier de mise en œuvre',
+            ]},
+            { code: 'C3', title: 'Implémenter les solutions d\'IA dans les processus de l\'entreprise', heures: '6h', items: [
+              'Configuration Avancée : paramétrage optimal des solutions sélectionnées',
+              'Prompt Engineering : conception de commandes complexes et tests de performance',
+              'Interconnexion des Flux : intégration dans l\'architecture logicielle et les workflows',
+              'Gouvernance et Conformité : application du RGPD et des principes de l\'IA Act',
+              'Mesure de l\'Efficacité : évaluation des premiers gains de productivité',
+            ]},
+            { code: 'C4', title: 'Accompagner le déploiement de l\'IA auprès des équipes', heures: '3h', items: [
+              'Montée en Compétences : modules de formation pour les différents profils utilisateurs',
+              'Charte d\'Utilisation Engagée : co-construction d\'une charte éthique',
+              'Inclusion Numérique : audit d\'accessibilité pour les collaborateurs en situation de handicap',
+              'Stratégie d\'Adoption : pilotage de la conduite du changement',
+            ]},
+            { code: 'C5', title: 'Évaluer l\'impact de l\'intégration de l\'IA sur les performances', heures: '2h', items: [
+              'Ingénierie des KPIs : définition d\'indicateurs clés et mesures d\'impact stratégiques',
+              'Audit et Analyse de Données : interprétation des métriques pour identifier les leviers',
+              'Cycle d\'Optimisation : processus d\'ajustements continus pour maximiser la valeur',
+            ]},
+          ].map((module, i) => (
+            <motion.details
+              key={module.code}
+              initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+              transition={{ delay: i * 0.05 }}
+              style={{ background: '#fff', border: '1px solid #E5E7EB', borderRadius: '16px', overflow: 'hidden' }}>
+              <summary style={{ display: 'flex', alignItems: 'center', gap: '12px', padding: '16px 20px', cursor: 'pointer', listStyle: 'none', userSelect: 'none' }}>
+                <span style={{ flexShrink: 0, width: '32px', height: '32px', borderRadius: '10px', background: 'linear-gradient(135deg, #3B4FD8, #9B30E8)', color: '#fff', fontSize: '11px', fontWeight: 800, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>{module.code}</span>
+                <span style={{ flex: 1, fontSize: '14px', fontWeight: 600, color: '#0F0C1E', lineHeight: 1.4 }}>{module.title}</span>
+                <span style={{ flexShrink: 0, fontSize: '12px', fontWeight: 700, color: '#3B4FD8', background: 'rgba(59,79,216,0.08)', padding: '3px 10px', borderRadius: '999px' }}>{module.heures}</span>
+              </summary>
+              <ul style={{ margin: 0, padding: '0 20px 16px 64px', display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                {module.items.map((item, j) => (
+                  <li key={j} style={{ fontSize: '13px', color: '#4B5563', lineHeight: 1.6 }}>{item}</li>
+                ))}
+              </ul>
+            </motion.details>
+          ))}
+        </div>
+
+        {/* Modalités */}
+        <div style={{ background: 'linear-gradient(135deg, rgba(59,79,216,0.04), rgba(155,48,232,0.04))', border: '1px solid rgba(59,79,216,0.10)', borderRadius: '16px', padding: isMobile ? '20px' : '28px 32px' }}>
+          <h3 style={{ fontSize: '15px', fontWeight: 700, color: '#0F0C1E', marginBottom: '16px' }}>Modalités pédagogiques</h3>
+          <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: '12px', fontSize: '13px', color: '#4B5563', lineHeight: 1.7 }}>
+            <div>
+              <p style={{ margin: '0 0 4px', fontWeight: 600, color: '#0F0C1E' }}>Lieu présentiel</p>
+              <p style={{ margin: 0 }}>ED Institut — 8 Rue Schertz, Bâtiment B2, 67100 Strasbourg</p>
+            </div>
+            <div>
+              <p style={{ margin: '0 0 4px', fontWeight: 600, color: '#0F0C1E' }}>Distanciel</p>
+              <p style={{ margin: 0 }}>Classes virtuelles synchrones + activités asynchrones sur plateforme en ligne</p>
+            </div>
+            <div>
+              <p style={{ margin: '0 0 4px', fontWeight: 600, color: '#0F0C1E' }}>Certification</p>
+              <p style={{ margin: 0 }}>Mise en situation professionnelle avec soutenance orale (25 min) devant jury — 15 jours de préparation</p>
+            </div>
+            <div>
+              <p style={{ margin: '0 0 4px', fontWeight: 600, color: '#0F0C1E' }}>Accessibilité</p>
+              <p style={{ margin: 0 }}>Formation accessible aux personnes en situation de handicap — référent : jounayd.ouadah@smartoptimisation.fr</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Aucun créneau */}
+      <section style={{ maxWidth: '900px', margin: '0 auto', padding: isMobile ? '0 16px 32px' : '0 24px 40px' }}>
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0, transition: { duration: 0.6 } }}
           viewport={{ once: true }}
-          style={{ marginTop: '64px', display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr auto', alignItems: 'center', gap: isMobile ? '20px' : '48px', padding: isMobile ? '28px 20px' : '40px 48px', borderRadius: '24px', background: '#fff', border: '1.5px solid rgba(59,79,216,0.10)', boxShadow: '0 8px 40px rgba(59,79,216,0.08)', position: 'relative', overflow: 'hidden' }}
+          style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr auto', alignItems: 'center', gap: isMobile ? '20px' : '48px', padding: isMobile ? '28px 20px' : '40px 48px', borderRadius: '24px', background: '#fff', border: '1.5px solid rgba(59,79,216,0.10)', boxShadow: '0 8px 40px rgba(59,79,216,0.08)', position: 'relative', overflow: 'hidden' }}
         >
-          {/* Accent gauche */}
           <div style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: '4px', background: 'linear-gradient(180deg, #3B4FD8, #9B30E8)', borderRadius: '4px 0 0 4px' }} />
-
-          {/* Blob décoratif */}
           <motion.div
             animate={{ scale: [1, 1.2, 1], opacity: [0.4, 0.7, 0.4] }}
             transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
             style={{ position: 'absolute', right: -60, top: -60, width: 220, height: 220, borderRadius: '50%', background: 'radial-gradient(circle, rgba(155,48,232,0.06) 0%, transparent 70%)', pointerEvents: 'none' }}
           />
-
           <div style={{ position: 'relative' }}>
             <div style={{ display: 'inline-flex', alignItems: 'center', gap: '7px', padding: '4px 12px', borderRadius: '999px', background: 'rgba(59,79,216,0.07)', border: '1px solid rgba(59,79,216,0.15)', marginBottom: '12px' }}>
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#3B4FD8" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -427,46 +577,36 @@ export default function FormationCPF() {
               Nous organisons des sessions privées dans toute l'Alsace — à votre date, dans vos locaux ou dans un espace partenaire.
             </p>
           </div>
-
           <motion.div whileHover={{ scale: 1.04, y: -2 }} whileTap={{ scale: 0.97 }} style={{ flexShrink: 0 }}>
-            <Link to="/contact" style={{
-              display: 'inline-flex', alignItems: 'center', gap: '8px',
-              padding: '14px 28px', borderRadius: '999px', fontSize: '14px', fontWeight: 700,
-              color: '#fff', background: 'linear-gradient(135deg, #3B4FD8, #9B30E8)',
-              textDecoration: 'none', boxShadow: '0 4px 20px rgba(155,48,232,0.30)',
-              whiteSpace: 'nowrap',
-            }}>
+            <Link to="/contact" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '14px 28px', borderRadius: '999px', fontSize: '14px', fontWeight: 700, color: '#fff', background: 'linear-gradient(135deg, #3B4FD8, #9B30E8)', textDecoration: 'none', boxShadow: '0 4px 20px rgba(155,48,232,0.30)', whiteSpace: 'nowrap' }}>
               Demander ma session privée →
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
-              </svg>
             </Link>
           </motion.div>
         </motion.div>
       </section>
 
       {/* Maillage interne */}
-      <section style={{ background: '#F9F8FF', padding: isMobile ? '48px 20px' : '64px 48px' }}>
+      <section style={{ background: '#F9F8FF', padding: isMobile ? '20px' : '28px 32px', borderRadius: '20px', marginTop: '32px' }}>
         <div style={{ maxWidth: '800px', margin: '0 auto' }}>
-          <h2 style={{ color: '#0F0C1E', fontWeight: 700, fontSize: '20px', marginBottom: '20px', textAlign: 'center' }}>
+          <h2 style={{ color: '#0F0C1E', fontWeight: 700, fontSize: '14px', marginBottom: '12px', textAlign: 'center' }}>
             Découvrez nos autres formations IA
           </h2>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-            <Link to="/formation/opco" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '16px 20px', background: '#fff', borderRadius: '12px', border: '1px solid rgba(59,79,216,0.08)', textDecoration: 'none', color: '#0F0C1E', fontSize: '15px', fontWeight: 500 }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+            <Link to="/formation/opco" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '10px 16px', background: '#fff', borderRadius: '12px', border: '1px solid rgba(59,79,216,0.08)', textDecoration: 'none', color: '#0F0C1E', fontSize: '13px', fontWeight: 500 }}>
               <span>Formation OPCO</span>
-              <span style={{ color: '#3B4FD8', fontSize: '13px' }}>Formation IA 100% financée par votre OPCO →</span>
+              <span style={{ color: '#3B4FD8', fontSize: '12px' }}>Formation IA 100% financée par votre OPCO →</span>
             </Link>
-            <Link to="/formation/sur-mesure" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '16px 20px', background: '#fff', borderRadius: '12px', border: '1px solid rgba(59,79,216,0.08)', textDecoration: 'none', color: '#0F0C1E', fontSize: '15px', fontWeight: 500 }}>
+            <Link to="/formation/sur-mesure" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '10px 16px', background: '#fff', borderRadius: '12px', border: '1px solid rgba(59,79,216,0.08)', textDecoration: 'none', color: '#0F0C1E', fontSize: '13px', fontWeight: 500 }}>
               <span>Formation sur mesure</span>
-              <span style={{ color: '#3B4FD8', fontSize: '13px' }}>Programme IA sur mesure pour votre entreprise →</span>
+              <span style={{ color: '#3B4FD8', fontSize: '12px' }}>Programme IA sur mesure pour votre entreprise →</span>
             </Link>
-            <Link to="/formation/environnements" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '16px 20px', background: '#fff', borderRadius: '12px', border: '1px solid rgba(59,79,216,0.08)', textDecoration: 'none', color: '#0F0C1E', fontSize: '15px', fontWeight: 500 }}>
+            <Link to="/formation/environnements" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '10px 16px', background: '#fff', borderRadius: '12px', border: '1px solid rgba(59,79,216,0.08)', textDecoration: 'none', color: '#0F0C1E', fontSize: '13px', fontWeight: 500 }}>
               <span>Formation aux environnements IA</span>
-              <span style={{ color: '#3B4FD8', fontSize: '13px' }}>Maîtriser Claude, ChatGPT et Gemini →</span>
+              <span style={{ color: '#3B4FD8', fontSize: '12px' }}>Maîtriser Claude, ChatGPT et Gemini →</span>
             </Link>
-            <Link to="/solution-ia" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '16px 20px', background: '#fff', borderRadius: '12px', border: '1px solid rgba(59,79,216,0.08)', textDecoration: 'none', color: '#0F0C1E', fontSize: '15px', fontWeight: 500 }}>
+            <Link to="/solution-ia" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '10px 16px', background: '#fff', borderRadius: '12px', border: '1px solid rgba(59,79,216,0.08)', textDecoration: 'none', color: '#0F0C1E', fontSize: '13px', fontWeight: 500 }}>
               <span>Solution IA sur mesure</span>
-              <span style={{ color: '#3B4FD8', fontSize: '13px' }}>Déployer une solution IA métier →</span>
+              <span style={{ color: '#3B4FD8', fontSize: '12px' }}>Déployer une solution IA métier →</span>
             </Link>
           </div>
         </div>

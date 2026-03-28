@@ -15,6 +15,7 @@ const MentionsLegales = lazy(() => import('./pages/MentionsLegales'))
 const PolitiqueConfidentialite = lazy(() => import('./pages/PolitiqueConfidentialite'))
 const RGPD = lazy(() => import('./pages/RGPD'))
 const Cookies = lazy(() => import('./pages/Cookies'))
+const CGV = lazy(() => import('./pages/CGV'))
 const NotFound = lazy(() => import('./pages/NotFound'))
 const BlogIndex = lazy(() => import('./pages/BlogIndex'))
 const BlogArticle = lazy(() => import('./pages/BlogArticle'))
@@ -54,6 +55,7 @@ export default function App() {
               <Route path="/confidentialite" element={<PolitiqueConfidentialite />} />
               <Route path="/rgpd" element={<RGPD />} />
               <Route path="/cookies" element={<Cookies />} />
+              <Route path="/cgv" element={<CGV />} />
               <Route path="/formation-ia-strasbourg" element={<FormationIAStrasbourg />} />
               <Route path="/formation-ia-mulhouse" element={<FormationIAMulhouse />} />
               <Route path="/formation-ia-colmar" element={<FormationIAColmar />} />

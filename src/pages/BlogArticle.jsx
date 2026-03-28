@@ -443,7 +443,7 @@ function NewsletterBox() {
         Guides IA, actualités OPCO et études de cas — directement dans votre boîte mail.
       </p>
       {sent ? (
-        <p style={{ color: '#fff', fontWeight: 700, fontSize: 15 }}>✓ Merci ! Vous serez notifié dès le prochain article.</p>
+        <p style={{ color: '#fff', fontWeight: 700, fontSize: 15 }}>Merci ! Vous serez notifié dès le prochain article.</p>
       ) : (
         <form
           onSubmit={e => { e.preventDefault(); setSent(true) }}
@@ -571,7 +571,7 @@ export default function BlogArticle() {
       <ReadingProgress articleRef={articleRef} />
       <StickyCTA articleRef={articleRef} />
 
-      <div style={{ maxWidth: 1100, margin: '0 auto', padding: isMobile ? '24px 16px 60px' : '40px 24px 80px' }}>
+      <div style={{ maxWidth: 1100, margin: '0 auto', padding: isMobile ? '8px 16px 60px' : '8px 24px 80px' }}>
 
         {/* Breadcrumb */}
         <nav style={{ fontSize: 13, color: '#9ca3af', marginBottom: 28 }}>

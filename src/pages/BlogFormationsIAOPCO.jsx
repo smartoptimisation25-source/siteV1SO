@@ -253,7 +253,7 @@ export default function BlogFormationsIAOPCO() {
         position: 'relative', overflow: 'hidden',
         background: 'linear-gradient(135deg, rgba(59,79,216,0.04) 0%, rgba(155,48,232,0.04) 100%)',
         borderBottom: '1px solid rgba(59,79,216,0.08)',
-        padding: isMobile ? '40px 20px 36px' : '64px 48px 56px',
+        padding: isMobile ? '8px 20px 36px' : '8px 48px 56px',
       }}>
         {/* Blobs */}
         <motion.div
@@ -596,8 +596,8 @@ export default function BlogFormationsIAOPCO() {
             rows={[
               ['Temps de rédaction d\'un email complexe', '18 min', '4 min', '<strong style="color:#059669">-78%</strong>'],
               ['Synthèse d\'un document 20 pages', '45 min', '8 min', '<strong style="color:#059669">-82%</strong>'],
-              ['Satisfaction collaborateurs', '—', '97%', '<strong style="color:#059669">✓</strong>'],
-              ['<strong>Temps économisé/jour/collaborateur</strong>', '—', '<strong>~2h</strong>', '<strong style="color:#059669">✓</strong>'],
+              ['Satisfaction collaborateurs', '—', '97%', '<strong style="color:#059669">Oui</strong>'],
+              ['<strong>Temps économisé/jour/collaborateur</strong>', '—', '<strong>~2h</strong>', '<strong style="color:#059669">Oui</strong>'],
             ]}
           />
           <div style={{ marginTop: '20px', padding: '20px 24px', borderRadius: '14px', background: 'linear-gradient(135deg, rgba(5,150,105,0.07), rgba(59,79,216,0.07))', border: '1px solid rgba(5,150,105,0.20)' }}>
@@ -687,34 +687,24 @@ export default function BlogFormationsIAOPCO() {
         </motion.div>
 
         {/* Liens internes */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1, transition: { duration: 0.5 } }}
-          viewport={{ once: true }}
-          style={{ marginTop: '48px', paddingTop: '32px', borderTop: '1px solid rgba(59,79,216,0.08)' }}
-        >
-          <p style={{ color: '#9CA3AF', fontSize: '12px', fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '16px' }}>Articles et pages liés</p>
-          <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+        <section style={{ background: '#F9F8FF', padding: '28px 32px', borderRadius: '20px', marginTop: '48px' }}>
+          <h2 style={{ color: '#0F0C1E', fontWeight: 700, fontSize: '14px', marginBottom: '12px', textAlign: 'center' }}>
+            Articles et pages liés
+          </h2>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
             {[
-              { label: 'Formation IA financée OPCO', to: '/formation/opco' },
-              { label: 'Formation IA CPF RS7344', to: '/formation/cpf' },
-              { label: 'Formation IA sur mesure', to: '/formation/sur-mesure' },
-              { label: 'Solution IA sur mesure', to: '/solution-ia' },
+              { label: 'Formation IA financée OPCO', desc: 'Financement 100% pris en charge', to: '/formation/opco' },
+              { label: 'Formation IA CPF RS7344', desc: 'Certification officielle France Compétences', to: '/formation/cpf' },
+              { label: 'Formation IA sur mesure', desc: 'Programme adapté à votre entreprise', to: '/formation/sur-mesure' },
+              { label: 'Solution IA sur mesure', desc: 'Déploiement IA métier clé en main', to: '/solution-ia' },
             ].map((link) => (
-              <Link key={link.to} to={link.to} style={{
-                padding: '8px 16px', borderRadius: '999px', fontSize: '13px', fontWeight: 500,
-                color: '#3B4FD8', textDecoration: 'none',
-                background: 'rgba(59,79,216,0.06)', border: '1px solid rgba(59,79,216,0.15)',
-                transition: 'background 0.18s',
-              }}
-                onMouseEnter={e => { e.currentTarget.style.background = 'rgba(59,79,216,0.12)' }}
-                onMouseLeave={e => { e.currentTarget.style.background = 'rgba(59,79,216,0.06)' }}
-              >
-                {link.label} →
+              <Link key={link.to} to={link.to} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '10px 16px', background: '#fff', borderRadius: '12px', border: '1px solid rgba(59,79,216,0.08)', textDecoration: 'none', color: '#0F0C1E', fontSize: '13px', fontWeight: 500 }}>
+                <span>{link.label}</span>
+                <span style={{ color: '#3B4FD8', fontSize: '12px', whiteSpace: 'nowrap', marginLeft: '16px' }}>{link.desc} →</span>
               </Link>
             ))}
           </div>
-        </motion.div>
+        </section>
 
         {/* Signature */}
         <p style={{ color: '#C4B8FF', fontSize: '12px', marginTop: '40px', textAlign: 'center' }}>

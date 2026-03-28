@@ -297,7 +297,7 @@ export default function FormationOPCO() {
         style={{ position: 'absolute', top: '30%', right: -80, width: 480, height: 480, borderRadius: '50%', background: 'radial-gradient(circle, rgba(155,48,232,0.06) 0%, transparent 68%)', pointerEvents: 'none' }}
       />
 
-      <div style={{ maxWidth: '1100px', margin: '0 auto', padding: isMobile ? '40px 20px 60px' : '72px 48px 100px', position: 'relative', zIndex: 2 }}>
+      <div style={{ maxWidth: '1100px', margin: '0 auto', padding: isMobile ? '8px 20px 60px' : '8px 48px 100px', position: 'relative', zIndex: 2 }}>
 
         {/* ── Fil d'Ariane ── */}
         <Breadcrumb items={[
@@ -359,7 +359,7 @@ export default function FormationOPCO() {
             {[
               { val: '100%', label: 'Financement pris en charge' },
               { val: '48h', label: 'Réponse de faisabilité' },
-              { val: '+200', label: 'Entreprises accompagnées' },
+              { val: '+35', label: 'Entreprises accompagnées' },
             ].map((s, i) => (
               <motion.div
                 key={s.label}
@@ -404,52 +404,44 @@ export default function FormationOPCO() {
           </a>
         </p>
 
+        {/* ══ CTA BLOC ══ */}
+        <CTABloc />
+
+        {/* ══ Lien blog ══ */}
+        <section style={{ background: '#F9F8FF', padding: isMobile ? '20px' : '28px 32px', borderRadius: '20px', marginTop: '48px', marginBottom: '48px' }}>
+          <h2 style={{ color: '#0F0C1E', fontWeight: 700, fontSize: '14px', marginBottom: '12px', textAlign: 'center' }}>
+            Ressources utiles
+          </h2>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+            <Link to="/blog/formations-ia-opco-guide-2026" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '10px 16px', background: '#fff', borderRadius: '12px', border: '1px solid rgba(59,79,216,0.08)', textDecoration: 'none', color: '#0F0C1E', fontSize: '13px', fontWeight: 500 }}>
+              <span>Formations IA & OPCO, le guide 2026</span>
+              <span style={{ color: '#3B4FD8', fontSize: '12px', whiteSpace: 'nowrap', marginLeft: '16px' }}>Lire l'article →</span>
+            </Link>
+          </div>
+        </section>
+
         {/* Maillage interne */}
-        <section style={{ background: '#F9F8FF', padding: isMobile ? '48px 20px' : '64px 48px', borderRadius: '24px', marginBottom: '48px' }}>
+        <section style={{ background: '#F9F8FF', padding: isMobile ? '20px' : '28px 32px', borderRadius: '20px', marginTop: '32px' }}>
           <div style={{ maxWidth: '800px', margin: '0 auto' }}>
-            <h2 style={{ color: '#0F0C1E', fontWeight: 700, fontSize: '20px', marginBottom: '20px', textAlign: 'center' }}>
+            <h2 style={{ color: '#0F0C1E', fontWeight: 700, fontSize: '14px', marginBottom: '12px', textAlign: 'center' }}>
               Découvrez nos autres formations IA
             </h2>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-              <Link to="/formation/cpf" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '16px 20px', background: '#fff', borderRadius: '12px', border: '1px solid rgba(59,79,216,0.08)', textDecoration: 'none', color: '#0F0C1E', fontSize: '15px', fontWeight: 500 }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+              <Link to="/formation/cpf" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '10px 16px', background: '#fff', borderRadius: '12px', border: '1px solid rgba(59,79,216,0.08)', textDecoration: 'none', color: '#0F0C1E', fontSize: '13px', fontWeight: 500 }}>
                 <span>Formation CPF RS7344</span>
-                <span style={{ color: '#3B4FD8', fontSize: '13px' }}>Formation IA certifiée CPF RS7344 →</span>
+                <span style={{ color: '#3B4FD8', fontSize: '12px' }}>Formation IA certifiée CPF RS7344 →</span>
               </Link>
-              <Link to="/formation/sur-mesure" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '16px 20px', background: '#fff', borderRadius: '12px', border: '1px solid rgba(59,79,216,0.08)', textDecoration: 'none', color: '#0F0C1E', fontSize: '15px', fontWeight: 500 }}>
+              <Link to="/formation/sur-mesure" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '10px 16px', background: '#fff', borderRadius: '12px', border: '1px solid rgba(59,79,216,0.08)', textDecoration: 'none', color: '#0F0C1E', fontSize: '13px', fontWeight: 500 }}>
                 <span>Formation sur mesure</span>
-                <span style={{ color: '#3B4FD8', fontSize: '13px' }}>Programme IA sur mesure pour votre entreprise →</span>
+                <span style={{ color: '#3B4FD8', fontSize: '12px' }}>Programme IA sur mesure pour votre entreprise →</span>
               </Link>
-              <Link to="/formation/environnements" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '16px 20px', background: '#fff', borderRadius: '12px', border: '1px solid rgba(59,79,216,0.08)', textDecoration: 'none', color: '#0F0C1E', fontSize: '15px', fontWeight: 500 }}>
+              <Link to="/formation/environnements" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '10px 16px', background: '#fff', borderRadius: '12px', border: '1px solid rgba(59,79,216,0.08)', textDecoration: 'none', color: '#0F0C1E', fontSize: '13px', fontWeight: 500 }}>
                 <span>Formation aux environnements IA</span>
-                <span style={{ color: '#3B4FD8', fontSize: '13px' }}>Maîtriser Claude, ChatGPT et Gemini →</span>
+                <span style={{ color: '#3B4FD8', fontSize: '12px' }}>Maîtriser Claude, ChatGPT et Gemini →</span>
               </Link>
             </div>
           </div>
         </section>
-
-        {/* ══ Lien blog ══ */}
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0, transition: { duration: 0.5 } }}
-          viewport={{ once: true }}
-          style={{ marginBottom: '48px', padding: isMobile ? '20px' : '24px 32px', borderRadius: '16px', background: 'linear-gradient(135deg, rgba(59,79,216,0.05), rgba(155,48,232,0.05))', border: '1px solid rgba(59,79,216,0.12)', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '16px', flexWrap: 'wrap' }}
-        >
-          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-            <span style={{ fontSize: '20px' }}>📖</span>
-            <span style={{ color: '#374151', fontSize: '15px', fontWeight: 500 }}>
-              Consultez notre guide complet :{' '}
-              <Link to="/blog/formations-ia-opco-guide-2026" style={{ color: '#3B4FD8', fontWeight: 700, textDecoration: 'underline', textUnderlineOffset: '3px' }}>
-                Formations IA & OPCO, le guide 2026
-              </Link>
-            </span>
-          </div>
-          <Link to="/blog/formations-ia-opco-guide-2026" style={{ color: '#3B4FD8', fontSize: '13px', fontWeight: 600, textDecoration: 'none', whiteSpace: 'nowrap' }}>
-            Lire l'article →
-          </Link>
-        </motion.div>
-
-        {/* ══ CTA BLOC ══ */}
-        <CTABloc />
       </div>
     </main>
   )

@@ -2,7 +2,9 @@ import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { useSEO } from '../hooks/useSEO'
 import useIsMobile from '../hooks/useIsMobile'
-import { articles, CATEGORIES } from '../data/blogArticles'
+import { articles as rawArticles, CATEGORIES } from '../data/blogArticles'
+
+const articles = [...rawArticles].sort((a, b) => new Date(b.date) - new Date(a.date))
 
 const BLOG_INDEX_SCHEMA = {
   '@context': 'https://schema.org',
@@ -260,7 +262,7 @@ export default function BlogIndex() {
   })
 
   return (
-    <main style={{ maxWidth: 1100, margin: '0 auto', padding: isMobile ? '32px 16px 60px' : '56px 24px 80px' }}>
+    <main style={{ maxWidth: 1100, margin: '0 auto', padding: isMobile ? '8px 16px 60px' : '8px 24px 80px' }}>
 
       {/* Header */}
       <div style={{ textAlign: 'center', marginBottom: 48 }}>
