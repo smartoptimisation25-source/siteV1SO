@@ -73,9 +73,9 @@ export default function FormationIAColmar() {
               { title: 'Formation IA sur mesure', desc: 'Programme co-construit autour de vos outils', to: '/formation/sur-mesure' },
               { title: 'Formation Claude, ChatGPT et Gemini', desc: 'Maîtriser les 3 grands environnements IA', to: '/formation/environnements' },
             ].map((item) => (
-              <Link key={item.to} to={item.to} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '10px 16px', background: '#fff', borderRadius: '12px', border: '1px solid rgba(59,79,216,0.08)', textDecoration: 'none', color: '#0F0C1E', fontSize: '13px', fontWeight: 500 }}>
+              <Link key={item.to} to={item.to} style={{ display: 'flex', flexDirection: 'column', padding: '10px 16px', background: '#fff', borderRadius: '12px', border: '1px solid rgba(59,79,216,0.08)', textDecoration: 'none', color: '#0F0C1E', fontSize: '13px', fontWeight: 500, gap: '2px' }}>
                 <span>{item.title}</span>
-                <span style={{ color: '#3B4FD8', fontSize: '12px', whiteSpace: 'nowrap', marginLeft: '16px' }}>{item.desc} →</span>
+                <span style={{ color: '#3B4FD8', fontSize: '12px' }}>{item.desc} →</span>
               </Link>
             ))}
           </div>

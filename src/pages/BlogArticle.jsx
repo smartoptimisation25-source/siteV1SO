@@ -422,7 +422,7 @@ function NewsletterBox() {
     <div style={{
       background: 'linear-gradient(135deg, #3B4FD8 0%, #6B3FD8 50%, #9B30E8 100%)',
       borderRadius: 16,
-      padding: '32px 28px',
+      padding: '32px 20px',
       marginTop: 40,
       textAlign: 'center',
       position: 'relative',
@@ -585,7 +585,7 @@ export default function BlogArticle() {
         <div style={{ display: 'grid', gridTemplateColumns: isMobile || !hasToc ? '1fr' : '1fr 240px', gap: 48, alignItems: 'start' }}>
 
           {/* Main content */}
-          <article ref={articleRef}>
+          <article ref={articleRef} style={{ minWidth: 0 }}>
 
             {/* Article header */}
             <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}>

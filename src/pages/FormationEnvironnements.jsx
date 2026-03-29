@@ -83,7 +83,7 @@ const ECOSYSTEMS = [
 ]
 
 /* ─── Carte Écosystème ───────────────────────────────────────────── */
-function EcoCard({ eco, i, compareMode, activeCompare, onToggleCompare }) {
+function EcoCard({ eco, i, compareMode, activeCompare, onToggleCompare, isMobile }) {
   const ref = useRef(null)
   const x = useMotionValue(0)
   const y = useMotionValue(0)
@@ -120,8 +120,8 @@ function EcoCard({ eco, i, compareMode, activeCompare, onToggleCompare }) {
         border: isSelected
           ? `1.5px solid ${eco.accent}80`
           : '1.5px solid rgba(255,255,255,0.08)',
-        borderRadius: '24px',
-        padding: '32px',
+        borderRadius: '20px',
+        padding: isMobile ? '16px' : '32px',
         cursor: 'default',
         rotateX: !compareMode ? rotateX : 0,
         rotateY: !compareMode ? rotateY : 0,
@@ -133,7 +133,8 @@ function EcoCard({ eco, i, compareMode, activeCompare, onToggleCompare }) {
         transition: 'border 0.2s, box-shadow 0.2s',
         display: 'flex',
         flexDirection: 'column',
-        gap: '24px',
+        gap: isMobile ? '14px' : '24px',
+        minWidth: 0,
       }}
     >
       {/* Gradient overlay */}
@@ -155,14 +156,15 @@ function EcoCard({ eco, i, compareMode, activeCompare, onToggleCompare }) {
       />
 
       {/* Header */}
-      <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', position: 'relative', zIndex: 1 }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+      <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', position: 'relative', zIndex: 1, flexWrap: 'wrap', gap: '8px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
           <div style={{
-            width: '52px', height: '52px', borderRadius: '16px',
+            width: isMobile ? '40px' : '52px', height: isMobile ? '40px' : '52px', borderRadius: '14px',
             background: `linear-gradient(135deg, ${eco.accent}20, ${eco.accent}08)`,
             border: `1px solid ${eco.accent}30`,
             display: 'flex', alignItems: 'center', justifyContent: 'center',
             boxShadow: `0 4px 16px ${eco.glow}`,
+            flexShrink: 0,
           }}>
             {eco.logo}
           </div>
@@ -170,18 +172,18 @@ function EcoCard({ eco, i, compareMode, activeCompare, onToggleCompare }) {
             <p style={{ color: 'rgba(0,0,0,0.4)', fontSize: '11px', fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', margin: 0 }}>
               {eco.vendor}
             </p>
-            <p style={{ color: '#111827', fontWeight: 700, fontSize: '20px', margin: 0, letterSpacing: '-0.02em' }}>
+            <p style={{ color: '#111827', fontWeight: 700, fontSize: isMobile ? '17px' : '20px', margin: 0, letterSpacing: '-0.02em' }}>
               {eco.name}
             </p>
           </div>
         </div>
         <div style={{
-          padding: '4px 12px', borderRadius: '999px',
+          padding: '3px 10px', borderRadius: '999px',
           background: `${eco.accent}18`,
           border: `1px solid ${eco.accent}35`,
           color: eco.accentLight,
-          fontSize: '11px', fontWeight: 600, letterSpacing: '0.04em',
-          whiteSpace: 'nowrap',
+          fontSize: '10px', fontWeight: 600, letterSpacing: '0.04em',
+          alignSelf: 'center',
         }}>
           {eco.tagline}
         </div>
@@ -578,6 +580,7 @@ export default function FormationEnvironnements() {
                 compareMode={compareMode}
                 activeCompare={activeCompare.includes(eco.id) ? eco.id : null}
                 onToggleCompare={toggleCompare}
+                isMobile={isMobile}
               />
             ))}
           </div>
