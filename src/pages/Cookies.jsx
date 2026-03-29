@@ -80,7 +80,7 @@ export default function Cookies() {
           <h1 style={{ color: '#0F0C1E', fontWeight: 800, fontSize: 'clamp(1.8rem, 3vw, 2.6rem)', letterSpacing: '-0.02em', marginBottom: '12px' }}>
             Politique de gestion des cookies
           </h1>
-          <p style={{ color: '#9CA3AF', fontSize: '14px' }}>Dernière mise à jour : mars 2025</p>
+          <p style={{ color: '#6B7280', fontSize: '14px' }}>Dernière mise à jour : mars 2025</p>
         </div>
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: '40px' }}>
@@ -108,7 +108,7 @@ export default function Cookies() {
                       </div>
                       <div>
                         <p style={{ color: '#0F0C1E', fontWeight: 700, fontSize: '15px', margin: 0 }}>{cookie.nom}</p>
-                        <p style={{ color: '#9CA3AF', fontSize: '11px', margin: '2px 0 0' }}>Durée : {cookie.duree}</p>
+                        <p style={{ color: '#6B7280', fontSize: '11px', margin: '2px 0 0' }}>Durée : {cookie.duree}</p>
                       </div>
                     </div>
                     {/* Toggle */}
@@ -146,7 +146,7 @@ export default function Cookies() {
                   </div>
                   {/* Body carte */}
                   <div style={{ padding: '16px 20px' }}>
-                    <p style={{ color: '#4B5563', fontSize: '13px', lineHeight: 1.6, margin: '0 0 10px' }}>{cookie.desc}</p>
+                    <p style={{ color: '#1F2937', fontSize: '13px', lineHeight: 1.6, margin: '0 0 10px' }}>{cookie.desc}</p>
                     <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
                       {cookie.exemples.map(ex => (
                         <span key={ex} style={{ padding: '3px 10px', borderRadius: '999px', background: 'rgba(59,79,216,0.06)', border: '1px solid rgba(59,79,216,0.12)', color: '#3B4FD8', fontSize: '11px', fontWeight: 500 }}>
@@ -197,7 +197,7 @@ function Section({ title, children }) {
   return (
     <div style={{ borderLeft: '3px solid', borderImage: 'linear-gradient(180deg,#3B4FD8,#9B30E8) 1', paddingLeft: '24px' }}>
       <h2 style={{ color: '#0F0C1E', fontWeight: 700, fontSize: '18px', marginBottom: '14px' }}>{title}</h2>
-      <div style={{ color: '#4B5563', fontSize: '15px', lineHeight: 1.8, display: 'flex', flexDirection: 'column', gap: '10px' }}>
+      <div style={{ color: '#1F2937', fontSize: '15px', lineHeight: 1.8, display: 'flex', flexDirection: 'column', gap: '10px' }}>
         {children}
       </div>
     </div>

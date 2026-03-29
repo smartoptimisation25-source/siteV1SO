@@ -217,7 +217,7 @@ export default function Contact() {
             </motion.span>
           </h1>
 
-          <p style={{ color: '#6B7280', fontSize: '16px', lineHeight: 1.7, marginBottom: '48px', maxWidth: '400px' }}>
+          <p style={{ color: '#374151', fontSize: '16px', lineHeight: 1.7, marginBottom: '48px', maxWidth: '400px' }}>
             Notre équipe vous répond sous 24h pour construire ensemble la solution IA adaptée à votre secteur et vos objectifs.
           </p>
 
@@ -237,7 +237,7 @@ export default function Contact() {
                   {item.icon}
                 </motion.div>
                 <div>
-                  <p style={{ color: '#9CA3AF', fontSize: '12px', margin: 0 }}>{item.label}</p>
+                  <p style={{ color: '#6B7280', fontSize: '12px', margin: 0 }}>{item.label}</p>
                   <p style={{ color: '#0F0C1E', fontSize: '14px', fontWeight: 600, margin: 0 }}>{item.value}</p>
                 </div>
               </motion.div>
@@ -264,7 +264,7 @@ export default function Contact() {
                   </svg>
                 </motion.div>
                 <h2 style={{ color: '#0F0C1E', fontWeight: 800, fontSize: '22px', marginBottom: '12px' }}>Message envoyé !</h2>
-                <p style={{ color: '#6B7280', fontSize: '15px', lineHeight: 1.6 }}>
+                <p style={{ color: '#374151', fontSize: '15px', lineHeight: 1.6 }}>
                   Merci pour votre demande. Notre équipe vous contactera sous 24h ouvrées.
                 </p>
               </motion.div>
@@ -322,12 +322,12 @@ export default function Contact() {
                           <motion.span
                             animate={active ? { rotate: [0, -5, 5, 0], scale: [1, 1.1, 1] } : {}}
                             transition={{ duration: 0.4 }}
-                            style={{ color: active ? '#3B4FD8' : '#6B7280' }}
+                            style={{ color: active ? '#3B4FD8' : '#374151' }}
                           >
                             {s.icon}
                           </motion.span>
                           <span style={{ color: active ? '#3B4FD8' : '#0F0C1E', fontSize: '12px', fontWeight: active ? 700 : 500, lineHeight: 1.3 }}>{s.label}</span>
-                          <span style={{ color: '#9CA3AF', fontSize: '10px' }}>{s.desc}</span>
+                          <span style={{ color: '#6B7280', fontSize: '10px' }}>{s.desc}</span>
                         </motion.button>
                       )
                     })}
@@ -375,7 +375,7 @@ export default function Contact() {
                   </motion.p>
                 )}
 
-                <p style={{ color: '#9CA3AF', fontSize: '11px', textAlign: 'center', margin: 0 }}>
+                <p style={{ color: '#6B7280', fontSize: '11px', textAlign: 'center', margin: 0 }}>
                   En envoyant ce formulaire, vous acceptez notre politique de confidentialité.
                 </p>
               </form>

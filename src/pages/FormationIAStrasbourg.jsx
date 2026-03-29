@@ -56,7 +56,7 @@ export default function FormationIAStrasbourg() {
         </motion.h1>
 
         <motion.p variants={FADE_UP} initial="hidden" animate="show" custom={1}
-          style={{ fontSize: isMobile ? '15px' : '17px', color: '#4B5563', lineHeight: 1.7, marginBottom: '32px' }}>
+          style={{ fontSize: isMobile ? '15px' : '17px', color: '#1F2937', lineHeight: 1.7, marginBottom: '32px' }}>
           Smart Optimisation est un organisme de formation basé à Strasbourg, spécialisé en intelligence artificielle.
           Nous proposons des formations certifiées Qualiopi en présentiel à Strasbourg, éligibles au CPF (RS7344) et au financement OPCO à 100%.
           Nos sessions couvrent ChatGPT, Claude, Google Gemini et l'automatisation des processus métier.
@@ -87,7 +87,7 @@ export default function FormationIAStrasbourg() {
         </motion.h2>
 
         <motion.div variants={FADE_UP} initial="hidden" whileInView="show" viewport={{ once: true }}
-          style={{ fontSize: '15px', color: '#4B5563', lineHeight: 1.8, marginBottom: '40px' }}>
+          style={{ fontSize: '15px', color: '#1F2937', lineHeight: 1.8, marginBottom: '40px' }}>
           <p style={{ marginBottom: '12px' }}>
             Strasbourg est un pôle d'innovation majeur dans le Grand Est, avec un écosystème tech dynamique et des entreprises comme Hager, CTS ou les HUS qui ont déjà intégré l'IA dans leurs processus.
           </p>
@@ -102,7 +102,7 @@ export default function FormationIAStrasbourg() {
         <motion.div variants={FADE_UP} initial="hidden" whileInView="show" viewport={{ once: true }}
           style={{ background: 'linear-gradient(135deg, rgba(59,79,216,0.06), rgba(155,48,232,0.06))', borderRadius: '20px', border: '1px solid rgba(59,79,216,0.12)', padding: isMobile ? '32px 24px' : '40px 36px', textAlign: 'center' }}>
           <h2 style={{ fontSize: '22px', fontWeight: 700, color: '#0F0C1E', marginBottom: '12px' }}>Prêt à vous former à l'IA à Strasbourg ?</h2>
-          <p style={{ fontSize: '15px', color: '#6B7280', marginBottom: '20px' }}>Audit IA gratuit — Réponse sous 24h</p>
+          <p style={{ fontSize: '15px', color: '#374151', marginBottom: '20px' }}>Audit IA gratuit — Réponse sous 24h</p>
           <Link to="/contact" style={{ display: 'inline-flex', alignItems: 'center', padding: '14px 28px', borderRadius: '12px', background: 'linear-gradient(135deg, #3B4FD8, #7B4FE8)', color: '#fff', fontWeight: 700, fontSize: '15px', textDecoration: 'none', minHeight: '48px' }}>
             Demander un devis gratuit →
           </Link>

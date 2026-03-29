@@ -20,14 +20,14 @@ export default function RGPD() {
           <h1 style={{ color: '#0F0C1E', fontWeight: 800, fontSize: 'clamp(1.8rem, 3vw, 2.6rem)', letterSpacing: '-0.02em', marginBottom: '12px' }}>
             Politique RGPD
           </h1>
-          <p style={{ color: '#9CA3AF', fontSize: '14px' }}>Règlement Général sur la Protection des Données — Dernière mise à jour : mars 2025</p>
+          <p style={{ color: '#6B7280', fontSize: '14px' }}>Règlement Général sur la Protection des Données — Dernière mise à jour : mars 2025</p>
         </div>
 
         {/* Bandeau intro */}
         <div style={{ background: 'linear-gradient(135deg, rgba(59,79,216,0.06), rgba(155,48,232,0.06))', border: '1px solid rgba(59,79,216,0.15)', borderRadius: '16px', padding: '20px 24px', marginBottom: '40px', display: 'flex', gap: '16px', alignItems: 'flex-start' }}>
           <div>
             <p style={{ color: '#0F0C1E', fontWeight: 700, fontSize: '15px', margin: '0 0 6px' }}>Engagement de Smart Optimisation</p>
-            <p style={{ color: '#6B7280', fontSize: '14px', lineHeight: 1.7, margin: 0 }}>
+            <p style={{ color: '#374151', fontSize: '14px', lineHeight: 1.7, margin: 0 }}>
               Smart Optimisation s'engage à respecter pleinement le Règlement Général sur la Protection des Données (RGPD — Règlement UE 2016/679), en vigueur depuis le 25 mai 2018. La protection de vos données personnelles est au cœur de nos valeurs.
             </p>
           </div>
@@ -53,7 +53,7 @@ export default function RGPD() {
                 <div key={item.cat} style={{ display: 'flex', gap: '14px', padding: '10px 14px', background: '#F9F8FF', borderRadius: '10px', border: '1px solid rgba(59,79,216,0.07)', alignItems: 'center' }}>
                   <div style={{ width: 28, height: 28, borderRadius: '8px', background: 'rgba(59,79,216,0.08)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>{item.icon}</div>
                   <span style={{ fontWeight: 600, color: '#374151', fontSize: '13px', minWidth: '100px' }}>{item.cat}</span>
-                  <span style={{ color: '#6B7280', fontSize: '13px' }}>{item.ex}</span>
+                  <span style={{ color: '#374151', fontSize: '13px' }}>{item.ex}</span>
                 </div>
               ))}
             </div>
@@ -93,7 +93,7 @@ export default function RGPD() {
                   <div style={{ width: 32, height: 32, borderRadius: '8px', background: 'rgba(59,79,216,0.08)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>{m.icon}</div>
                   <div>
                     <p style={{ color: '#0F0C1E', fontWeight: 700, fontSize: '13px', margin: '0 0 2px' }}>{m.titre}</p>
-                    <p style={{ color: '#6B7280', fontSize: '12px', margin: 0 }}>{m.desc}</p>
+                    <p style={{ color: '#374151', fontSize: '12px', margin: 0 }}>{m.desc}</p>
                   </div>
                 </div>
               ))}
@@ -112,7 +112,7 @@ export default function RGPD() {
             <p>Pour toute question relative à la protection de vos données personnelles, vous pouvez contacter notre responsable de la protection des données :</p>
             <div style={{ padding: '14px 18px', background: 'linear-gradient(135deg, rgba(59,79,216,0.05), rgba(155,48,232,0.05))', borderRadius: '12px', border: '1px solid rgba(59,79,216,0.10)' }}>
               <p style={{ margin: 0, color: '#0F0C1E', fontWeight: 600, fontSize: '14px' }}>Jounayd OUADAH LOUBARDI — DPO</p>
-              <p style={{ margin: '4px 0 0', color: '#6B7280', fontSize: '13px' }}>contact@smartoptimisation.fr</p>
+              <p style={{ margin: '4px 0 0', color: '#374151', fontSize: '13px' }}>contact@smartoptimisation.fr</p>
             </div>
           </Section>
 
@@ -126,7 +126,7 @@ function Section({ title, children }) {
   return (
     <div style={{ borderLeft: '3px solid', borderImage: 'linear-gradient(180deg,#3B4FD8,#9B30E8) 1', paddingLeft: '24px' }}>
       <h2 style={{ color: '#0F0C1E', fontWeight: 700, fontSize: '18px', marginBottom: '14px' }}>{title}</h2>
-      <div style={{ color: '#4B5563', fontSize: '15px', lineHeight: 1.8, display: 'flex', flexDirection: 'column', gap: '10px' }}>
+      <div style={{ color: '#1F2937', fontSize: '15px', lineHeight: 1.8, display: 'flex', flexDirection: 'column', gap: '10px' }}>
         {children}
       </div>
     </div>

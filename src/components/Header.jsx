@@ -98,7 +98,7 @@ export default function Header() {
                     style={{
                       display: 'flex', alignItems: 'center', gap: '5px',
                       padding: '8px 18px', borderRadius: '999px', fontSize: '14px', fontWeight: 500,
-                      color: isActive(item) ? '#3B4FD8' : '#4B5563',
+                      color: isActive(item) ? '#3B4FD8' : '#1F2937',
                       background: isActive(item) || openMenu === item.label ? 'rgba(59,79,216,0.08)' : 'transparent',
                       border: isActive(item) || openMenu === item.label ? '1px solid rgba(59,79,216,0.15)' : '1px solid transparent',
                       cursor: 'pointer', transition: 'all 0.18s ease', fontFamily: 'inherit',
@@ -122,7 +122,7 @@ export default function Header() {
                         display: 'flex', alignItems: 'center', gap: '6px',
                         padding: '8px 18px', borderRadius: '999px',
                         fontSize: '14px', fontWeight: 500,
-                        color: isActive(item) ? '#3B4FD8' : '#4B5563',
+                        color: isActive(item) ? '#3B4FD8' : '#1F2937',
                         background: isActive(item) ? 'rgba(59,79,216,0.08)' : 'transparent',
                         border: isActive(item) ? '1px solid rgba(59,79,216,0.15)' : '1px solid transparent',
                         textDecoration: 'none', transition: 'all 0.18s ease',

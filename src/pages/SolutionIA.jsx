@@ -160,7 +160,7 @@ function DomainCard({ card, i }) {
         </div>
 
         <h3 style={{ color: '#0F0C1E', fontWeight: 700, fontSize: '15.5px', lineHeight: 1.35, marginBottom: '8px' }}>{card.title}</h3>
-        <p style={{ color: '#6B7280', fontSize: '13px', lineHeight: 1.7, flex: 1 }}>{card.desc}</p>
+        <p style={{ color: '#374151', fontSize: '13px', lineHeight: 1.7, flex: 1 }}>{card.desc}</p>
 
         {/* Tech badges */}
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '5px', marginTop: '14px' }}>
@@ -232,7 +232,7 @@ function WorkflowSection() {
             déploiement
           </span>
         </h2>
-        <p style={{ color: '#6B7280', fontSize: '14px' }}>4 phases, une méthode éprouvée sur +20 projets.</p>
+        <p style={{ color: '#374151', fontSize: '14px' }}>4 phases, une méthode éprouvée sur +20 projets.</p>
       </div>
 
       {isMobile ? (
@@ -270,7 +270,7 @@ function WorkflowSection() {
               >
                 <div style={{ fontFamily: "'Courier New', monospace", fontSize: '11px', fontWeight: 700, color: '#3B4FD8', letterSpacing: '0.06em', marginBottom: '4px' }}>{step.num}</div>
                 <div style={{ fontWeight: 700, fontSize: '15px', color: '#0F0C1E', marginBottom: '5px' }}>{step.label}</div>
-                <div style={{ fontSize: '13px', color: '#6B7280', lineHeight: 1.6 }}>{step.desc}</div>
+                <div style={{ fontSize: '13px', color: '#374151', lineHeight: 1.6 }}>{step.desc}</div>
               </motion.div>
             </div>
           ))}
@@ -319,7 +319,7 @@ function WorkflowSection() {
                 >
                   <div style={{ fontFamily: "'Courier New', monospace", fontSize: '11px', fontWeight: 700, color: '#3B4FD8', letterSpacing: '0.06em', marginBottom: '4px' }}>{step.num}</div>
                   <div style={{ fontWeight: 700, fontSize: '15px', color: '#0F0C1E', marginBottom: '6px' }}>{step.label}</div>
-                  <div style={{ fontSize: '13px', color: '#6B7280', lineHeight: 1.6 }}>{step.desc}</div>
+                  <div style={{ fontSize: '13px', color: '#374151', lineHeight: 1.6 }}>{step.desc}</div>
                 </motion.div>
               </div>
             </div>
@@ -371,7 +371,7 @@ function CTABloc() {
               une vraie expertise.
             </motion.span>
           </h2>
-          <p style={{ color: '#6B7280', fontSize: '15px', lineHeight: 1.75, maxWidth: isMobile ? 'none' : '440px' }}>
+          <p style={{ color: '#374151', fontSize: '15px', lineHeight: 1.75, maxWidth: isMobile ? 'none' : '440px' }}>
             Un expert technique analyse votre besoin, évalue la faisabilité et vous présente une architecture cible. <strong style={{ color: '#374151', fontWeight: 600 }}>Sans engagement.</strong>
           </p>
         </div>
@@ -557,7 +557,7 @@ export default function SolutionIA() {
             Déjà +20 entreprises nous ont fait confiance pour transformer leur vision en réalité.
           </motion.p>
           <motion.p initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.24 }}
-            style={{ color: '#6B7280', fontSize: '16px', lineHeight: 1.8, marginBottom: '32px' }}>
+            style={{ color: '#374151', fontSize: '16px', lineHeight: 1.8, marginBottom: '32px' }}>
             Nous ne nous contentons pas de conseiller : nous <strong style={{ color: '#0F0C1E', fontWeight: 600 }}>concevons, développons et déployons</strong> des outils IA scalables qui génèrent de la valeur immédiate.
           </motion.p>
 
@@ -573,7 +573,7 @@ export default function SolutionIA() {
                 whileHover={{ y: -3, boxShadow: '0 8px 24px rgba(59,79,216,0.12)', scale: 1.04, transition: { duration: 0.18 } }}
                 style={{ padding: '10px 20px', borderRadius: '14px', background: '#fff', border: '1px solid rgba(59,79,216,0.10)', boxShadow: '0 2px 10px rgba(59,79,216,0.05)', cursor: 'default' }}>
                 <div style={{ fontWeight: 800, fontSize: '22px', color: '#0F0C1E', letterSpacing: '-0.02em', lineHeight: 1 }}>{s.val}</div>
-                <div style={{ fontSize: '12px', color: '#9CA3AF', marginTop: '2px' }}>{s.label}</div>
+                <div style={{ fontSize: '12px', color: '#6B7280', marginTop: '2px' }}>{s.label}</div>
               </motion.div>
             ))}
           </motion.div>
@@ -587,7 +587,7 @@ export default function SolutionIA() {
           <h2 style={{ fontWeight: 800, fontSize: 'clamp(1.4rem, 2.6vw, 1.9rem)', color: '#0F0C1E', letterSpacing: '-0.02em', marginBottom: '8px' }}>
             4 expertises, des livrables concrets
           </h2>
-          <p style={{ color: '#6B7280', fontSize: '14px', maxWidth: '480px', margin: '0 auto' }}>
+          <p style={{ color: '#374151', fontSize: '14px', maxWidth: '480px', margin: '0 auto' }}>
             Survolez chaque domaine pour voir des exemples de réalisations.
           </p>
         </div>

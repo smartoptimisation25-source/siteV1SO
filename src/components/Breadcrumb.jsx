@@ -6,7 +6,7 @@ export default function Breadcrumb({ items }) {
     <nav aria-label="Fil d'Ariane" style={{
       padding: '12px 0',
       fontSize: '13px',
-      color: '#6B7280',
+      color: '#374151',
     }}>
       <ol style={{
         display: 'flex',
@@ -22,7 +22,7 @@ export default function Breadcrumb({ items }) {
             {i > 0 && <span style={{ color: '#D1D5DB' }} aria-hidden="true">›</span>}
             {item.to ? (
               <Link to={item.to} style={{
-                color: '#6B7280',
+                color: '#374151',
                 textDecoration: 'none',
                 transition: 'color 0.15s',
               }}

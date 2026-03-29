@@ -63,7 +63,7 @@ function StatCard({ value, label, source }) {
     }}>
       <div style={{ fontSize: 32, fontWeight: 800, color: '#3B4FD8', lineHeight: 1 }}>{value}</div>
       <div style={{ fontSize: 13, color: '#374151', lineHeight: 1.4, marginTop: 8 }}>{label}</div>
-      {source && <div style={{ fontSize: 11, color: '#9ca3af', marginTop: 6 }}>{source}</div>}
+      {source && <div style={{ fontSize: 11, color: '#6B7280', marginTop: 6 }}>{source}</div>}
     </div>
   )
 }
@@ -83,7 +83,7 @@ function SectorsTable({ title, items }) {
           {items.map((row, i) => (
             <tr key={i} style={{ background: i % 2 === 0 ? '#fff' : '#fafafa' }}>
               <td style={{ padding: '9px 14px', borderBottom: '1px solid #f3f4f6', fontWeight: 600, color: '#1e3a8a' }}>{row.name}</td>
-              <td style={{ padding: '9px 14px', borderBottom: '1px solid #f3f4f6', color: '#6b7280' }}>{row.sectors}</td>
+              <td style={{ padding: '9px 14px', borderBottom: '1px solid #f3f4f6', color: '#374151' }}>{row.sectors}</td>
             </tr>
           ))}
         </tbody>
@@ -194,7 +194,7 @@ function InlineCTA({ title, sub, link, label, id }) {
           <span style={{
             display: 'inline-flex', alignItems: 'center', gap: 6,
             fontSize: 11, fontWeight: 700, letterSpacing: 0.8,
-            color: '#6b7280',
+            color: '#374151',
             border: '1px solid #e5e7eb',
             borderRadius: 999, padding: '4px 12px',
             marginBottom: 14,
@@ -216,7 +216,7 @@ function InlineCTA({ title, sub, link, label, id }) {
                 : <span key={i}>{word} </span>
             )}
           </p>
-          <p style={{ fontSize: 14, color: '#6b7280', lineHeight: 1.6, margin: 0 }}>{sub}</p>
+          <p style={{ fontSize: 14, color: '#374151', lineHeight: 1.6, margin: 0 }}>{sub}</p>
         </div>
 
         {/* Right */}
@@ -239,7 +239,7 @@ function InlineCTA({ title, sub, link, label, id }) {
           <Link to="/formation/sur-mesure" style={{
             display: 'block',
             background: 'transparent',
-            color: '#6b7280',
+            color: '#374151',
             textDecoration: 'none',
             padding: '12px 24px',
             borderRadius: 999,
@@ -343,7 +343,7 @@ function FAQItem({ q, a }) {
             <p style={{
               padding: '0 20px 16px',
               fontSize: 14,
-              color: '#6b7280',
+              color: '#374151',
               lineHeight: 1.7,
               margin: 0,
               borderTop: '1px solid #f3f4f6',
@@ -369,7 +369,7 @@ function TOC({ toc, activeId }) {
       padding: '20px',
       border: '1px solid #e5e7eb',
     }}>
-      <p style={{ fontSize: 12, fontWeight: 700, color: '#9ca3af', letterSpacing: 0.8, marginBottom: 14, textTransform: 'uppercase' }}>
+      <p style={{ fontSize: 12, fontWeight: 700, color: '#6B7280', letterSpacing: 0.8, marginBottom: 14, textTransform: 'uppercase' }}>
         Sommaire
       </p>
       <ol style={{ listStyle: 'none', padding: 0, margin: 0 }}>
@@ -490,7 +490,7 @@ function NewsletterBox() {
 
 /* ── Related article card ─────────────────────────────────────────────── */
 function RelatedCard({ article }) {
-  const cat = CATEGORIES[article.category] || { color: '#6b7280', bg: '#f3f4f6' }
+  const cat = CATEGORIES[article.category] || { color: '#374151', bg: '#f3f4f6' }
   return (
     <Link to={`/blog/${article.slug}`} style={{ textDecoration: 'none' }}>
       <div style={{
@@ -515,7 +515,7 @@ function RelatedCard({ article }) {
         <p style={{ fontSize: 15, fontWeight: 700, color: '#111827', marginTop: 10, marginBottom: 8, lineHeight: 1.4 }}>
           {article.title}
         </p>
-        <p style={{ fontSize: 13, color: '#6b7280', lineHeight: 1.5, marginBottom: 12 }}>
+        <p style={{ fontSize: 13, color: '#374151', lineHeight: 1.5, marginBottom: 12 }}>
           {article.excerpt.slice(0, 100)}…
         </p>
         <span style={{ fontSize: 13, color: '#3B4FD8', fontWeight: 700 }}>Lire l'article →</span>
@@ -574,10 +574,10 @@ export default function BlogArticle() {
       <div style={{ maxWidth: 1100, margin: '0 auto', padding: isMobile ? '8px 16px 60px' : '8px 24px 80px' }}>
 
         {/* Breadcrumb */}
-        <nav style={{ fontSize: 13, color: '#9ca3af', marginBottom: 28 }}>
-          <Link to="/" style={{ color: '#9ca3af', textDecoration: 'none' }}>Accueil</Link>
+        <nav style={{ fontSize: 13, color: '#6B7280', marginBottom: 28 }}>
+          <Link to="/" style={{ color: '#6B7280', textDecoration: 'none' }}>Accueil</Link>
           {' › '}
-          <Link to="/blog" style={{ color: '#9ca3af', textDecoration: 'none' }}>Blog</Link>
+          <Link to="/blog" style={{ color: '#6B7280', textDecoration: 'none' }}>Blog</Link>
           {' › '}
           <span style={{ color: '#374151' }}>{article.category}</span>
         </nav>
@@ -602,7 +602,7 @@ export default function BlogArticle() {
                     {article.category}
                   </span>
                 )}
-                <span style={{ fontSize: 13, color: '#9ca3af' }}>
+                <span style={{ fontSize: 13, color: '#6B7280' }}>
                   {article.readTime} min de lecture
                 </span>
               </div>
@@ -618,7 +618,7 @@ export default function BlogArticle() {
               </h1>
 
               <div style={{
-                fontSize: 13, color: '#9ca3af',
+                fontSize: 13, color: '#6B7280',
                 display: 'flex', gap: 16, alignItems: 'center',
                 flexWrap: 'wrap', marginBottom: 32,
                 paddingBottom: 24, borderBottom: '1px solid #e5e7eb',

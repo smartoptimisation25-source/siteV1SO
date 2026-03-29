@@ -26,7 +26,7 @@ function FillBar({ inscrits, places }) {
   return (
     <div>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px' }}>
-        <span style={{ fontSize: '12px', color: '#6B7280' }}>Taux de remplissage</span>
+        <span style={{ fontSize: '12px', color: '#374151' }}>Taux de remplissage</span>
         <span style={{ fontSize: '12px', fontWeight: 700, color }}>
           {complet ? 'Complet' : `${inscrits} / ${places} inscrits`}
         </span>
@@ -119,13 +119,13 @@ function SessionCard({ session, index }) {
           <div style={{ display: 'flex', gap: '6px', marginBottom: '10px', flexWrap: 'wrap' }}>
             <span style={{ padding: '3px 10px', borderRadius: '999px', background: 'rgba(59,79,216,0.08)', border: '1px solid rgba(59,79,216,0.18)', color: '#3B4FD8', fontSize: '11px', fontWeight: 700, letterSpacing: '0.04em' }}>{session.rs}</span>
             <span style={{ padding: '3px 10px', borderRadius: '999px', background: 'rgba(16,185,129,0.08)', border: '1px solid rgba(16,185,129,0.20)', color: '#059669', fontSize: '11px', fontWeight: 600 }}>Éligible CPF</span>
-            <span style={{ padding: '3px 10px', borderRadius: '999px', background: 'rgba(107,114,128,0.07)', border: '1px solid rgba(107,114,128,0.15)', color: '#6B7280', fontSize: '11px', fontWeight: 600 }}>{session.modalite}</span>
+            <span style={{ padding: '3px 10px', borderRadius: '999px', background: 'rgba(107,114,128,0.07)', border: '1px solid rgba(107,114,128,0.15)', color: '#374151', fontSize: '11px', fontWeight: 600 }}>{session.modalite}</span>
           </div>
           <h3 style={{ color: '#0F0C1E', fontWeight: 700, fontSize: '16px', lineHeight: 1.3, margin: 0 }}>{session.titre}</h3>
         </div>
         <div style={{ textAlign: 'right', flexShrink: 0 }}>
           <p style={{ color: '#0F0C1E', fontWeight: 800, fontSize: '22px', margin: 0, lineHeight: 1 }}>{session.prix.toLocaleString('fr-FR')} €</p>
-          <p style={{ color: '#9CA3AF', fontSize: '10px', margin: '2px 0 0' }}>financé CPF</p>
+          <p style={{ color: '#6B7280', fontSize: '10px', margin: '2px 0 0' }}>financé CPF</p>
         </div>
       </div>
 
@@ -145,7 +145,7 @@ function SessionCard({ session, index }) {
             <span style={{ marginTop: '2px', flexShrink: 0 }}>{item.icon}</span>
             <div>
               <span style={{ color: '#374151', fontSize: '13px', fontWeight: 500, display: 'block' }}>{item.label}</span>
-              {item.sub && <span style={{ color: '#9CA3AF', fontSize: '11px', display: 'block' }}>{item.sub}</span>}
+              {item.sub && <span style={{ color: '#6B7280', fontSize: '11px', display: 'block' }}>{item.sub}</span>}
             </div>
           </motion.div>
         ))}
@@ -348,17 +348,17 @@ export default function FormationCPF() {
           </motion.h1>
 
           <motion.p variants={FADE_UP} initial="hidden" animate="show" custom={2}
-            style={{ color: '#6B7280', fontSize: '16px', lineHeight: 1.7, marginBottom: '32px', maxWidth: '600px', margin: '0 auto 32px' }}>
+            style={{ color: '#374151', fontSize: '16px', lineHeight: 1.7, marginBottom: '32px', maxWidth: '600px', margin: '0 auto 32px' }}>
             Utilisez votre Compte Personnel de Formation pour accéder à nos programmes IA certifiants.
           </motion.p>
 
           <motion.p variants={FADE_UP} initial="hidden" animate="show" custom={2.5}
-            style={{ fontSize: '12px', color: '#6B7280', marginTop: '8px', marginBottom: '24px' }}>
+            style={{ fontSize: '12px', color: '#374151', marginTop: '8px', marginBottom: '24px' }}>
             <a
               href="https://www.francecompetences.fr/recherche/rs/7344/"
               target="_blank"
               rel="noopener noreferrer"
-              style={{ color: '#6B7280', textDecoration: 'none', borderBottom: '1px dashed rgba(107,114,128,0.4)', transition: 'color 0.2s, border-color 0.2s' }}
+              style={{ color: '#374151', textDecoration: 'none', borderBottom: '1px dashed rgba(107,114,128,0.4)', transition: 'color 0.2s, border-color 0.2s' }}
               onMouseEnter={e => { e.currentTarget.style.color = '#3B4FD8'; e.currentTarget.style.borderBottomColor = '#3B4FD8' }}
               onMouseLeave={e => { e.currentTarget.style.color = '#6B7280'; e.currentTarget.style.borderBottomColor = 'rgba(107,114,128,0.4)' }}
             >
@@ -381,7 +381,7 @@ export default function FormationCPF() {
                 style={{ padding: '12px 20px', borderRadius: '14px', background: '#fff', border: '1px solid rgba(59,79,216,0.10)', boxShadow: '0 2px 12px rgba(59,79,216,0.06)', cursor: 'default' }}
               >
                 <p style={{ color: '#0F0C1E', fontWeight: 800, fontSize: '20px', margin: 0 }}>{s.val}</p>
-                <p style={{ color: '#9CA3AF', fontSize: '11px', margin: 0 }}>{s.label}</p>
+                <p style={{ color: '#6B7280', fontSize: '11px', margin: 0 }}>{s.label}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -393,7 +393,7 @@ export default function FormationCPF() {
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '36px', flexWrap: 'wrap', gap: '12px' }}>
           <div>
             <h2 style={{ color: '#0F0C1E', fontWeight: 800, fontSize: '22px', margin: '0 0 4px' }}>Prochaines sessions</h2>
-            <p style={{ color: '#9CA3AF', fontSize: '13px', margin: 0 }}>Places limitées — réservez la vôtre avant qu'il soit trop tard</p>
+            <p style={{ color: '#6B7280', fontSize: '13px', margin: 0 }}>Places limitées — réservez la vôtre avant qu'il soit trop tard</p>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '8px 16px', borderRadius: '999px', background: 'rgba(239,68,68,0.07)', border: '1px solid rgba(239,68,68,0.15)' }}>
             <span style={{ width: 8, height: 8, borderRadius: '50%', background: '#EF4444', animation: 'pulse 1.5s infinite' }} />
@@ -416,7 +416,7 @@ export default function FormationCPF() {
           style={{ fontSize: isMobile ? '22px' : '28px', fontWeight: 800, color: '#0F0C1E', marginBottom: '8px', letterSpacing: '-0.02em' }}>
           Programme de la formation
         </motion.h2>
-        <p style={{ color: '#6B7280', fontSize: '14px', marginBottom: '32px' }}>
+        <p style={{ color: '#374151', fontSize: '14px', marginBottom: '32px' }}>
           Certification RS7344 · 21 heures · Formation mixte 7h présentiel + 14h distanciel
         </p>
 
@@ -430,7 +430,7 @@ export default function FormationCPF() {
           ].map(item => (
             <div key={item.label} style={{ background: '#F9F8FF', borderRadius: '14px', padding: '16px', border: '1px solid rgba(59,79,216,0.08)', textAlign: 'center' }}>
               <p style={{ fontWeight: 800, fontSize: '18px', color: '#3B4FD8', margin: '0 0 4px' }}>{item.val}</p>
-              <p style={{ fontSize: '12px', color: '#6B7280', margin: 0 }}>{item.label}</p>
+              <p style={{ fontSize: '12px', color: '#374151', margin: 0 }}>{item.label}</p>
             </div>
           ))}
         </div>
@@ -462,7 +462,7 @@ export default function FormationCPF() {
               <h3 style={{ fontSize: '13px', fontWeight: 700, color: '#3B4FD8', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '12px' }}>{block.title}</h3>
               <ul style={{ margin: 0, paddingLeft: '16px', display: 'flex', flexDirection: 'column', gap: '6px' }}>
                 {block.items.map((item, i) => (
-                  <li key={i} style={{ fontSize: '13px', color: '#4B5563', lineHeight: 1.6 }}>{item}</li>
+                  <li key={i} style={{ fontSize: '13px', color: '#1F2937', lineHeight: 1.6 }}>{item}</li>
                 ))}
               </ul>
             </div>
@@ -518,7 +518,7 @@ export default function FormationCPF() {
               </summary>
               <ul style={{ margin: 0, padding: '0 20px 16px 64px', display: 'flex', flexDirection: 'column', gap: '6px' }}>
                 {module.items.map((item, j) => (
-                  <li key={j} style={{ fontSize: '13px', color: '#4B5563', lineHeight: 1.6 }}>{item}</li>
+                  <li key={j} style={{ fontSize: '13px', color: '#1F2937', lineHeight: 1.6 }}>{item}</li>
                 ))}
               </ul>
             </motion.details>
@@ -528,7 +528,7 @@ export default function FormationCPF() {
         {/* Modalités */}
         <div style={{ background: 'linear-gradient(135deg, rgba(59,79,216,0.04), rgba(155,48,232,0.04))', border: '1px solid rgba(59,79,216,0.10)', borderRadius: '16px', padding: isMobile ? '20px' : '28px 32px' }}>
           <h3 style={{ fontSize: '15px', fontWeight: 700, color: '#0F0C1E', marginBottom: '16px' }}>Modalités pédagogiques</h3>
-          <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: '12px', fontSize: '13px', color: '#4B5563', lineHeight: 1.7 }}>
+          <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: '12px', fontSize: '13px', color: '#1F2937', lineHeight: 1.7 }}>
             <div>
               <p style={{ margin: '0 0 4px', fontWeight: 600, color: '#0F0C1E' }}>Lieu présentiel</p>
               <p style={{ margin: 0 }}>ED Institut — 8 Rue Schertz, Bâtiment B2, 67100 Strasbourg</p>
@@ -573,7 +573,7 @@ export default function FormationCPF() {
             <h3 style={{ color: '#0F0C1E', fontWeight: 800, fontSize: '20px', margin: '0 0 8px', letterSpacing: '-0.02em' }}>
               Aucun créneau ne vous convient ?
             </h3>
-            <p style={{ color: '#6B7280', fontSize: '14px', lineHeight: 1.6, margin: 0, maxWidth: '480px' }}>
+            <p style={{ color: '#374151', fontSize: '14px', lineHeight: 1.6, margin: 0, maxWidth: '480px' }}>
               Nous organisons des sessions privées dans toute l'Alsace — à votre date, dans vos locaux ou dans un espace partenaire.
             </p>
           </div>

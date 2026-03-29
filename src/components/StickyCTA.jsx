@@ -54,7 +54,7 @@ export default function StickyCTA({ articleRef, title = 'Vérifier mon éligibil
       </Link>
       <button
         onClick={() => setDismissed(true)}
-        style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: 20, color: '#9ca3af', padding: 4, width: 48, height: 48, display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+        style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: 20, color: '#6B7280', padding: 4, width: 48, height: 48, display: 'flex', alignItems: 'center', justifyContent: 'center' }}
         aria-label="Fermer"
       >×</button>
     </div>
@@ -78,7 +78,7 @@ export default function StickyCTA({ articleRef, title = 'Vérifier mon éligibil
         style={{
           position: 'absolute', top: 4, right: 4,
           background: 'none', border: 'none', cursor: 'pointer',
-          fontSize: 16, color: '#9ca3af',
+          fontSize: 16, color: '#6B7280',
           width: 48, height: 48, display: 'flex', alignItems: 'center', justifyContent: 'center',
         }}
         aria-label="Fermer"

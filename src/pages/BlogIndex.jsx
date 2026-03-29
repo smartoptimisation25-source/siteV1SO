@@ -18,7 +18,7 @@ const BLOG_INDEX_SCHEMA = {
 }
 
 function CategoryBadge({ category }) {
-  const cat = CATEGORIES[category] || { color: '#6b7280', bg: 'rgba(107,114,128,0.10)' }
+  const cat = CATEGORIES[category] || { color: '#374151', bg: 'rgba(107,114,128,0.10)' }
   return (
     <span style={{
       display: 'inline-block',
@@ -129,7 +129,7 @@ const CARD_GRADIENTS = [
 ]
 
 function ArticleCard({ article, index, isMobile }) {
-  const cat = CATEGORIES[article.category] || { color: '#6b7280', bg: 'rgba(107,114,128,0.10)' }
+  const cat = CATEGORIES[article.category] || { color: '#374151', bg: 'rgba(107,114,128,0.10)' }
   const gradient = CARD_GRADIENTS[index % CARD_GRADIENTS.length]
 
   return (
@@ -182,7 +182,7 @@ function ArticleCard({ article, index, isMobile }) {
               </span>
               <span style={{
                 fontSize: 12,
-                color: '#9ca3af',
+                color: '#6B7280',
                 display: 'flex',
                 alignItems: 'center',
                 gap: 5,
@@ -209,7 +209,7 @@ function ArticleCard({ article, index, isMobile }) {
             {/* Extrait */}
             <p style={{
               fontSize: 14,
-              color: '#6b7280',
+              color: '#374151',
               lineHeight: 1.7,
               marginBottom: 24,
               flex: 1,
@@ -223,7 +223,7 @@ function ArticleCard({ article, index, isMobile }) {
               justifyContent: 'space-between',
               alignItems: 'center',
             }}>
-              <span style={{ fontSize: 12, color: '#9ca3af' }}>
+              <span style={{ fontSize: 12, color: '#6B7280' }}>
                 {new Date(article.date).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}
               </span>
               <span style={{
@@ -295,7 +295,7 @@ export default function BlogIndex() {
           </h1>
           <p style={{
             fontSize: isMobile ? 15 : 17,
-            color: '#6b7280',
+            color: '#374151',
             maxWidth: 560,
             margin: '0 auto',
             lineHeight: 1.6,

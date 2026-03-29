@@ -20,7 +20,7 @@ export default function PolitiqueConfidentialite() {
           <h1 style={{ color: '#0F0C1E', fontWeight: 800, fontSize: 'clamp(1.8rem, 3vw, 2.6rem)', letterSpacing: '-0.02em', marginBottom: '12px' }}>
             Politique de confidentialité
           </h1>
-          <p style={{ color: '#9CA3AF', fontSize: '14px' }}>Dernière mise à jour : mars 2025</p>
+          <p style={{ color: '#6B7280', fontSize: '14px' }}>Dernière mise à jour : mars 2025</p>
         </div>
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: '40px' }}>
@@ -62,7 +62,7 @@ export default function PolitiqueConfidentialite() {
                   <div style={{ width: 28, height: 28, borderRadius: '7px', background: 'rgba(59,79,216,0.08)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, marginTop: '1px' }}>{d.icon}</div>
                   <div>
                     <p style={{ color: '#0F0C1E', fontWeight: 700, fontSize: '13px', margin: '0 0 2px' }}>{d.droit}</p>
-                    <p style={{ color: '#6B7280', fontSize: '12px', margin: 0 }}>{d.desc}</p>
+                    <p style={{ color: '#374151', fontSize: '12px', margin: 0 }}>{d.desc}</p>
                   </div>
                 </div>
               ))}
@@ -97,7 +97,7 @@ function Section({ title, children }) {
   return (
     <div style={{ borderLeft: '3px solid', borderImage: 'linear-gradient(180deg,#3B4FD8,#9B30E8) 1', paddingLeft: '24px' }}>
       <h2 style={{ color: '#0F0C1E', fontWeight: 700, fontSize: '18px', marginBottom: '14px' }}>{title}</h2>
-      <div style={{ color: '#4B5563', fontSize: '15px', lineHeight: 1.8, display: 'flex', flexDirection: 'column', gap: '10px' }}>
+      <div style={{ color: '#1F2937', fontSize: '15px', lineHeight: 1.8, display: 'flex', flexDirection: 'column', gap: '10px' }}>
         {children}
       </div>
     </div>
@@ -119,8 +119,8 @@ function DataTable({ rows }) {
           {rows.map((row, i) => (
             <tr key={i} style={{ background: i % 2 === 0 ? '#F9F8FF' : '#fff', borderBottom: '1px solid rgba(59,79,216,0.07)' }}>
               <td style={{ padding: '10px 14px', color: '#0F0C1E', fontWeight: 500 }}>{row.finalite}</td>
-              <td style={{ padding: '10px 14px', color: '#6B7280' }}>{row.base}</td>
-              <td style={{ padding: '10px 14px', color: '#6B7280' }}>{row.duree}</td>
+              <td style={{ padding: '10px 14px', color: '#374151' }}>{row.base}</td>
+              <td style={{ padding: '10px 14px', color: '#374151' }}>{row.duree}</td>
             </tr>
           ))}
         </tbody>

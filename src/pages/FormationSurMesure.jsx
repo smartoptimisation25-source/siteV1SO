@@ -159,7 +159,7 @@ function DomainCard({ card, i, isMobile }) {
         </div>
 
         <h3 style={{ color: '#0F0C1E', fontWeight: 700, fontSize: '16px', lineHeight: 1.35, marginBottom: '10px' }}>{card.title}</h3>
-        <p style={{ color: '#6B7280', fontSize: '13.5px', lineHeight: 1.7, flex: 1 }}>{card.desc}</p>
+        <p style={{ color: '#374151', fontSize: '13.5px', lineHeight: 1.7, flex: 1 }}>{card.desc}</p>
 
         {/* Tags */}
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginTop: '14px' }}>
@@ -265,7 +265,7 @@ function DualitySection() {
             quel que soit votre profil
           </span>
         </h2>
-        <p style={{ color: '#6B7280', fontSize: '15px' }}>Sélectionnez votre contexte pour découvrir les bénéfices qui vous correspondent.</p>
+        <p style={{ color: '#374151', fontSize: '15px' }}>Sélectionnez votre contexte pour découvrir les bénéfices qui vous correspondent.</p>
       </div>
 
       {/* Toggle */}
@@ -280,7 +280,7 @@ function DualitySection() {
                 padding: '10px 28px', borderRadius: '10px', border: 'none', cursor: 'pointer',
                 fontWeight: 600, fontSize: '14px', transition: 'all 0.22s ease', fontFamily: 'inherit',
                 background: active === key ? '#fff' : 'transparent',
-                color: active === key ? val.color : '#6B7280',
+                color: active === key ? val.color : '#374151',
                 boxShadow: active === key ? '0 2px 10px rgba(0,0,0,0.08)' : 'none',
               }}
             >
@@ -313,7 +313,7 @@ function DualitySection() {
           <div style={{ display: 'flex', gap: isMobile ? '20px' : '48px', flexWrap: 'wrap', alignItems: 'flex-start' }}>
             <div style={{ flex: '1', minWidth: '240px' }}>
               <h3 style={{ fontWeight: 800, fontSize: '1.5rem', color: '#0F0C1E', letterSpacing: '-0.02em', marginBottom: '10px', lineHeight: 1.25 }}>{d.headline}</h3>
-              <p style={{ color: '#6B7280', fontSize: '15px', lineHeight: 1.75 }}>{d.pitch}</p>
+              <p style={{ color: '#374151', fontSize: '15px', lineHeight: 1.75 }}>{d.pitch}</p>
             </div>
             <div style={{ flex: '1', minWidth: '240px', display: 'flex', flexDirection: 'column', gap: '14px' }}>
               {d.points.map((p, i) => (
@@ -329,7 +329,7 @@ function DualitySection() {
                   </span>
                   <div>
                     <div style={{ fontWeight: 600, fontSize: '14px', color: '#0F0C1E' }}>{p.text}</div>
-                    <div style={{ fontSize: '12px', color: '#9CA3AF', marginTop: '1px' }}>{p.sub}</div>
+                    <div style={{ fontSize: '12px', color: '#6B7280', marginTop: '1px' }}>{p.sub}</div>
                   </div>
                 </motion.div>
               ))}
@@ -377,7 +377,7 @@ function CTABloc() {
               sur-mesure.
             </motion.span>
           </h2>
-          <p style={{ color: '#6B7280', fontSize: '15px', lineHeight: 1.75, maxWidth: '440px' }}>
+          <p style={{ color: '#374151', fontSize: '15px', lineHeight: 1.75, maxWidth: '440px' }}>
             Un expert analyse vos besoins, vos contraintes et vous propose un programme co-construit. <strong style={{ color: '#374151', fontWeight: 600 }}>Aucun engagement à la prise de contact.</strong>
           </p>
         </div>
@@ -470,7 +470,7 @@ export default function FormationSurMesure() {
 
         {/* Retour */}
         <motion.div initial={{ opacity: 0, x: -12 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.35 }}>
-          <Link to="/" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: '#9CA3AF', fontSize: '13px', textDecoration: 'none', marginBottom: '48px', fontWeight: 500, transition: 'color 0.18s' }}
+          <Link to="/" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: '#6B7280', fontSize: '13px', textDecoration: 'none', marginBottom: '48px', fontWeight: 500, transition: 'color 0.18s' }}
             onMouseEnter={e => { e.currentTarget.style.color = '#3B4FD8'; e.currentTarget.style.transform = 'translateX(-3px)' }}
             onMouseLeave={e => { e.currentTarget.style.color = '#9CA3AF'; e.currentTarget.style.transform = 'translateX(0)' }}
           >
@@ -522,7 +522,7 @@ export default function FormationSurMesure() {
                 whileHover={{ y: -3, boxShadow: '0 8px 24px rgba(59,79,216,0.12)', scale: 1.04, transition: { duration: 0.18 } }}
                 style={{ padding: '10px 20px', borderRadius: '14px', background: '#fff', border: '1px solid rgba(59,79,216,0.10)', boxShadow: '0 2px 10px rgba(59,79,216,0.05)', cursor: 'default' }}>
                 <div style={{ fontWeight: 800, fontSize: '22px', color: '#0F0C1E', letterSpacing: '-0.02em', lineHeight: 1 }}>{s.val}</div>
-                <div style={{ fontSize: '12px', color: '#9CA3AF', marginTop: '2px' }}>{s.label}</div>
+                <div style={{ fontSize: '12px', color: '#6B7280', marginTop: '2px' }}>{s.label}</div>
               </motion.div>
             ))}
           </motion.div>
@@ -543,7 +543,7 @@ export default function FormationSurMesure() {
           <h2 style={{ fontWeight: 800, fontSize: 'clamp(1.4rem, 2.6vw, 1.9rem)', color: '#0F0C1E', letterSpacing: '-0.02em', marginBottom: '8px' }}>
             4 piliers, une profondeur d'expertise réelle
           </h2>
-          <p style={{ color: '#6B7280', fontSize: '14px', maxWidth: '500px', margin: '0 auto' }}>
+          <p style={{ color: '#374151', fontSize: '14px', maxWidth: '500px', margin: '0 auto' }}>
             Survolez chaque pilier pour découvrir un exemple de module concret.
           </p>
         </div>

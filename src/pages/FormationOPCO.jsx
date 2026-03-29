@@ -127,7 +127,7 @@ function BentoCard({ icon, label, title, desc, accent, gradient, wide, delay, is
       </div>
 
       <h3 style={{ color: '#0F0C1E', fontWeight: 700, fontSize: '17px', lineHeight: 1.3, marginBottom: '8px' }}>{title}</h3>
-      <p style={{ color: '#6B7280', fontSize: '14px', lineHeight: 1.7 }}>{desc}</p>
+      <p style={{ color: '#374151', fontSize: '14px', lineHeight: 1.7 }}>{desc}</p>
     </motion.div>
   )
 }
@@ -346,7 +346,7 @@ export default function FormationOPCO() {
           </motion.p>
           <motion.p
             initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.24 }}
-            style={{ color: '#6B7280', fontSize: '16px', lineHeight: 1.8, marginBottom: '36px' }}
+            style={{ color: '#374151', fontSize: '16px', lineHeight: 1.8, marginBottom: '36px' }}
           >
             Vous ne payez rien — vos équipes apprennent tout.
           </motion.p>
@@ -367,7 +367,7 @@ export default function FormationOPCO() {
                 style={{ padding: '10px 20px', borderRadius: '14px', background: '#fff', border: '1px solid rgba(59,79,216,0.10)', boxShadow: '0 2px 10px rgba(59,79,216,0.05)', cursor: 'default' }}
               >
                 <div style={{ fontWeight: 800, fontSize: '22px', color: '#0F0C1E', letterSpacing: '-0.02em', lineHeight: 1 }}>{s.val}</div>
-                <div style={{ fontSize: '12px', color: '#9CA3AF', marginTop: '2px' }}>{s.label}</div>
+                <div style={{ fontSize: '12px', color: '#6B7280', marginTop: '2px' }}>{s.label}</div>
               </motion.div>
             ))}
           </motion.div>
@@ -390,13 +390,13 @@ export default function FormationOPCO() {
         <OPCOStrip />
 
         {/* Lien autorité OPCO */}
-        <p style={{ fontSize: '12px', color: '#9CA3AF', marginTop: '12px', marginBottom: '36px' }}>
+        <p style={{ fontSize: '12px', color: '#6B7280', marginTop: '12px', marginBottom: '36px' }}>
           En savoir plus sur les OPCO :{' '}
           <a
             href="https://travail-emploi.gouv.fr/formation-professionnelle/acteurs-cadre-et-qualite-de-la-formation-professionnelle/article/les-operateurs-de-competences-opco"
             target="_blank"
             rel="noopener noreferrer"
-            style={{ color: '#6B7280', textDecoration: 'none', borderBottom: '1px dashed rgba(107,114,128,0.4)', transition: 'color 0.2s, border-color 0.2s' }}
+            style={{ color: '#374151', textDecoration: 'none', borderBottom: '1px dashed rgba(107,114,128,0.4)', transition: 'color 0.2s, border-color 0.2s' }}
             onMouseEnter={e => { e.currentTarget.style.color = '#3B4FD8'; e.currentTarget.style.borderBottomColor = '#3B4FD8' }}
             onMouseLeave={e => { e.currentTarget.style.color = '#6B7280'; e.currentTarget.style.borderBottomColor = 'rgba(107,114,128,0.4)' }}
           >
@@ -467,7 +467,7 @@ function OPCOStrip() {
         <h2 style={{ fontWeight: 800, fontSize: '1.6rem', color: '#0F0C1E', letterSpacing: '-0.02em', marginBottom: '6px' }}>
           Compatibles avec tous vos OPCO
         </h2>
-        <p style={{ color: '#6B7280', fontSize: '14px' }}>Nous travaillons avec l'ensemble des opérateurs de compétences reconnus en France.</p>
+        <p style={{ color: '#374151', fontSize: '14px' }}>Nous travaillons avec l'ensemble des opérateurs de compétences reconnus en France.</p>
       </div>
 
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', justifyContent: 'center', alignItems: 'center' }}>
@@ -492,7 +492,7 @@ function OPCOStrip() {
           transition={{ delay: 0.5 }}
           style={{ padding: '10px 22px', borderRadius: '12px', background: 'rgba(59,79,216,0.04)', border: '1.5px dashed rgba(59,79,216,0.20)', cursor: 'default' }}
         >
-          <span style={{ fontWeight: 600, fontSize: '13px', color: '#9CA3AF' }}>+ votre OPCO</span>
+          <span style={{ fontWeight: 600, fontSize: '13px', color: '#6B7280' }}>+ votre OPCO</span>
         </motion.div>
       </div>
     </motion.div>
@@ -551,7 +551,7 @@ function CTABloc() {
           </h2>
 
           {/* Description */}
-          <p style={{ color: '#6B7280', fontSize: '15px', lineHeight: 1.75, maxWidth: '480px' }}>
+          <p style={{ color: '#374151', fontSize: '15px', lineHeight: 1.75, maxWidth: '480px' }}>
             Un conseiller analyse votre situation, identifie votre OPCO et vous présente un plan de financement clé en main. <strong style={{ color: '#374151', fontWeight: 600 }}>Aucune démarche de votre côté.</strong>
           </p>
         </div>

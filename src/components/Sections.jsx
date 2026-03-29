@@ -86,7 +86,7 @@ export default function Sections() {
           viewport={{ once: true }}
           transition={{ duration: 0.45, delay: 0.14 }}
           style={{
-            color: '#6B7280',
+            color: '#374151',
             fontSize: '16px',
             marginTop: '12px',
           }}
@@ -162,7 +162,7 @@ function SectionCard({ card, index }) {
 
       {/* Desc */}
       <p style={{
-        color: '#6B7280',
+        color: '#374151',
         fontSize: '14px',
         lineHeight: '1.7',
         marginBottom: '24px',

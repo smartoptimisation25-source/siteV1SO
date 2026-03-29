@@ -108,7 +108,7 @@ export default function Hero() {
         <motion.p
           variants={FADE_UP} initial="hidden" animate="show" custom={2}
           style={{
-            color: '#6B7280',
+            color: '#374151',
             fontSize: isMobile ? '15px' : '17px',
             lineHeight: 1.7,
             marginBottom: '36px',
@@ -225,7 +225,7 @@ function DashboardMockup() {
         {/* Header row */}
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px' }}>
           <div>
-            <p style={{ color: '#9CA3AF', fontSize: '12px', marginBottom: '4px' }}>Productivité IA</p>
+            <p style={{ color: '#6B7280', fontSize: '12px', marginBottom: '4px' }}>Productivité IA</p>
             <p style={{ color: '#0F0C1E', fontWeight: 800, fontSize: '28px' }}>+340%</p>
           </div>
           <div style={{
@@ -270,7 +270,7 @@ function DashboardMockup() {
               padding: '12px',
               border: '1px solid rgba(59,79,216,0.08)',
             }}>
-              <p style={{ color: '#9CA3AF', fontSize: '11px', marginBottom: '4px' }}>{s.label}</p>
+              <p style={{ color: '#6B7280', fontSize: '11px', marginBottom: '4px' }}>{s.label}</p>
               <p style={{ color: '#0F0C1E', fontWeight: 700, fontSize: '16px' }}>{s.val}</p>
               <p style={{ color: '#C4B8FF', fontSize: '10px' }}>{s.unit}</p>
             </div>
@@ -307,7 +307,7 @@ function DashboardMockup() {
           </svg>
         </div>
         <div>
-          <p style={{ fontSize: '11px', color: '#9CA3AF', margin: 0 }}>Temps économisé</p>
+          <p style={{ fontSize: '11px', color: '#6B7280', margin: 0 }}>Temps économisé</p>
           <p style={{ fontSize: '15px', fontWeight: 700, color: '#0F0C1E', margin: 0 }}>12h / semaine</p>
         </div>
       </motion.div>

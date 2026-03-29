@@ -179,7 +179,7 @@ function FounderCard({ founder, index, isMobile }) {
         <p style={{ fontSize: '15px', fontWeight: 600, color: '#3B4FD8', marginBottom: '4px' }}>
           {founder.role}
         </p>
-        <p style={{ fontSize: '14px', color: '#6B7280', lineHeight: 1.5 }}>
+        <p style={{ fontSize: '14px', color: '#374151', lineHeight: 1.5 }}>
           {founder.tagline}
         </p>
       </div>
@@ -259,7 +259,7 @@ export default function Equipe() {
 
         <motion.p
           variants={FADE_UP} initial="hidden" animate="show" custom={2}
-          style={{ fontSize: isMobile ? '15px' : '17px', color: '#6B7280', lineHeight: 1.7, maxWidth: '640px', margin: '0 auto' }}
+          style={{ fontSize: isMobile ? '15px' : '17px', color: '#374151', lineHeight: 1.7, maxWidth: '640px', margin: '0 auto' }}
         >
           Smart Optimisation est née d'une conviction : l'intelligence artificielle ne doit pas être réservée aux grandes entreprises.
           Nous accompagnons les professionnels et les organisations dans leur montée en compétences IA, avec des formations certifiées et des solutions concrètes.
@@ -321,7 +321,7 @@ export default function Equipe() {
                 </div>
                 <div>
                   <h3 style={{ fontSize: '16px', fontWeight: 700, color: '#0F0C1E', marginBottom: '6px' }}>{v.title}</h3>
-                  <p style={{ fontSize: '14px', color: '#6B7280', lineHeight: 1.6 }}>{v.desc}</p>
+                  <p style={{ fontSize: '14px', color: '#374151', lineHeight: 1.6 }}>{v.desc}</p>
                 </div>
               </motion.div>
             ))}
@@ -363,7 +363,7 @@ export default function Equipe() {
                 <p style={{ fontSize: '15px', fontWeight: 600, color: '#0F0C1E', marginBottom: c.sub ? '4px' : 0 }}>
                   {c.detail}
                 </p>
-                {c.sub && <p style={{ fontSize: '13px', color: '#6B7280' }}>{c.sub}</p>}
+                {c.sub && <p style={{ fontSize: '13px', color: '#374151' }}>{c.sub}</p>}
               </div>
               {c.link && (
                 <a
@@ -401,7 +401,7 @@ export default function Equipe() {
           <h2 style={{ fontSize: isMobile ? '22px' : '26px', fontWeight: 700, color: '#0F0C1E', marginBottom: '12px' }}>
             Échangeons sur votre projet
           </h2>
-          <p style={{ fontSize: '15px', color: '#6B7280', lineHeight: 1.6, marginBottom: '24px' }}>
+          <p style={{ fontSize: '15px', color: '#374151', lineHeight: 1.6, marginBottom: '24px' }}>
             Audit IA gratuit, formation sur mesure ou déploiement de solution — nous répondons sous 24h.
           </p>
           <Link

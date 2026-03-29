@@ -56,7 +56,7 @@ export default function FormationIAColmar() {
         </motion.h1>
 
         <motion.p variants={FADE_UP} initial="hidden" animate="show" custom={1}
-          style={{ fontSize: isMobile ? '15px' : '17px', color: '#4B5563', lineHeight: 1.7, marginBottom: '32px' }}>
+          style={{ fontSize: isMobile ? '15px' : '17px', color: '#1F2937', lineHeight: 1.7, marginBottom: '32px' }}>
           Colmar et le Centre-Alsace comptent un tissu dense de PME, d'artisans et d'acteurs du tourisme et du vignoble.
           Smart Optimisation propose des formations IA en présentiel à Colmar, certifiées Qualiopi, éligibles au CPF (RS7344) et finançables à 100% par votre OPCO.
           Nos programmes sont pensés pour les structures de toutes tailles, des exploitations viticoles aux agences de tourisme en passant par les cabinets comptables.
@@ -87,7 +87,7 @@ export default function FormationIAColmar() {
         </motion.h2>
 
         <motion.div variants={FADE_UP} initial="hidden" whileInView="show" viewport={{ once: true }}
-          style={{ fontSize: '15px', color: '#4B5563', lineHeight: 1.8, marginBottom: '40px' }}>
+          style={{ fontSize: '15px', color: '#1F2937', lineHeight: 1.8, marginBottom: '40px' }}>
           <p style={{ marginBottom: '12px' }}>
             Située au carrefour entre Strasbourg et Mulhouse, Colmar est la capitale du vignoble alsacien et un centre névralgique pour le tourisme, l'artisanat et les services. Les TPE et PME colmariennes font face à un défi de productivité que l'intelligence artificielle peut résoudre concrètement : automatisation de la relation client, génération de contenus marketing, optimisation de la gestion des stocks.
           </p>
@@ -102,7 +102,7 @@ export default function FormationIAColmar() {
         <motion.div variants={FADE_UP} initial="hidden" whileInView="show" viewport={{ once: true }}
           style={{ background: 'linear-gradient(135deg, rgba(59,79,216,0.06), rgba(155,48,232,0.06))', borderRadius: '20px', border: '1px solid rgba(59,79,216,0.12)', padding: isMobile ? '32px 24px' : '40px 36px', textAlign: 'center' }}>
           <h2 style={{ fontSize: '22px', fontWeight: 700, color: '#0F0C1E', marginBottom: '12px' }}>Prêt à vous former à l'IA à Colmar ?</h2>
-          <p style={{ fontSize: '15px', color: '#6B7280', marginBottom: '20px' }}>Audit IA gratuit — Réponse sous 24h</p>
+          <p style={{ fontSize: '15px', color: '#374151', marginBottom: '20px' }}>Audit IA gratuit — Réponse sous 24h</p>
           <Link to="/contact" style={{ display: 'inline-flex', alignItems: 'center', padding: '14px 28px', borderRadius: '12px', background: 'linear-gradient(135deg, #3B4FD8, #7B4FE8)', color: '#fff', fontWeight: 700, fontSize: '15px', textDecoration: 'none', minHeight: '48px' }}>
             Demander un devis gratuit →
           </Link>

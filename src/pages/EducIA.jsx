@@ -202,7 +202,7 @@ function EtapeCard({ etape, i }) {
       <h3 style={{ color: '#0F0C1E', fontWeight: 700, fontSize: '16px', lineHeight: 1.3, marginBottom: '10px' }}>
         {etape.titre}
       </h3>
-      <p style={{ color: '#6B7280', fontSize: '13px', lineHeight: 1.6, margin: 0 }}>
+      <p style={{ color: '#374151', fontSize: '13px', lineHeight: 1.6, margin: 0 }}>
         {etape.desc}
       </p>
     </motion.div>
@@ -239,7 +239,7 @@ function AtelierItem({ a, i }) {
       </motion.div>
       <div>
         <p style={{ color: '#0F0C1E', fontWeight: 700, fontSize: '14px', margin: '0 0 4px' }}>{a.titre}</p>
-        <p style={{ color: '#6B7280', fontSize: '13px', lineHeight: 1.5, margin: 0 }}>{a.desc}</p>
+        <p style={{ color: '#374151', fontSize: '13px', lineHeight: 1.5, margin: 0 }}>{a.desc}</p>
       </div>
     </motion.div>
   )
@@ -301,7 +301,7 @@ function PublicCard({ p, i }) {
         {p.icon}
       </motion.div>
       <h3 style={{ color: '#0F0C1E', fontWeight: 700, fontSize: '16px', marginBottom: '8px' }}>{p.titre}</h3>
-      <p style={{ color: '#6B7280', fontSize: '13px', lineHeight: 1.6, margin: 0 }}>{p.desc}</p>
+      <p style={{ color: '#374151', fontSize: '13px', lineHeight: 1.6, margin: 0 }}>{p.desc}</p>
     </motion.div>
   )
 }
@@ -447,7 +447,7 @@ export default function EducIA() {
           </motion.h1>
 
           <motion.p variants={FADE_UP} initial="hidden" animate="show" custom={2}
-            style={{ color: '#6B7280', fontSize: '17px', lineHeight: 1.7, marginBottom: '36px', maxWidth: '640px', margin: '0 auto 36px' }}>
+            style={{ color: '#374151', fontSize: '17px', lineHeight: 1.7, marginBottom: '36px', maxWidth: '640px', margin: '0 auto 36px' }}>
             Sensibiliser les enfants à comprendre l'IA, c'est leur donner le pouvoir d'agir dans le monde de demain.
           </motion.p>
 
@@ -490,13 +490,13 @@ export default function EducIA() {
             <h2 style={{ color: '#0F0C1E', fontWeight: 800, fontSize: 'clamp(1.6rem, 2.5vw, 2.2rem)', lineHeight: 1.2, letterSpacing: '-0.02em', marginBottom: '16px' }}>
               Préparer la génération de demain
             </h2>
-            <p style={{ color: '#6B7280', fontSize: '15px', lineHeight: 1.8, marginBottom: '12px' }}>
+            <p style={{ color: '#374151', fontSize: '15px', lineHeight: 1.8, marginBottom: '12px' }}>
               Parce que l'intelligence artificielle sera au cœur de leur avenir professionnel.
             </p>
-            <p style={{ color: '#6B7280', fontSize: '15px', lineHeight: 1.8, marginBottom: '28px' }}>
+            <p style={{ color: '#374151', fontSize: '15px', lineHeight: 1.8, marginBottom: '28px' }}>
               Éduc IA initie les enfants de <strong style={{ color: '#0F0C1E' }}>8 à 15 ans</strong> à l'intelligence artificielle à travers des ateliers ludiques et créatifs. Parce que l'IA fait déjà partie de leur quotidien, nous leur apprenons à la comprendre, l'utiliser de manière responsable et développer leur esprit critique.
             </p>
-            <p style={{ color: '#6B7280', fontSize: '15px', lineHeight: 1.8 }}>
+            <p style={{ color: '#374151', fontSize: '15px', lineHeight: 1.8 }}>
               Dans un cadre bienveillant adapté aux <strong style={{ color: '#0F0C1E' }}>écoles, centres éducatifs et familles.</strong>
             </p>
           </motion.div>
@@ -510,7 +510,7 @@ export default function EducIA() {
               style={{ marginBottom: '8px' }}
             >
               <h3 style={{ color: '#0F0C1E', fontWeight: 700, fontSize: '16px', margin: '0 0 4px' }}>Pédagogie — Un apprentissage par la pratique</h3>
-              <p style={{ color: '#9CA3AF', fontSize: '13px', margin: 0 }}>Nos ateliers mêlent expérimentation, jeux et réflexion</p>
+              <p style={{ color: '#6B7280', fontSize: '13px', margin: 0 }}>Nos ateliers mêlent expérimentation, jeux et réflexion</p>
             </motion.div>
             {ATELIERS.map((a, i) => <AtelierItem key={i} a={a} i={i} />)}
           </div>
@@ -533,7 +533,7 @@ export default function EducIA() {
             <h2 style={{ color: '#0F0C1E', fontWeight: 800, fontSize: 'clamp(1.6rem, 2.5vw, 2.2rem)', letterSpacing: '-0.02em', marginBottom: '12px' }}>
               Un parcours en <span style={{ backgroundImage: 'linear-gradient(135deg,#3B4FD8,#9B30E8)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>4 étapes</span> pour maîtriser l'IA
             </h2>
-            <p style={{ color: '#6B7280', fontSize: '15px', maxWidth: '520px', margin: '0 auto' }}>
+            <p style={{ color: '#374151', fontSize: '15px', maxWidth: '520px', margin: '0 auto' }}>
               De la découverte ludique à l'utilisation responsable, un apprentissage progressif et structuré.
             </p>
           </motion.div>
@@ -555,7 +555,7 @@ export default function EducIA() {
           <h2 style={{ color: '#0F0C1E', fontWeight: 800, fontSize: 'clamp(1.5rem, 2.5vw, 2rem)', letterSpacing: '-0.02em', marginBottom: '10px' }}>
             Adapté à chaque contexte
           </h2>
-          <p style={{ color: '#6B7280', fontSize: '15px' }}>Nous intervenons dans les structures qui accompagnent les jeunes</p>
+          <p style={{ color: '#374151', fontSize: '15px' }}>Nous intervenons dans les structures qui accompagnent les jeunes</p>
         </motion.div>
 
         <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(3, 1fr)', gap: '20px' }}>
@@ -605,7 +605,7 @@ export default function EducIA() {
                   dès aujourd'hui.
                 </motion.span>
               </h2>
-              <p style={{ color: '#6B7280', fontSize: '15px', lineHeight: 1.75, maxWidth: '440px' }}>
+              <p style={{ color: '#374151', fontSize: '15px', lineHeight: 1.75, maxWidth: '440px' }}>
                 École, centre éducatif ou famille — nous adaptons chaque atelier à votre contexte et vos besoins.
               </p>
             </div>

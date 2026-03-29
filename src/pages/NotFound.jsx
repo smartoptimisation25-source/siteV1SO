@@ -39,7 +39,7 @@ export default function NotFound() {
         <h1 style={{ fontWeight: 800, fontSize: 'clamp(1.4rem, 3vw, 2rem)', color: '#0F0C1E', letterSpacing: '-0.02em', marginBottom: '12px' }}>
           Page introuvable
         </h1>
-        <p style={{ color: '#6B7280', fontSize: '16px', lineHeight: 1.7, marginBottom: '36px' }}>
+        <p style={{ color: '#374151', fontSize: '16px', lineHeight: 1.7, marginBottom: '36px' }}>
           La page que vous recherchez n'existe pas ou a été déplacée. Retournez à l'accueil pour continuer.
         </p>
 

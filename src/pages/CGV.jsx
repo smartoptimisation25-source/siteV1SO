@@ -19,7 +19,7 @@ export default function CGV() {
           <h1 style={{ color: '#0F0C1E', fontWeight: 800, fontSize: 'clamp(1.8rem, 3vw, 2.6rem)', letterSpacing: '-0.02em', marginBottom: '12px' }}>
             Conditions Générales de Vente
           </h1>
-          <p style={{ color: '#9CA3AF', fontSize: '14px' }}>Dernière mise à jour : mars 2026</p>
+          <p style={{ color: '#6B7280', fontSize: '14px' }}>Dernière mise à jour : mars 2026</p>
         </div>
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: '40px' }}>
@@ -151,7 +151,7 @@ function Section({ title, children }) {
   return (
     <div style={{ borderLeft: '3px solid', borderImage: 'linear-gradient(180deg,#3B4FD8,#9B30E8) 1', paddingLeft: '24px' }}>
       <h2 style={{ color: '#0F0C1E', fontWeight: 700, fontSize: '18px', marginBottom: '14px' }}>{title}</h2>
-      <div style={{ color: '#4B5563', fontSize: '15px', lineHeight: 1.8, display: 'flex', flexDirection: 'column', gap: '10px' }}>
+      <div style={{ color: '#1F2937', fontSize: '15px', lineHeight: 1.8, display: 'flex', flexDirection: 'column', gap: '10px' }}>
         {children}
       </div>
     </div>
@@ -163,7 +163,7 @@ function InfoGrid({ items }) {
     <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginTop: '12px' }}>
       {items.map(item => (
         <div key={item.label} style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', padding: '10px 14px', background: '#F9F8FF', borderRadius: '10px', border: '1px solid rgba(59,79,216,0.07)' }}>
-          <span style={{ color: '#9CA3AF', fontSize: '13px', minWidth: '120px', fontWeight: 500 }}>{item.label}</span>
+          <span style={{ color: '#6B7280', fontSize: '13px', minWidth: '120px', fontWeight: 500 }}>{item.label}</span>
           <span style={{ color: '#0F0C1E', fontSize: '13px', fontWeight: 600 }}>{item.value}</span>
         </div>
       ))}

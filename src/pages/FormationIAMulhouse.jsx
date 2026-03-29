@@ -56,7 +56,7 @@ export default function FormationIAMulhouse() {
         </motion.h1>
 
         <motion.p variants={FADE_UP} initial="hidden" animate="show" custom={1}
-          style={{ fontSize: isMobile ? '15px' : '17px', color: '#4B5563', lineHeight: 1.7, marginBottom: '32px' }}>
+          style={{ fontSize: isMobile ? '15px' : '17px', color: '#1F2937', lineHeight: 1.7, marginBottom: '32px' }}>
           Smart Optimisation intervient à Mulhouse et dans tout le Haut-Rhin pour former vos équipes à l'intelligence artificielle.
           Nos sessions en présentiel, certifiées Qualiopi, sont éligibles au CPF (RS7344) et au financement OPCO à 100%.
           Que vous soyez dans l'industrie, le tertiaire ou le commerce, nos formateurs adaptent chaque programme à votre réalité terrain.
@@ -87,7 +87,7 @@ export default function FormationIAMulhouse() {
         </motion.h2>
 
         <motion.div variants={FADE_UP} initial="hidden" whileInView="show" viewport={{ once: true }}
-          style={{ fontSize: '15px', color: '#4B5563', lineHeight: 1.8, marginBottom: '40px' }}>
+          style={{ fontSize: '15px', color: '#1F2937', lineHeight: 1.8, marginBottom: '40px' }}>
           <p style={{ marginBottom: '12px' }}>
             Mulhouse est au cœur de la zone trinationale Alsace–Bade-Wurtemberg–Suisse du Nord-Ouest, un bassin économique de plus de 800 000 habitants. Les entreprises industrielles du Haut-Rhin — Stellantis, Liebherr, SACMO ou encore les PME du textile technique — cherchent activement à intégrer l'IA pour rester compétitives face à la concurrence allemande et suisse.
           </p>
@@ -102,7 +102,7 @@ export default function FormationIAMulhouse() {
         <motion.div variants={FADE_UP} initial="hidden" whileInView="show" viewport={{ once: true }}
           style={{ background: 'linear-gradient(135deg, rgba(59,79,216,0.06), rgba(155,48,232,0.06))', borderRadius: '20px', border: '1px solid rgba(59,79,216,0.12)', padding: isMobile ? '32px 24px' : '40px 36px', textAlign: 'center' }}>
           <h2 style={{ fontSize: '22px', fontWeight: 700, color: '#0F0C1E', marginBottom: '12px' }}>Prêt à vous former à l'IA à Mulhouse ?</h2>
-          <p style={{ fontSize: '15px', color: '#6B7280', marginBottom: '20px' }}>Audit IA gratuit — Réponse sous 24h</p>
+          <p style={{ fontSize: '15px', color: '#374151', marginBottom: '20px' }}>Audit IA gratuit — Réponse sous 24h</p>
           <Link to="/contact" style={{ display: 'inline-flex', alignItems: 'center', padding: '14px 28px', borderRadius: '12px', background: 'linear-gradient(135deg, #3B4FD8, #7B4FE8)', color: '#fff', fontWeight: 700, fontSize: '15px', textDecoration: 'none', minHeight: '48px' }}>
             Demander un devis gratuit →
           </Link>

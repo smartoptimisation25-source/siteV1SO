@@ -175,7 +175,7 @@ function DNACard({ pillar, i }) {
       <h3 style={{ color: '#0F0C1E', fontWeight: 700, fontSize: '17px', marginBottom: '12px', letterSpacing: '-0.01em' }}>
         {pillar.titre}
       </h3>
-      <p style={{ color: '#6B7280', fontSize: '14px', lineHeight: 1.75, margin: 0 }}>
+      <p style={{ color: '#374151', fontSize: '14px', lineHeight: 1.75, margin: 0 }}>
         {pillar.corps}
       </p>
 
@@ -260,7 +260,7 @@ function ADNSection() {
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.25 } }}
             viewport={{ once: true }}
-            style={{ color: '#6B7280', fontSize: '16px', maxWidth: '520px', margin: '0 auto', lineHeight: 1.7 }}
+            style={{ color: '#374151', fontSize: '16px', maxWidth: '520px', margin: '0 auto', lineHeight: 1.7 }}
           >
             Depuis notre création, une seule boussole : que chaque personne que nous accompagnons reparte avec plus de clarté qu'avant.
           </motion.p>
@@ -293,7 +293,7 @@ function ADNSection() {
           whileInView={{ opacity: 1, y: 0, transition: { duration: 0.5 } }}
           viewport={{ once: true }}
         >
-          <p style={{ color: '#9CA3AF', fontSize: '12px', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', textAlign: 'center', marginBottom: '24px' }}>
+          <p style={{ color: '#6B7280', fontSize: '12px', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', textAlign: 'center', marginBottom: '24px' }}>
             Ce que nous faisons concrètement
           </p>
           <div style={{ display: 'flex', gap: '14px', justifyContent: 'center', flexWrap: 'wrap' }}>
@@ -324,7 +324,7 @@ function ADNSection() {
                   </motion.div>
                   <div>
                     <p style={{ color: '#0F0C1E', fontWeight: 600, fontSize: '14px', margin: 0, lineHeight: 1.2 }}>{s.label}</p>
-                    <p style={{ color: '#9CA3AF', fontSize: '11px', margin: 0 }}>{s.sub}</p>
+                    <p style={{ color: '#6B7280', fontSize: '11px', margin: 0 }}>{s.sub}</p>
                   </div>
                   <motion.span
                     initial={{ x: 0 }}
@@ -500,7 +500,7 @@ export default function Home() {
           </motion.h1>
 
           <motion.p variants={FADE_UP} initial="hidden" animate="show" custom={2}
-            style={{ color: '#6B7280', fontSize: isMobile ? '15px' : '16px', lineHeight: 1.6, marginBottom: '24px', maxWidth: isMobile ? '100%' : '460px' }}>
+            style={{ color: '#374151', fontSize: isMobile ? '15px' : '16px', lineHeight: 1.6, marginBottom: '24px', maxWidth: isMobile ? '100%' : '460px' }}>
             Smart Optimisation accompagne les professionnels et les entreprises dans la maîtrise de l&apos;IA — de la formation à l&apos;intégration sur mesure.
           </motion.p>
 
@@ -548,7 +548,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0, transition: { duration: 0.4 } }}
             viewport={{ once: true }}
-            style={{ color: '#9CA3AF', fontSize: '12px', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '20px' }}
+            style={{ color: '#6B7280', fontSize: '12px', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '20px' }}
           >
             Derniers articles
           </motion.p>
@@ -573,7 +573,7 @@ export default function Home() {
                 <p style={{ color: '#0F0C1E', fontWeight: 700, fontSize: '15px', margin: '0 0 4px', lineHeight: 1.3 }}>
                   Formations IA & OPCO : le guide complet 2026
                 </p>
-                <p style={{ color: '#9CA3AF', fontSize: '12px', margin: 0 }}>
+                <p style={{ color: '#6B7280', fontSize: '12px', margin: 0 }}>
                   Financez la formation IA de vos équipes sans budget supplémentaire
                 </p>
               </div>
@@ -592,7 +592,7 @@ function DashboardMockup() {
       <div style={{ background: '#ffffff', border: '1px solid rgba(0,0,0,0.07)', borderRadius: '24px', padding: '28px', boxShadow: '0 20px 60px rgba(59,79,216,0.10), 0 4px 16px rgba(0,0,0,0.06)' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px' }}>
           <div>
-            <p style={{ color: '#9CA3AF', fontSize: '12px', marginBottom: '4px' }}>Productivité IA</p>
+            <p style={{ color: '#6B7280', fontSize: '12px', marginBottom: '4px' }}>Productivité IA</p>
             <p style={{ color: '#0F0C1E', fontWeight: 800, fontSize: '28px' }}>+340%</p>
           </div>
           <motion.div
@@ -617,7 +617,7 @@ function DashboardMockup() {
               whileHover={{ scale: 1.08, y: -3, boxShadow: '0 6px 20px rgba(59,79,216,0.12)', transition: { duration: 0.2 } }}
               style={{ background: '#F9F8FF', borderRadius: '12px', padding: '12px', border: '1px solid rgba(59,79,216,0.08)', cursor: 'default' }}
             >
-              <p style={{ color: '#9CA3AF', fontSize: '11px', marginBottom: '4px' }}>{s.label}</p>
+              <p style={{ color: '#6B7280', fontSize: '11px', marginBottom: '4px' }}>{s.label}</p>
               <p style={{ color: '#0F0C1E', fontWeight: 700, fontSize: '16px' }}>{s.val}</p>
               <p style={{ color: '#C4B8FF', fontSize: '10px' }}>{s.unit}</p>
             </motion.div>
@@ -631,7 +631,7 @@ function DashboardMockup() {
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></svg>
         </div>
         <div>
-          <p style={{ fontSize: '11px', color: '#9CA3AF', margin: 0 }}>Temps économisé</p>
+          <p style={{ fontSize: '11px', color: '#6B7280', margin: 0 }}>Temps économisé</p>
           <p style={{ fontSize: '15px', fontWeight: 700, color: '#0F0C1E', margin: 0 }}>12h / semaine</p>
         </div>
       </motion.div>
