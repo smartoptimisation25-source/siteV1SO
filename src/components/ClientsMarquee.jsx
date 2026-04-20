@@ -4,7 +4,6 @@ const CLIENTS = [
   { name: 'Hager — client formation IA Smart Optimisation',   src: '/logos/hager.webp',  h: 34 },
   { name: 'CTS Strasbourg — client formation IA Smart Optimisation',     src: '/logos/cts.png',      h: 52 },
   { name: 'Bugatti — client formation IA Smart Optimisation', src: '/logos/bugatti.svg',  h: 52 },
-  { name: 'Baumert — client formation IA Smart Optimisation', src: '/logos/baumert.jpeg', h: 36 },
   { name: 'HUS Hôpitaux Universitaires de Strasbourg — client formation IA Smart Optimisation',     src: '/logos/hus.png',      h: 52 },
 ]
 
