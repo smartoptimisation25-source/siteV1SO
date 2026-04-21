@@ -16,7 +16,6 @@ const NAV = [
   },
   { label: 'Solution IA sur mesure', path: '/solution-ia' },
   { label: 'Educ IA', path: '/educ-ia' },
-  { label: 'L\'équipe', path: '/equipe' },
   { label: 'Blog', path: '/blog' },
 ]
 

@@ -19,7 +19,6 @@ const CGV = lazy(() => import('./pages/CGV'))
 const NotFound = lazy(() => import('./pages/NotFound'))
 const BlogIndex = lazy(() => import('./pages/BlogIndex'))
 const BlogArticle = lazy(() => import('./pages/BlogArticle'))
-const Equipe = lazy(() => import('./pages/Equipe'))
 const FormationIAStrasbourg = lazy(() => import('./pages/FormationIAStrasbourg'))
 const FormationIAMulhouse = lazy(() => import('./pages/FormationIAMulhouse'))
 const FormationIAColmar = lazy(() => import('./pages/FormationIAColmar'))
@@ -48,7 +47,6 @@ export default function App() {
               <Route path="/solution-ia" element={<SolutionIA />} />
               <Route path="/educ-ia" element={<EducIA />} />
               <Route path="/contact" element={<Contact />} />
-              <Route path="/equipe" element={<Equipe />} />
               <Route path="/blog" element={<BlogIndex />} />
               <Route path="/blog/:slug" element={<BlogArticle />} />
               <Route path="/mentions-legales" element={<MentionsLegales />} />
