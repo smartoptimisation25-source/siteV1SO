@@ -6,9 +6,9 @@ import useIsMobile from '../hooks/useIsMobile'
 import Breadcrumb from '../components/Breadcrumb'
 
 const SESSIONS = [
-  { id: 1, rs: 'RS7344', titre: 'Développer son activité avec l\'intelligence artificielle', lieu: 'Strasbourg', date: '19 mai 2026', duree: '7h présentiel', elearning: '14h e-learning', prix: 1500, inscrits: 3, places: 10, modalite: 'Présentiel', niveau: 'Tous niveaux', bientot: false },
-  { id: 2, rs: 'RS7344', titre: 'Développer son activité avec l\'intelligence artificielle', lieu: 'Mulhouse', date: '20 mai 2026', duree: '7h présentiel', elearning: '14h e-learning', prix: 1500, inscrits: 2, places: 10, modalite: 'Présentiel', niveau: 'Tous niveaux', bientot: false },
-  { id: 3, rs: 'RS7344', titre: 'Développer son activité avec l\'intelligence artificielle', lieu: 'Colmar', date: '21 mai 2026', duree: '7h présentiel', elearning: '14h e-learning', prix: 1500, inscrits: 1, places: 10, modalite: 'Présentiel', niveau: 'Tous niveaux', bientot: false },
+  { id: 1, rs: 'RS7344', titre: 'Développer son activité avec l\'intelligence artificielle', lieu: 'Strasbourg', date: 'À venir', duree: '7h présentiel', elearning: '14h e-learning', prix: 1500, inscrits: 0, places: 10, modalite: 'Présentiel', niveau: 'Tous niveaux', bientot: true },
+  { id: 2, rs: 'RS7344', titre: 'Développer son activité avec l\'intelligence artificielle', lieu: 'Mulhouse', date: 'À venir', duree: '7h présentiel', elearning: '14h e-learning', prix: 1500, inscrits: 0, places: 10, modalite: 'Présentiel', niveau: 'Tous niveaux', bientot: true },
+  { id: 3, rs: 'RS7344', titre: 'Développer son activité avec l\'intelligence artificielle', lieu: 'Colmar', date: 'À venir', duree: '7h présentiel', elearning: '14h e-learning', prix: 1500, inscrits: 0, places: 10, modalite: 'Présentiel', niveau: 'Tous niveaux', bientot: true },
 ]
 
 const FADE_UP = {
@@ -151,7 +151,7 @@ function SessionCard({ session, index }) {
         ))}
       </div>
 
-      <FillBar inscrits={session.inscrits} places={session.places} />
+      {!bientot && <FillBar inscrits={session.inscrits} places={session.places} />}
 
       {bientot ? (
         <div style={{
@@ -160,7 +160,7 @@ function SessionCard({ session, index }) {
           background: 'rgba(245,158,11,0.10)', border: '1.5px solid rgba(245,158,11,0.30)',
           color: '#D97706',
         }}>
-          Inscriptions bientôt ouvertes
+          En attente de prochaine session
         </div>
       ) : (
         <Link
@@ -393,12 +393,12 @@ export default function FormationCPF() {
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '36px', flexWrap: 'wrap', gap: '12px' }}>
           <div>
             <h2 style={{ color: '#0F0C1E', fontWeight: 800, fontSize: '22px', margin: '0 0 4px' }}>Prochaines sessions</h2>
-            <p style={{ color: '#6B7280', fontSize: '13px', margin: 0 }}>Places limitées — réservez la vôtre avant qu'il soit trop tard</p>
+            <p style={{ color: '#6B7280', fontSize: '13px', margin: 0 }}>Les nouvelles dates seront annoncées prochainement — inscrivez-vous pour être notifié</p>
           </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '8px 16px', borderRadius: '999px', background: 'rgba(239,68,68,0.07)', border: '1px solid rgba(239,68,68,0.15)' }}>
-            <span style={{ width: 8, height: 8, borderRadius: '50%', background: '#EF4444', animation: 'pulse 1.5s infinite' }} />
-            <span style={{ color: '#EF4444', fontSize: '12px', fontWeight: 600 }}>
-              {SESSIONS.filter(s => s.inscrits >= s.places).length} session(s) complète(s)
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '8px 16px', borderRadius: '999px', background: 'rgba(245,158,11,0.07)', border: '1px solid rgba(245,158,11,0.25)' }}>
+            <span style={{ width: 8, height: 8, borderRadius: '50%', background: '#F59E0B' }} />
+            <span style={{ color: '#D97706', fontSize: '12px', fontWeight: 600 }}>
+              Sessions en cours de planification
             </span>
           </div>
         </div>
