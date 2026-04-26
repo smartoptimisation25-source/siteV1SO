@@ -3,6 +3,7 @@ import { useEffect, lazy, Suspense } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import Header from './components/Header'
 import Footer from './components/Footer'
+import CookieBanner from './components/CookieBanner'
 import Home from './pages/Home'
 
 const FormationCPF = lazy(() => import('./pages/FormationCPF'))
@@ -88,6 +89,7 @@ export default function App() {
           <AnimatedRoutes />
         </div>
         <Footer />
+        <CookieBanner />
       </div>
     </BrowserRouter>
   )
