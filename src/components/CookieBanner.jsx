@@ -72,10 +72,11 @@ export default function CookieBanner() {
           style={{
             position: 'fixed',
             bottom: mobile ? '12px' : '24px',
-            left: '50%',
-            transform: 'translateX(-50%)',
+            ...(mobile
+              ? { left: '12px', right: '12px', width: 'auto' }
+              : { left: '50%', transform: 'translateX(-50%)', width: 'min(480px, calc(100vw - 32px))' }
+            ),
             zIndex: 9999,
-            width: mobile ? 'calc(100vw - 24px)' : 'min(480px, calc(100vw - 32px))',
             background: '#fff',
             borderRadius: mobile ? '16px' : '20px',
             boxShadow: '0 12px 48px rgba(59,79,216,0.18), 0 2px 8px rgba(0,0,0,0.08)',
