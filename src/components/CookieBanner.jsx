@@ -87,15 +87,6 @@ export default function CookieBanner() {
     <AnimatePresence>
       {visible && (
         <>
-          {/* Overlay semi-transparent */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.25 }}
-            style={{ position: 'fixed', inset: 0, background: 'rgba(15,12,30,0.35)', zIndex: 9998, backdropFilter: 'blur(2px)' }}
-          />
-
           <motion.div
             key={panel ? 'panel' : 'banner'}
             initial={{ opacity: 0, y: 32, scale: 0.97 }}
