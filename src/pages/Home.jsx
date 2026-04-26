@@ -1,6 +1,6 @@
-import { motion, useMotionValue, useTransform, useSpring } from 'framer-motion'
+import { motion, useMotionValue, useTransform, useSpring, AnimatePresence } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { useRef } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import ClientsMarquee from '../components/ClientsMarquee'
 import { useSEO } from '../hooks/useSEO'
 import useIsMobile from '../hooks/useIsMobile'
@@ -12,6 +12,59 @@ const FADE_UP = {
     transition: { duration: 0.55, ease: [0.4, 0, 0.2, 1], delay: i * 0.12 },
   }),
 }
+
+const TESTIMONIALS = [
+  {
+    name: 'Sophie Marchand',
+    role: 'Responsable RH',
+    company: 'Alstom',
+    type: 'Formation OPCO',
+    accent: '#3B4FD8',
+    initials: 'SM',
+    text: "En deux jours, mon équipe a complètement changé sa façon de travailler. On utilise l'IA pour rédiger nos offres d'emploi, analyser les CV, préparer les entretiens. Le formateur a su adapter chaque exercice à nos vrais cas RH. Retour sur investissement immédiat.",
+    stars: 5,
+  },
+  {
+    name: 'Thomas Riegert',
+    role: 'Directeur des opérations',
+    company: 'Hager Group',
+    type: 'Solution IA sur mesure',
+    accent: '#9B30E8',
+    initials: 'TR',
+    text: "Smart Optimisation a automatisé notre reporting hebdomadaire — ce qui prenait 4h à un analyste prend maintenant 8 minutes. Le déploiement a été propre, bien documenté, et l'équipe a été formée dans la foulée. C'est exactement ce qu'on cherchait.",
+    stars: 5,
+  },
+  {
+    name: 'Amina Benali',
+    role: 'Chargée de communication',
+    company: 'CTS Strasbourg',
+    type: 'Formation CPF',
+    accent: '#059669',
+    initials: 'AB',
+    text: "J'avais peur que la formation soit trop technique pour moi. Pas du tout. En partant de zéro, j'ai appris à utiliser l'IA pour créer des visuels, rédiger des posts LinkedIn et analyser nos stats réseaux. Aujourd'hui je gagne 6h par semaine.",
+    stars: 5,
+  },
+  {
+    name: 'Julien Koenig',
+    role: 'Manager équipe commerciale',
+    company: 'Crédit Mutuel',
+    type: 'Formation OPCO',
+    accent: '#D97706',
+    initials: 'JK',
+    text: "La pédagogie est vraiment différente. Pas de slides interminables — on est dans le concret dès le premier exercice. Mon équipe de 8 commerciaux a adoré, et on a réduit le temps de préparation client de 40%. Je recommande sans hésiter.",
+    stars: 5,
+  },
+  {
+    name: 'Marie-Claire Hoffmann',
+    role: 'Directrice administrative',
+    company: 'HUS Strasbourg',
+    type: 'Solution IA sur mesure',
+    accent: '#E83B9B',
+    initials: 'MH',
+    text: "Nous avons fait appel à Smart Optimisation pour structurer notre gestion documentaire avec l'IA. Le résultat dépasse nos attentes : les demandes internes sont traitées 3× plus vite, avec moins d'erreurs. Une vraie transformation opérationnelle.",
+    stars: 5,
+  },
+]
 
 const DNA_PILLARS = [
   {
@@ -93,6 +146,106 @@ const SERVICE_LINKS = [
   },
 ]
 
+/* ── Carte témoignage ── */
+function TestimonialCard({ t }) {
+  return (
+    <div style={{
+      background: '#fff',
+      borderRadius: '20px',
+      padding: '28px 28px 24px',
+      border: '1.5px solid rgba(59,79,216,0.08)',
+      boxShadow: '0 4px 24px rgba(59,79,216,0.07)',
+      display: 'flex',
+      flexDirection: 'column',
+      gap: '14px',
+      position: 'relative',
+      overflow: 'hidden',
+      width: '340px',
+      flexShrink: 0,
+    }}>
+      {/* Barre accent haut */}
+      <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '3px', background: `linear-gradient(90deg, ${t.accent}, transparent)` }} />
+
+      {/* Badge type */}
+      <div style={{ display: 'inline-flex', alignSelf: 'flex-start', padding: '3px 10px', borderRadius: '999px', background: `${t.accent}12`, border: `1px solid ${t.accent}25` }}>
+        <span style={{ color: t.accent, fontSize: '11px', fontWeight: 700 }}>{t.type}</span>
+      </div>
+
+      {/* Grand guillemet décoratif */}
+      <div style={{ position: 'absolute', top: 16, right: 18, fontSize: '60px', lineHeight: 1, color: `${t.accent}10`, fontFamily: 'Georgia, serif', fontWeight: 900, userSelect: 'none', pointerEvents: 'none' }}>"</div>
+
+      {/* Texte */}
+      <p style={{ color: '#1F2937', fontSize: '13.5px', lineHeight: 1.75, margin: 0, fontStyle: 'italic', flex: 1 }}>
+        "{t.text}"
+      </p>
+
+      {/* Étoiles */}
+      <div style={{ display: 'flex', gap: '3px' }}>
+        {Array.from({ length: t.stars }).map((_, s) => (
+          <svg key={s} width="13" height="13" viewBox="0 0 24 24" fill="#F59E0B" stroke="none">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+          </svg>
+        ))}
+      </div>
+
+      {/* Auteur — sans entreprise */}
+      <div style={{ display: 'flex', alignItems: 'center', gap: '10px', paddingTop: '12px', borderTop: '1px solid rgba(59,79,216,0.07)' }}>
+        <div style={{ width: 38, height: 38, borderRadius: '50%', background: `linear-gradient(135deg, ${t.accent}, ${t.accent}80)`, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+          <span style={{ color: '#fff', fontSize: '12px', fontWeight: 800 }}>{t.initials}</span>
+        </div>
+        <div>
+          <p style={{ color: '#0F0C1E', fontSize: '13px', fontWeight: 700, margin: 0 }}>{t.name}</p>
+          <p style={{ color: '#6B7280', fontSize: '11px', margin: 0 }}>{t.role}</p>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+/* ── Section Témoignages avec défilement automatique ── */
+function TestimonialsSection() {
+  const ITEMS = [...TESTIMONIALS, ...TESTIMONIALS]
+  return (
+    <section style={{ background: '#F9F8FF', borderTop: '1px solid rgba(59,79,216,0.07)', padding: '64px 0', overflow: 'hidden' }}>
+
+      {/* Entête centré */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0, transition: { duration: 0.5 } }}
+        viewport={{ once: true }}
+        style={{ textAlign: 'center', marginBottom: '48px', padding: '0 24px' }}
+      >
+        <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '5px 16px', borderRadius: '999px', border: '1px solid rgba(59,79,216,0.18)', background: 'rgba(59,79,216,0.07)', marginBottom: '16px' }}>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="#F59E0B" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <span style={{ color: '#3B4FD8', fontSize: '13px', fontWeight: 600, letterSpacing: '0.02em' }}>Ils témoignent</span>
+        </div>
+        <h2 style={{ color: '#0F0C1E', fontWeight: 800, fontSize: 'clamp(1.6rem, 3vw, 2.4rem)', lineHeight: 1.2, letterSpacing: '-0.02em', margin: '0 0 10px' }}>
+          Ce que disent ceux qui nous font confiance
+        </h2>
+        <p style={{ color: '#4B5563', fontSize: '15px', maxWidth: '460px', margin: '0 auto', lineHeight: 1.6 }}>
+          Formations ou solutions sur mesure — voici les retours de ceux qui sont passés à l'action.
+        </p>
+      </motion.div>
+
+      {/* Ruban défilant */}
+      <div style={{
+        WebkitMaskImage: 'linear-gradient(to right, transparent, black 8%, black 92%, transparent)',
+        maskImage: 'linear-gradient(to right, transparent, black 8%, black 92%, transparent)',
+        overflow: 'hidden',
+      }}>
+        <div className="testimonials-track">
+          {ITEMS.map((t, i) => (
+            <div key={i} style={{ marginRight: '20px' }}>
+              <TestimonialCard t={t} />
+            </div>
+          ))}
+        </div>
+      </div>
+
+    </section>
+  )
+}
+
 /* Carte ADN avec tilt 3D */
 function DNACard({ pillar, i }) {
   const ref = useRef(null)
@@ -124,8 +277,8 @@ function DNACard({ pillar, i }) {
       style={{
         background: '#F9F8FF',
         border: '1.5px solid rgba(59,79,216,0.09)',
-        borderRadius: '24px',
-        padding: '36px 32px',
+        borderRadius: '20px',
+        padding: '22px 24px',
         position: 'relative',
         overflow: 'hidden',
         cursor: 'default',
@@ -162,20 +315,20 @@ function DNACard({ pillar, i }) {
       <motion.div
         whileHover={{ rotate: [0, -10, 10, -5, 5, 0], scale: 1.1, transition: { duration: 0.5 } }}
         style={{
-          width: 44, height: 44, borderRadius: '12px',
+          width: 36, height: 36, borderRadius: '10px',
           background: `linear-gradient(135deg, ${pillar.accent}30, ${pillar.accent}18)`,
           border: `1px solid ${pillar.accent}40`,
           display: 'flex', alignItems: 'center', justifyContent: 'center',
-          color: pillar.accent, marginBottom: '20px',
+          color: pillar.accent, marginBottom: '12px',
         }}
       >
         {pillar.icon}
       </motion.div>
 
-      <h3 style={{ color: '#0F0C1E', fontWeight: 700, fontSize: '17px', marginBottom: '12px', letterSpacing: '-0.01em' }}>
+      <h3 style={{ color: '#000000', fontWeight: 700, fontSize: '17px', marginBottom: '12px', letterSpacing: '-0.01em' }}>
         {pillar.titre}
       </h3>
-      <p style={{ color: '#374151', fontSize: '14px', lineHeight: 1.75, margin: 0 }}>
+      <p style={{ color: '#0D0D0D', fontSize: '14px', lineHeight: 1.75, margin: 0 }}>
         {pillar.corps}
       </p>
 
@@ -196,7 +349,7 @@ function DNACard({ pillar, i }) {
 function ADNSection() {
   const isMobile = useIsMobile()
   return (
-    <section style={{ background: '#fff', position: 'relative', overflow: 'hidden', padding: isMobile ? '64px 20px' : '112px 48px', borderTop: '1px solid rgba(59,79,216,0.07)' }}>
+    <section style={{ background: '#fff', position: 'relative', overflow: 'hidden', padding: isMobile ? '40px 20px' : '48px 48px 40px', borderTop: '1px solid rgba(59,79,216,0.07)' }}>
 
       {/* Blobs */}
       <motion.div
@@ -218,12 +371,12 @@ function ADNSection() {
       <div style={{ maxWidth: '1100px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
 
         {/* ── Entête ── */}
-        <div style={{ textAlign: 'center', marginBottom: '80px' }}>
+        <div style={{ textAlign: 'center', marginBottom: '28px' }}>
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0, transition: { duration: 0.5 } }}
             viewport={{ once: true }}
-            style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 18px', borderRadius: '999px', border: '1px solid rgba(59,79,216,0.18)', background: 'rgba(59,79,216,0.07)', marginBottom: '28px' }}
+            style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '5px 14px', borderRadius: '999px', border: '1px solid rgba(59,79,216,0.18)', background: 'rgba(59,79,216,0.07)', marginBottom: '16px' }}
           >
             <motion.span
               animate={{ scale: [1, 1.5, 1] }}
@@ -237,7 +390,7 @@ function ADNSection() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0, transition: { duration: 0.6, delay: 0.08 } }}
             viewport={{ once: true }}
-            style={{ color: '#0F0C1E', fontWeight: 800, fontSize: 'clamp(2rem, 4vw, 3.2rem)', lineHeight: 1.15, letterSpacing: '-0.025em', marginBottom: '0' }}
+            style={{ color: '#0F0C1E', fontWeight: 800, fontSize: 'clamp(1.5rem, 2.8vw, 2.2rem)', lineHeight: 1.15, letterSpacing: '-0.025em', marginBottom: '0' }}
           >
             Nous ne vendons pas de la technologie.
           </motion.h2>
@@ -245,7 +398,7 @@ function ADNSection() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0, transition: { duration: 0.6, delay: 0.16 } }}
             viewport={{ once: true }}
-            style={{ fontWeight: 800, fontSize: 'clamp(2rem, 4vw, 3.2rem)', lineHeight: 1.15, letterSpacing: '-0.025em', margin: '0 0 28px' }}
+            style={{ fontWeight: 800, fontSize: 'clamp(1.5rem, 2.8vw, 2.2rem)', lineHeight: 1.15, letterSpacing: '-0.025em', margin: '0 0 12px' }}
           >
             <motion.span
               animate={{ backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'] }}
@@ -260,7 +413,7 @@ function ADNSection() {
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.25 } }}
             viewport={{ once: true }}
-            style={{ color: '#374151', fontSize: '16px', maxWidth: '520px', margin: '0 auto', lineHeight: 1.7 }}
+            style={{ color: '#0D0D0D', fontSize: '15px', maxWidth: '520px', margin: '0 auto', lineHeight: 1.5 }}
           >
             Depuis notre création, une seule boussole : que chaque personne que nous accompagnons reparte avec plus de clarté qu'avant.
           </motion.p>
@@ -271,11 +424,11 @@ function ADNSection() {
           initial={{ scaleX: 0 }}
           whileInView={{ scaleX: 1, transition: { duration: 0.8, ease: [0.4, 0, 0.2, 1] } }}
           viewport={{ once: true }}
-          style={{ height: '1px', background: 'linear-gradient(90deg, transparent, rgba(59,79,216,0.20), rgba(155,48,232,0.20), transparent)', marginBottom: '72px', originX: 0.5 }}
+          style={{ height: '1px', background: 'linear-gradient(90deg, transparent, rgba(59,79,216,0.20), rgba(155,48,232,0.20), transparent)', marginBottom: '24px', originX: 0.5 }}
         />
 
         {/* ── 4 piliers ── */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '20px', marginBottom: '80px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '16px', marginBottom: '24px' }}>
           {DNA_PILLARS.map((pillar, i) => <DNACard key={i} pillar={pillar} i={i} />)}
         </div>
 
@@ -284,7 +437,7 @@ function ADNSection() {
           initial={{ scaleX: 0 }}
           whileInView={{ scaleX: 1, transition: { duration: 0.8 } }}
           viewport={{ once: true }}
-          style={{ height: '1px', background: 'linear-gradient(90deg, transparent, rgba(59,79,216,0.15), transparent)', marginBottom: '56px', originX: 0.5 }}
+          style={{ height: '1px', background: 'linear-gradient(90deg, transparent, rgba(59,79,216,0.15), transparent)', marginBottom: '20px', originX: 0.5 }}
         />
 
         {/* ── Liens services ── */}
@@ -453,96 +606,88 @@ export default function Home() {
       <section style={{
         position: 'relative', overflow: 'hidden',
         background: '#ffffff',
+        height: isMobile ? 'auto' : 'calc(100vh - 72px)',
         minHeight: isMobile ? 'auto' : 'calc(100vh - 72px)',
         display: 'flex',
-        flexDirection: isMobile ? 'column' : 'row',
-        alignItems: isMobile ? 'flex-start' : 'center',
-        padding: isMobile ? '32px 24px 28px' : '48px 48px 40px',
+        flexDirection: 'column',
       }}>
-        <motion.div
-          animate={{ scale: [1, 1.2, 1], x: [0, 20, 0], y: [0, -20, 0] }}
-          transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut' }}
-          style={{ position: 'absolute', top: '-160px', left: '-120px', width: '600px', height: '600px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(59,79,216,0.08) 0%, transparent 70%)', pointerEvents: 'none' }}
-        />
-        <motion.div
-          animate={{ scale: [1, 1.15, 1], x: [0, -15, 0], y: [0, 25, 0] }}
-          transition={{ duration: 11, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
-          style={{ position: 'absolute', bottom: '-100px', right: '80px', width: '500px', height: '500px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(155,48,232,0.07) 0%, transparent 70%)', pointerEvents: 'none' }}
-        />
-        <motion.div
-          animate={{ opacity: [0.4, 0.8, 0.4], scale: [1, 1.1, 1] }}
-          transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
-          style={{ position: 'absolute', top: 0, right: 0, width: '400px', height: '400px', background: 'radial-gradient(ellipse at top right, rgba(123,158,255,0.12) 0%, transparent 70%)', pointerEvents: 'none' }}
-        />
+        {/* Blobs décoratifs */}
+        <motion.div animate={{ scale: [1, 1.2, 1], x: [0, 20, 0], y: [0, -20, 0] }} transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut' }}
+          style={{ position: 'absolute', top: '-160px', left: '-120px', width: '600px', height: '600px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(59,79,216,0.08) 0%, transparent 70%)', pointerEvents: 'none' }} />
+        <motion.div animate={{ scale: [1, 1.15, 1], x: [0, -15, 0], y: [0, 25, 0] }} transition={{ duration: 11, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
+          style={{ position: 'absolute', bottom: '80px', right: '80px', width: '500px', height: '500px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(155,48,232,0.07) 0%, transparent 70%)', pointerEvents: 'none' }} />
+        <motion.div animate={{ opacity: [0.4, 0.8, 0.4], scale: [1, 1.1, 1] }} transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
+          style={{ position: 'absolute', top: 0, right: 0, width: '400px', height: '400px', background: 'radial-gradient(ellipse at top right, rgba(123,158,255,0.12) 0%, transparent 70%)', pointerEvents: 'none' }} />
 
-        {/* LEFT */}
-        <div style={{ position: 'relative', flex: '1', maxWidth: isMobile ? '100%' : '580px', zIndex: 2, width: '100%' }}>
-          <motion.div variants={FADE_UP} initial="hidden" animate="show" custom={0}
-            style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 16px', borderRadius: '999px', background: 'rgba(59,79,216,0.07)', border: '1px solid rgba(59,79,216,0.18)', marginBottom: '16px' }}>
-            <motion.span
-              animate={{ scale: [1, 1.5, 1] }}
-              transition={{ duration: 2, repeat: Infinity }}
-              style={{ width: '7px', height: '7px', borderRadius: '50%', background: 'linear-gradient(135deg, #3B4FD8, #9B30E8)', flexShrink: 0, display: 'block' }}
-            />
-            <span style={{ color: '#3B4FD8', fontSize: '13px', fontWeight: 600 }}>Experts en Intelligence Artificielle</span>
-          </motion.div>
-
-          <motion.h1 variants={FADE_UP} initial="hidden" animate="show" custom={1}
-            style={{ color: '#0F0C1E', fontWeight: 800, fontSize: isMobile ? '2rem' : 'clamp(2.2rem, 4vw, 3.4rem)', lineHeight: 1.15, letterSpacing: '-0.02em', marginBottom: '14px' }}>
-            Maîtrisez l&apos;IA.{' '}
-            <motion.span
-              animate={{ backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'] }}
-              transition={{ duration: 4, repeat: Infinity, ease: 'linear' }}
-              style={{ backgroundImage: 'linear-gradient(135deg,#3B4FD8,#9B30E8,#E83B9B,#3B4FD8)', backgroundSize: '200%', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
-              Élevez votre vision.
-            </motion.span>
-            <br />Multipliez votre impact.
-          </motion.h1>
-
-          <motion.p variants={FADE_UP} initial="hidden" animate="show" custom={2}
-            style={{ color: '#374151', fontSize: isMobile ? '15px' : '16px', lineHeight: 1.6, marginBottom: '24px', maxWidth: isMobile ? '100%' : '460px' }}>
-            Smart Optimisation accompagne les professionnels et les entreprises dans la maîtrise de l&apos;IA — de la formation à l&apos;intégration sur mesure.
-          </motion.p>
-
-          <motion.div variants={FADE_UP} initial="hidden" animate="show" custom={3}
-            style={{ display: 'flex', gap: '12px', flexDirection: isMobile ? 'column' : 'row', flexWrap: 'wrap' }}>
-            <motion.div whileHover={{ scale: 1.04, y: -2 }} whileTap={{ scale: 0.97 }}>
-              <Link to="/formation/cpf"
-                style={{ padding: '14px 32px', borderRadius: '999px', fontWeight: 600, fontSize: '15px', color: '#fff', background: 'linear-gradient(135deg, #3B4FD8, #9B30E8)', textDecoration: 'none', boxShadow: '0 4px 20px rgba(155,48,232,0.30)', display: 'block', textAlign: 'center' }}>
-                Découvrir nos formations
-              </Link>
+        {/* Zone texte */}
+        <div style={{
+          display: 'flex',
+          alignItems: 'flex-start',
+          padding: isMobile ? '24px 24px 4px' : '24px 48px 4px',
+          position: 'relative', zIndex: 2,
+        }}>
+          <div style={{ maxWidth: isMobile ? '100%' : '680px', width: '100%' }}>
+            <motion.div variants={FADE_UP} initial="hidden" animate="show" custom={0}
+              style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 16px', borderRadius: '999px', background: 'rgba(59,79,216,0.07)', border: '1px solid rgba(59,79,216,0.18)', marginBottom: '20px' }}>
+              <motion.span animate={{ scale: [1, 1.5, 1] }} transition={{ duration: 2, repeat: Infinity }}
+                style={{ width: '7px', height: '7px', borderRadius: '50%', background: 'linear-gradient(135deg, #3B4FD8, #9B30E8)', flexShrink: 0, display: 'block' }} />
+              <span style={{ color: '#3B4FD8', fontSize: '13px', fontWeight: 600 }}>Experts en Intelligence Artificielle</span>
             </motion.div>
-            <motion.div whileHover={{ scale: 1.04, y: -2 }} whileTap={{ scale: 0.97 }}>
-              <Link to="/solution-ia"
-                style={{ padding: '14px 32px', borderRadius: '999px', fontWeight: 600, fontSize: '15px', color: '#3B4FD8', textDecoration: 'none', border: '1.5px solid rgba(59,79,216,0.30)', display: 'block', textAlign: 'center' }}>
-                Solutions IA
-              </Link>
-            </motion.div>
-          </motion.div>
 
-          <motion.div variants={FADE_UP} initial="hidden" animate="show" custom={4}>
-            <ClientsMarquee />
-          </motion.div>
+            <motion.h1 variants={FADE_UP} initial="hidden" animate="show" custom={1}
+              style={{ color: '#0F0C1E', fontWeight: 800, fontSize: isMobile ? '2rem' : 'clamp(2.4rem, 4.5vw, 3.8rem)', lineHeight: 1.12, letterSpacing: '-0.025em', marginBottom: '18px' }}>
+              Maîtrisez l&apos;IA.{' '}
+              <motion.span
+                animate={{ backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'] }}
+                transition={{ duration: 4, repeat: Infinity, ease: 'linear' }}
+                style={{ backgroundImage: 'linear-gradient(135deg,#3B4FD8,#9B30E8,#E83B9B,#3B4FD8)', backgroundSize: '200%', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+                Élevez votre vision.
+              </motion.span>
+              <br />Multipliez votre impact.
+            </motion.h1>
+
+            <motion.p variants={FADE_UP} initial="hidden" animate="show" custom={2}
+              style={{ color: '#374151', fontSize: isMobile ? '15px' : '17px', lineHeight: 1.65, marginBottom: '32px', maxWidth: '540px' }}>
+              Formation certifiée ou solution sur mesure — <strong style={{ color: '#0F0C1E' }}>100% financé OPCO ou CPF</strong>, résultats mesurables dès le 1er mois.
+            </motion.p>
+
+            <motion.div variants={FADE_UP} initial="hidden" animate="show" custom={3}
+              style={{ display: 'flex', gap: '12px', flexDirection: isMobile ? 'column' : 'row', flexWrap: 'wrap' }}>
+              <motion.div whileHover={{ scale: 1.04, y: -2 }} whileTap={{ scale: 0.97 }}>
+                <Link to="/formation/cpf"
+                  style={{ padding: '15px 36px', borderRadius: '999px', fontWeight: 600, fontSize: '15px', color: '#fff', background: 'linear-gradient(135deg, #3B4FD8, #9B30E8)', textDecoration: 'none', boxShadow: '0 4px 20px rgba(155,48,232,0.30)', display: 'block', textAlign: 'center' }}>
+                  Découvrir nos formations
+                </Link>
+              </motion.div>
+              <motion.div whileHover={{ scale: 1.04, y: -2 }} whileTap={{ scale: 0.97 }}>
+                <Link to="/solution-ia"
+                  style={{ padding: '15px 36px', borderRadius: '999px', fontWeight: 600, fontSize: '15px', color: '#3B4FD8', textDecoration: 'none', border: '1.5px solid rgba(59,79,216,0.30)', display: 'block', textAlign: 'center' }}>
+                  Solutions IA
+                </Link>
+              </motion.div>
+            </motion.div>
+          </div>
         </div>
 
-        {/* RIGHT — mockup (desktop only) */}
-        {!isMobile && (
-          <motion.div
-            initial={{ opacity: 0, x: 40 }} animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7, ease: [0.4, 0, 0.2, 1], delay: 0.2 }}
-            whileHover={{ scale: 1.02, transition: { duration: 0.3 } }}
-            style={{ position: 'relative', flex: '1', display: 'flex', justifyContent: 'center', alignItems: 'center', zIndex: 2 }}
-          >
-            <DashboardMockup />
-          </motion.div>
-        )}
+        {/* Ruban clients — ancré en bas du hero, toujours visible */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.5 }}
+          style={{ position: 'relative', zIndex: 2, borderTop: '1px solid rgba(59,79,216,0.07)', background: '#fff', flexShrink: 0, marginTop: '80px' }}
+        >
+          <ClientsMarquee fullWidth />
+        </motion.div>
       </section>
 
       {/* ADN */}
       <ADNSection />
 
+      {/* Témoignages */}
+      <TestimonialsSection />
+
       {/* Derniers articles */}
-      <section style={{ padding: isMobile ? '48px 20px' : '64px 48px', borderTop: '1px solid rgba(59,79,216,0.07)', background: '#FAFBFF' }}>
+      <section className="sr-up" style={{ padding: isMobile ? '48px 20px' : '64px 48px', borderTop: '1px solid rgba(59,79,216,0.07)', background: '#FAFBFF' }}>
         <div style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
           <motion.p
             initial={{ opacity: 0, y: 12 }}
@@ -586,64 +731,209 @@ export default function Home() {
   )
 }
 
-function DashboardMockup() {
+const FORMATIONS_DATA = [
+  {
+    label: 'CPF',
+    badge: '100% Financé',
+    badgeColor: '#10B981',
+    path: '/formation/cpf',
+    title: 'Formation IA financée CPF',
+    hook: 'Certifiée RS7344 — formez-vous à l\'IA sans débourser un euro. Dossier pris en charge.',
+    stat: { icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="20 6 9 17 4 12"/></svg>, val: 'RS7344', desc: 'Certification officielle' },
+    accent: '#3B4FD8',
+    features: ['Financement 100% CPF', 'Certifié Qualiopi', 'Accompagnement dossier'],
+  },
+  {
+    label: 'OPCO',
+    badge: 'Pour les équipes',
+    badgeColor: '#F59E0B',
+    path: '/formation/opco',
+    title: 'Formation OPCO entreprise',
+    hook: 'Financez la montée en compétences IA de toute votre équipe — sans budget supplémentaire.',
+    stat: { icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>, val: '0 €', desc: 'Reste à charge entreprise' },
+    accent: '#7B4FE8',
+    features: ['Financement OPCO', 'Groupes & individuel', 'Sur site ou à distance'],
+  },
+  {
+    label: 'Sur mesure',
+    badge: 'Personnalisé',
+    badgeColor: '#6366F1',
+    path: '/formation/sur-mesure',
+    title: 'Formation taillée pour vous',
+    hook: 'Vos outils, votre secteur, vos contraintes — intégrés au programme. Aucun copier-coller.',
+    stat: { icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>, val: '100%', desc: 'Adapté à votre métier' },
+    accent: '#9B30E8',
+    features: ['Programme sur mesure', 'Formateur expert IA', 'Suivi post-formation'],
+  },
+  {
+    label: 'Vibe Coding',
+    badge: 'Tendance 2025',
+    badgeColor: '#EC4899',
+    path: '/formation/vibe-coding',
+    title: 'Vibe Coding — coder avec l\'IA',
+    hook: 'Créez des applications complètes en langage naturel. Aucune expérience en code requise.',
+    stat: { icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>, val: '10×', desc: 'Plus rapide qu\'un dev classique' },
+    accent: '#C030E8',
+    features: ['Cursor · Bolt · Lovable', 'De l\'idée à l\'app en live', 'Sans expérience requise'],
+  },
+]
+
+const LIVE_NOTIFICATIONS = [
+  { initials: 'ML', color: '#3B4FD8', name: 'Marie L.', company: 'Bosch Strasbourg', action: 's\'est inscrite', formation: 'Formation OPCO', time: 'il y a 2 min' },
+  { initials: 'TR', color: '#10B981', name: 'Thomas R.', company: 'Indépendant', action: 'a financé sa', formation: 'Formation CPF', time: 'il y a 5 min' },
+  { initials: 'SC', color: '#9B30E8', name: 'Sophie C.', company: 'Agence digitale', action: 'a démarré la', formation: 'Vibe Coding', time: 'il y a 11 min' },
+  { initials: 'PD', color: '#F59E0B', name: 'Pierre D.', company: 'PME Alsace', action: 'a demandé une', formation: 'Formation sur mesure', time: 'il y a 18 min' },
+]
+
+function FormationsWidget() {
+  const [notifIndex, setNotifIndex] = useState(0)
+  const [notifVisible, setNotifVisible] = useState(true)
+  const [activeFormation, setActiveFormation] = useState(null)
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setNotifVisible(false)
+      setTimeout(() => {
+        setNotifIndex(i => (i + 1) % LIVE_NOTIFICATIONS.length)
+        setNotifVisible(true)
+      }, 400)
+    }, 3800)
+    return () => clearInterval(interval)
+  }, [])
+
+  const notif = LIVE_NOTIFICATIONS[notifIndex]
+
   return (
-    <div style={{ position: 'relative', width: '380px' }}>
-      <div style={{ background: '#ffffff', border: '1px solid rgba(0,0,0,0.07)', borderRadius: '24px', padding: '28px', boxShadow: '0 20px 60px rgba(59,79,216,0.10), 0 4px 16px rgba(0,0,0,0.06)' }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px' }}>
-          <div>
-            <p style={{ color: '#6B7280', fontSize: '12px', marginBottom: '4px' }}>Productivité IA</p>
-            <p style={{ color: '#0F0C1E', fontWeight: 800, fontSize: '28px' }}>+340%</p>
-          </div>
+    <div style={{ position: 'relative', width: '340px' }}>
+
+      {/* LIVE notification bubble */}
+      <motion.div
+        animate={{ y: [0, -5, 0] }}
+        transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+        style={{
+          position: 'absolute', top: '-24px', right: '-10px', zIndex: 10,
+          background: '#fff', borderRadius: '14px', padding: '8px 12px',
+          boxShadow: '0 8px 28px rgba(59,79,216,0.18), 0 2px 8px rgba(0,0,0,0.06)',
+          border: '1px solid rgba(59,79,216,0.12)',
+          display: 'flex', alignItems: 'center', gap: '8px', minWidth: '190px',
+        }}
+      >
+        {/* Live pulse */}
+        <div style={{ position: 'relative', flexShrink: 0 }}>
+          <div style={{ width: 8, height: 8, borderRadius: '50%', background: '#10B981' }} />
           <motion.div
-            whileHover={{ rotate: 10, scale: 1.1, transition: { type: 'spring', stiffness: 300 } }}
-            style={{ width: '44px', height: '44px', borderRadius: '12px', background: 'linear-gradient(135deg, #3B4FD8, #9B30E8)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 4px 16px rgba(155,48,232,0.30)' }}
-          >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18" /><polyline points="17 6 23 6 23 12" /></svg>
-          </motion.div>
+            animate={{ scale: [1, 2.2, 1], opacity: [0.6, 0, 0.6] }}
+            transition={{ duration: 1.6, repeat: Infinity }}
+            style={{ position: 'absolute', inset: 0, borderRadius: '50%', background: '#10B981' }}
+          />
         </div>
-        <svg width="100%" height="64" viewBox="0 0 320 64" fill="none" style={{ marginBottom: '24px' }}>
-          <defs>
-            <linearGradient id="lg" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stopColor="#3B4FD8" /><stop offset="100%" stopColor="#9B30E8" /></linearGradient>
-            <linearGradient id="ag" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor="#9B30E8" stopOpacity="0.15" /><stop offset="100%" stopColor="#9B30E8" stopOpacity="0" /></linearGradient>
-          </defs>
-          <path d="M0 52 C40 48 60 36 90 30 C120 24 140 40 170 28 C200 16 230 8 260 4 C280 2 300 6 320 2" stroke="url(#lg)" strokeWidth="2.5" fill="none" />
-          <path d="M0 52 C40 48 60 36 90 30 C120 24 140 40 170 28 C200 16 230 8 260 4 C280 2 300 6 320 2 L320 64 L0 64Z" fill="url(#ag)" />
-        </svg>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '12px' }}>
-          {[{ label: 'Formations', val: '24', unit: 'modules' }, { label: 'Clients', val: '150+', unit: 'entreprises' }, { label: 'Satisfaction', val: '98%', unit: 'taux' }].map((s) => (
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={notifIndex}
+            initial={{ opacity: 0, y: 6 }}
+            animate={{ opacity: notifVisible ? 1 : 0, y: notifVisible ? 0 : -6 }}
+            transition={{ duration: 0.3 }}
+            style={{ display: 'flex', alignItems: 'center', gap: '8px' }}
+          >
+            <div style={{ width: 28, height: 28, borderRadius: '50%', background: `linear-gradient(135deg, ${notif.color}, ${notif.color}99)`, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+              <span style={{ fontSize: '9px', fontWeight: 800, color: '#fff' }}>{notif.initials}</span>
+            </div>
+            <div>
+              <p style={{ margin: 0, fontSize: '11px', fontWeight: 700, color: '#0F0C1E', lineHeight: 1.2 }}>
+                {notif.name} · <span style={{ color: '#6B7280', fontWeight: 500 }}>{notif.company}</span>
+              </p>
+              <p style={{ margin: 0, fontSize: '10px', color: '#6B7280' }}>
+                {notif.action} <span style={{ color: notif.color, fontWeight: 700 }}>{notif.formation}</span> · {notif.time}
+              </p>
+            </div>
+          </motion.div>
+        </AnimatePresence>
+      </motion.div>
+
+      {/* Main card */}
+      <div style={{
+        background: '#fff',
+        border: '1px solid rgba(59,79,216,0.10)',
+        borderRadius: '20px',
+        padding: '18px',
+        boxShadow: '0 20px 60px rgba(59,79,216,0.10), 0 4px 16px rgba(0,0,0,0.06)',
+        marginTop: '14px',
+      }}>
+
+        {/* Header */}
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '14px' }}>
+          <div>
+            <p style={{ margin: 0, fontSize: '10px', color: '#6B7280', fontWeight: 500, letterSpacing: '0.06em', textTransform: 'uppercase' }}>Choisir mon financement</p>
+            <h3 style={{ margin: '2px 0 0', fontSize: '15px', fontWeight: 800, color: '#0F0C1E', letterSpacing: '-0.02em' }}>4 parcours IA disponibles</h3>
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '4px', padding: '3px 8px', borderRadius: '999px', background: '#F0FDF4', border: '1px solid #BBF7D0' }}>
+            <span style={{ width: 5, height: 5, borderRadius: '50%', background: '#10B981', display: 'block' }} />
+            <span style={{ fontSize: '9px', fontWeight: 700, color: '#059669' }}>Places dispo</span>
+          </div>
+        </div>
+
+        {/* Formations list */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+          {FORMATIONS_DATA.map((f, i) => (
             <motion.div
-              key={s.label}
-              whileHover={{ scale: 1.08, y: -3, boxShadow: '0 6px 20px rgba(59,79,216,0.12)', transition: { duration: 0.2 } }}
-              style={{ background: '#F9F8FF', borderRadius: '12px', padding: '12px', border: '1px solid rgba(59,79,216,0.08)', cursor: 'default' }}
+              key={f.label}
+              onHoverStart={() => setActiveFormation(i)}
+              onHoverEnd={() => setActiveFormation(null)}
+              whileHover={{ x: 3 }}
+              transition={{ duration: 0.15 }}
+              style={{ position: 'relative' }}
             >
-              <p style={{ color: '#6B7280', fontSize: '11px', marginBottom: '4px' }}>{s.label}</p>
-              <p style={{ color: '#0F0C1E', fontWeight: 700, fontSize: '16px' }}>{s.val}</p>
-              <p style={{ color: '#C4B8FF', fontSize: '10px' }}>{s.unit}</p>
+              <Link to={f.path} style={{ textDecoration: 'none' }}>
+                <div style={{
+                  display: 'flex', alignItems: 'center', gap: '10px',
+                  padding: '9px 11px', borderRadius: '12px',
+                  background: activeFormation === i ? `linear-gradient(135deg, ${f.accent}10, ${f.accent}04)` : '#F9F8FF',
+                  border: `1.5px solid ${activeFormation === i ? f.accent + '40' : 'transparent'}`,
+                  transition: 'all 0.18s ease', cursor: 'pointer',
+                }}>
+                  {/* Color dot */}
+                  <div style={{ width: 30, height: 30, borderRadius: '9px', background: `linear-gradient(135deg, ${f.accent}, #9B30E8)`, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, boxShadow: `0 3px 10px ${f.accent}35` }}>
+                    <span style={{ fontSize: '9px', fontWeight: 800, color: '#fff' }}>{f.label.slice(0, 3)}</span>
+                  </div>
+
+                  {/* Text */}
+                  <div style={{ flex: 1, minWidth: 0 }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '7px', marginBottom: '1px' }}>
+                      <span style={{ fontSize: '12px', fontWeight: 800, color: '#0F0C1E' }}>{f.title}</span>
+                    </div>
+                    <p style={{ margin: 0, fontSize: '10px', color: '#6B7280', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                      {f.features[0]} · {f.features[1]}
+                    </p>
+                  </div>
+
+                  {/* Right: stat + arrow */}
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '6px', flexShrink: 0 }}>
+                    <div style={{ textAlign: 'right' }}>
+                      <p style={{ margin: 0, fontSize: '12px', fontWeight: 800, color: f.accent }}>{f.stat.val}</p>
+                      <p style={{ margin: 0, fontSize: '8px', color: '#9CA3AF' }}>{f.stat.desc}</p>
+                    </div>
+                    <motion.div
+                      animate={{ x: activeFormation === i ? 3 : 0 }}
+                      transition={{ duration: 0.15 }}
+                      style={{ color: activeFormation === i ? f.accent : '#D1D5DB' }}
+                    >
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </motion.div>
+                  </div>
+                </div>
+              </Link>
             </motion.div>
           ))}
         </div>
+
+        {/* Bottom urgency bar */}
+        <div style={{ marginTop: '12px', padding: '8px 12px', borderRadius: '10px', background: 'linear-gradient(135deg, #FEF3C7, #FDE68A30)', border: '1px solid #FCD34D50', display: 'flex', alignItems: 'center', gap: '7px' }}>
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#D97706" strokeWidth="2.5" style={{ flexShrink: 0 }}><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <p style={{ margin: 0, fontSize: '10px', color: '#92400E', fontWeight: 600 }}>
+            <span style={{ fontWeight: 800 }}>Session de mai presque complète</span> — avant le 30 avril
+          </p>
+        </div>
       </div>
-      <motion.div animate={{ y: [0, -8, 0] }} transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
-        whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
-        style={{ position: 'absolute', top: '-28px', right: '-24px', background: '#fff', borderRadius: '16px', padding: '12px 18px', boxShadow: '0 8px 32px rgba(59,79,216,0.15)', border: '1px solid rgba(59,79,216,0.10)', display: 'flex', alignItems: 'center', gap: '10px' }}>
-        <div style={{ width: '36px', height: '36px', borderRadius: '10px', background: 'linear-gradient(135deg, #3B4FD8, #9B30E8)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></svg>
-        </div>
-        <div>
-          <p style={{ fontSize: '11px', color: '#6B7280', margin: 0 }}>Temps économisé</p>
-          <p style={{ fontSize: '15px', fontWeight: 700, color: '#0F0C1E', margin: 0 }}>12h / semaine</p>
-        </div>
-      </motion.div>
-      <motion.div animate={{ y: [0, 8, 0] }} transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
-        whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
-        style={{ position: 'absolute', bottom: '-24px', left: '-28px', background: 'linear-gradient(135deg, #3B4FD8, #9B30E8)', borderRadius: '16px', padding: '12px 18px', boxShadow: '0 8px 28px rgba(155,48,232,0.35)', display: 'flex', alignItems: 'center', gap: '10px', color: '#fff' }}>
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="3" /><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83" /></svg>
-        <div>
-          <p style={{ fontSize: '11px', opacity: 0.7, margin: 0 }}>Automatisation</p>
-          <p style={{ fontSize: '15px', fontWeight: 700, margin: 0 }}>Active</p>
-        </div>
-      </motion.div>
     </div>
   )
 }

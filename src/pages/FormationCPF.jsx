@@ -6,9 +6,9 @@ import useIsMobile from '../hooks/useIsMobile'
 import Breadcrumb from '../components/Breadcrumb'
 
 const SESSIONS = [
-  { id: 1, rs: 'RS7344', titre: 'Développer son activité avec l\'intelligence artificielle', lieu: 'Strasbourg', date: '21 avril 2026', duree: '7h présentiel', elearning: '14h e-learning', prix: 1500, inscrits: 0, places: 10, modalite: 'Présentiel', niveau: 'Tous niveaux', bientot: true },
-  { id: 2, rs: 'RS7344', titre: 'Développer son activité avec l\'intelligence artificielle', lieu: 'Mulhouse', date: '22 avril 2026', duree: '7h présentiel', elearning: '14h e-learning', prix: 1500, inscrits: 0, places: 10, modalite: 'Présentiel', niveau: 'Tous niveaux', bientot: true },
-  { id: 3, rs: 'RS7344', titre: 'Développer son activité avec l\'intelligence artificielle', lieu: 'Colmar', date: '23 avril 2026', duree: '7h présentiel', elearning: '14h e-learning', prix: 1500, inscrits: 0, places: 10, modalite: 'Présentiel', niveau: 'Tous niveaux', bientot: true },
+  { id: 1, rs: 'RS7344', titre: 'Développer son activité avec l\'intelligence artificielle', lieu: 'Strasbourg', date: '19 mai 2026', duree: '7h présentiel', elearning: '14h e-learning', prix: 1500, inscrits: 3, places: 10, modalite: 'Présentiel', niveau: 'Tous niveaux', bientot: false },
+  { id: 2, rs: 'RS7344', titre: 'Développer son activité avec l\'intelligence artificielle', lieu: 'Mulhouse', date: '20 mai 2026', duree: '7h présentiel', elearning: '14h e-learning', prix: 1500, inscrits: 2, places: 10, modalite: 'Présentiel', niveau: 'Tous niveaux', bientot: false },
+  { id: 3, rs: 'RS7344', titre: 'Développer son activité avec l\'intelligence artificielle', lieu: 'Colmar', date: '21 mai 2026', duree: '7h présentiel', elearning: '14h e-learning', prix: 1500, inscrits: 1, places: 10, modalite: 'Présentiel', niveau: 'Tous niveaux', bientot: false },
 ]
 
 const FADE_UP = {
@@ -389,7 +389,7 @@ export default function FormationCPF() {
       </section>
 
       {/* ── Sessions ──────────────────────────────────── */}
-      <section style={{ maxWidth: '1200px', margin: '0 auto', padding: isMobile ? '32px 16px' : '56px 48px' }}>
+      <section className="sr-up" style={{ maxWidth: '1200px', margin: '0 auto', padding: isMobile ? '32px 16px' : '56px 48px' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '36px', flexWrap: 'wrap', gap: '12px' }}>
           <div>
             <h2 style={{ color: '#0F0C1E', fontWeight: 800, fontSize: '22px', margin: '0 0 4px' }}>Prochaines sessions</h2>

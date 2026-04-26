@@ -11,7 +11,7 @@ const NAV = [
       { label: 'Formation CPF', path: '/formation/cpf' },
       { label: 'Formation OPCO', path: '/formation/opco' },
       { label: 'Formation sur mesure', path: '/formation/sur-mesure' },
-      { label: 'Formation aux environnements', path: '/formation/environnements' },
+      { label: 'Formation Vibe Coding', path: '/formation/vibe-coding' },
     ],
   },
   { label: 'Solution IA sur mesure', path: '/solution-ia' },
@@ -218,19 +218,21 @@ export default function Header() {
 
         {/* Desktop CTA */}
         {!isMobile && (
-          <motion.div whileHover={{ scale: 1.05, y: -1 }} whileTap={{ scale: 0.97 }}>
-            <Link
-              to="/contact"
-              style={{
-                padding: '10px 24px', borderRadius: '999px', fontSize: '14px', fontWeight: 600,
-                color: '#fff', background: 'linear-gradient(135deg, #3B4FD8, #9B30E8)',
-                textDecoration: 'none', boxShadow: '0 2px 16px rgba(155,48,232,0.30)',
-                display: 'block', whiteSpace: 'nowrap',
-              }}
-            >
-              Prendre contact
-            </Link>
-          </motion.div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+            <motion.div whileHover={{ scale: 1.05, y: -1 }} whileTap={{ scale: 0.97 }}>
+              <Link
+                to="/contact"
+                style={{
+                  padding: '10px 24px', borderRadius: '999px', fontSize: '14px', fontWeight: 600,
+                  color: '#fff', background: 'linear-gradient(135deg, #3B4FD8, #9B30E8)',
+                  textDecoration: 'none', boxShadow: '0 2px 16px rgba(155,48,232,0.30)',
+                  display: 'block', whiteSpace: 'nowrap',
+                }}
+              >
+                Prendre contact
+              </Link>
+            </motion.div>
+          </div>
         )}
 
         {/* Mobile: CTA + Hamburger */}

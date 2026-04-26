@@ -27,7 +27,7 @@ export default function Footer() {
   return (
     <footer style={{
       background: 'linear-gradient(135deg, #3B4FD8, #9B30E8)',
-      borderTop: 'none', padding: isMobile ? '40px 20px 28px' : '48px 40px 32px', marginTop: 'auto',
+      borderTop: 'none', padding: isMobile ? '24px 20px 16px' : '28px 40px 18px', marginTop: 'auto',
       position: 'relative', overflow: 'hidden',
     }}>
       {/* Orbes décoratifs animés */}
@@ -42,7 +42,7 @@ export default function Footer() {
         style={{ position: 'absolute', bottom: -40, left: -40, width: 180, height: 180, borderRadius: '50%', background: 'rgba(255,255,255,0.05)', pointerEvents: 'none' }}
       />
 
-      <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '36px', position: 'relative', zIndex: 1 }}>
+      <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '16px', position: 'relative', zIndex: 1 }}>
 
         {/* Top row */}
         <div style={{ display: 'flex', justifyContent: 'space-between', flexDirection: isMobile ? 'column' : 'row', alignItems: 'flex-start', flexWrap: 'wrap', gap: '24px' }}>
@@ -50,7 +50,7 @@ export default function Footer() {
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '8px' }}>
               <motion.div
                 whileHover={{ scale: 1.08, rotate: 3, transition: { type: 'spring', stiffness: 300 } }}
-                style={{ width: 48, height: 48, borderRadius: '10px', overflow: 'hidden', flexShrink: 0, cursor: 'default' }}
+                style={{ width: 36, height: 36, borderRadius: '8px', overflow: 'hidden', flexShrink: 0, cursor: 'default' }}
               >
                 <img src="/logo2.png" alt="Smart Optimisation" loading="lazy" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center center' }} />
               </motion.div>
@@ -75,7 +75,7 @@ export default function Footer() {
                   whileHover={{ scale: 1.15, y: -3, background: 'rgba(255,255,255,0.30)', transition: { duration: 0.18 } }}
                   whileTap={{ scale: 0.92 }}
                   style={{
-                    width: 48, height: 48, borderRadius: '10px',
+                    width: 36, height: 36, borderRadius: '8px',
                     background: 'rgba(255,255,255,0.15)', border: '1px solid rgba(255,255,255,0.25)',
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
                     color: '#fff', textDecoration: 'none',
@@ -97,11 +97,11 @@ export default function Footer() {
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
           {LEGAL.map((l, i) => {
             const base = {
-              padding: '10px 16px', borderRadius: '999px',
+              padding: '6px 12px', borderRadius: '999px',
               border: '1px solid rgba(255,255,255,0.35)', color: '#fff',
-              fontSize: '12px', fontWeight: 500, textDecoration: 'none',
+              fontSize: '11px', fontWeight: 500, textDecoration: 'none',
               background: 'rgba(255,255,255,0.12)',
-              minHeight: '48px', display: 'inline-flex', alignItems: 'center',
+              minHeight: '32px', display: 'inline-flex', alignItems: 'center',
             }
             const content = (
               <motion.span
@@ -129,16 +129,16 @@ export default function Footer() {
             rel="noopener noreferrer"
             whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
             style={{
-              background: '#fff', borderRadius: '12px', padding: '8px 16px',
+              background: '#fff', borderRadius: '10px', padding: '5px 12px',
               display: 'flex', alignItems: 'center',
               boxShadow: '0 4px 20px rgba(0,0,0,0.15)',
               textDecoration: 'none', flexShrink: 0,
             }}
           >
-            <img src="/qualiopi.png" alt="Qualiopi — Processus certifié" loading="lazy" decoding="async" style={{ height: '44px', objectFit: 'contain' }} />
-            <span style={{ display: 'flex', flexDirection: 'column', marginLeft: '10px' }}>
-              <span style={{ fontSize: '12px', fontWeight: 600, color: '#374151' }}>Certifié Qualiopi</span>
-              <span style={{ fontSize: '11px', color: '#6B7280' }}>Actions de formation</span>
+            <img src="/qualiopi.png" alt="Qualiopi — Processus certifié" loading="lazy" decoding="async" style={{ height: '32px', objectFit: 'contain' }} />
+            <span style={{ display: 'flex', flexDirection: 'column', marginLeft: '8px' }}>
+              <span style={{ fontSize: '11px', fontWeight: 600, color: '#374151' }}>Certifié Qualiopi</span>
+              <span style={{ fontSize: '10px', color: '#6B7280' }}>Actions de formation</span>
             </span>
           </motion.a>
         </div>

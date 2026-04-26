@@ -134,9 +134,10 @@ function ArticleCard({ article, index, isMobile }) {
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 28 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.45, delay: index * 0.1 }}
+      initial={{ opacity: 0, y: 32 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.1 }}
+      transition={{ duration: 0.5, delay: (index % 3) * 0.1, ease: [0.4, 0, 0.2, 1] }}
       whileHover={{ y: -6, transition: { duration: 0.2 } }}
     >
       <Link to={`/blog/${article.slug}`} style={{ textDecoration: 'none', display: 'block' }}>

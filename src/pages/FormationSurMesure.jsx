@@ -468,15 +468,28 @@ export default function FormationSurMesure() {
 
       <div style={{ maxWidth: '1100px', margin: '0 auto', padding: isMobile ? '8px 20px 60px' : '8px 48px 100px', position: 'relative', zIndex: 2 }}>
 
-        {/* Retour */}
-        <motion.div initial={{ opacity: 0, x: -12 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.35 }}>
-          <Link to="/" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: '#6B7280', fontSize: '13px', textDecoration: 'none', marginBottom: '48px', fontWeight: 500, transition: 'color 0.18s' }}
-            onMouseEnter={e => { e.currentTarget.style.color = '#3B4FD8'; e.currentTarget.style.transform = 'translateX(-3px)' }}
-            onMouseLeave={e => { e.currentTarget.style.color = '#9CA3AF'; e.currentTarget.style.transform = 'translateX(0)' }}
+        {/* Nav haut */}
+        <motion.div initial={{ opacity: 0, x: -12 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.35 }}
+          style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px', marginBottom: '48px' }}
+        >
+          <Link to="/" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: '#9CA3AF', fontSize: '13px', textDecoration: 'none', fontWeight: 500, transition: 'color 0.18s' }}
+            onMouseEnter={e => { e.currentTarget.style.color = '#3B4FD8' }}
+            onMouseLeave={e => { e.currentTarget.style.color = '#9CA3AF' }}
           >
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-            Retour à l'accueil
+            Accueil
           </Link>
+          <motion.div whileHover={{ scale: 1.04, y: -1 }} whileTap={{ scale: 0.97 }}>
+            <Link to="/contact" style={{
+              display: 'inline-flex', alignItems: 'center', gap: '8px',
+              padding: '10px 22px', borderRadius: '999px', fontSize: '14px', fontWeight: 700,
+              color: '#fff', background: 'linear-gradient(135deg, #3B4FD8, #9B30E8)',
+              textDecoration: 'none', boxShadow: '0 4px 16px rgba(155,48,232,0.28)',
+            }}>
+              Co-construire mon programme
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </Link>
+          </motion.div>
         </motion.div>
 
         {/* ══ HERO ══ */}

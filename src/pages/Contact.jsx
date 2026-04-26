@@ -47,9 +47,16 @@ const FADE_UP = {
 
 const INFO_ITEMS = [
   {
+    icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.35 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>,
+    label: 'Téléphone',
+    value: '06 88 67 39 61',
+    href: 'tel:+33688673961',
+  },
+  {
     icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>,
     label: 'Email',
     value: 'contact@smartoptimisation.fr',
+    href: 'mailto:contact@smartoptimisation.fr',
   },
   {
     icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>,
@@ -228,7 +235,8 @@ export default function Contact() {
                 initial={{ opacity: 0, x: -16 }}
                 animate={{ opacity: 1, x: 0, transition: { delay: 0.3 + i * 0.1, duration: 0.4 } }}
                 whileHover={{ x: 6, transition: { duration: 0.18 } }}
-                style={{ display: 'flex', alignItems: 'center', gap: '14px', cursor: 'default' }}
+                style={{ display: 'flex', alignItems: 'center', gap: '14px', cursor: item.href ? 'pointer' : 'default', textDecoration: 'none' }}
+                {...(item.href ? { as: 'a', href: item.href } : {})}
               >
                 <motion.div
                   whileHover={{ rotate: 10, scale: 1.1, transition: { type: 'spring', stiffness: 300 } }}
@@ -238,7 +246,11 @@ export default function Contact() {
                 </motion.div>
                 <div>
                   <p style={{ color: '#6B7280', fontSize: '12px', margin: 0 }}>{item.label}</p>
-                  <p style={{ color: '#0F0C1E', fontSize: '14px', fontWeight: 600, margin: 0 }}>{item.value}</p>
+                  {item.href ? (
+                    <a href={item.href} style={{ color: '#3B4FD8', fontSize: '14px', fontWeight: 600, margin: 0, display: 'block', textDecoration: 'none' }}>{item.value}</a>
+                  ) : (
+                    <p style={{ color: '#0F0C1E', fontSize: '14px', fontWeight: 600, margin: 0 }}>{item.value}</p>
+                  )}
                 </div>
               </motion.div>
             ))}

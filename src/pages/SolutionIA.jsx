@@ -593,7 +593,7 @@ export default function SolutionIA() {
         </div>
 
         {/* ══ GRID DOMAINES ══ */}
-        <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(260px, 1fr))', gap: '16px', marginBottom: '80px' }}>
+        <div className="sr-up" style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(260px, 1fr))', gap: '16px', marginBottom: '80px' }}>
           {DOMAINS.map((card, i) => <DomainCard key={i} card={card} i={i} />)}
         </div>
 

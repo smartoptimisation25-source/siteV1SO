@@ -225,8 +225,9 @@ function DashboardMockup() {
         {/* Header row */}
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px' }}>
           <div>
-            <p style={{ color: '#6B7280', fontSize: '12px', marginBottom: '4px' }}>Productivité IA</p>
-            <p style={{ color: '#0F0C1E', fontWeight: 800, fontSize: '28px' }}>+340%</p>
+            <p style={{ color: '#6B7280', fontSize: '12px', marginBottom: '2px' }}>Productivité IA</p>
+            <p style={{ color: '#0F0C1E', fontWeight: 800, fontSize: '28px', margin: 0 }}>+340%</p>
+            <p style={{ color: '#9B30E8', fontSize: '9px', fontWeight: 600, margin: '2px 0 0' }}>Équipes formées à l'automatisation</p>
           </div>
           <div style={{
             width: '44px', height: '44px', borderRadius: '12px',
@@ -260,9 +261,9 @@ function DashboardMockup() {
         {/* Stats row */}
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '12px' }}>
           {[
-            { label: 'Formations', val: '24', unit: 'modules' },
-            { label: 'Clients', val: '150+', unit: 'entreprises' },
-            { label: 'Satisfaction', val: '98%', unit: 'taux' },
+            { label: 'Formations', val: '24', unit: 'modules actifs', anchor: 'CPF · OPCO · Sur mesure' },
+            { label: 'Clients', val: '150+', unit: 'entreprises', anchor: 'dont SNCF, Alstom, Bugatti' },
+            { label: 'Satisfaction', val: '98%', unit: 'post-formation', anchor: 'Éval. mai 25 – avr. 26' },
           ].map((s) => (
             <div key={s.label} style={{
               background: '#F9F8FF',
@@ -272,7 +273,7 @@ function DashboardMockup() {
             }}>
               <p style={{ color: '#6B7280', fontSize: '11px', marginBottom: '4px' }}>{s.label}</p>
               <p style={{ color: '#0F0C1E', fontWeight: 700, fontSize: '16px' }}>{s.val}</p>
-              <p style={{ color: '#C4B8FF', fontSize: '10px' }}>{s.unit}</p>
+              <p style={{ color: '#9B30E8', fontSize: '9px', fontWeight: 600, lineHeight: 1.3 }}>{s.anchor}</p>
             </div>
           ))}
         </div>
