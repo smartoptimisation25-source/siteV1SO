@@ -25,6 +25,7 @@ const BlogArticle = lazy(() => import('./pages/BlogArticle'))
 const FormationIAStrasbourg = lazy(() => import('./pages/FormationIAStrasbourg'))
 const FormationIAMulhouse = lazy(() => import('./pages/FormationIAMulhouse'))
 const FormationIAColmar = lazy(() => import('./pages/FormationIAColmar'))
+const FormationMarketingIA = lazy(() => import('./pages/FormationMarketingIA'))
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -71,6 +72,7 @@ function AnimatedRoutes() {
               <Route path="/formation-ia-strasbourg" element={<FormationIAStrasbourg />} />
               <Route path="/formation-ia-mulhouse" element={<FormationIAMulhouse />} />
               <Route path="/formation-ia-colmar" element={<FormationIAColmar />} />
+              <Route path="/formation/marketing-ia" element={<FormationMarketingIA />} />
               <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
