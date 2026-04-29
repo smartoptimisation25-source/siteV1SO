@@ -12,6 +12,7 @@ const NAV = [
       { label: 'Formation OPCO', path: '/formation/opco' },
       { label: 'Formation sur mesure', path: '/formation/sur-mesure' },
       { label: 'Formation Vibe Coding', path: '/formation/vibe-coding' },
+      { label: 'Formation Marketing IA', path: '/formation/marketing-ia' },
     ],
   },
   { label: 'Solution IA sur mesure', path: '/solution-ia' },

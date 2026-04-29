@@ -1576,7 +1576,7 @@ export const articles = [
           },
           {
             type: 'callout',
-            text: '⚠️ GPT-4o refuse certaines demandes jugées sensibles (violence, personnes réelles identifiables, contenu adulte). Ces garde-fous sont intentionnels et non contournables.',
+            text: 'À noter : GPT-4o refuse certaines demandes jugées sensibles (violence, personnes réelles identifiables, contenu adulte). Ces garde-fous sont intentionnels et non contournables.',
           },
         ],
       },
