@@ -28,20 +28,6 @@
   animation-play-state: paused;
 }
 
-@keyframes testimonials-scroll {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
-
-.testimonials-track {
-  display: flex;
-  width: max-content;
-  animation: testimonials-scroll 32s linear infinite;
-}
-
-.testimonials-track:hover {
-  animation-play-state: paused;
-}
 
 * {
   box-sizing: border-box;

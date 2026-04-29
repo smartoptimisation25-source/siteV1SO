@@ -204,16 +204,33 @@ function TestimonialCard({ t }) {
 
 /* ── Section Témoignages avec défilement automatique ── */
 function TestimonialsSection() {
-  const ITEMS = [...TESTIMONIALS, ...TESTIMONIALS]
-  return (
-    <section style={{ background: '#F9F8FF', borderTop: '1px solid rgba(59,79,216,0.07)', padding: '64px 0', overflow: 'hidden' }}>
+  const isMobile = useIsMobile()
+  const CARD_W = isMobile ? 300 : 340
+  const GAP = 20
+  const STEP = CARD_W + GAP
+  const [index, setIndex] = useState(0)
+  const x = useMotionValue(0)
+  const dragX = useMotionValue(0)
 
-      {/* Entête centré */}
+  const clamp = (i) => Math.max(0, Math.min(i, TESTIMONIALS.length - 1))
+
+  function prev() { setIndex(i => clamp(i - 1)) }
+  function next() { setIndex(i => clamp(i + 1)) }
+
+  function onDragEnd(_, info) {
+    if (info.offset.x < -50) next()
+    else if (info.offset.x > 50) prev()
+  }
+
+  return (
+    <section style={{ background: '#F9F8FF', borderTop: '1px solid rgba(59,79,216,0.07)', padding: '64px 0 56px', overflow: 'hidden' }}>
+
+      {/* Entête */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0, transition: { duration: 0.5 } }}
         viewport={{ once: true }}
-        style={{ textAlign: 'center', marginBottom: '48px', padding: '0 24px' }}
+        style={{ textAlign: 'center', marginBottom: '40px', padding: '0 24px' }}
       >
         <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '5px 16px', borderRadius: '999px', border: '1px solid rgba(59,79,216,0.18)', background: 'rgba(59,79,216,0.07)', marginBottom: '16px' }}>
           <svg width="13" height="13" viewBox="0 0 24 24" fill="#F59E0B" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
@@ -227,19 +244,90 @@ function TestimonialsSection() {
         </p>
       </motion.div>
 
-      {/* Ruban défilant */}
+      {/* Carousel */}
       <div style={{
-        WebkitMaskImage: 'linear-gradient(to right, transparent, black 8%, black 92%, transparent)',
-        maskImage: 'linear-gradient(to right, transparent, black 8%, black 92%, transparent)',
         overflow: 'hidden',
+        WebkitMaskImage: 'linear-gradient(to right, transparent, black 6%, black 94%, transparent)',
+        maskImage: 'linear-gradient(to right, transparent, black 6%, black 94%, transparent)',
+        cursor: 'grab',
       }}>
-        <div className="testimonials-track">
-          {ITEMS.map((t, i) => (
-            <div key={i} style={{ marginRight: '20px' }}>
+        <motion.div
+          drag="x"
+          dragConstraints={{ left: 0, right: 0 }}
+          dragElastic={0.12}
+          onDragEnd={onDragEnd}
+          animate={{ x: -index * STEP + (isMobile ? 12 : 48) }}
+          transition={{ type: 'spring', stiffness: 300, damping: 35 }}
+          style={{ display: 'flex', gap: `${GAP}px`, paddingBottom: '8px', userSelect: 'none' }}
+          whileTap={{ cursor: 'grabbing' }}
+        >
+          {TESTIMONIALS.map((t, i) => (
+            <motion.div
+              key={i}
+              animate={{ scale: i === index ? 1 : 0.96, opacity: i === index ? 1 : 0.65 }}
+              transition={{ duration: 0.3 }}
+              style={{ flexShrink: 0, width: CARD_W }}
+            >
               <TestimonialCard t={t} />
-            </div>
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
+
+      {/* Contrôles */}
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '16px', marginTop: '28px' }}>
+        {/* Flèche gauche */}
+        <motion.button
+          onClick={prev}
+          disabled={index === 0}
+          whileHover={{ scale: 1.08 }}
+          whileTap={{ scale: 0.94 }}
+          style={{
+            width: 40, height: 40, borderRadius: '50%', border: '1.5px solid rgba(59,79,216,0.20)',
+            background: index === 0 ? '#F3F4F6' : '#fff',
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            cursor: index === 0 ? 'default' : 'pointer',
+            boxShadow: index === 0 ? 'none' : '0 2px 10px rgba(59,79,216,0.10)',
+            opacity: index === 0 ? 0.4 : 1, transition: 'opacity 0.2s',
+          }}
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3B4FD8" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="15 18 9 12 15 6"/>
+          </svg>
+        </motion.button>
+
+        {/* Points */}
+        <div style={{ display: 'flex', gap: '8px' }}>
+          {TESTIMONIALS.map((_, i) => (
+            <motion.button
+              key={i}
+              onClick={() => setIndex(i)}
+              animate={{ width: i === index ? 24 : 8, background: i === index ? '#3B4FD8' : '#D1D5DB' }}
+              transition={{ duration: 0.25 }}
+              style={{ height: 8, borderRadius: '999px', border: 'none', cursor: 'pointer', padding: 0 }}
+            />
           ))}
         </div>
+
+        {/* Flèche droite */}
+        <motion.button
+          onClick={next}
+          disabled={index === TESTIMONIALS.length - 1}
+          whileHover={{ scale: 1.08 }}
+          whileTap={{ scale: 0.94 }}
+          style={{
+            width: 40, height: 40, borderRadius: '50%', border: '1.5px solid rgba(59,79,216,0.20)',
+            background: index === TESTIMONIALS.length - 1 ? '#F3F4F6' : '#fff',
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            cursor: index === TESTIMONIALS.length - 1 ? 'default' : 'pointer',
+            boxShadow: index === TESTIMONIALS.length - 1 ? 'none' : '0 2px 10px rgba(59,79,216,0.10)',
+            opacity: index === TESTIMONIALS.length - 1 ? 0.4 : 1, transition: 'opacity 0.2s',
+          }}
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3B4FD8" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="9 18 15 12 9 6"/>
+          </svg>
+        </motion.button>
       </div>
 
     </section>
