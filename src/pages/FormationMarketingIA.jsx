@@ -39,7 +39,7 @@ function useCounter(target, duration = 1800, inView = false) {
 
 /* ── Données ── */
 const STATS = [
-  { val: 340, suffix: '+', label: 'entrepreneurs formés', color: C.blue },
+  { val: 60, suffix: '+', label: 'entreprises & auto-entrepreneurs accompagnés', color: C.blue },
   { val: 218, suffix: '/mois', label: 'leads qualifiés en moyenne', color: C.violet },
   { val: 62, suffix: '%', label: 'de réduction des coûts d\'acquisition', color: C.rose },
   { val: 4.9, suffix: '/5', label: 'de satisfaction moyenne', color: C.green, isFloat: true },
@@ -908,7 +908,7 @@ export default function FormationMarketingIA() {
                 </motion.span>
               </h2>
               <p style={{ color: 'rgba(255,255,255,0.62)', fontSize: isMobile ? '15px' : '17px', lineHeight: 1.75, margin: '0 0 40px', maxWidth: '520px', marginLeft: 'auto', marginRight: 'auto' }}>
-                Rejoignez les +340 entrepreneurs qui ont transformé leur marketing avec l'IA. Financement OPCO disponible — aucune raison d'attendre.
+                Rejoignez les +60 entreprises et auto-entrepreneurs qui ont transformé leur marketing avec l'IA. Financement OPCO disponible — aucune raison d'attendre.
               </p>
 
               <div style={{ display: 'flex', gap: '14px', justifyContent: 'center', flexWrap: 'wrap' }}>
