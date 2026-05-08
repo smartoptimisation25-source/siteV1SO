@@ -154,7 +154,8 @@ export default function FormationVibeCoding() {
       {/* HERO */}
       <section style={{
         position: 'relative', overflow: 'hidden', background: '#ffffff',
-        padding: isMobile ? '48px 24px 40px' : '72px 48px 56px',
+        padding: isMobile ? '12px 24px 40px' : '16px 48px 52px',
+        minHeight: isMobile ? 'auto' : 'calc(100vh - 108px)',
       }}>
         <motion.div animate={{ scale: [1, 1.15, 1], x: [0, 20, 0] }} transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
           style={{ position: 'absolute', top: -180, right: -120, width: 600, height: 600, borderRadius: '50%', background: 'radial-gradient(circle, rgba(192,48,232,0.07) 0%, transparent 70%)', pointerEvents: 'none' }}
@@ -163,7 +164,7 @@ export default function FormationVibeCoding() {
           style={{ position: 'absolute', bottom: -100, left: -80, width: 500, height: 500, borderRadius: '50%', background: 'radial-gradient(circle, rgba(59,79,216,0.06) 0%, transparent 70%)', pointerEvents: 'none' }}
         />
 
-        <div style={{ maxWidth: '800px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
+        <div style={{ maxWidth: '800px', position: 'relative', zIndex: 1 }}>
           <motion.div
             initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}
             style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 16px', borderRadius: '999px', background: `${ACCENT}12`, border: `1px solid ${ACCENT}30`, marginBottom: '20px' }}

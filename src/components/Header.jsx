@@ -4,17 +4,85 @@ import { motion, AnimatePresence } from 'framer-motion'
 import logo from '../assets/logo-icon.jpg'
 import useIsMobile from '../hooks/useIsMobile'
 
-const NAV = [
+const FORMATIONS = [
   {
-    label: 'Formation',
-    dropdown: [
-      { label: 'Formation CPF', path: '/formation/cpf' },
-      { label: 'Formation OPCO', path: '/formation/opco' },
-      { label: 'Formation sur mesure', path: '/formation/sur-mesure' },
-      { label: 'Formation Vibe Coding', path: '/formation/vibe-coding' },
-      { label: 'Formation Marketing IA', path: '/formation/marketing-ia' },
-    ],
+    label: 'Formation CPF',
+    path: '/formation/cpf',
+    desc: 'Financée à 100% via votre CPF',
+    color: '#3B4FD8',
+    bg: 'rgba(59,79,216,0.08)',
+    icon: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/>
+      </svg>
+    ),
   },
+  {
+    label: 'Formation OPCO',
+    path: '/formation/opco',
+    desc: 'Prise en charge par votre OPCO',
+    color: '#7B4FE8',
+    bg: 'rgba(123,79,232,0.08)',
+    icon: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+      </svg>
+    ),
+  },
+  {
+    label: 'Formation sur mesure',
+    path: '/formation/sur-mesure',
+    desc: 'Adaptée à votre secteur et vos outils',
+    color: '#059669',
+    bg: 'rgba(5,150,105,0.08)',
+    icon: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/>
+      </svg>
+    ),
+  },
+  {
+    label: 'Vibe Coding',
+    path: '/formation/vibe-coding',
+    desc: 'Créez des apps sans écrire de code',
+    color: '#D97706',
+    bg: 'rgba(217,119,6,0.08)',
+    badge: 'Populaire',
+    icon: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
+      </svg>
+    ),
+  },
+  {
+    label: 'Marketing IA',
+    path: '/formation/marketing-ia',
+    desc: 'Contenus, visuels et stratégie avec l\'IA',
+    color: '#E83B9B',
+    bg: 'rgba(232,59,155,0.08)',
+    icon: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+      </svg>
+    ),
+  },
+  {
+    label: 'Claude AI & Microsoft 365',
+    path: '/formation/claude-microsoft',
+    desc: 'Outlook, Word, Excel, PowerPoint',
+    color: '#0078D4',
+    bg: 'rgba(0,120,212,0.08)',
+    badge: 'Nouveau',
+    icon: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/>
+      </svg>
+    ),
+  },
+]
+
+const NAV = [
+  { label: 'Formation', dropdown: true },
   { label: 'Solution IA sur mesure', path: '/solution-ia' },
   { label: 'Educ IA', path: '/educ-ia' },
   { label: 'Blog', path: '/blog' },
@@ -44,14 +112,8 @@ export default function Header() {
     setMobileOpen(false)
   }, [location])
 
-  const isActive = (item) => {
-    if (item.path) {
-      if (item.path === '/blog') return location.pathname.startsWith('/blog')
-      return location.pathname === item.path
-    }
-    if (item.dropdown) return item.dropdown.some((d) => location.pathname === d.path)
-    return false
-  }
+  const isFormationActive = FORMATIONS.some(f => location.pathname === f.path)
+  const isFormationOpen = openMenu === 'Formation'
 
   return (
     <header
@@ -72,7 +134,7 @@ export default function Header() {
           <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '12px', textDecoration: 'none' }}>
             <img src={logo} alt="Smart Optimisation"
               decoding="async"
-              fetchpriority="high"
+              fetchPriority="high"
               style={{ height: '44px', width: '44px', objectFit: 'contain', borderRadius: '14px', boxShadow: '0 4px 16px rgba(59,79,216,0.25)' }}
             />
             {!isMobile && (
@@ -86,168 +148,185 @@ export default function Header() {
         {/* Desktop nav */}
         {!isMobile && (
           <nav style={{ display: 'flex', alignItems: 'center', gap: '4px', position: 'relative' }}>
-            {NAV.map((item) => (
-              <div key={item.label} style={{ position: 'relative' }}>
-                {item.dropdown ? (
-                  <motion.button
-                    onClick={() => setOpenMenu(openMenu === item.label ? null : item.label)}
-                    aria-expanded={openMenu === item.label}
-                    aria-haspopup="true"
-                    whileHover={{ scale: 1.03 }}
-                    whileTap={{ scale: 0.97 }}
-                    style={{
-                      display: 'flex', alignItems: 'center', gap: '5px',
-                      padding: '8px 18px', borderRadius: '999px', fontSize: '14px', fontWeight: 500,
-                      color: isActive(item) ? '#3B4FD8' : '#1F2937',
-                      background: isActive(item) || openMenu === item.label ? 'rgba(59,79,216,0.08)' : 'transparent',
-                      border: isActive(item) || openMenu === item.label ? '1px solid rgba(59,79,216,0.15)' : '1px solid transparent',
-                      cursor: 'pointer', transition: 'all 0.18s ease', fontFamily: 'inherit',
-                    }}
-                  >
-                    {item.label}
-                    <motion.svg
-                      width="12" height="12" viewBox="0 0 12 12" fill="none"
-                      animate={{ rotate: openMenu === item.label ? 180 : 0 }}
-                      transition={{ duration: 0.2 }}
-                      style={{ opacity: 0.6 }}
-                    >
-                      <path d="M2 4l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                    </motion.svg>
-                  </motion.button>
-                ) : (
-                  <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
-                    <Link
-                      to={item.path}
+            {NAV.map((item) => {
+              const active = item.dropdown
+                ? isFormationActive
+                : item.path === '/blog' ? location.pathname.startsWith('/blog') : location.pathname === item.path
+              const open = item.dropdown && isFormationOpen
+
+              return (
+                <div key={item.label} style={{ position: 'relative' }}>
+                  {item.dropdown ? (
+                    <motion.button
+                      onClick={() => setOpenMenu(open ? null : 'Formation')}
+                      whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}
                       style={{
-                        display: 'flex', alignItems: 'center', gap: '6px',
-                        padding: '8px 18px', borderRadius: '999px',
-                        fontSize: '14px', fontWeight: 500,
-                        color: isActive(item) ? '#3B4FD8' : '#1F2937',
-                        background: isActive(item) ? 'rgba(59,79,216,0.08)' : 'transparent',
-                        border: isActive(item) ? '1px solid rgba(59,79,216,0.15)' : '1px solid transparent',
-                        textDecoration: 'none', transition: 'all 0.18s ease',
+                        display: 'flex', alignItems: 'center', gap: '5px',
+                        padding: '8px 18px', borderRadius: '999px', fontSize: '14px', fontWeight: 500,
+                        color: active || open ? '#3B4FD8' : '#1F2937',
+                        background: active || open ? 'rgba(59,79,216,0.08)' : 'transparent',
+                        border: active || open ? '1px solid rgba(59,79,216,0.15)' : '1px solid transparent',
+                        cursor: 'pointer', transition: 'all 0.18s ease', fontFamily: 'inherit',
                       }}
                     >
                       {item.label}
-                      {item.label === 'Blog' && (
-                        <span style={{
-                          fontSize: 10, fontWeight: 700, letterSpacing: 0.4,
-                          color: '#fff',
-                          background: 'linear-gradient(135deg, #3B4FD8, #9B30E8)',
-                          padding: '1px 6px', borderRadius: 10,
-                          lineHeight: '16px',
-                        }}>
-                          NEW
-                        </span>
-                      )}
-                    </Link>
-                  </motion.div>
-                )}
-
-                {/* Dropdown panel */}
-                <AnimatePresence>
-                  {item.dropdown && openMenu === item.label && (
-                    <motion.div
-                      role="menu"
-                      initial={{ opacity: 0, y: -8, scale: 0.97 }}
-                      animate={{ opacity: 1, y: 0, scale: 1 }}
-                      exit={{ opacity: 0, y: -8, scale: 0.97 }}
-                      transition={{ duration: 0.18, ease: [0.4, 0, 0.2, 1] }}
-                      style={{
-                        position: 'absolute', top: 'calc(100% + 10px)', left: '50%',
-                        transform: 'translateX(-50%)', minWidth: '220px',
-                        background: '#fff', borderRadius: '16px',
-                        boxShadow: '0 8px 40px rgba(59,79,216,0.13), 0 2px 8px rgba(0,0,0,0.06)',
-                        border: '1px solid rgba(59,79,216,0.10)', padding: '8px', zIndex: 300,
-                      }}
-                    >
-                      <div style={{
-                        position: 'absolute', top: '-6px', left: '50%', transform: 'translateX(-50%)',
-                        width: '12px', height: '12px', background: '#fff',
-                        border: '1px solid rgba(59,79,216,0.10)', borderBottom: 'none', borderRight: 'none', rotate: '45deg',
-                      }} />
-
-                      {item.dropdown.map((sub, i) => (
-                        <motion.div
-                          key={sub.path}
-                          initial={{ opacity: 0, x: -8 }}
-                          animate={{ opacity: 1, x: 0, transition: { delay: i * 0.06 } }}
-                        >
-                          <Link
-                            to={sub.path}
-                            role="menuitem"
-                            style={{
-                              display: 'flex', alignItems: 'center', gap: '10px',
-                              padding: '10px 14px', borderRadius: '10px', textDecoration: 'none',
-                              color: location.pathname === sub.path ? '#3B4FD8' : '#374151',
-                              background: location.pathname === sub.path ? 'rgba(59,79,216,0.07)' : 'transparent',
-                              fontSize: '14px', fontWeight: location.pathname === sub.path ? 600 : 400,
-                              transition: 'background 0.15s ease, color 0.15s ease',
-                            }}
-                            onMouseEnter={(e) => {
-                              if (location.pathname !== sub.path) {
-                                e.currentTarget.style.background = 'rgba(59,79,216,0.05)'
-                                e.currentTarget.style.color = '#0F0C1E'
-                              }
-                            }}
-                            onMouseLeave={(e) => {
-                              if (location.pathname !== sub.path) {
-                                e.currentTarget.style.background = 'transparent'
-                                e.currentTarget.style.color = '#374151'
-                              }
-                            }}
-                          >
-                            <motion.span
-                              whileHover={{ scale: 1.3 }}
-                              style={{
-                                width: '6px', height: '6px', borderRadius: '50%', flexShrink: 0,
-                                background: 'linear-gradient(135deg, #3B4FD8, #9B30E8)',
-                                opacity: location.pathname === sub.path ? 1 : 0.4, display: 'block',
-                              }}
-                            />
-                            {sub.label}
-                          </Link>
-                        </motion.div>
-                      ))}
+                      <motion.svg width="12" height="12" viewBox="0 0 12 12" fill="none"
+                        animate={{ rotate: open ? 180 : 0 }} transition={{ duration: 0.2 }}
+                        style={{ opacity: 0.6 }}>
+                        <path d="M2 4l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                      </motion.svg>
+                    </motion.button>
+                  ) : (
+                    <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
+                      <Link to={item.path} style={{
+                        display: 'flex', alignItems: 'center', gap: '6px',
+                        padding: '8px 18px', borderRadius: '999px',
+                        fontSize: '14px', fontWeight: 500,
+                        color: active ? '#3B4FD8' : '#1F2937',
+                        background: active ? 'rgba(59,79,216,0.08)' : 'transparent',
+                        border: active ? '1px solid rgba(59,79,216,0.15)' : '1px solid transparent',
+                        textDecoration: 'none', transition: 'all 0.18s ease',
+                      }}>
+                        {item.label}
+                        {item.label === 'Blog' && (
+                          <span style={{
+                            fontSize: 10, fontWeight: 700, letterSpacing: 0.4, color: '#fff',
+                            background: 'linear-gradient(135deg, #3B4FD8, #9B30E8)',
+                            padding: '1px 6px', borderRadius: 10, lineHeight: '16px',
+                          }}>NEW</span>
+                        )}
+                      </Link>
                     </motion.div>
                   )}
-                </AnimatePresence>
-              </div>
-            ))}
+
+                  {/* Mega-menu Formation */}
+                  <AnimatePresence>
+                    {item.dropdown && isFormationOpen && (
+                      <motion.div
+                        role="menu"
+                        initial={{ opacity: 0, y: -10, scale: 0.97 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: -10, scale: 0.97 }}
+                        transition={{ duration: 0.2, ease: [0.4, 0, 0.2, 1] }}
+                        style={{
+                          position: 'absolute', top: 'calc(100% + 12px)', left: '50%',
+                          transform: 'translateX(-50%)',
+                          width: '560px',
+                          background: '#fff', borderRadius: '20px',
+                          boxShadow: '0 20px 60px rgba(59,79,216,0.14), 0 4px 16px rgba(0,0,0,0.06)',
+                          border: '1px solid rgba(59,79,216,0.10)',
+                          overflow: 'hidden', zIndex: 300,
+                        }}
+                      >
+                        {/* Flèche */}
+                        <div style={{
+                          position: 'absolute', top: '-6px', left: '50%', transform: 'translateX(-50%)',
+                          width: '12px', height: '12px', background: '#fff',
+                          border: '1px solid rgba(59,79,216,0.10)', borderBottom: 'none', borderRight: 'none', rotate: '45deg',
+                        }} />
+
+                        {/* Grille formations */}
+                        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '6px', padding: '16px 16px 12px' }}>
+                          {FORMATIONS.map((f, i) => (
+                            <motion.div
+                              key={f.path}
+                              initial={{ opacity: 0, y: 8 }}
+                              animate={{ opacity: 1, y: 0, transition: { delay: i * 0.04 } }}
+                            >
+                              <Link
+                                to={f.path}
+                                role="menuitem"
+                                style={{
+                                  display: 'flex', alignItems: 'flex-start', gap: '12px',
+                                  padding: '12px 14px', borderRadius: '14px', textDecoration: 'none',
+                                  background: location.pathname === f.path ? f.bg : 'transparent',
+                                  border: `1.5px solid ${location.pathname === f.path ? f.color + '25' : 'transparent'}`,
+                                  transition: 'all 0.16s ease',
+                                }}
+                                onMouseEnter={e => {
+                                  e.currentTarget.style.background = f.bg
+                                  e.currentTarget.style.borderColor = f.color + '25'
+                                }}
+                                onMouseLeave={e => {
+                                  if (location.pathname !== f.path) {
+                                    e.currentTarget.style.background = 'transparent'
+                                    e.currentTarget.style.borderColor = 'transparent'
+                                  }
+                                }}
+                              >
+                                {/* Texte */}
+                                <div style={{ flex: 1, minWidth: 0 }}>
+                                  <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '2px' }}>
+                                    <span style={{
+                                      color: location.pathname === f.path ? f.color : '#0F0C1E',
+                                      fontWeight: 700, fontSize: '13px', lineHeight: 1.3,
+                                    }}>{f.label}</span>
+                                    {f.badge && (
+                                      <span style={{
+                                        fontSize: '9.5px', fontWeight: 800, letterSpacing: '0.05em',
+                                        color: '#fff', background: f.color,
+                                        padding: '1px 6px', borderRadius: '999px', lineHeight: '16px',
+                                        flexShrink: 0,
+                                      }}>{f.badge}</span>
+                                    )}
+                                  </div>
+                                  <span style={{ color: '#6B7280', fontSize: '12px', lineHeight: 1.4 }}>{f.desc}</span>
+                                </div>
+                              </Link>
+                            </motion.div>
+                          ))}
+                        </div>
+
+                        {/* Footer du mega-menu */}
+                        <div style={{
+                          borderTop: '1px solid rgba(59,79,216,0.07)',
+                          padding: '12px 16px',
+                          background: 'rgba(59,79,216,0.02)',
+                          display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+                        }}>
+                          <span style={{ color: '#6B7280', fontSize: '12px' }}>
+                            Financement CPF · OPCO · Prise en charge possible
+                          </span>
+                          <Link to="/contact" style={{
+                            display: 'inline-flex', alignItems: 'center', gap: '5px',
+                            fontSize: '12px', fontWeight: 700, color: '#3B4FD8', textDecoration: 'none',
+                          }}>
+                            Vérifier mon financement
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                          </Link>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              )
+            })}
           </nav>
         )}
 
         {/* Desktop CTA */}
         {!isMobile && (
-          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-            <motion.div whileHover={{ scale: 1.05, y: -1 }} whileTap={{ scale: 0.97 }}>
-              <Link
-                to="/contact"
-                style={{
-                  padding: '10px 24px', borderRadius: '999px', fontSize: '14px', fontWeight: 600,
-                  color: '#fff', background: 'linear-gradient(135deg, #3B4FD8, #9B30E8)',
-                  textDecoration: 'none', boxShadow: '0 2px 16px rgba(155,48,232,0.30)',
-                  display: 'block', whiteSpace: 'nowrap',
-                }}
-              >
-                Prendre contact
-              </Link>
-            </motion.div>
-          </div>
+          <motion.div whileHover={{ scale: 1.05, y: -1 }} whileTap={{ scale: 0.97 }}>
+            <Link to="/contact" style={{
+              padding: '10px 24px', borderRadius: '999px', fontSize: '14px', fontWeight: 600,
+              color: '#fff', background: 'linear-gradient(135deg, #3B4FD8, #9B30E8)',
+              textDecoration: 'none', boxShadow: '0 2px 16px rgba(155,48,232,0.30)',
+              display: 'block', whiteSpace: 'nowrap',
+            }}>
+              Prendre contact
+            </Link>
+          </motion.div>
         )}
 
         {/* Mobile: CTA + Hamburger */}
         {isMobile && (
           <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-            <Link
-              to="/contact"
-              style={{
-                padding: '12px 22px', borderRadius: '999px', fontSize: '13px', fontWeight: 600,
-                color: '#fff', background: 'linear-gradient(135deg, #3B4FD8, #9B30E8)',
-                textDecoration: 'none', boxShadow: '0 2px 12px rgba(155,48,232,0.30)',
-                whiteSpace: 'nowrap',
-              }}
-            >
+            <Link to="/contact" style={{
+              padding: '12px 22px', borderRadius: '999px', fontSize: '13px', fontWeight: 600,
+              color: '#fff', background: 'linear-gradient(135deg, #3B4FD8, #9B30E8)',
+              textDecoration: 'none', boxShadow: '0 2px 12px rgba(155,48,232,0.30)',
+              whiteSpace: 'nowrap',
+            }}>
               Contact
             </Link>
             <button
@@ -278,14 +357,9 @@ export default function Header() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.25, ease: [0.4, 0, 0.2, 1] }}
-            style={{
-              overflow: 'hidden',
-              borderTop: '1px solid rgba(0,0,0,0.06)',
-              background: '#fff',
-              padding: '8px 16px 16px',
-            }}
+            style={{ overflow: 'hidden', borderTop: '1px solid rgba(0,0,0,0.06)', background: '#fff', padding: '8px 16px 16px' }}
           >
-            {/* Formation accordion */}
+            {/* Formation accordion mobile */}
             <div>
               <button
                 onClick={() => setMobileFormationOpen(!mobileFormationOpen)}
@@ -297,11 +371,8 @@ export default function Header() {
                 }}
               >
                 Formation
-                <motion.svg
-                  width="14" height="14" viewBox="0 0 12 12" fill="none"
-                  animate={{ rotate: mobileFormationOpen ? 180 : 0 }}
-                  transition={{ duration: 0.2 }}
-                >
+                <motion.svg width="14" height="14" viewBox="0 0 12 12" fill="none"
+                  animate={{ rotate: mobileFormationOpen ? 180 : 0 }} transition={{ duration: 0.2 }}>
                   <path d="M2 4l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                 </motion.svg>
               </button>
@@ -312,21 +383,24 @@ export default function Header() {
                     animate={{ opacity: 1, height: 'auto' }}
                     exit={{ opacity: 0, height: 0 }}
                     transition={{ duration: 0.2 }}
-                    style={{ overflow: 'hidden', paddingLeft: '12px' }}
+                    style={{ overflow: 'hidden', paddingLeft: '8px' }}
                   >
-                    {NAV[0].dropdown.map((sub) => (
-                      <Link
-                        key={sub.path}
-                        to={sub.path}
-                        style={{
-                          display: 'flex', alignItems: 'center', gap: '10px',
-                          padding: '12px 12px', textDecoration: 'none',
-                          color: location.pathname === sub.path ? '#3B4FD8' : '#6B7280',
-                          fontSize: '14px', fontWeight: location.pathname === sub.path ? 600 : 400,
-                          borderLeft: '2px solid rgba(59,79,216,0.15)',
-                        }}
-                      >
-                        {sub.label}
+                    {FORMATIONS.map((f) => (
+                      <Link key={f.path} to={f.path} style={{
+                        display: 'flex', alignItems: 'center', gap: '10px',
+                        padding: '10px 12px', textDecoration: 'none', borderRadius: '10px',
+                        color: location.pathname === f.path ? f.color : '#374151',
+                        background: location.pathname === f.path ? f.bg : 'transparent',
+                        fontSize: '14px', fontWeight: location.pathname === f.path ? 600 : 400,
+                        marginBottom: '2px',
+                      }}>
+                        <div style={{ width: 28, height: 28, borderRadius: '8px', background: f.bg, display: 'flex', alignItems: 'center', justifyContent: 'center', color: f.color, flexShrink: 0 }}>
+                          {f.icon}
+                        </div>
+                        {f.label}
+                        {f.badge && (
+                          <span style={{ fontSize: '9px', fontWeight: 800, color: '#fff', background: f.color, padding: '1px 5px', borderRadius: '999px' }}>{f.badge}</span>
+                        )}
                       </Link>
                     ))}
                   </motion.div>
@@ -336,31 +410,18 @@ export default function Header() {
 
             {/* Other nav items */}
             {NAV.slice(1).map((item) => (
-              <Link
-                key={item.path}
-                to={item.path}
-                style={{
-                  display: 'flex', alignItems: 'center', gap: '8px',
-                  padding: '14px 12px', textDecoration: 'none',
-                  color: location.pathname === item.path ? '#3B4FD8' : '#374151',
-                  fontSize: '15px', fontWeight: location.pathname === item.path ? 600 : 500,
-                  background: location.pathname.startsWith('/blog') && item.path === '/blog'
-                    ? 'rgba(59,79,216,0.06)'
-                    : location.pathname === item.path ? 'rgba(59,79,216,0.06)' : 'transparent',
-                  borderRadius: '10px',
-                }}
-              >
+              <Link key={item.path} to={item.path} style={{
+                display: 'flex', alignItems: 'center', gap: '8px',
+                padding: '14px 12px', textDecoration: 'none',
+                color: location.pathname === item.path ? '#3B4FD8' : '#374151',
+                fontSize: '15px', fontWeight: location.pathname === item.path ? 600 : 500,
+                background: (location.pathname.startsWith('/blog') && item.path === '/blog') || location.pathname === item.path
+                  ? 'rgba(59,79,216,0.06)' : 'transparent',
+                borderRadius: '10px',
+              }}>
                 {item.label}
                 {item.label === 'Blog' && (
-                  <span style={{
-                    fontSize: 10, fontWeight: 700, letterSpacing: 0.4,
-                    color: '#fff',
-                    background: 'linear-gradient(135deg, #3B4FD8, #9B30E8)',
-                    padding: '1px 6px', borderRadius: 10,
-                    lineHeight: '16px',
-                  }}>
-                    NEW
-                  </span>
+                  <span style={{ fontSize: 10, fontWeight: 700, color: '#fff', background: 'linear-gradient(135deg, #3B4FD8, #9B30E8)', padding: '1px 6px', borderRadius: 10, lineHeight: '16px' }}>NEW</span>
                 )}
               </Link>
             ))}

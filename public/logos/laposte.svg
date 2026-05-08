@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 140">
+  <!-- La Poste - oiseau bleu stylisé -->
+  <g fill="#003189">
+    <!-- Corps supérieur / aile haute -->
+    <polygon points="55,30 190,30 190,60 120,60 90,75 55,30"/>
+    <!-- Corps inférieur / aile basse -->
+    <polygon points="10,110 120,68 190,68 190,80 80,110 70,130 10,110"/>
+    <!-- Trait blanc entre les deux ailes -->
+  </g>
+  <polygon points="55,30 90,75 120,68 190,65 190,62 120,62 88,72 60,35" fill="white"/>
+</svg>

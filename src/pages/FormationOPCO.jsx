@@ -297,7 +297,7 @@ export default function FormationOPCO() {
         style={{ position: 'absolute', top: '30%', right: -80, width: 480, height: 480, borderRadius: '50%', background: 'radial-gradient(circle, rgba(155,48,232,0.06) 0%, transparent 68%)', pointerEvents: 'none' }}
       />
 
-      <div style={{ maxWidth: '1100px', margin: '0 auto', padding: isMobile ? '8px 20px 60px' : '8px 48px 100px', position: 'relative', zIndex: 2 }}>
+      <div style={{ padding: isMobile ? '8px 20px 60px' : '8px 48px 100px', position: 'relative', zIndex: 2, minHeight: isMobile ? 'auto' : 'calc(100vh - 108px)' }}>
 
         {/* ── Fil d'Ariane ── */}
         <Breadcrumb items={[
@@ -307,7 +307,7 @@ export default function FormationOPCO() {
         ]} />
 
         {/* ══ HERO ══ */}
-        <div style={{ maxWidth: '780px', marginBottom: '72px' }}>
+        <div style={{ marginBottom: '72px' }}>
 
           {/* Badge pulsant */}
           <motion.div

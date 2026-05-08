@@ -1,4 +1,4 @@
-import { motion, useMotionValue, useTransform, useSpring, AnimatePresence } from 'framer-motion'
+import { motion, useMotionValue, useTransform, useSpring, AnimatePresence, useAnimationFrame } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { useRef, useState, useEffect } from 'react'
 import ClientsMarquee from '../components/ClientsMarquee'
@@ -17,7 +17,6 @@ const TESTIMONIALS = [
   {
     name: 'Sophie Marchand',
     role: 'Responsable RH',
-    company: 'Alstom',
     type: 'Formation OPCO',
     accent: '#3B4FD8',
     initials: 'SM',
@@ -25,9 +24,17 @@ const TESTIMONIALS = [
     stars: 5,
   },
   {
+    name: 'Magali R.',
+    role: 'Assistante de direction',
+    type: 'Formation CPF',
+    accent: '#3B4FD8',
+    initials: 'MR',
+    text: "Les mails que je passais 1h à rédiger, je les fais en 5 min. Ma directrice a remarqué que je rendais les dossiers plus vite.",
+    stars: 5,
+  },
+  {
     name: 'Thomas Riegert',
     role: 'Directeur des opérations',
-    company: 'Hager Group',
     type: 'Solution IA sur mesure',
     accent: '#9B30E8',
     initials: 'TR',
@@ -35,9 +42,17 @@ const TESTIMONIALS = [
     stars: 5,
   },
   {
+    name: 'Kévin B.',
+    role: 'Consultant indépendant',
+    type: 'Formation OPCO',
+    accent: '#9B30E8',
+    initials: 'KB',
+    text: "J'étais sceptique. Maintenant je n'imagine plus préparer un rdv client sans l'IA. On vous apprend à vraiment l'utiliser, pas juste taper des prompts.",
+    stars: 5,
+  },
+  {
     name: 'Amina Benali',
     role: 'Chargée de communication',
-    company: 'CTS Strasbourg',
     type: 'Formation CPF',
     accent: '#059669',
     initials: 'AB',
@@ -45,9 +60,17 @@ const TESTIMONIALS = [
     stars: 5,
   },
   {
+    name: 'Nathalie Z.',
+    role: 'Comptable',
+    type: 'Formation sur mesure',
+    accent: '#059669',
+    initials: 'NZ',
+    text: "Honnêtement je pensais que c'était pas pour moi. En une journée j'ai automatisé 3 tâches récurrentes. C'est pas sorcier quand c'est bien expliqué.",
+    stars: 4,
+  },
+  {
     name: 'Julien Koenig',
     role: 'Manager équipe commerciale',
-    company: 'Crédit Mutuel',
     type: 'Formation OPCO',
     accent: '#D97706',
     initials: 'JK',
@@ -55,13 +78,66 @@ const TESTIMONIALS = [
     stars: 5,
   },
   {
+    name: 'Samir L.',
+    role: 'Chef de projet industriel',
+    type: 'Formation OPCO',
+    accent: '#D97706',
+    initials: 'SL',
+    text: "Pas de blabla, on pratique dès le matin. J'ai réduit mon reporting de 2h à 20 min la semaine suivante.",
+    stars: 5,
+  },
+  {
     name: 'Marie-Claire Hoffmann',
     role: 'Directrice administrative',
-    company: 'HUS Strasbourg',
     type: 'Solution IA sur mesure',
     accent: '#E83B9B',
     initials: 'MH',
     text: "Nous avons fait appel à Smart Optimisation pour structurer notre gestion documentaire avec l'IA. Le résultat dépasse nos attentes : les demandes internes sont traitées 3× plus vite, avec moins d'erreurs. Une vraie transformation opérationnelle.",
+    stars: 5,
+  },
+  {
+    name: 'Clara M.',
+    role: 'Community manager',
+    type: 'Formation CPF',
+    accent: '#E83B9B',
+    initials: 'CM',
+    text: "J'ai multiplié par 3 ma production de contenu. Les posts que je mettais 2h à écrire, c'est 20 min maintenant.",
+    stars: 5,
+  },
+  {
+    name: 'Laurent V.',
+    role: 'Directeur Administratif & Financier',
+    type: 'Formation OPCO',
+    accent: '#3B4FD8',
+    initials: 'LV',
+    text: "Enfin une formation qui ne survole pas. Mon équipe finance est autonome en 2 jours. Exemples 100% adaptés à notre secteur.",
+    stars: 5,
+  },
+  {
+    name: 'Émilie J.',
+    role: 'Chargée RH',
+    type: 'Formation sur mesure',
+    accent: '#7B4FE8',
+    initials: 'EJ',
+    text: "Les CV ça prenait des heures à trier. Maintenant mon assistante le fait en 30 min avec l'IA. On aurait dû faire ça avant.",
+    stars: 4,
+  },
+  {
+    name: 'Romain D.',
+    role: 'Responsable marketing',
+    type: 'Formation CPF',
+    accent: '#059669',
+    initials: 'RD',
+    text: "Le brief créatif que je faisais en 3h est bouclé en 25 min. Et franchement la qualité est meilleure qu'avant.",
+    stars: 5,
+  },
+  {
+    name: 'Isabelle F.',
+    role: 'Dirigeante TPE',
+    type: 'Formation sur mesure',
+    accent: '#C43E1C',
+    initials: 'IF',
+    text: "Je gagnais du temps sur rien. Là pour la première fois je termine ma semaine sans retard. Le formateur est allé droit au but.",
     stars: 5,
   },
 ]
@@ -202,25 +278,23 @@ function TestimonialCard({ t }) {
   )
 }
 
-/* ── Section Témoignages avec défilement automatique ── */
+/* ── Section Témoignages — défilement continu ── */
 function TestimonialsSection() {
   const isMobile = useIsMobile()
   const CARD_W = isMobile ? 300 : 340
   const GAP = 20
-  const STEP = CARD_W + GAP
-  const [index, setIndex] = useState(0)
+  const SPEED = 0.042 // px par ms
   const x = useMotionValue(0)
-  const dragX = useMotionValue(0)
+  const [paused, setPaused] = useState(false)
+  const totalW = TESTIMONIALS.length * (CARD_W + GAP)
+  const doubled = [...TESTIMONIALS, ...TESTIMONIALS]
 
-  const clamp = (i) => Math.max(0, Math.min(i, TESTIMONIALS.length - 1))
-
-  function prev() { setIndex(i => clamp(i - 1)) }
-  function next() { setIndex(i => clamp(i + 1)) }
-
-  function onDragEnd(_, info) {
-    if (info.offset.x < -50) next()
-    else if (info.offset.x > 50) prev()
-  }
+  useAnimationFrame((_, delta) => {
+    if (paused) return
+    let next = x.get() - delta * SPEED
+    if (next <= -totalW) next += totalW
+    x.set(next)
+  })
 
   return (
     <section style={{ background: '#F9F8FF', borderTop: '1px solid rgba(59,79,216,0.07)', padding: '64px 0 56px', overflow: 'hidden' }}>
@@ -244,90 +318,25 @@ function TestimonialsSection() {
         </p>
       </motion.div>
 
-      {/* Carousel */}
-      <div style={{
-        overflow: 'hidden',
-        WebkitMaskImage: 'linear-gradient(to right, transparent, black 6%, black 94%, transparent)',
-        maskImage: 'linear-gradient(to right, transparent, black 6%, black 94%, transparent)',
-        cursor: 'grab',
-      }}>
+      {/* Défilement continu */}
+      <div
+        onMouseEnter={() => setPaused(true)}
+        onMouseLeave={() => setPaused(false)}
+        style={{
+          overflow: 'hidden',
+          WebkitMaskImage: 'linear-gradient(to right, transparent, black 8%, black 92%, transparent)',
+          maskImage: 'linear-gradient(to right, transparent, black 8%, black 92%, transparent)',
+        }}
+      >
         <motion.div
-          drag="x"
-          dragConstraints={{ left: 0, right: 0 }}
-          dragElastic={0.12}
-          onDragEnd={onDragEnd}
-          animate={{ x: -index * STEP + (isMobile ? 12 : 48) }}
-          transition={{ type: 'spring', stiffness: 300, damping: 35 }}
-          style={{ display: 'flex', gap: `${GAP}px`, paddingBottom: '8px', userSelect: 'none' }}
-          whileTap={{ cursor: 'grabbing' }}
+          style={{ x, display: 'flex', gap: `${GAP}px`, paddingBottom: '8px', willChange: 'transform' }}
         >
-          {TESTIMONIALS.map((t, i) => (
-            <motion.div
-              key={i}
-              animate={{ scale: i === index ? 1 : 0.96, opacity: i === index ? 1 : 0.65 }}
-              transition={{ duration: 0.3 }}
-              style={{ flexShrink: 0, width: CARD_W }}
-            >
+          {doubled.map((t, i) => (
+            <div key={i} style={{ flexShrink: 0, width: CARD_W }}>
               <TestimonialCard t={t} />
-            </motion.div>
+            </div>
           ))}
         </motion.div>
-      </div>
-
-      {/* Contrôles */}
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '16px', marginTop: '28px' }}>
-        {/* Flèche gauche */}
-        <motion.button
-          onClick={prev}
-          disabled={index === 0}
-          whileHover={{ scale: 1.08 }}
-          whileTap={{ scale: 0.94 }}
-          style={{
-            width: 40, height: 40, borderRadius: '50%', border: '1.5px solid rgba(59,79,216,0.20)',
-            background: index === 0 ? '#F3F4F6' : '#fff',
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-            cursor: index === 0 ? 'default' : 'pointer',
-            boxShadow: index === 0 ? 'none' : '0 2px 10px rgba(59,79,216,0.10)',
-            opacity: index === 0 ? 0.4 : 1, transition: 'opacity 0.2s',
-          }}
-        >
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3B4FD8" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-            <polyline points="15 18 9 12 15 6"/>
-          </svg>
-        </motion.button>
-
-        {/* Points */}
-        <div style={{ display: 'flex', gap: '8px' }}>
-          {TESTIMONIALS.map((_, i) => (
-            <motion.button
-              key={i}
-              onClick={() => setIndex(i)}
-              animate={{ width: i === index ? 24 : 8, background: i === index ? '#3B4FD8' : '#D1D5DB' }}
-              transition={{ duration: 0.25 }}
-              style={{ height: 8, borderRadius: '999px', border: 'none', cursor: 'pointer', padding: 0 }}
-            />
-          ))}
-        </div>
-
-        {/* Flèche droite */}
-        <motion.button
-          onClick={next}
-          disabled={index === TESTIMONIALS.length - 1}
-          whileHover={{ scale: 1.08 }}
-          whileTap={{ scale: 0.94 }}
-          style={{
-            width: 40, height: 40, borderRadius: '50%', border: '1.5px solid rgba(59,79,216,0.20)',
-            background: index === TESTIMONIALS.length - 1 ? '#F3F4F6' : '#fff',
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-            cursor: index === TESTIMONIALS.length - 1 ? 'default' : 'pointer',
-            boxShadow: index === TESTIMONIALS.length - 1 ? 'none' : '0 2px 10px rgba(59,79,216,0.10)',
-            opacity: index === TESTIMONIALS.length - 1 ? 0.4 : 1, transition: 'opacity 0.2s',
-          }}
-        >
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3B4FD8" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-            <polyline points="9 18 15 12 9 6"/>
-          </svg>
-        </motion.button>
       </div>
 
     </section>

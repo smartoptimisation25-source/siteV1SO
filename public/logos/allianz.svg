@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 80">
+  <text x="10" y="58" font-family="Arial Black, Arial, sans-serif" font-size="62" font-weight="900" fill="#003781" letter-spacing="-1">Allianz</text>
+  <g transform="translate(248, 8)">
+    <circle cx="22" cy="22" r="21" fill="none" stroke="#003781" stroke-width="4"/>
+    <rect x="10" y="10" width="7" height="24" rx="1" fill="#003781"/>
+    <rect x="20" y="5" width="7" height="29" rx="1" fill="#003781"/>
+    <rect x="30" y="13" width="7" height="21" rx="1" fill="#003781"/>
+  </g>
+</svg>

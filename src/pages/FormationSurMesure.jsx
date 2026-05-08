@@ -466,7 +466,7 @@ export default function FormationSurMesure() {
         style={{ position: 'absolute', top: '30%', right: -80, width: 480, height: 480, borderRadius: '50%', background: 'radial-gradient(circle, rgba(155,48,232,0.06) 0%, transparent 68%)', pointerEvents: 'none' }}
       />
 
-      <div style={{ maxWidth: '1100px', margin: '0 auto', padding: isMobile ? '8px 20px 60px' : '8px 48px 100px', position: 'relative', zIndex: 2 }}>
+      <div style={{ padding: isMobile ? '8px 20px 60px' : '8px 48px 100px', position: 'relative', zIndex: 2, minHeight: isMobile ? 'auto' : 'calc(100vh - 108px)' }}>
 
         {/* Nav haut */}
         <motion.div initial={{ opacity: 0, x: -12 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.35 }}
@@ -493,7 +493,7 @@ export default function FormationSurMesure() {
         </motion.div>
 
         {/* ══ HERO ══ */}
-        <div style={{ maxWidth: '800px', marginBottom: '72px' }}>
+        <div style={{ marginBottom: '72px' }}>
 
           {/* Badge */}
           <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45, delay: 0.05 }}

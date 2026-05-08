@@ -381,14 +381,14 @@ export default function FormationMarketingIA() {
       <div style={{ position: 'relative', zIndex: 1 }}>
 
         {/* ── Breadcrumb ── */}
-        <div style={{ maxWidth: '1100px', margin: '0 auto', padding: isMobile ? '8px 20px 0' : '8px 48px 0' }}>
+        <div style={{ padding: isMobile ? '8px 20px 0' : '8px 48px 0' }}>
           <Breadcrumb items={[{ label: 'Accueil', to: '/' }, { label: 'Formation', to: '/formation/cpf' }, { label: 'Marketing IA' }]} />
         </div>
 
         {/* ══════════════════════════════════════════
             1. HERO
         ══════════════════════════════════════════ */}
-        <section style={{ maxWidth: '1100px', margin: '0 auto', padding: isMobile ? '36px 20px 56px' : '56px 48px 72px', display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '55% 45%', gap: isMobile ? '40px' : '56px', alignItems: 'center' }}>
+        <section style={{ padding: isMobile ? '12px 20px 40px' : '16px 48px 52px', minHeight: isMobile ? 'auto' : 'calc(100vh - 108px)', display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '52% 48%', gap: isMobile ? '40px' : '48px', alignItems: 'flex-start' }}>
 
           <div>
             {/* Badge */}
@@ -401,11 +401,11 @@ export default function FormationMarketingIA() {
 
             {/* H1 */}
             <motion.h1 initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.08 }}
-              style={{ fontWeight: 900, fontSize: isMobile ? '2.1rem' : 'clamp(2.5rem, 4.8vw, 3.9rem)', lineHeight: 1.08, letterSpacing: '-0.03em', margin: '0 0 6px', color: C.text }}>
+              style={{ fontWeight: 900, fontSize: isMobile ? '2.1rem' : 'clamp(2rem, 3vw, 3rem)', lineHeight: 1.08, letterSpacing: '-0.03em', margin: '0 0 6px', color: C.text }}>
               Transformez l'IA en
             </motion.h1>
             <motion.h1 initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.14 }}
-              style={{ fontWeight: 900, fontSize: isMobile ? '2.1rem' : 'clamp(2.5rem, 4.8vw, 3.9rem)', lineHeight: 1.08, letterSpacing: '-0.03em', margin: '0 0 24px' }}>
+              style={{ fontWeight: 900, fontSize: isMobile ? '2.1rem' : 'clamp(2rem, 3vw, 3rem)', lineHeight: 1.08, letterSpacing: '-0.03em', margin: '0 0 24px' }}>
               <motion.span
                 animate={{ backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'] }}
                 transition={{ duration: 4, repeat: Infinity, ease: 'linear' }}
@@ -464,12 +464,15 @@ export default function FormationMarketingIA() {
           {/* Colonne visuelle */}
           {!isMobile && (
             <motion.div initial={{ opacity: 0, x: 36 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.7, delay: 0.18 }}
-              style={{ position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '420px' }}>
+              style={{ position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center', paddingTop: '24px', alignSelf: 'center' }}>
+
+              {/* Glow */}
+              <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(circle at center, rgba(59,79,216,0.07) 0%, transparent 70%)', pointerEvents: 'none', zIndex: 0 }} />
 
               {/* Carte principale flottante */}
-              <motion.div animate={{ y: [0, -14, 0] }} transition={{ duration: 5.5, repeat: Infinity, ease: 'easeInOut' }}
-                style={{ width: '100%', maxWidth: '380px', background: '#fff', borderRadius: '24px', border: `1.5px solid ${C.border}`, padding: '28px', boxShadow: '0 32px 80px rgba(59,79,216,0.12), 0 4px 16px rgba(0,0,0,0.04)', position: 'relative', zIndex: 2 }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '20px' }}>
+              <motion.div animate={{ y: [0, -12, 0] }} transition={{ duration: 5.5, repeat: Infinity, ease: 'easeInOut' }}
+                style={{ width: '100%', maxWidth: '360px', background: '#fff', borderRadius: '24px', border: `1.5px solid ${C.border}`, padding: '24px', boxShadow: '0 24px 60px rgba(59,79,216,0.13), 0 4px 16px rgba(0,0,0,0.04)', position: 'relative', zIndex: 2 }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '18px' }}>
                   <div style={{ width: 8, height: 8, borderRadius: '50%', background: '#EF4444' }} />
                   <div style={{ width: 8, height: 8, borderRadius: '50%', background: '#F59E0B' }} />
                   <div style={{ width: 8, height: 8, borderRadius: '50%', background: '#10B981' }} />
@@ -494,27 +497,24 @@ export default function FormationMarketingIA() {
                     </div>
                   </motion.div>
                 ))}
-              </motion.div>
 
-              {/* Badge flottant haut-droite */}
-              <motion.div animate={{ y: [0, -8, 0], rotate: [0, 2, 0] }} transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
-                style={{ position: 'absolute', top: 20, right: -10, background: '#fff', borderRadius: '14px', padding: '10px 14px', boxShadow: '0 8px 24px rgba(59,79,216,0.14)', border: `1px solid ${C.border}`, zIndex: 3 }}>
-                <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '4px', color: C.blue }}>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                {/* Badge intégré en bas de la carte */}
+                <div style={{ display: 'flex', gap: '8px', marginTop: '18px', paddingTop: '14px', borderTop: `1px solid ${C.border}` }}>
+                  <motion.div animate={{ y: [0, -4, 0] }} transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
+                    style={{ flex: 1, background: 'rgba(59,79,216,0.06)', border: `1px solid rgba(59,79,216,0.14)`, borderRadius: '12px', padding: '8px 12px', textAlign: 'center' }}>
+                    <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '3px', color: C.blue }}>
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                    </div>
+                    <div style={{ fontSize: '10px', fontWeight: 700, color: C.text }}>Résultats</div>
+                    <div style={{ fontSize: '10px', color: C.muted }}>dès sem. 2</div>
+                  </motion.div>
+                  <motion.div animate={{ y: [0, -4, 0] }} transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
+                    style={{ flex: 1, background: 'linear-gradient(135deg, #3B4FD8, #9B30E8)', borderRadius: '12px', padding: '8px 12px', textAlign: 'center' }}>
+                    <div style={{ fontSize: '11px', fontWeight: 800, color: '#fff' }}>OPCO</div>
+                    <div style={{ fontSize: '10px', color: 'rgba(255,255,255,0.80)', marginTop: '2px' }}>Finançable</div>
+                  </motion.div>
                 </div>
-                <div style={{ fontSize: '11px', fontWeight: 700, color: C.text, textAlign: 'center' }}>Résultats</div>
-                <div style={{ fontSize: '10px', color: C.muted, textAlign: 'center' }}>dès sem. 2</div>
               </motion.div>
-
-              {/* Badge flottant bas-gauche */}
-              <motion.div animate={{ y: [0, 8, 0], rotate: [0, -2, 0] }} transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
-                style={{ position: 'absolute', bottom: 30, left: -20, background: 'linear-gradient(135deg, #3B4FD8, #9B30E8)', borderRadius: '14px', padding: '10px 16px', boxShadow: '0 8px 24px rgba(155,48,232,0.30)', zIndex: 3 }}>
-                <div style={{ fontSize: '11px', fontWeight: 800, color: '#fff' }}>OPCO</div>
-                <div style={{ fontSize: '10px', color: 'rgba(255,255,255,0.75)', marginTop: '1px' }}>Finançable</div>
-              </motion.div>
-
-              {/* Glow */}
-              <div style={{ position: 'absolute', inset: -60, background: 'radial-gradient(circle at center, rgba(59,79,216,0.08) 0%, transparent 65%)', pointerEvents: 'none', zIndex: 1 }} />
             </motion.div>
           )}
         </section>

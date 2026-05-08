@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+  <!-- Adecco - A rouge avec oiseau -->
+  <g fill="#e30613">
+    <!-- Jambe gauche du A -->
+    <polygon points="10,110 30,110 55,45 45,20 10,110"/>
+    <!-- Jambe droite du A -->
+    <polygon points="110,110 90,110 65,45 75,20 110,110"/>
+    <!-- Barre horizontale du A -->
+    <polygon points="35,78 85,78 80,65 40,65 35,78"/>
+    <!-- Oiseau (rouge stylisé sur le A) -->
+    <!-- Corps de l'oiseau -->
+    <ellipse cx="68" cy="52" rx="18" ry="12"/>
+    <!-- Tête -->
+    <circle cx="82" cy="46" r="9"/>
+    <!-- Queue -->
+    <polygon points="48,52 35,48 38,56 48,58"/>
+    <!-- Aile -->
+    <ellipse cx="65" cy="46" rx="12" ry="6" transform="rotate(-15 65 46)"/>
+    <!-- Oeil blanc -->
+  </g>
+  <circle cx="84" cy="44" r="3" fill="white"/>
+  <circle cx="84" cy="44" r="1.5" fill="#e30613"/>
+  <!-- Bec -->
+  <polygon points="91,44 98,42 91,48" fill="#e30613"/>
+  <!-- Patte blanche pour séparer du A -->
+  <rect x="62" y="60" width="4" height="10" fill="white"/>
+  <rect x="70" y="60" width="4" height="10" fill="white"/>
+</svg>
