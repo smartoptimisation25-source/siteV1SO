@@ -168,7 +168,7 @@ const DNA_PILLARS = [
   {
     num: '03',
     titre: 'Notre engagement',
-    corps: "Qu'il s'agisse de former un enfant de 10 ans, un manager ou une équipe entière — nous apportons la même exigence. Pas de client de seconde zone.",
+    corps: "Chaque programme vise un impact mesurable et durable. Des équipes plus performantes, plus autonomes, plus confiantes face aux évolutions technologiques.",
     accent: '#9B30E8',
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
