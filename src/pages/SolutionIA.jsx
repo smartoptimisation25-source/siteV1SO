@@ -385,13 +385,6 @@ function CTABloc() {
             Démarrer mon étude de faisabilité
             <IconArrow />
           </motion.a>
-          <motion.div whileHover={{ scale: 1.02, y: -1 }} whileTap={{ scale: 0.97 }}>
-            <Link to="/educ-ia"
-              style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', padding: '13px 24px', borderRadius: '999px', fontWeight: 600, fontSize: '14px', color: '#3B4FD8', textDecoration: 'none', border: '1.5px solid rgba(59,79,216,0.25)', background: 'rgba(59,79,216,0.03)' }}
-            >
-              Découvrir Educ IA
-            </Link>
-          </motion.div>
         </div>
       </div>
     </motion.div>

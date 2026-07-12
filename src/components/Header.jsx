@@ -84,7 +84,6 @@ const FORMATIONS = [
 const NAV = [
   { label: 'Formation', dropdown: true },
   { label: 'Solution IA sur mesure', path: '/solution-ia' },
-  { label: 'Educ IA', path: '/educ-ia' },
   { label: 'Blog', path: '/blog' },
 ]
 

@@ -12,7 +12,6 @@ const FormationSurMesure = lazy(() => import('./pages/FormationSurMesure'))
 const FormationEnvironnements = lazy(() => import('./pages/FormationEnvironnements'))
 const FormationVibeCoding = lazy(() => import('./pages/FormationVibeCoding'))
 const SolutionIA = lazy(() => import('./pages/SolutionIA'))
-const EducIA = lazy(() => import('./pages/EducIA'))
 const Contact = lazy(() => import('./pages/Contact'))
 const MentionsLegales = lazy(() => import('./pages/MentionsLegales'))
 const PolitiqueConfidentialite = lazy(() => import('./pages/PolitiqueConfidentialite'))
@@ -61,7 +60,6 @@ function AnimatedRoutes() {
               <Route path="/formation/environnements" element={<FormationEnvironnements />} />
               <Route path="/formation/vibe-coding" element={<FormationVibeCoding />} />
               <Route path="/solution-ia" element={<SolutionIA />} />
-              <Route path="/educ-ia" element={<EducIA />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/blog" element={<BlogIndex />} />
               <Route path="/blog/:slug" element={<BlogArticle />} />

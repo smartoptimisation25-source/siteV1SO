@@ -27,7 +27,6 @@ const ROUTES = [
   '/formation/sur-mesure',
   '/formation/environnements',
   '/solution-ia',
-  '/educ-ia',
   '/contact',
   '/equipe',
   '/blog',
